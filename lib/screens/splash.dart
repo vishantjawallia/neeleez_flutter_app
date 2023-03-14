@@ -1,21 +1,23 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:neeleez_flutter_app/api/apiRepository.dart';
 import 'package:neeleez_flutter_app/config/my_Image.dart';
 import 'package:neeleez_flutter_app/models/country_info.dart';
-import 'package:neeleez_flutter_app/screens/on_boarding/on_boarding_one.dart';
 import 'package:sizer/sizer.dart';
 
-class Splash extends StatefulWidget {
-  const Splash({Key? key}) : super(key: key);
+import 'on_boarding/on_boarding_one.dart';
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
-  State<Splash> createState() => _SplashState();
+  State<SplashScreen> createState() => _SplashState();
 }
 
-class _SplashState extends State<Splash> {
+class _SplashState extends State<SplashScreen> {
   @override
   void initState() {
     // TODO: implement initState
@@ -39,9 +41,12 @@ class _SplashState extends State<Splash> {
             Expanded(
               flex: 5,
               child: Center(
-                child: Image.asset(
-                  height: 160,
-                  MyImage.logo,
+                child: Hero(
+                  tag: 'logo',
+                  child: Image.asset(
+                    height: 230.sp,
+                    MyImage.logo,
+                  ),
                 ),
               ),
             ),
@@ -63,7 +68,7 @@ class _SplashState extends State<Splash> {
     if (res != null) {
       final info = CountryInfo.fromJson(res);
       log(info.countryCode.toString());
-      Get.offAll(() => const OnBoardingOne());
+      Get.offAll(() => const OnBoardingOneScreen());
     }
   }
 }
