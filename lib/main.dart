@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
             ),
             primaryColor: Palettes.red,
           ),
-          home: const Splash(),
+          home: const SplashScreen(),
         );
       },
     );
