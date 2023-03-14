@@ -13,9 +13,7 @@ class OnBoardingOne extends StatelessWidget {
         decoration: const BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.fitHeight,
-            image: AssetImage(
-              MyImage.splash_background,
-            ),
+            image: AssetImage(MyImage.splashBackground),
           ),
         ),
         child: Column(

@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:neeleez_flutter_app/api/apiRepository.dart';
 import 'package:neeleez_flutter_app/config/my_Image.dart';
 import 'package:neeleez_flutter_app/models/country_info.dart';
@@ -31,9 +30,7 @@ class _SplashState extends State<Splash> {
         decoration: const BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.fitHeight,
-            image: AssetImage(
-              MyImage.splash_background,
-            ),
+            image: AssetImage(MyImage.splashBackground),
           ),
         ),
         child: Column(
