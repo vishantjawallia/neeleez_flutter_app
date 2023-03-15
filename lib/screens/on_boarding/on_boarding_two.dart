@@ -13,7 +13,7 @@ class OnBoardingTwoScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.fill,
             image: AssetImage(MyImage.onBoarding2),
           ),
         ),
@@ -24,12 +24,9 @@ class OnBoardingTwoScreen extends StatelessWidget {
               Expanded(
                 flex: 3,
                 child: Center(
-                  child: Hero(
-                    tag: 'logo',
-                    child: Image.asset(
-                      height: 180.sp,
-                      MyImage.logo,
-                    ),
+                  child: Image.asset(
+                    height: 180.sp,
+                    MyImage.logo,
                   ),
                 ),
               ),

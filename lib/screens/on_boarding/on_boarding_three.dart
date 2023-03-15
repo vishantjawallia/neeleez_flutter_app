@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_Image.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
+import 'package:neeleez_flutter_app/screens/authentication/login.dart';
 import 'package:sizer/sizer.dart';
 
 class OnBoardingThreeScreen extends StatelessWidget {
@@ -12,7 +14,7 @@ class OnBoardingThreeScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.fill,
             image: AssetImage(MyImage.onBoarding3),
           ),
         ),
@@ -23,12 +25,9 @@ class OnBoardingThreeScreen extends StatelessWidget {
               Expanded(
                 flex: 3,
                 child: Center(
-                  child: Hero(
-                    tag: 'logo',
-                    child: Image.asset(
-                      height: 180.sp,
-                      MyImage.logo,
-                    ),
+                  child: Image.asset(
+                    height: 180.sp,
+                    MyImage.logo,
                   ),
                 ),
               ),
@@ -84,6 +83,7 @@ class OnBoardingThreeScreen extends StatelessWidget {
   }
 
   void nextHandler(context) {
+    Get.off(() => LoginScreen());
     // Navigator.push(context, MaterialPageRoute(builder: (context) => const OnBoardingTScreen()));
   }
 }

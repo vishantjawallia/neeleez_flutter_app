@@ -13,7 +13,7 @@ class OnBoardingOneScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.fill,
             image: AssetImage(MyImage.onBoarding1),
           ),
         ),

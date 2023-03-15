@@ -1,10 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/api/apiRepository.dart';
 import 'package:neeleez_flutter_app/config/my_Image.dart';
+import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/models/country_info.dart';
 import 'package:sizer/sizer.dart';
 
@@ -31,15 +31,15 @@ class _SplashState extends State<SplashScreen> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            fit: BoxFit.fitHeight,
-            image: AssetImage(MyImage.splashBackground),
+            fit: BoxFit.cover,
+            image: AssetImage(MyImage.splashBackground1),
           ),
         ),
         child: Column(
           children: [
             SizedBox(height: 8.h),
             Expanded(
-              flex: 5,
+              flex: 6,
               child: Center(
                 child: Hero(
                   tag: 'logo',
@@ -51,10 +51,30 @@ class _SplashState extends State<SplashScreen> {
               ),
             ),
             Expanded(
-              flex: 7,
+              flex: 5,
               child: Text(
-                'BUSINESS APP',
+                'businessApp'.tr,
                 style: Theme.of(context).textTheme.headline1,
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 24.sp,
+                    width: 24.sp,
+                    child: const CircularProgressIndicator(
+                      color: Palettes.white,
+                      strokeWidth: 3,
+                    ),
+                  ),
+                  SizedBox(height: 8.sp),
+                  Text(
+                    'preparingApplicationEnvironment'.tr,
+                    style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.w500),
+                  ),
+                ],
               ),
             ),
           ],
@@ -64,11 +84,13 @@ class _SplashState extends State<SplashScreen> {
   }
 
   void countryData() async {
+      // Future.delayed(const Duration(seconds: 2), () async {
     final res = await apiRepository.apiGet('https://ipwhois.app/json/', false);
     if (res != null) {
       final info = CountryInfo.fromJson(res);
       log(info.countryCode.toString());
-      Get.offAll(() => const OnBoardingOneScreen());
+        Get.offAll(() => const OnBoardingOneScreen());
     }
   }
+      // });
 }

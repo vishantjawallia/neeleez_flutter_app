@@ -1,8 +1,6 @@
 const String icons = "assets/icons";
 
-class Myicon {
-  Myicon._();
-
+class MyIcon {
   static const String checked = "$icons/checked.svg";
   static const String locationDrop = "$icons/location_drop.svg";
   static const String mail = "$icons/mail.svg";
