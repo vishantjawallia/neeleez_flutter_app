@@ -90,35 +90,35 @@ class CountryInfo {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['ip'] = this.ip;
-    data['success'] = this.success;
-    data['type'] = this.type;
-    data['continent'] = this.continent;
-    data['continent_code'] = this.continentCode;
-    data['country'] = this.country;
-    data['country_code'] = this.countryCode;
-    data['country_flag'] = this.countryFlag;
-    data['country_capital'] = this.countryCapital;
-    data['country_phone'] = this.countryPhone;
-    data['country_neighbours'] = this.countryNeighbours;
-    data['region'] = this.region;
-    data['city'] = this.city;
-    data['latitude'] = this.latitude;
-    data['longitude'] = this.longitude;
-    data['asn'] = this.asn;
-    data['org'] = this.org;
-    data['isp'] = this.isp;
-    data['timezone'] = this.timezone;
-    data['timezone_name'] = this.timezoneName;
-    data['timezone_dstOffset'] = this.timezoneDstOffset;
-    data['timezone_gmtOffset'] = this.timezoneGmtOffset;
-    data['timezone_gmt'] = this.timezoneGmt;
-    data['currency'] = this.currency;
-    data['currency_code'] = this.currencyCode;
-    data['currency_symbol'] = this.currencySymbol;
-    data['currency_rates'] = this.currencyRates;
-    data['currency_plural'] = this.currencyPlural;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['ip'] = ip;
+    data['success'] = success;
+    data['type'] = type;
+    data['continent'] = continent;
+    data['continent_code'] = continentCode;
+    data['country'] = country;
+    data['country_code'] = countryCode;
+    data['country_flag'] = countryFlag;
+    data['country_capital'] = countryCapital;
+    data['country_phone'] = countryPhone;
+    data['country_neighbours'] = countryNeighbours;
+    data['region'] = region;
+    data['city'] = city;
+    data['latitude'] = latitude;
+    data['longitude'] = longitude;
+    data['asn'] = asn;
+    data['org'] = org;
+    data['isp'] = isp;
+    data['timezone'] = timezone;
+    data['timezone_name'] = timezoneName;
+    data['timezone_dstOffset'] = timezoneDstOffset;
+    data['timezone_gmtOffset'] = timezoneGmtOffset;
+    data['timezone_gmt'] = timezoneGmt;
+    data['currency'] = currency;
+    data['currency_code'] = currencyCode;
+    data['currency_symbol'] = currencySymbol;
+    data['currency_rates'] = currencyRates;
+    data['currency_plural'] = currencyPlural;
     return data;
   }
 }

@@ -1,4 +1,7 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -27,11 +30,15 @@ class CustomTextField extends StatelessWidget {
           width: 1.5,
         ),
       ),
-      child: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      child: TextField(
+        obscureText: obscureText ?? false,
+        controller: controller,
+        decoration: InputDecoration(
+          icon: Container(
+            height: 48,
+            width: 55,
             decoration: const BoxDecoration(
+              shape: BoxShape.rectangle,
               color: Palettes.greyPrimary,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(8),
@@ -41,25 +48,14 @@ class CustomTextField extends StatelessWidget {
             child: const Icon(
               Icons.person,
               color: Palettes.white,
-              size: 20,
+              // size: 20,
             ),
           ),
-          Flexible(
-            child: Padding(
-              padding: inputFieldPadding ?? const EdgeInsets.only(left: 21),
-              child: TextField(
-                obscureText: obscureText ?? false,
-                controller: controller,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: name ?? 'Username / Email:',
-                  hintStyle: Theme.of(context).textTheme.bodyText2!.copyWith(color: Palettes.primary),
-                  isDense: true,
-                ),
-              ),
-            ),
-          ),
-        ],
+          border: InputBorder.none,
+          hintText: name ?? 'Username / Email :',
+          hintStyle: Get.textTheme.bodyText1!.copyWith(color: Palettes.primary, fontWeight: FontWeight.w600),
+          // isDense: true,
+        ),
       ),
     );
   }

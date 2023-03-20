@@ -19,15 +19,17 @@ class apiRepository {
       } else {
         log(response.statusCode.toString());
         log(url.toString());
-        return;
+        // return;
+        throw "api-error";
       }
     } on SocketException catch (e) {
       log('$e');
+      throw "no-internet";
     }
   }
 
   /* -------------------------------- Api Get ------------------------------- */
-  static Future apiGet(String? url, bool? auth) async {
+  static Future apiGet(String? url, {bool? auth}) async {
     try {
       final response = await http.get(
         Uri.parse(url!),
@@ -38,10 +40,12 @@ class apiRepository {
       } else {
         log(response.statusCode.toString());
         log(url.toString());
-        return;
+        // return;
+        throw "api-error";
       }
     } on SocketException catch (e) {
       log('$e');
+      throw "no-internet";
     }
   }
 }

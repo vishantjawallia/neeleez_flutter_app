@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.neeleez_flutter_app">
    <application
-        android:label="neeleez_flutter_app"
+        android:hardwareAccelerated="true"
+        android:label="Neeleez - We Care"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
