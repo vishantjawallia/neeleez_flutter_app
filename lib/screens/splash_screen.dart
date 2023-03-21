@@ -12,6 +12,7 @@ import 'package:neeleez_flutter_app/config/my_Image.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/config/url.dart';
+import 'package:neeleez_flutter_app/helper/helper.dart';
 import 'package:neeleez_flutter_app/models/country_info.dart';
 import 'package:neeleez_flutter_app/screens/on_boarding/on_boarding_one.dart';
 
@@ -26,7 +27,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        // height: 100.h,
+        height: 100.h,
         decoration: const BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
@@ -50,9 +51,12 @@ class SplashScreen extends StatelessWidget {
             ),
             Expanded(
               flex: 5,
-              child: Text(
-                'businessApp'.tr,
-                style: Get.textTheme.headline1,
+              child: GestureDetector(
+                onTap: () => Get.locale == const Locale('ur', 'PK') ? Get.updateLocale(const Locale('en', 'US')) : Get.updateLocale(const Locale('ur', 'PK')),
+                child: Text(
+                  'businessApp'.tr,
+                  style: Get.textTheme.headline1,
+                ),
               ),
             ),
             Expanded(
@@ -87,13 +91,14 @@ class SplashScreen extends StatelessWidget {
   }
 
   splashHandler(context) async {
-    Future.delayed(const Duration(seconds: 2), () async {
+    Future.delayed(const Duration(seconds: 3), () async {
       try {
         final res = await apiRepository.apiGet(Url.countryInfo);
         if (res != null) {
           CountryInfo info = CountryInfo.fromJson(res);
           SharedPreferenceHelper.setString(Preferences.countryInfo, jsonEncode(res));
-          // Get.updateLocale(const Locale('pb', 'IN'));
+          print("==========>${Get.locale!.toLanguageTag()}");
+
           Get.off(() => const OnBoardingOneScreen());
         }
       } catch (e) {

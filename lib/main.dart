@@ -8,7 +8,7 @@ import 'package:neeleez_flutter_app/config/config.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/languages/language.dart';
-import 'package:neeleez_flutter_app/screens/splash.dart';
+import 'package:neeleez_flutter_app/screens/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,10 +24,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.system,
       title: APP_NAME,
       translations: LocalLanguage(),
-      locale: Get.deviceLocale,
+      locale: const Locale('en', 'US'),
+      // locale: Get.deviceLocale,
+
       fallbackLocale: const Locale('en', 'US'),
       theme: ThemeData(
         textTheme: TextTheme(

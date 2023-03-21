@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
+import 'package:neeleez_flutter_app/helper/helper.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
@@ -37,13 +38,18 @@ class CustomTextField extends StatelessWidget {
           icon: Container(
             height: 48,
             width: 55,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               shape: BoxShape.rectangle,
               color: Palettes.greyPrimary,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(8),
-                bottomLeft: Radius.circular(8),
-              ),
+              borderRadius: Helper.isRtl()
+                  ? const BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      bottomLeft: Radius.circular(8),
+                    )
+                  : const BorderRadius.only(
+                      topRight: Radius.circular(8),
+                      bottomRight: Radius.circular(8),
+                    ),
             ),
             child: const Icon(
               Icons.person,

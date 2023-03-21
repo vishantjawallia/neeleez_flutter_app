@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 
 import 'package:neeleez_flutter_app/config/my_Image.dart';
 import 'package:neeleez_flutter_app/helper/helper.dart';
+import 'package:neeleez_flutter_app/screens/dashboard/dashboard_screen.dart';
+// import 'package:neeleez_flutter_app/screens/dashboard/dashbard_screen.dart';
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 
 import '../../../config/palettes.dart';
@@ -48,9 +50,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      'logIn'.tr,
-                      style: Get.textTheme.headline1,
+                    GestureDetector(
+                      onTap: () => Get.locale == const Locale('ur', 'PK') ? Get.updateLocale(const Locale('en', 'US')) : Get.updateLocale(const Locale('ur', 'PK')),
+                      child: Text(
+                        'logIn'.tr,
+                        style: Get.textTheme.headline1,
+                      ),
                     ),
                     const SizedBox(height: 30),
                     Text(
@@ -107,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 30),
                     ElevatedButton(
-                      onPressed: () => nextHandler(context),
+                      onPressed: () => nextHandler(),
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(Palettes.white),
                         padding: MaterialStateProperty.all(
@@ -156,5 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  nextHandler(BuildContext context) {}
+  nextHandler() {
+    Get.to(() => DashboardScreen());
+  }
 }

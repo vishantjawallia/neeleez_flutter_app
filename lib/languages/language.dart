@@ -9,6 +9,6 @@ class LocalLanguage extends Translations {
   Map<String, Map<String, String>> get keys => {
         'en_US': EnLanguage().map,
         'pb_IN': PbLanguage().map,
-        'ur_IN': URLanguage().map,
+        'ur_PK': URLanguage().map,
       };
 }
