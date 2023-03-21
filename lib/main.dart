@@ -17,7 +17,7 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends GetMaterialApp {
   const MyApp({Key? key}) : super(key: key);
 
   @override

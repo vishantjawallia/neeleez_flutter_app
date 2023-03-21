@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:neeleez_flutter_app/config/my_Image.dart';
+import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/helper/helper.dart';
+import 'package:neeleez_flutter_app/screens/authentication/register.dart';
 import 'package:neeleez_flutter_app/screens/dashboard/dashboard_screen.dart';
+import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 // import 'package:neeleez_flutter_app/screens/dashboard/dashbard_screen.dart';
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 
@@ -67,18 +70,22 @@ class _LoginScreenState extends State<LoginScreen> {
                     CustomTextField(
                       controller: _email,
                       name: 'Username / Email:',
+                      prefixIconPath: MyIcon.profile,
+                      suffixIconPath: MyIcon.checked1,
                     ),
                     const SizedBox(height: 12),
                     CustomTextField(
                       controller: _password,
                       name: 'Password',
                       obscureText: true,
+                      prefixIconPath: MyIcon.password,
+                      suffixIconPath: MyIcon.checked1,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Align(
-                          widthFactor: 0.204.w,
+                          widthFactor: 0.68.sp,
                           child: Row(
                             children: [
                               Checkbox(
@@ -110,32 +117,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 30),
-                    ElevatedButton(
-                      onPressed: () => nextHandler(),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Palettes.white),
-                        padding: MaterialStateProperty.all(
-                          const EdgeInsets.symmetric(horizontal: 38, vertical: 8),
-                        ),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            side: const BorderSide(
-                              color: Palettes.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                      child: Text(
-                        style: Get.textTheme.headline5!.copyWith(color: Palettes.red, fontWeight: FontWeight.w600),
-                        'Log in Now',
-                      ),
+                    SizedBox(height: 3.h),
+                    CustomButton(
+                      onTap: () => nextHandler(),
+                      text: 'loginNow'.tr,
                     ),
                   ],
                 ),
                 Align(
-                  heightFactor: 0.8.h,
+                  heightFactor: 4.5.sp,
                   alignment: Alignment.bottomCenter,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -144,10 +134,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         "Don't have an account? ",
                         style: Get.textTheme.bodyText2,
                       ),
-                      Text(
-                        "Sign Up",
-                        style: Get.textTheme.bodyText2!.copyWith(
-                          fontWeight: FontWeight.w600,
+                      GestureDetector(
+                        onTap: () {
+                          Get.to(() => const RegisterScreen());
+                        },
+                        child: Text(
+                          "Sign Up",
+                          style: Get.textTheme.bodyText2!.copyWith(
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                     ],
