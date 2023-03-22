@@ -5,7 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:neeleez_flutter_app/config/my_Image.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
-import 'package:neeleez_flutter_app/helper/helper.dart';
+import 'package:neeleez_flutter_app/helpers/helper.dart';
 import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 import 'package:stacked/stacked.dart';

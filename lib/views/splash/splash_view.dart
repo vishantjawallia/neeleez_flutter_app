@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:neeleez_flutter_app/config/my_Image.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
-import 'package:neeleez_flutter_app/helper/helper.dart';
+import 'package:neeleez_flutter_app/helpers/helper.dart';
 import 'package:stacked/stacked.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';
@@ -24,9 +24,7 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<SplashViewModel>.reactive(
         viewModelBuilder: () => SplashViewModel(),
-        onViewModelReady: (viewModel) {
-          
-        },
+        onViewModelReady: (viewModel) {},
         builder: (context, viewModel, child) {
           return ScreenTypeLayout.builder(
             mobile: (_) => _SplashMobile(viewModel),

@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
-import 'package:neeleez_flutter_app/helper/helper.dart';
+import 'package:neeleez_flutter_app/helpers/helper.dart';
 
 class CustomDrawer extends Drawer {
   const CustomDrawer({Key? key}) : super(key: key);

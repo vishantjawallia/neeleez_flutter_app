@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
-import 'package:neeleez_flutter_app/helper/helper.dart';
+import 'package:neeleez_flutter_app/helpers/helper.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
@@ -25,7 +25,9 @@ class CustomTextField extends StatelessWidget {
     this.obscureText,
     this.prefixIconPath = "",
     this.suffixIconPath = "",
-    this.onChanged, this.prefixIconColor, this.prefixIconSize,
+    this.onChanged,
+    this.prefixIconColor,
+    this.prefixIconSize,
   }) : super(key: key);
 
   @override

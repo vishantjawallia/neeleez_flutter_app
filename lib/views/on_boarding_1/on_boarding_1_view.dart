@@ -3,7 +3,7 @@ library on_boarding_1_view;
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_Image.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
-import 'package:neeleez_flutter_app/helper/helper.dart';
+import 'package:neeleez_flutter_app/helpers/helper.dart';
 import 'package:stacked/stacked.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';
@@ -22,17 +22,16 @@ class OnBoarding1View extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<OnBoarding1ViewModel>.reactive(
-      viewModelBuilder: () => OnBoarding1ViewModel(),
-      onViewModelReady: (viewModel) {
-        // Do something once your viewModel is initialized
-      },
-      builder: (_, viewModel, child) {
-        return ScreenTypeLayout.builder(
-          mobile: (_)=>_OnBoarding1Mobile(viewModel),
-          desktop:(_)=> _OnBoarding1Mobile(viewModel),
-          tablet: (_)=>_OnBoarding1Mobile(viewModel),
-        );
-      }
-    );
+        viewModelBuilder: () => OnBoarding1ViewModel(),
+        onViewModelReady: (viewModel) {
+          // Do something once your viewModel is initialized
+        },
+        builder: (_, viewModel, child) {
+          return ScreenTypeLayout.builder(
+            mobile: (_) => _OnBoarding1Mobile(viewModel),
+            desktop: (_) => _OnBoarding1Mobile(viewModel),
+            tablet: (_) => _OnBoarding1Mobile(viewModel),
+          );
+        });
   }
 }
