@@ -1,13 +1,9 @@
-// ignore_for_file: deprecated_member_use
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:neeleez_flutter_app/config/my_Image.dart';
-import 'package:neeleez_flutter_app/config/palettes.dart';
-import 'package:neeleez_flutter_app/helper/helper.dart';
-import 'package:neeleez_flutter_app/screens/on_boarding/on_boarding_three.dart';
+part of on_boarding_2_view;
 
-class OnBoardingTwoScreen extends StatelessWidget {
-  const OnBoardingTwoScreen({Key? key}) : super(key: key);
+class _OnBoarding2Mobile extends StatelessWidget {
+  final OnBoarding2ViewModel viewModel;
+
+  const _OnBoarding2Mobile(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +51,7 @@ class OnBoardingTwoScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 3.5.h),
                         ElevatedButton(
-                          onPressed: () => nextHandler(context),
+                          onPressed: viewModel.onTap,
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(Palettes.red),
                             padding: MaterialStateProperty.all(
@@ -71,7 +67,7 @@ class OnBoardingTwoScreen extends StatelessWidget {
                             ),
                           ),
                           child: Text(
-                            style: Get.textTheme.headline4,
+                            style: Get.textTheme.headlineMedium,
                             'NEXT',
                           ),
                         ),
@@ -85,11 +81,5 @@ class OnBoardingTwoScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void nextHandler(context) {
-    Get.to(() => const OnBoardingThreeScreen());
-    // Navigator.push(context, MaterialPageRoute(builder: (context) => con
-    // st OnBoardingThreeScreen()));
   }
 }

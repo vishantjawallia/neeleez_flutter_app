@@ -1,32 +1,13 @@
-// ignore_for_file: deprecated_member_use
+part of login_view;
 
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// ignore: must_be_immutable
+class _LoginMobile extends StatelessWidget {
+  final LoginViewModel viewModel;
 
-import 'package:neeleez_flutter_app/config/my_Image.dart';
-import 'package:neeleez_flutter_app/config/my_icon.dart';
-import 'package:neeleez_flutter_app/helper/helper.dart';
-import 'package:neeleez_flutter_app/screens/authentication/register.dart';
-import 'package:neeleez_flutter_app/screens/dashboard/dashboard_screen.dart';
-import 'package:neeleez_flutter_app/widgets/custom_button.dart';
-// import 'package:neeleez_flutter_app/screens/dashboard/dashbard_screen.dart';
-import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
+  _LoginMobile(this.viewModel);
 
-import '../../../config/palettes.dart';
-
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
-
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController _email = TextEditingController();
-  final TextEditingController _password = TextEditingController();
-
-  bool? rememberMe = false;
-
+  TextEditingController _email = TextEditingController();
+  TextEditingController _password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       onTap: () => Get.locale == const Locale('ur', 'PK') ? Get.updateLocale(const Locale('en', 'US')) : Get.updateLocale(const Locale('ur', 'PK')),
                       child: Text(
                         'logIn'.tr,
-                        style: Get.textTheme.headline1,
+                        style: Get.textTheme.displayLarge,
                       ),
                     ),
                     const SizedBox(height: 30),
@@ -94,16 +75,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                 focusColor: Palettes.primary,
                                 checkColor: Palettes.primary,
                                 visualDensity: VisualDensity.standard,
-                                value: rememberMe,
-                                onChanged: (bool? value) {
-                                  setState(() {
-                                    rememberMe = !rememberMe!;
-                                  });
-                                },
+                                value: viewModel.rememberMe,
+                                onChanged: viewModel.onChangeRemember,
                               ),
                               Text(
                                 'Remember Me',
-                                style: Get.textTheme.bodyText2,
+                                style: Get.textTheme.bodyMedium,
                               ),
                             ],
                           ),
@@ -112,14 +89,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           onTap: () {},
                           child: Text(
                             'Forgot Password ?',
-                            style: Get.textTheme.bodyText2,
+                            style: Get.textTheme.bodyMedium,
                           ),
                         ),
                       ],
                     ),
                     SizedBox(height: 3.h),
                     CustomButton(
-                      onTap: () => nextHandler(),
+                      onTap: viewModel.loginHandler,
                       text: 'loginNow'.tr,
                     ),
                   ],
@@ -132,15 +109,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       Text(
                         "Don't have an account? ",
-                        style: Get.textTheme.bodyText2,
+                        style: Get.textTheme.bodyMedium,
                       ),
                       GestureDetector(
-                        onTap: () {
-                          Get.to(() => const RegisterScreen());
-                        },
+                        onTap: viewModel.signUpHandler,
                         child: Text(
                           "Sign Up",
-                          style: Get.textTheme.bodyText2!.copyWith(
+                          style: Get.textTheme.bodyMedium!.copyWith(
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -154,9 +129,5 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
-  }
-
-  nextHandler() {
-    Get.to(() => DashboardScreen());
   }
 }

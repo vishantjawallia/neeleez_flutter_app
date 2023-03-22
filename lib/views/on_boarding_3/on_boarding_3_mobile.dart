@@ -1,40 +1,33 @@
-// ignore_for_file: deprecated_member_use
-import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:neeleez_flutter_app/config/my_Image.dart';
-import 'package:neeleez_flutter_app/config/palettes.dart';
-import 'package:neeleez_flutter_app/helper/helper.dart';
+part of on_boarding_3_view;
 
-import 'on_boarding_two.dart';
-//
+// ignore: must_be_immutable
+class _OnBoarding3Mobile extends StatelessWidget {
+  final OnBoarding3ViewModel viewModel;
 
-class OnBoardingOneScreen extends StatelessWidget {
-  const OnBoardingOneScreen({Key? key}) : super(key: key);
+  _OnBoarding3Mobile(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
         child: Container(
           height: 100.h,
           decoration: const BoxDecoration(
-            image: DecorationImage(fit: BoxFit.fill, image: AssetImage(MyImage.onBoarding1)),
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: AssetImage(MyImage.onBoarding3),
+            ),
           ),
           child: Padding(
-            padding: const EdgeInsets.only(top: 30),
+            padding: const EdgeInsets.only(top: 25),
             child: Column(
               children: [
                 Expanded(
                   flex: 3,
                   child: Center(
-                    child: Hero(
-                      tag: 'logo',
-                      child: Image.asset(
-                        height: 220,
-                        MyImage.logo,
-                      ),
+                    child: Image.asset(
+                      height: 220,
+                      MyImage.logo,
                     ),
                   ),
                 ),
@@ -50,15 +43,15 @@ class OnBoardingOneScreen extends StatelessWidget {
                           'Lorem Ipsum',
                           style: Get.textTheme.headline2,
                         ),
-                        SizedBox(height: 2.h),
+                        SizedBox(height: 1.5.h),
                         Text(
                           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                          style: Get.textTheme.bodyText2,
+                          style: Get.textTheme.bodyMedium,
                           textAlign: TextAlign.center,
                         ),
-                        SizedBox(height: 6.h),
+                        SizedBox(height: 3.h),
                         ElevatedButton(
-                          onPressed: () => nextHandler(context),
+                          onPressed: viewModel.onTap,
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(Palettes.red),
                             padding: MaterialStateProperty.all(
@@ -74,7 +67,7 @@ class OnBoardingOneScreen extends StatelessWidget {
                             ),
                           ),
                           child: Text(
-                            style: Get.textTheme.headline4,
+                            style: Get.textTheme.headlineMedium,
                             'NEXT',
                           ),
                         ),
@@ -88,10 +81,5 @@ class OnBoardingOneScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void nextHandler(context) {
-    Get.to(() => const OnBoardingTwoScreen());
-    // Navigator.push(context, MaterialPageRoute(builder: (context) => const OnBoardingTwoScreen()));
   }
 }

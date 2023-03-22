@@ -1,17 +1,11 @@
-// ignore_for_file: unused_field, avoid_unnecessary_containers
+part of dashboard_view;
 
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:neeleez_flutter_app/config/palettes.dart';
-import 'package:neeleez_flutter_app/screens/dashboard/widgets/drawer.dart';
-// import 'package:neeleez_flutter_app/screens/dashboard/dashboard_controller.dart';
+// ignore: must_be_immutable
+class _DashboardMobile extends StatelessWidget {
+  final DashboardViewModel viewModel;
 
-class DashboardScreen extends StatelessWidget {
-  DashboardScreen({Key? key}) : super(key: key);
-  // final _formKey = GlobalKey<FormState>();
+  _DashboardMobile(this.viewModel);
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +13,9 @@ class DashboardScreen extends StatelessWidget {
       drawer: const CustomDrawer(),
       drawerDragStartBehavior: DragStartBehavior.start,
       drawerEnableOpenDragGesture: true,
+      appBar: AppBar(
+        title: Text('Hello'),
+      ),
       body: Container(
         child: GestureDetector(
           onTap: () {

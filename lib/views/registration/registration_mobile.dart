@@ -1,19 +1,10 @@
-// ignore_for_file: deprecated_member_use
+part of registration_view;
 
-import 'package:flutter/material.dart';
+// ignore: must_be_immutable
+class _RegistrationMobile extends StatelessWidget {
+  final RegistrationViewModel viewModel;
 
-import 'package:get/get.dart';
-
-import 'package:neeleez_flutter_app/config/my_Image.dart';
-import 'package:neeleez_flutter_app/config/my_icon.dart';
-import 'package:neeleez_flutter_app/config/palettes.dart';
-import 'package:neeleez_flutter_app/helper/helper.dart';
-import 'package:neeleez_flutter_app/widgets/custom_button.dart';
-import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
-// import 'package:neeleez_flutter_app/screens/dashboard/dashbard_screen.dart';
-
-class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
+  const _RegistrationMobile(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +34,7 @@ class RegisterScreen extends StatelessWidget {
                       onTap: () => Get.locale == const Locale('ur', 'PK') ? Get.updateLocale(const Locale('en', 'US')) : Get.updateLocale(const Locale('ur', 'PK')),
                       child: Text(
                         'registerNow'.tr,
-                        style: Get.textTheme.headline1,
+                        style: Get.textTheme.displayLarge,
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -51,7 +42,7 @@ class RegisterScreen extends StatelessWidget {
                       width: 280,
                       child: Text(
                         'registerText'.tr,
-                        style: Get.textTheme.bodyText2,
+                        style: Get.textTheme.bodyMedium,
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -66,7 +57,7 @@ class RegisterScreen extends StatelessWidget {
                     children: [
                       Text(
                         'General Info:'.tr,
-                        style: Get.textTheme.headline4!.copyWith(fontWeight: FontWeight.w600),
+                        style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w600),
                         textAlign: TextAlign.left,
                       ),
                       Container(
@@ -126,7 +117,7 @@ class RegisterScreen extends StatelessWidget {
                     children: [
                       Text(
                         'Location:'.tr,
-                        style: Get.textTheme.headline4!.copyWith(fontWeight: FontWeight.w600),
+                        style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w600),
                         textAlign: TextAlign.left,
                       ),
                       Container(
@@ -178,7 +169,7 @@ class RegisterScreen extends StatelessWidget {
                     children: [
                       Text(
                         'Login Information:'.tr,
-                        style: Get.textTheme.headline4!.copyWith(fontWeight: FontWeight.w600),
+                        style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w600),
                         textAlign: TextAlign.left,
                       ),
                       Container(
@@ -230,7 +221,7 @@ class RegisterScreen extends StatelessWidget {
       children: [
         Text(
           '${'alreadyHaveAnAccount'.tr} ',
-          style: Get.textTheme.bodyText2,
+          style: Get.textTheme.bodyMedium,
         ),
         GestureDetector(
           onTap: () {
@@ -238,7 +229,7 @@ class RegisterScreen extends StatelessWidget {
           },
           child: Text(
             'logIn'.tr,
-            style: Get.textTheme.bodyText2!.copyWith(
+            style: Get.textTheme.bodyMedium!.copyWith(
               fontWeight: FontWeight.w600,
             ),
           ),

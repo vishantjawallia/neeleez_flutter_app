@@ -1,37 +1,39 @@
-// ignore_for_file: deprecated_member_use
+part of on_boarding_1_view;
 
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:neeleez_flutter_app/config/my_Image.dart';
-import 'package:neeleez_flutter_app/config/palettes.dart';
-import 'package:neeleez_flutter_app/helper/helper.dart';
-import 'package:neeleez_flutter_app/screens/authentication/login/login.dart';
+// ignore: must_be_immutable
+class _OnBoarding1Mobile extends StatelessWidget {
+  final OnBoarding1ViewModel viewModel;
 
-class OnBoardingThreeScreen extends StatelessWidget {
-  const OnBoardingThreeScreen({Key? key}) : super(key: key);
+  const _OnBoarding1Mobile(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: Container(
           height: 100.h,
           decoration: const BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.fill,
-              image: AssetImage(MyImage.onBoarding3),
+              image: AssetImage(
+                MyImage.onBoarding1,
+              ),
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.only(top: 25),
+            padding: const EdgeInsets.only(top: 30),
             child: Column(
               children: [
                 Expanded(
                   flex: 3,
                   child: Center(
-                    child: Image.asset(
-                      height: 220,
-                      MyImage.logo,
+                    child: Hero(
+                      tag: 'logo',
+                      child: Image.asset(
+                        height: 220,
+                        MyImage.logo,
+                      ),
                     ),
                   ),
                 ),
@@ -47,15 +49,15 @@ class OnBoardingThreeScreen extends StatelessWidget {
                           'Lorem Ipsum',
                           style: Get.textTheme.headline2,
                         ),
-                        SizedBox(height: 1.5.h),
+                        SizedBox(height: 2.h),
                         Text(
                           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                          style: Get.textTheme.bodyText2,
+                          style: Get.textTheme.bodyMedium,
                           textAlign: TextAlign.center,
                         ),
-                        SizedBox(height: 3.h),
+                        SizedBox(height: 6.h),
                         ElevatedButton(
-                          onPressed: () => nextHandler(context),
+                          onPressed: viewModel.onTap,
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(Palettes.red),
                             padding: MaterialStateProperty.all(
@@ -71,7 +73,7 @@ class OnBoardingThreeScreen extends StatelessWidget {
                             ),
                           ),
                           child: Text(
-                            style: Get.textTheme.headline4,
+                            style: Get.textTheme.headlineMedium,
                             'NEXT',
                           ),
                         ),
@@ -85,10 +87,5 @@ class OnBoardingThreeScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void nextHandler(context) {
-    Get.to(() => const LoginScreen());
-    // Navigator.push(context, MaterialPageRoute(builder: (context) => const OnBoardingTScreen()));
   }
 }
