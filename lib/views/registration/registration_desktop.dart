@@ -9,7 +9,9 @@ class _RegistrationDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: Text('RegistrationDesktop')),
+      body: Center(
+        child: Text('RegistrationDesktop'),
+      ),
     );
   }
 }

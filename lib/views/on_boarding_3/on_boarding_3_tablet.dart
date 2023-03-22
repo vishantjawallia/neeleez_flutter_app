@@ -4,11 +4,11 @@ part of on_boarding_3_view;
 class _OnBoarding3Tablet extends StatelessWidget {
   final OnBoarding3ViewModel viewModel;
 
-  _OnBoarding3Tablet(this.viewModel);
+  const _OnBoarding3Tablet(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(child: Text('OnBoarding3Tablet')),
     );
   }

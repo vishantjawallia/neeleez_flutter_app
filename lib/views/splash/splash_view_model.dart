@@ -12,16 +12,14 @@ import 'package:neeleez_flutter_app/views/on_boarding_1/on_boarding_1_view.dart'
 import 'package:stacked/stacked.dart';
 
 class SplashViewModel extends BaseViewModel {
-  SplashViewModel() {
-    loadItems();
-  }
+  SplashViewModel();
+  // loadItems();
 
-  
   /* loaders-items */
-  Future<void> loadItems() async {
+  loadItems(context) async {
+    final res = await apiRepository.apiGet(Url.countryInfo);
     Future.delayed(const Duration(seconds: 3), () async {
       try {
-        final res = await apiRepository.apiGet(Url.countryInfo);
         if (res != null) {
           CountryInfo info = CountryInfo.fromJson(res);
           SharedPreferenceHelper.setString(Preferences.countryInfo, jsonEncode(res));
@@ -32,5 +30,6 @@ class SplashViewModel extends BaseViewModel {
         Get.log("=========>splash error: $e");
       }
     });
+    return;
   }
 }

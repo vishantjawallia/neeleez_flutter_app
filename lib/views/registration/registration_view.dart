@@ -8,7 +8,7 @@ import 'package:stacked/stacked.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';
 import '../../config/my_icon.dart';
-import '../../helper/helper.dart';
+import '../../helpers/helper.dart';
 import '../../widgets/custom_text_field.dart';
 import 'registration_view_model.dart';
 
@@ -26,18 +26,12 @@ class RegistrationView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<RegistrationViewModel>.reactive(
         viewModelBuilder: () => RegistrationViewModel(),
-        onViewModelReady: (viewModel) {
-          // Do something once your viewModel is initialized
-        },
+        onViewModelReady: (viewModel) {},
         builder: (context, viewModel, child) {
           return ScreenTypeLayout.builder(
             mobile: (_) => _RegistrationMobile(viewModel),
             desktop: (_) => _RegistrationMobile(viewModel),
             tablet: (_) => _RegistrationMobile(viewModel),
-
-            //Uncomment it if you've planned to support specifically for desktop and tablet
-            //desktop: _RegistrationDesktop(viewModel),
-            //tablet: _RegistrationTablet(viewModel),
           );
         });
   }

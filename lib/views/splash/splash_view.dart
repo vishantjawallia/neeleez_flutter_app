@@ -1,7 +1,6 @@
 library splash_view;
 
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:neeleez_flutter_app/config/my_Image.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
@@ -23,18 +22,17 @@ class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<SplashViewModel>.reactive(
-        viewModelBuilder: () => SplashViewModel(),
-        onViewModelReady: (viewModel) {},
-        builder: (context, viewModel, child) {
-          return ScreenTypeLayout.builder(
-            mobile: (_) => _SplashMobile(viewModel),
-            desktop: (_) => _SplashMobile(viewModel),
-            tablet: (_) => _SplashMobile(viewModel),
-
-            //Uncomment it if you've planned to support specifically for desktop and tablet
-            //desktop: _SplashDesktop(viewModel),
-            //tablet: _SplashTablet(viewModel),
-          );
-        });
+      viewModelBuilder: () => SplashViewModel(),
+      onViewModelReady: (viewModel) {
+        // viewModel.loadItems(context);
+      },
+      builder: (context, viewModel, child) {
+        return ScreenTypeLayout.builder(
+          mobile: (_) => _SplashMobile(viewModel),
+          desktop: (_) => _SplashMobile(viewModel),
+          tablet: (_) => _SplashMobile(viewModel),
+        );
+      },
+    );
   }
 }

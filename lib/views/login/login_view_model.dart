@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:neeleez_flutter_app/views/registration/registration_view.dart';
+import 'package:neeleez_flutter_app/views/mobile_verification/mobile_verification_view.dart';
 import 'package:stacked/stacked.dart';
 
 import '../dashboard/dashboard_view.dart';
@@ -23,7 +23,7 @@ class LoginViewModel extends BaseViewModel {
   void onTap() {}
 
   void signUpHandler() {
-    Get.to(() => const RegistrationView());
+    Get.to(() => const MobileVerificationView());
   }
 
   void loginHandler() {

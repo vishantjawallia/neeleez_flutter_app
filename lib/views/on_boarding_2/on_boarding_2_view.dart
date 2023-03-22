@@ -22,14 +22,14 @@ class OnBoarding2View extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<OnBoarding2ViewModel>.reactive(
         viewModelBuilder: () => OnBoarding2ViewModel(),
-        onModelReady: (viewModel) {
-          // Do something once your viewModel is initialized
+        onViewModelReady: (viewModel) {
+          precacheImage(const AssetImage(MyImage.onBoarding2), context);
         },
         builder: (context, viewModel, child) {
-          return ScreenTypeLayout(
-            mobile: _OnBoarding2Mobile(viewModel),
-            desktop: _OnBoarding2Mobile(viewModel),
-            tablet: _OnBoarding2Mobile(viewModel),
+          return ScreenTypeLayout.builder(
+            mobile: (_)=>_OnBoarding2Mobile(viewModel),
+            desktop:(_)=>_OnBoarding2Mobile(viewModel),
+            tablet: (_)=>_OnBoarding2Mobile(viewModel),
 
             //Uncomment it if you've planned to support specifically for desktop and tablet
             //desktop: _OnBoarding2Desktop(viewModel),

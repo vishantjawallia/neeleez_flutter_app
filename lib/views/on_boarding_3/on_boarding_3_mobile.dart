@@ -4,7 +4,7 @@ part of on_boarding_3_view;
 class _OnBoarding3Mobile extends StatelessWidget {
   final OnBoarding3ViewModel viewModel;
 
-  _OnBoarding3Mobile(this.viewModel);
+  const _OnBoarding3Mobile(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class _OnBoarding3Mobile extends StatelessWidget {
                       children: [
                         Text(
                           'Lorem Ipsum',
-                          style: Get.textTheme.headline2,
+                          style: Get.textTheme.displayMedium,
                         ),
                         SizedBox(height: 1.5.h),
                         Text(

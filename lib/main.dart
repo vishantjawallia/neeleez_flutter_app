@@ -1,19 +1,28 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
 
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:neeleez_flutter_app/config/config.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
+import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/languages/language.dart';
+import 'package:neeleez_flutter_app/middleware/auth_middleware.dart';
+import 'package:neeleez_flutter_app/views/login/login_view.dart';
 import 'core/locator.dart';
 import 'core/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'views/dashboard/dashboard_view.dart';
+import 'views/registration/registration_view.dart';
 import 'views/splash/splash_view.dart';
 import 'views/main/main_view.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await LocatorInjector.setupLocator();
+  await SharedPreferenceHelper.init();
   runApp(
     MultiProvider(
       providers: ProviderInjector.providers,
@@ -58,10 +67,12 @@ class _MyAppState extends State<MyApp> {
         );
       },
       getPages: [
-        GetPage(
-          name: MainView.routeName,
-          page: () => MainView(),
-        ),
+        GetPage(name: MainView.routeName, page: () => MainView()),
+        GetPage(name: LoginView.routeName, page: () => const LoginView()),
+        GetPage(name: RegistrationView.routeName, page: () => const RegistrationView()),
+        GetPage(name: RegistrationView.routeName, page: () => const RegistrationView()),
+
+        GetPage(name: DashboardView.routeName, page: () => const DashboardView(), middlewares: [AuthMiddleware()]),
       ],
     );
   }

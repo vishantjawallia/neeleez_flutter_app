@@ -23,12 +23,12 @@ class _SplashMobile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Expanded(
-              flex: 6,
+              flex: 3,
               child: Center(
                 child: Hero(
                   tag: 'logo',
                   child: Image.asset(
-                    height: 240,
+                    height: 100,
                     MyImage.logo,
                   ),
                 ),

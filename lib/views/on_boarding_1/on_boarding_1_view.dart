@@ -2,6 +2,7 @@ library on_boarding_1_view;
 
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_Image.dart';
+// import 'package:neeleez_flutter_app/config/my_Image.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
 import 'package:stacked/stacked.dart';
@@ -24,6 +25,9 @@ class OnBoarding1View extends StatelessWidget {
     return ViewModelBuilder<OnBoarding1ViewModel>.reactive(
         viewModelBuilder: () => OnBoarding1ViewModel(),
         onViewModelReady: (viewModel) {
+          precacheImage(const AssetImage(MyImage.onBoarding1), context);
+          precacheImage(const AssetImage(MyImage.logo), context);
+
           // Do something once your viewModel is initialized
         },
         builder: (_, viewModel, child) {

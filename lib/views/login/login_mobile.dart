@@ -51,7 +51,7 @@ class _LoginMobile extends StatelessWidget {
                     CustomTextField(
                       controller: _email,
                       name: 'Username / Email:',
-                      prefixIconPath: MyIcon.profile,
+                      prefixIconPath: MyIcon.user,
                       suffixIconPath: MyIcon.checked1,
                     ),
                     const SizedBox(height: 12),

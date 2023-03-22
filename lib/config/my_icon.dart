@@ -14,9 +14,11 @@ class MyIcon {
   // hello
 
   static const String password = "$icons/password.png";
-  static const String profile = "$icons/profile.png";
+  static const String user = "$icons/user.png";
 
   static const String checked1 = "$icons/checked1.png";
+  static const String checked = "$icons/checked.png";
   static const String crossed = "$icons/crossed.png";
-  static const String imgCompany = "$icons/img_company.png";
+  static const String officeBuilding = "$icons/office-building.png";
+  static const String mobileAnalytics= "$icons/mobile-analytics.png";
 }

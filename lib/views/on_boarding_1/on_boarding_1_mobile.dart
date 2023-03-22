@@ -47,7 +47,7 @@ class _OnBoarding1Mobile extends StatelessWidget {
                       children: [
                         Text(
                           'Lorem Ipsum',
-                          style: Get.textTheme.headline2,
+                          style: Get.textTheme.displayMedium,
                         ),
                         SizedBox(height: 2.h),
                         Text(

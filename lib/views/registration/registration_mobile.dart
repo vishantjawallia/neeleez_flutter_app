@@ -18,7 +18,6 @@ class _RegistrationMobile extends StatelessWidget {
         ),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          // physics: const BouncingScrollPhysics(),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
             child: Column(
@@ -78,7 +77,7 @@ class _RegistrationMobile extends StatelessWidget {
                   children: const <Widget>[
                     CustomTextField(
                       name: 'Company Name:',
-                      prefixIconPath: MyIcon.imgCompany,
+                      prefixIconPath: MyIcon.officeBuilding,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
                     CustomTextField(

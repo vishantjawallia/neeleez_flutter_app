@@ -17,18 +17,21 @@ part 'on_boarding_3_desktop.dart';
 class OnBoarding3View extends StatelessWidget {
   static const routeName = '/on_boarding_3';
 
+  const OnBoarding3View({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<OnBoarding3ViewModel>.reactive(
         viewModelBuilder: () => OnBoarding3ViewModel(),
-        onModelReady: (viewModel) {
+        onViewModelReady: (viewModel) async {
+          await precacheImage(const AssetImage(MyImage.onBoarding3), context);
           // Do something once your viewModel is initialized
         },
         builder: (context, viewModel, child) {
-          return ScreenTypeLayout(
-            mobile: _OnBoarding3Mobile(viewModel),
-            desktop: _OnBoarding3Mobile(viewModel),
-            tablet: _OnBoarding3Mobile(viewModel),
+          return ScreenTypeLayout.builder(
+            mobile: (_) => _OnBoarding3Mobile(viewModel),
+            desktop: (_) => _OnBoarding3Mobile(viewModel),
+            tablet: (_) => _OnBoarding3Mobile(viewModel),
 
             //Uncomment it if you've planned to support specifically for desktop and tablet
             //desktop: _OnBoarding3Desktop(viewModel),
