@@ -22,16 +22,18 @@ class _LoginMobile extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 22),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const SizedBox(height: 60),
+                const SizedBox(height: 80),
                 Image.asset(
-                  height: 220,
+                  height: 115,
                   MyImage.logo,
                 ),
+                SizedBox(height: 5.h),
                 Column(
+                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     GestureDetector(
@@ -41,20 +43,26 @@ class _LoginMobile extends StatelessWidget {
                         style: Get.textTheme.displayLarge,
                       ),
                     ),
-                    const SizedBox(height: 30),
-                    Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedadipiscing elit",
-                      style: Get.textTheme.bodyText2,
-                      textAlign: TextAlign.center,
+                    SizedBox(height: 2.h),
+                    // const SizedBox(height: 30),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedadipiscing elit",
+                        style: Get.textTheme.bodyText2,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    const SizedBox(height: 36),
+                    SizedBox(height: 5.h),
+                    // const SizedBox(height: 36),
                     CustomTextField(
                       controller: _email,
                       name: 'Username / Email:',
                       prefixIconPath: MyIcon.user,
                       suffixIconPath: MyIcon.checked1,
+                      widgetMargin: const EdgeInsets.symmetric(vertical: 10),
                     ),
-                    const SizedBox(height: 12),
+                    // const SizedBox(height: 12),
                     CustomTextField(
                       controller: _password,
                       name: 'Password',
@@ -98,11 +106,12 @@ class _LoginMobile extends StatelessWidget {
                     CustomButton(
                       onTap: viewModel.loginHandler,
                       text: 'loginNow'.tr,
+                      padding: EdgeInsets.symmetric(horizontal: 70, vertical: 12),
                     ),
                   ],
                 ),
                 Align(
-                  heightFactor: 4.5.sp,
+                  heightFactor: 5.5.sp,
                   alignment: Alignment.bottomCenter,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

@@ -12,7 +12,6 @@ class _SplashMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        height: 100.h,
         decoration: const BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
@@ -20,49 +19,50 @@ class _SplashMobile extends StatelessWidget {
           ),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(
-              flex: 3,
-              child: Center(
-                child: Hero(
-                  tag: 'logo',
-                  child: Image.asset(
-                    height: 100,
-                    MyImage.logo,
-                  ),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 5,
-              child: GestureDetector(
-                onTap: () => Get.locale == const Locale('ur', 'PK') ? Get.updateLocale(const Locale('en', 'US')) : Get.updateLocale(const Locale('ur', 'PK')),
-                child: Text(
-                  'businessApp'.tr,
-                  style: Get.textTheme.displayLarge,
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 2,
+            SizedBox(
+              height: 46.h,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const SizedBox(
-                    height: 30,
-                    width: 30,
-                    child: CircularProgressIndicator(
-                      color: Palettes.white,
-                      strokeWidth: 3,
+                  const SizedBox(height: 30),
+                  Center(
+                    child: Hero(
+                      tag: 'logo',
+                      child: Image.asset(
+                        height: 175,
+                        MyImage.logo,
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 16),
-                  Text(
-                    'preparingApplicationEnvironment'.tr,
-                    style: Get.textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w500),
+                  GestureDetector(
+                    onTap: () => Get.locale == const Locale('ur', 'PK') ? Get.updateLocale(const Locale('en', 'US')) : Get.updateLocale(const Locale('ur', 'PK')),
+                    child: Text(
+                      'businessApp'.tr,
+                      style: Get.textTheme.displayLarge,
+                    ),
                   ),
                 ],
               ),
+            ),
+            Column(
+              children: [
+                const SizedBox(
+                  height: 30,
+                  width: 30,
+                  child: CircularProgressIndicator(
+                    color: Palettes.white,
+                    strokeWidth: 3,
+                  ),
+                ),
+                const SizedBox(height: 14),
+                Text(
+                  'preparingApplicationEnvironment'.tr,
+                  style: Get.textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w500),
+                ),
+                const SizedBox(height: 50),
+              ],
             ),
           ],
         ),

@@ -24,7 +24,7 @@ class SplashView extends StatelessWidget {
     return ViewModelBuilder<SplashViewModel>.reactive(
       viewModelBuilder: () => SplashViewModel(),
       onViewModelReady: (viewModel) {
-        // viewModel.loadItems(context);
+        viewModel.loadItems(context);
       },
       builder: (context, viewModel, child) {
         return ScreenTypeLayout.builder(

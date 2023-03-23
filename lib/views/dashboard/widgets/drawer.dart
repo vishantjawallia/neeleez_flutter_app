@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
 
+import '../../../config/config.dart';
+
 class CustomDrawer extends Drawer {
   const CustomDrawer({Key? key}) : super(key: key);
 
@@ -14,10 +16,11 @@ class CustomDrawer extends Drawer {
       child: ClipRRect(
         borderRadius: const BorderRadius.only(topRight: Radius.circular(24), bottomRight: Radius.circular(24)),
         child: Drawer(
+          width: 80.w,
           child: Column(
             children: [
               Container(
-                height: 24.h,
+                height: 20.h,
                 width: 100.w,
                 padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 22),
                 color: Palettes.primary,
@@ -30,8 +33,8 @@ class CustomDrawer extends Drawer {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Container(
-                          height: 70,
-                          width: 70,
+                          height: 60,
+                          width: 60,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: Palettes.red,
@@ -70,14 +73,15 @@ class CustomDrawer extends Drawer {
               Flexible(
                 fit: FlexFit.loose,
                 child: ListView.builder(
-                  itemCount: 10,
+                  itemCount: drawer.length,
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
-                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  padding: const EdgeInsets.symmetric(vertical: 30),
                   itemBuilder: (context, index) {
+                    String name = drawer[index]['name'];
                     return Container(
                       alignment: Alignment.center,
-                      height: 38,
+                      height: 5.3.h,
                       padding: const EdgeInsets.only(left: 14),
                       decoration: BoxDecoration(
                         border: Border(
@@ -94,9 +98,9 @@ class CustomDrawer extends Drawer {
                             Icons.dashboard_customize,
                             size: 20,
                           ),
-                          const SizedBox(width: 10),
+                          const SizedBox(width: 20),
                           Text(
-                            'Dashboard',
+                            name,
                             style: Get.textTheme.bodyText1!.copyWith(color: Palettes.primary),
                           )
                         ],

@@ -33,7 +33,7 @@ class CustomButton extends StatelessWidget {
         ),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(12),
             side: const BorderSide(
               color: Palettes.white,
             ),
@@ -41,7 +41,7 @@ class CustomButton extends StatelessWidget {
         ),
       ),
       child: Text(
-        style: textStyle ?? Get.textTheme.headline5!.copyWith(color: textColor ?? Palettes.red, fontWeight: FontWeight.w600),
+        style: textStyle ?? Get.textTheme.headline5!.copyWith(color: textColor ?? Palettes.red, fontWeight: FontWeight.w700),
         text!,
         // 'Log in Now',
       ),

@@ -53,7 +53,9 @@ class PhoneTextField extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            // height: 20,
+            // width: 20,
+            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
             decoration: BoxDecoration(
               color: Palettes.greyPrimary,
               borderRadius: Helper.isRtl()
@@ -71,19 +73,21 @@ class PhoneTextField extends StatelessWidget {
               filterQuality: FilterQuality.high,
               isAntiAlias: true,
               color: Palettes.primary,
+              fit: BoxFit.cover,
+              height: 80,
             ),
           ),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 4),
-            width: 46,
+            width: 65,
             decoration: const BoxDecoration(
               border: Border(
-                right: BorderSide(width: 1, color: Palettes.primary),
+                right: BorderSide(width: 0.5, color: Palettes.primary),
               ),
             ),
             child: Text(
               '+212',
-              style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.primary, fontWeight: FontWeight.w700),
+              style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.red, fontWeight: FontWeight.w700),
               textAlign: TextAlign.center,
             ),
           ),
@@ -109,7 +113,7 @@ class PhoneTextField extends StatelessWidget {
                     padding: Helper.isRtl() ? const EdgeInsets.only(right: 10, top: 6) : const EdgeInsets.only(left: 10, top: 6),
                     child: Image.asset(
                       suffixIconPath!,
-                      height: 16,
+                      height: 20,
                       filterQuality: FilterQuality.high,
                       isAntiAlias: true,
                     ),
