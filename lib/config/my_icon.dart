@@ -20,5 +20,14 @@ class MyIcon {
   static const String checked = "$icons/checked.png";
   static const String crossed = "$icons/crossed.png";
   static const String officeBuilding = "$icons/office-building.png";
-  static const String mobileAnalytics= "$icons/mobile-analytics.png";
+  static const String mobileAnalytics = "$icons/mobile-analytics.png";
+  static const String portfolio = "$icons/portfolio.png";
+  static const String sex = "$icons/sex.png";
+  static const String whatsapp = "$icons/whatsapp.png";
+  static const String telephone = "$icons/telephone.png";
+  static const String mail = "$icons/mail.png";
+  static const String polygon = "$icons/polygon.png";
+  static const String locationPin = "$icons/location-pin.png";
+  static const String place = "$icons/place.png";
+  static const String information = "$icons/information.png";
 }

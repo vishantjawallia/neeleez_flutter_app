@@ -44,6 +44,7 @@ class _MyAppState extends State<MyApp> {
       title: APP_NAME,
       locale: const Locale('en', 'US'),
       fallbackLocale: const Locale('en', 'US'),
+      defaultTransition: Transition.rightToLeft,
       translations: LocalLanguage(),
       theme: ThemeData(
         primaryColor: Palettes.red,
@@ -71,7 +72,6 @@ class _MyAppState extends State<MyApp> {
         GetPage(name: LoginView.routeName, page: () => const LoginView()),
         GetPage(name: RegistrationView.routeName, page: () => const RegistrationView()),
         GetPage(name: RegistrationView.routeName, page: () => const RegistrationView()),
-
         GetPage(name: DashboardView.routeName, page: () => const DashboardView(), middlewares: [AuthMiddleware()]),
       ],
     );

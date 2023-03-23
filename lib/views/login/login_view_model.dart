@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/views/mobile_verification/mobile_verification_view.dart';
+import 'package:neeleez_flutter_app/views/registration/registration_view.dart';
 import 'package:stacked/stacked.dart';
 
 import '../dashboard/dashboard_view.dart';
@@ -23,7 +24,7 @@ class LoginViewModel extends BaseViewModel {
   void onTap() {}
 
   void signUpHandler() {
-    Get.to(() => const MobileVerificationView());
+    Get.to(() => const MobileVerificationView(), transition: Transition.downToUp);
   }
 
   void loginHandler() {
@@ -33,5 +34,9 @@ class LoginViewModel extends BaseViewModel {
   onChangeRemember(bool? value) {
     rememberMe = value!;
     notifyListeners();
+  }
+
+  void forgetPasswordHandler() {
+    Get.to(() => const RegistrationView());
   }
 }

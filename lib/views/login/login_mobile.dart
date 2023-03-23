@@ -94,7 +94,7 @@ class _LoginMobile extends StatelessWidget {
                           ),
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: viewModel.forgetPasswordHandler,
                           child: Text(
                             'Forgot Password ?',
                             style: Get.textTheme.bodyMedium,
@@ -106,7 +106,7 @@ class _LoginMobile extends StatelessWidget {
                     CustomButton(
                       onTap: viewModel.loginHandler,
                       text: 'loginNow'.tr,
-                      padding: EdgeInsets.symmetric(horizontal: 70, vertical: 12),
+                      padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 12),
                     ),
                   ],
                 ),

@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
@@ -11,11 +12,20 @@ class CustomTextField extends StatelessWidget {
   final String? prefixIconPath;
   final Color? prefixIconColor;
   final double? prefixIconSize;
+  final double? height;
+  final int? maxLength;
+  final int? maxLines;
+  final int? minLines;
   final String? suffixIconPath;
-  final EdgeInsetsDirectional? inputFieldPadding;
+  final EdgeInsetsGeometry? inputFieldPadding;
+  final EdgeInsetsGeometry? prefixPadding;
   final EdgeInsetsGeometry? widgetMargin;
+  final MaxLengthEnforcement? maxLengthEnforcement;
   final bool? obscureText;
+  final bool? autofocus;
+  final bool? enabled;
   final void Function(String? value)? onChanged;
+  final void Function()? onTap;
   const CustomTextField({
     Key? key,
     this.controller,
@@ -28,13 +38,22 @@ class CustomTextField extends StatelessWidget {
     this.onChanged,
     this.prefixIconColor,
     this.prefixIconSize,
+    this.maxLength,
+    this.maxLines,
+    this.minLines,
+    this.maxLengthEnforcement,
+    this.autofocus,
+    this.height,
+    this.prefixPadding,
+    this.onTap,
+    this.enabled = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       key: Key('$name'),
-      height: 50,
+      height: height ?? 50,
       margin: widgetMargin ?? EdgeInsets.zero,
       decoration: BoxDecoration(
         color: Palettes.white,
@@ -44,31 +63,14 @@ class CustomTextField extends StatelessWidget {
           width: 1.5,
         ),
         boxShadow: const [
-          BoxShadow(
-            blurRadius: 0.4,
-            color: Palettes.greyPrimary,
-            spreadRadius: 0.2,
-            // offset: const Offset(1, 1),
-          ),
-          // BoxShadow(
-          //   blurRadius: 2.4,
-          //   color: Palettes.white.withOpacity(0.7),
-          //   spreadRadius: 0.9,
-          //   offset: const Offset(1, 1),
-          // ),
-          // BoxShadow(
-          //   blurRadius: 2.4,
-          //   color: Palettes.white.withOpacity(0.7),
-          //   spreadRadius: 0.9,
-          //   offset: const Offset(1, 1),
-          // ),
+          BoxShadow(blurRadius: 0.4, color: Palettes.greyPrimary, spreadRadius: 0.2),
         ],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            padding: prefixPadding ?? const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
               color: Palettes.greyPrimary,
               borderRadius: Helper.isRtl()
@@ -85,16 +87,27 @@ class CustomTextField extends StatelessWidget {
               prefixIconPath!,
               filterQuality: FilterQuality.high,
               isAntiAlias: true,
-              color: Palettes.primary,
+              color: prefixIconColor,
+              height: 16,
+              width: 16,
             ),
           ),
           Flexible(
             child: Container(
               // color: Palettes.,
               child: TextField(
+                autofocus: autofocus ?? false,
+                controller: controller,
+                maxLength: maxLength,
+                maxLines: maxLines ?? 1,
+                minLines: minLines,
+                maxLengthEnforcement: maxLengthEnforcement ?? MaxLengthEnforcement.none,
+                autocorrect: true,
+                // onTap: onTap,
+                enabled: enabled,
+
                 // onChanged: (value) => onChanged!(value),
                 obscureText: obscureText ?? false,
-                controller: controller,
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 14),
                   border: InputBorder.none,
@@ -113,6 +126,7 @@ class CustomTextField extends StatelessWidget {
                     child: Image.asset(
                       suffixIconPath!,
                       height: 16,
+                      width: 16,
                       filterQuality: FilterQuality.high,
                       isAntiAlias: true,
                     ),

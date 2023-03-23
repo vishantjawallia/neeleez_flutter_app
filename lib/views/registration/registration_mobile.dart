@@ -26,9 +26,10 @@ class _RegistrationMobile extends StatelessWidget {
                   children: [
                     const SizedBox(height: 50),
                     Image.asset(
-                      height: 220,
+                      height: 115,
                       MyImage.logo,
                     ),
+                    const SizedBox(height: 50),
                     GestureDetector(
                       onTap: () => Get.locale == const Locale('ur', 'PK') ? Get.updateLocale(const Locale('en', 'US')) : Get.updateLocale(const Locale('ur', 'PK')),
                       child: Text(
@@ -74,35 +75,74 @@ class _RegistrationMobile extends StatelessWidget {
                 const SizedBox(height: 10),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const <Widget>[
-                    CustomTextField(
+                  children: <Widget>[
+                    const CustomTextField(
                       name: 'Company Name:',
                       prefixIconPath: MyIcon.officeBuilding,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
                     CustomTextField(
                       name: 'Business Type:',
-                      prefixIconPath: MyIcon.password,
+                      prefixIconPath: MyIcon.portfolio,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
+                      suffixIconPath: MyIcon.polygon,
+                      onTap: () {},
                     ),
-                    CustomTextField(
+                    Container(
+                      width: 100.w,
+                      padding: EdgeInsets.symmetric(horizontal: 10.sp),
+                      decoration: const BoxDecoration(color: Palettes.white),
+                      child: DropdownButton<String>(
+                        isExpanded: true,
+                        value: "hi",
+                        icon: const Icon(Icons.arrow_drop_down_sharp),
+                        elevation: 16,
+                        focusColor: Palettes.white,
+                        hint: Text(
+                          'Please Select......',
+                          // style: MyTextStyle.subTitle2.copyWith(color: Palettes.greyDark),
+                        ),
+                        // style: MyTextStyle.bodyText2.copyWith(color: Palettes.black),
+                        underline: Container(
+                          height: 0,
+                          color: Colors.deepPurpleAccent,
+                        ),
+                        onChanged: (String? value) {
+                          // setState(() {
+                          //   name = value!;
+                          // });
+                        },
+                        items: ['hi', 'go'].map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(
+                              value,
+                              // style: MyTextStyle.subTitle2.copyWith(color: Palettes.black),
+                            ),
+                            // ),
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                    const CustomTextField(
                       name: 'Gender:',
-                      prefixIconPath: MyIcon.password,
+                      prefixIconPath: MyIcon.sex,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
+                      suffixIconPath: MyIcon.polygon,
                     ),
-                    CustomTextField(
+                    const CustomTextField(
                       name: 'WhatsApp:',
-                      prefixIconPath: MyIcon.password,
+                      prefixIconPath: MyIcon.whatsapp,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
-                    CustomTextField(
+                    const CustomTextField(
                       name: 'Telephone:',
-                      prefixIconPath: MyIcon.password,
+                      prefixIconPath: MyIcon.telephone,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
-                    CustomTextField(
+                    const CustomTextField(
                       name: 'Email:',
-                      prefixIconPath: MyIcon.password,
+                      prefixIconPath: MyIcon.mail,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
                   ],
@@ -136,19 +176,68 @@ class _RegistrationMobile extends StatelessWidget {
                   children: <Widget>[
                     const CustomTextField(
                       name: 'Country:',
-                      prefixIconPath: MyIcon.password,
+                      prefixIconPath: MyIcon.mail,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
+                      suffixIconPath: MyIcon.polygon,
                     ),
                     const CustomTextField(
                       name: 'State/Province:',
-                      prefixIconPath: MyIcon.password,
+                      prefixIconPath: MyIcon.locationPin,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
+                      suffixIconPath: MyIcon.polygon,
                     ),
                     const CustomTextField(
                       name: 'City:',
-                      prefixIconPath: MyIcon.password,
+                      prefixIconPath: MyIcon.place,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
+                    const CustomTextField(
+                      height: 90,
+                      name: 'Additional Information:',
+                      prefixIconPath: MyIcon.information,
+                      widgetMargin: EdgeInsets.symmetric(vertical: 5),
+                      prefixPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 35),
+                      // prefixPadding: EdgeInsets.symmetric(
+                      //   vertical: 1000,
+                      // ),
+                      // maxLength: 500,
+                      // maxLines: 0,
+                      // minLines: 10,
+                      maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                    ),
+                    // Container(
+                    //   margin: EdgeInsets.only(top: 0.5.h),
+                    //   decoration: BoxDecoration(
+                    //     // color: Palettes.transparent,
+                    //     border: Border.all(width: 1, color: Palettes.white),
+                    //     borderRadius: BorderRadius.circular(12),
+                    //   ),
+                    //   child: TextFormField(
+                    //     autofocus: false,
+                    //     // controller: _desc,
+                    //     maxLength: 500,
+                    //     maxLines: 20,
+                    //     minLines: 10,
+                    //     maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                    //     // style: MyTextStyle.bodyText1.copyWith(color: Palettes.black),
+                    //     decoration: InputDecoration(
+                    //       contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    //       fillColor: Colors.white,
+                    //       filled: true,
+                    //       hintText: 'About Me',
+                    //       // hintStyle: MyTextStyle.bodyText1.copyWith(color: Palettes.grey),
+                    //       errorBorder: InputBorder.none,
+                    //       border: const OutlineInputBorder(
+                    //         borderSide: BorderSide.none,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                    // const CustomTextField(
+                    //   name: 'City:',
+                    //   prefixIconPath: MyIcon.place,
+                    //   widgetMargin: EdgeInsets.symmetric(vertical: 5),
+                    // ),
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 5),
                       height: 200,
