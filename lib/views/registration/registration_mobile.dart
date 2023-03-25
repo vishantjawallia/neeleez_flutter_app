@@ -196,7 +196,7 @@ class _RegistrationMobile extends StatelessWidget {
                       name: 'Additional Information:',
                       prefixIconPath: MyIcon.information,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
-                      prefixPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 35),
+                      prefixPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 30),
                       // prefixPadding: EdgeInsets.symmetric(
                       //   vertical: 1000,
                       // ),
@@ -277,7 +277,7 @@ class _RegistrationMobile extends StatelessWidget {
                   children: <Widget>[
                     const CustomTextField(
                       name: 'Username / Email:',
-                      prefixIconPath: MyIcon.password,
+                      prefixIconPath: MyIcon.user,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
                     const CustomTextField(

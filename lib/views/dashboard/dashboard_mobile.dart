@@ -83,7 +83,7 @@ class _DashboardMobile extends StatelessWidget {
                 ),
               ),
               Container(
-                height:100.h,
+                height: 100.h,
                 width: 100.w,
                 padding: EdgeInsets.symmetric(vertical: 50),
                 color: Colors.transparent,
@@ -91,101 +91,18 @@ class _DashboardMobile extends StatelessWidget {
                   scrollDirection: Axis.vertical,
                   child: Column(
                     children: [
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
-                      ),
-                      Text(
-                        'Dashboard',
-                        style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
+                      GestureDetector(
+                        onTap: () {
+                          try {
+                            _scaffoldKey.currentState!.openDrawer();
+                          } catch (e) {
+                            Get.log("$e");
+                          }
+                        },
+                        child: Text(
+                          'Dashboard',
+                          style: Get.textTheme.displayLarge!.copyWith(color: Palettes.red),
+                        ),
                       ),
                     ],
                     // Text(

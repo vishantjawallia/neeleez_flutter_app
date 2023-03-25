@@ -21,6 +21,7 @@ class CustomTextField extends StatelessWidget {
   final EdgeInsetsGeometry? prefixPadding;
   final EdgeInsetsGeometry? widgetMargin;
   final MaxLengthEnforcement? maxLengthEnforcement;
+  final Widget? suffixIconWidget;
   final bool? obscureText;
   final bool? autofocus;
   final bool? enabled;
@@ -46,7 +47,8 @@ class CustomTextField extends StatelessWidget {
     this.height,
     this.prefixPadding,
     this.onTap,
-    this.enabled = false,
+    this.enabled = true,
+    this.suffixIconWidget,
   }) : super(key: key);
 
   @override
@@ -70,7 +72,7 @@ class CustomTextField extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-            padding: prefixPadding ?? const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            padding: prefixPadding ?? const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
             decoration: BoxDecoration(
               color: Palettes.greyPrimary,
               borderRadius: Helper.isRtl()
@@ -88,8 +90,8 @@ class CustomTextField extends StatelessWidget {
               filterQuality: FilterQuality.high,
               isAntiAlias: true,
               color: prefixIconColor,
-              height: 16,
-              width: 16,
+              height: 26,
+              width: 26,
             ),
           ),
           Flexible(
@@ -105,7 +107,6 @@ class CustomTextField extends StatelessWidget {
                 autocorrect: true,
                 // onTap: onTap,
                 enabled: enabled,
-
                 // onChanged: (value) => onChanged!(value),
                 obscureText: obscureText ?? false,
                 decoration: InputDecoration(
@@ -133,6 +134,7 @@ class CustomTextField extends StatelessWidget {
                   ),
                 )
               : const SizedBox(),
+          suffixIconWidget ?? const SizedBox(),
         ],
       ),
     );

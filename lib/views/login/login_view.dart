@@ -26,16 +26,17 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<LoginViewModel>.reactive(
-        viewModelBuilder: () => LoginViewModel(),
-        onViewModelReady: (viewModel) {
-          // Do something once your viewModel is initialized
-        },
-        builder: (context, viewModel, child) {
-          return ScreenTypeLayout.builder(
-            mobile: (_) => _LoginMobile(viewModel),
-            desktop: (_) => _LoginMobile(viewModel),
-            tablet: (_) => _LoginMobile(viewModel),
-          );
-        });
+      viewModelBuilder: () => LoginViewModel(),
+      onViewModelReady: (viewModel) {
+        // Do something once your viewModel is initialized
+      },
+      builder: (context, viewModel, child) {
+        return ScreenTypeLayout.builder(
+          mobile: (_) => _LoginMobile(viewModel),
+          desktop: (_) => _LoginMobile(viewModel),
+          tablet: (_) => _LoginMobile(viewModel),
+        );
+      },
+    );
   }
 }

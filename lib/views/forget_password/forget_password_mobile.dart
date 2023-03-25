@@ -1,13 +1,11 @@
-// ignore_for_file: prefer_final_fields
-
-part of mobile_verification_view;
+part of forget_password_view;
 
 // ignore: must_be_immutable
-class _MobileVerificationMobile extends StatelessWidget {
-  final MobileVerificationViewModel viewModel;
+class _ForgetPasswordMobile extends StatelessWidget {
+  final ForgetPasswordViewModel viewModel;
 
-  _MobileVerificationMobile(this.viewModel);
-  TextEditingController _phone = TextEditingController();
+  _ForgetPasswordMobile(this.viewModel);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +36,7 @@ class _MobileVerificationMobile extends StatelessWidget {
                   GestureDetector(
                     onTap: () => Get.locale == const Locale('ur', 'PK') ? Get.updateLocale(const Locale('en', 'US')) : Get.updateLocale(const Locale('ur', 'PK')),
                     child: Text(
-                      'Mobile Verification'.tr,
+                      'forgetPass'.tr,
                       style: Get.textTheme.displayLarge,
                     ),
                   ),
@@ -46,23 +44,29 @@ class _MobileVerificationMobile extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 22),
                     child: Text(
-                      'mobileVerificationText'.tr,
+                      'forgetPassText'.tr,
                       style: Get.textTheme.bodyMedium,
                       textAlign: TextAlign.center,
                     ),
                   ),
                   SizedBox(height: 3.h),
-                  PhoneTextField(
-                    controller: _phone,
-                    name: 'XXX-XXXXXXX',
-                    obscureText: false,
-                    prefixIconPath: MyIcon.mobileAnalytics,
-                    suffixIconPath: MyIcon.checked,
+                  const CustomTextField(
+                    name: 'Email',
+                    prefixIconPath: MyIcon.mail,
+                    prefixIconColor: Palettes.black,
+                    widgetMargin: EdgeInsets.symmetric(vertical: 5),
                   ),
+                  // PhoneTextField(
+                  //   controller: _phone,
+                  //   name: 'XXX-XXXXXXX',
+                  //   obscureText: false,
+                  //   prefixIconPath: MyIcon.mobileAnalytics,
+                  //   suffixIconPath: MyIcon.checked,
+                  // ),
                   SizedBox(height: 3.h),
                   CustomButton(
                     onTap: viewModel.sendHandler,
-                    text: 'sendOtp'.tr,
+                    text: 'send'.tr.capitalizeFirst,
                     padding: const EdgeInsets.symmetric(horizontal: 85, vertical: 12),
                   ),
                 ],

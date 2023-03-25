@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
+import 'package:neeleez_flutter_app/views/forget_password/forget_password_view.dart';
 import 'package:neeleez_flutter_app/views/mobile_verification/mobile_verification_view.dart';
-import 'package:neeleez_flutter_app/views/registration/registration_view.dart';
 import 'package:stacked/stacked.dart';
 
 import '../dashboard/dashboard_view.dart';
@@ -37,6 +37,6 @@ class LoginViewModel extends BaseViewModel {
   }
 
   void forgetPasswordHandler() {
-    Get.to(() => const RegistrationView());
+    Get.to(() =>  ForgetPasswordView());
   }
 }

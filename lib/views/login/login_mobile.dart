@@ -6,8 +6,8 @@ class _LoginMobile extends StatelessWidget {
 
   _LoginMobile(this.viewModel);
 
-  TextEditingController _email = TextEditingController();
-  TextEditingController _password = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +22,7 @@ class _LoginMobile extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 28),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -33,7 +33,6 @@ class _LoginMobile extends StatelessWidget {
                 ),
                 SizedBox(height: 5.h),
                 Column(
-                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     GestureDetector(
@@ -44,17 +43,15 @@ class _LoginMobile extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 2.h),
-                    // const SizedBox(height: 30),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Text(
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedadipiscing elit",
+                        'loginText'.tr,
                         style: Get.textTheme.bodyText2,
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    SizedBox(height: 5.h),
-                    // const SizedBox(height: 36),
+                    SizedBox(height: 3.h),
                     CustomTextField(
                       controller: _email,
                       name: 'Username / Email:',
@@ -62,7 +59,6 @@ class _LoginMobile extends StatelessWidget {
                       suffixIconPath: MyIcon.checked1,
                       widgetMargin: const EdgeInsets.symmetric(vertical: 10),
                     ),
-                    // const SizedBox(height: 12),
                     CustomTextField(
                       controller: _password,
                       name: 'Password',
@@ -106,7 +102,7 @@ class _LoginMobile extends StatelessWidget {
                     CustomButton(
                       onTap: viewModel.loginHandler,
                       text: 'loginNow'.tr,
-                      padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 12),
+                      padding: const EdgeInsets.symmetric(vertical: 12),
                     ),
                   ],
                 ),

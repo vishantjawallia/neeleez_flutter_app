@@ -49,8 +49,8 @@ class _SplashMobile extends StatelessWidget {
             Column(
               children: [
                 const SizedBox(
-                  height: 30,
-                  width: 30,
+                  height: 25,
+                  width: 25,
                   child: CircularProgressIndicator(
                     color: Palettes.white,
                     strokeWidth: 3,

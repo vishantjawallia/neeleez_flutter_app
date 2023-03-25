@@ -1,5 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:neeleez_flutter_app/config/my_icon.dart';
+
 const String APP_NAME = "Neeleez - We Care (Services)";
 
 const String baseUrl = "http://api.kayyen.com";
@@ -17,50 +19,93 @@ List drawer = [
     "id": 1,
     "name": "Dashboard",
     "route": "",
+    "icon":MyIcon.checked,
   },
   {
     "id": 2,
-    "name": "Story Page",
+    "name": "Appointments",
     "route": "",
+    "icon":MyIcon.checked,
   },
   {
     "id": 3,
-    "name": "Packages",
+    "name": "Promo Codes",
     "route": "",
+    "icon":MyIcon.checked,
   },
   {
     "id": 4,
-    "name": "Payments",
+    "name": "Story Page",
     "route": "",
+    "icon":MyIcon.checked,
   },
   {
     "id": 5,
-    "name": "Services",
+    "name": "Online Payments",
     "route": "",
+    "icon":MyIcon.checked,
+     "line":true,
   },
   {
     "id": 6,
-    "name": "Appointments",
+    "name": "Data Listing",
     "route": "",
+    "icon":MyIcon.checked,
   },
   {
     "id": 6,
-    "name": "Staff Management",
+    "name": "Service Providers",
     "route": "",
+    "icon":MyIcon.checked,
   },
   {
     "id": 7,
-    "name": "Support",
+    "name": "Ecommerce",
     "route": "",
+    "icon":MyIcon.checked,
   },
   {
     "id": 8,
-    "name": "Preferences",
+    "name": "Company Profile",
     "route": "",
+    "icon":MyIcon.checked,
+  },
+  {
+    "id": 9,
+    "name": "Change Password",
+    "route": "",
+    "icon":MyIcon.checked,
+     "line":true,
+  },
+  {
+    "id": 9,
+    "name": "Package Subscriptions",
+    "route": "",
+    "icon":MyIcon.checked,
+  },
+  {
+    "id": 9,
+    "name": "Payment History",
+    "route": "",
+    "icon":MyIcon.checked,
+    "line":true,
+  },
+  {
+    "id": 9,
+    "name": "Support",
+    "route": "",
+    "icon":MyIcon.checked,
+  },
+  {
+    "id": 9,
+    "name": "About",
+    "route": "",
+    "icon":MyIcon.checked,
   },
   {
     "id": 9,
     "name": "Logout",
     "route": "",
-  }
+    "icon":MyIcon.checked,
+  },
 ];

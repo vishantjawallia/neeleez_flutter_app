@@ -14,13 +14,21 @@ class CustomDrawer extends Drawer {
   Widget build(BuildContext context) {
     return SafeArea(
       child: ClipRRect(
-        borderRadius: const BorderRadius.only(topRight: Radius.circular(24), bottomRight: Radius.circular(24)),
+        borderRadius: Helper.isRtl()
+            ? const BorderRadius.only(
+                topRight: Radius.circular(24),
+                bottomRight: Radius.circular(24),
+              )
+            : const BorderRadius.only(
+                topLeft: Radius.circular(24),
+                bottomLeft: Radius.circular(24),
+              ),
         child: Drawer(
           width: 80.w,
           child: Column(
             children: [
               Container(
-                height: 20.h,
+                height: 22.h,
                 width: 100.w,
                 padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 22),
                 color: Palettes.primary,
@@ -63,7 +71,7 @@ class CustomDrawer extends Drawer {
                         ),
                         Text(
                           'Fransesca@gmail.com',
-                          style: Get.textTheme.bodyText1!.copyWith(color: Palettes.white.withOpacity(0.6)),
+                          style: Get.textTheme.bodyText1!.copyWith(color: Palettes.white),
                         ),
                       ],
                     )
@@ -73,40 +81,55 @@ class CustomDrawer extends Drawer {
               Flexible(
                 fit: FlexFit.loose,
                 child: ListView.builder(
+                  physics: const ClampingScrollPhysics(),
                   itemCount: drawer.length,
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
-                  padding: const EdgeInsets.symmetric(vertical: 30),
+                  padding: const EdgeInsets.symmetric(vertical: 14),
                   itemBuilder: (context, index) {
-                    String name = drawer[index]['name'];
+                    Map obj = drawer[index] as Map;
+                    String name = obj['name'];
+                    bool isLine = obj.containsKey('line') ? true : false;
                     return Container(
                       alignment: Alignment.center,
-                      height: 5.3.h,
-                      padding: const EdgeInsets.only(left: 14),
+                      height: 46,
+                      padding: Helper.isRtl() ? const EdgeInsets.only(left: 14) : const EdgeInsets.only(right: 14),
                       decoration: BoxDecoration(
-                        border: Border(
-                          left: BorderSide(
-                            color: index == 0 ? Palettes.primary : Colors.transparent,
-                            width: 2.5,
-                            style: BorderStyle.solid,
+                          border: Border(
+                              bottom: BorderSide(
+                        color: isLine ? Palettes.grey2 : Colors.transparent,
+                      ))
+                          // border: Border(
+                          //   left: BorderSide(
+                          //     color: index == 0 ? Palettes.primary : Colors.transparent,
+                          //     width: 2.5,
+                          //     style: BorderStyle.solid,
+                          //   ),
+                          // ),
                           ),
-                        ),
-                      ),
                       child: Row(
                         children: <Widget>[
-                          const Icon(
-                            Icons.dashboard_customize,
-                            size: 20,
-                          ),
-                          const SizedBox(width: 20),
+                          const Icon(Icons.dashboard_customize, size: 20),
+                          const SizedBox(width: 16),
                           Text(
                             name,
-                            style: Get.textTheme.bodyText1!.copyWith(color: Palettes.primary),
+                            style: Get.textTheme.bodyText1!.copyWith(
+                              color: Palettes.black,
+                              fontWeight: FontWeight.w600,
+                              // letterSpacing: 1,
+                            ),
                           )
                         ],
                       ),
                     );
                   },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 6),
+                child: Text(
+                  '0.0.7',
+                  style: Get.textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w700, color: Palettes.red),
                 ),
               ),
             ],

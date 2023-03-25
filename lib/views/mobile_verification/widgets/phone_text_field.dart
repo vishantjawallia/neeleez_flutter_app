@@ -53,9 +53,7 @@ class PhoneTextField extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-            // height: 20,
-            // width: 20,
-            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             decoration: BoxDecoration(
               color: Palettes.greyPrimary,
               borderRadius: Helper.isRtl()
@@ -80,29 +78,55 @@ class PhoneTextField extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(vertical: 4),
             width: 65,
-            decoration: const BoxDecoration(
-              border: Border(
-                right: BorderSide(width: 0.5, color: Palettes.primary),
-              ),
-            ),
+            // decoration: const BoxDecoration(
+            //   border: Border(
+            //     right: BorderSide(width: 0.5, color: Palettes.primary),
+            //   ),
+            // ),
             child: Text(
               '+212',
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.red, fontWeight: FontWeight.w700),
               textAlign: TextAlign.center,
             ),
           ),
+          // SizedBox(
+          //   width: 55,
+          //   child: CountryCodePicker(
+          //     padding: EdgeInsets.zero,
+          //     onChanged: print,
+          //     initialSelection: 'IT',
+          //     favorite: const ['+39', 'FR'],
+          //     countryFilter: const ['IT', 'FR'],
+          //     // showDropDownButton: true,
+          //     textStyle: Get.textTheme.bodyLarge!.copyWith(color: Palettes.red, fontWeight: FontWeight.w700),
+          //     showFlagDialog: false,
+          //     showFlag: false,
+          //     comparator: (a, b) => b.name!.compareTo(a.name!),
+          //     onInit: (code) => debugPrint("on init ${code!.name} ${code.dialCode} ${code.name}"),
+
+          //   ),
+          // ),
           Flexible(
-            child: TextField(
-              // onChanged: (value) => onChanged!(value),
-              keyboardType: TextInputType.phone,
-              obscureText: obscureText ?? false,
-              controller: controller,
-              decoration: InputDecoration(
-                contentPadding: const EdgeInsets.symmetric(horizontal: 14),
-                border: InputBorder.none,
-                hintText: name ?? 'Username / Email :',
-                hintStyle: Get.textTheme.bodyLarge!.copyWith(color: Palettes.primary, fontWeight: FontWeight.w600),
-                isDense: true,
+            child: Container(
+              margin: const EdgeInsets.symmetric(vertical: 8),
+              // width: 65,
+              decoration: const BoxDecoration(
+                border: Border(
+                  left: BorderSide(width: 1, color: Palettes.primary),
+                ),
+              ),
+              child: TextField(
+                // onChanged: (value) => onChanged!(value),
+                keyboardType: TextInputType.phone,
+                obscureText: obscureText ?? false,
+                controller: controller,
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 14),
+                  border: InputBorder.none,
+                  hintText: name ?? 'Username / Email :',
+                  hintStyle: Get.textTheme.bodyLarge!.copyWith(color: Palettes.primary, fontWeight: FontWeight.w600),
+                  isDense: true,
+                ),
               ),
             ),
           ),
