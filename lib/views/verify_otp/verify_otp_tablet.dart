@@ -4,11 +4,11 @@ part of verify_otp_view;
 class _VerifyOtpTablet extends StatelessWidget {
   final VerifyOtpViewModel viewModel;
 
-  _VerifyOtpTablet(this.viewModel);
+  const _VerifyOtpTablet(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(child: Text('VerifyOtpTablet')),
     );
   }

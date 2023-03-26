@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
+import 'package:neeleez_flutter_app/config/pref_constant.dart';
 import 'package:neeleez_flutter_app/views/login/login_view.dart';
-import 'package:neeleez_flutter_app/views/on_boarding_3/on_boarding_3_view.dart';
 import 'package:stacked/stacked.dart';
+
+import '../../config/preference.dart';
 
 class OnBoarding3ViewModel extends BaseViewModel {
   OnBoarding3ViewModel() {
@@ -18,7 +20,9 @@ class OnBoarding3ViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void onTap() {
-    Get.to(() => const LoginView());
+  void onTap() async {
+    await SharedPreferenceHelper.setBoolean(Preferences.isOnboardingCompleted, true).then((value) {
+      Get.to(() => const LoginView());
+    });
   }
 }

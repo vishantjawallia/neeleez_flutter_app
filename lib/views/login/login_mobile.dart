@@ -6,15 +6,15 @@ class _LoginMobile extends StatelessWidget {
 
   _LoginMobile(this.viewModel);
 
-  final TextEditingController _email = TextEditingController();
-  final TextEditingController _password = TextEditingController();
+  // final TextEditingController _email = TextEditingController();
+  // final TextEditingController _password = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    Get.log(jsonEncode(viewModel.isBusy));
     return Scaffold(
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
+      body: ModalProgressHUD(
+        load: viewModel.isBusy,
         child: Container(
-          height: 100.h,
           decoration: const BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.fill,
@@ -53,18 +53,20 @@ class _LoginMobile extends StatelessWidget {
                     ),
                     SizedBox(height: 3.h),
                     CustomTextField(
-                      controller: _email,
+                      // controller: _email,
                       name: 'Username / Email:',
                       prefixIconPath: MyIcon.user,
                       suffixIconPath: MyIcon.checked1,
                       widgetMargin: const EdgeInsets.symmetric(vertical: 10),
+                      onChanged: viewModel.onChangeEmail,
                     ),
                     CustomTextField(
-                      controller: _password,
+                      // controller: _password,
                       name: 'Password',
                       obscureText: true,
                       prefixIconPath: MyIcon.password,
                       suffixIconPath: MyIcon.checked1,
+                      onChanged: viewModel.onChangePassword,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -107,7 +109,7 @@ class _LoginMobile extends StatelessWidget {
                   ],
                 ),
                 Align(
-                  heightFactor: 5.5.sp,
+                  heightFactor: 1.4.h,
                   alignment: Alignment.bottomCenter,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

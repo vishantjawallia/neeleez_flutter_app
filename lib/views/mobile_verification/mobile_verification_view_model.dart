@@ -1,10 +1,13 @@
+import 'package:get/get.dart';
 import 'package:stacked/stacked.dart';
 
+import '../verify_otp/verify_otp_view.dart';
+
 class MobileVerificationViewModel extends BaseViewModel {
-  MobileVerificationViewModel(){
+  MobileVerificationViewModel() {
     loadItems();
   }
-  
+
   // Add ViewModel specific code here
   Future<void> loadItems() async {
     setBusy(true);
@@ -15,7 +18,7 @@ class MobileVerificationViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-
   void sendHandler() {
+    Get.off(() => VerifyOtpView());
   }
 }

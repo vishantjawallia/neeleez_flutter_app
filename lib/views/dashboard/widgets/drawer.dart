@@ -3,7 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
+import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
+import 'package:neeleez_flutter_app/views/login/login_view.dart';
 
 import '../../../config/config.dart';
 
@@ -90,36 +92,43 @@ class CustomDrawer extends Drawer {
                     Map obj = drawer[index] as Map;
                     String name = obj['name'];
                     bool isLine = obj.containsKey('line') ? true : false;
-                    return Container(
-                      alignment: Alignment.center,
-                      height: 46,
-                      padding: Helper.isRtl() ? const EdgeInsets.only(left: 14) : const EdgeInsets.only(right: 14),
-                      decoration: BoxDecoration(
-                          border: Border(
-                              bottom: BorderSide(
-                        color: isLine ? Palettes.grey2 : Colors.transparent,
-                      ))
-                          // border: Border(
-                          //   left: BorderSide(
-                          //     color: index == 0 ? Palettes.primary : Colors.transparent,
-                          //     width: 2.5,
-                          //     style: BorderStyle.solid,
-                          //   ),
-                          // ),
-                          ),
-                      child: Row(
-                        children: <Widget>[
-                          const Icon(Icons.dashboard_customize, size: 20),
-                          const SizedBox(width: 16),
-                          Text(
-                            name,
-                            style: Get.textTheme.bodyText1!.copyWith(
-                              color: Palettes.black,
-                              fontWeight: FontWeight.w600,
-                              // letterSpacing: 1,
+                    return InkWell(
+                      onTap: () async {
+                        // if()
+                        SharedPreferenceHelper.clearPref();
+                        Get.off(() => const LoginView(), transition: Transition.native);
+                      },
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 46,
+                        padding: Helper.isRtl() ? const EdgeInsets.only(left: 14) : const EdgeInsets.only(right: 14),
+                        decoration: BoxDecoration(
+                            border: Border(
+                                bottom: BorderSide(
+                          color: isLine ? Palettes.grey2 : Colors.transparent,
+                        ))
+                            // border: Border(
+                            //   left: BorderSide(
+                            //     color: index == 0 ? Palettes.primary : Colors.transparent,
+                            //     width: 2.5,
+                            //     style: BorderStyle.solid,
+                            //   ),
+                            // ),
                             ),
-                          )
-                        ],
+                        child: Row(
+                          children: <Widget>[
+                            const Icon(Icons.dashboard_customize, size: 20),
+                            const SizedBox(width: 16),
+                            Text(
+                              name,
+                              style: Get.textTheme.bodyText1!.copyWith(
+                                color: Palettes.black,
+                                fontWeight: FontWeight.w600,
+                                // letterSpacing: 1,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     );
                   },

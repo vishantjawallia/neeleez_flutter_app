@@ -60,6 +60,7 @@ class _MyAppState extends State<MyApp> {
               titleLarge: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 15, color: Palettes.white),
               bodyLarge: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 14, color: Palettes.white),
               bodyMedium: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 13, color: Palettes.white),
+              bodySmall: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 12, color: Palettes.white),
             ),
       ),
       home: const SplashView(),
@@ -74,7 +75,7 @@ class _MyAppState extends State<MyApp> {
         GetPage(name: LoginView.routeName, page: () => const LoginView()),
         GetPage(name: RegistrationView.routeName, page: () => const RegistrationView()),
         GetPage(name: RegistrationView.routeName, page: () => const RegistrationView()),
-        GetPage(name: DashboardView.routeName, page: () => const DashboardView(), middlewares: [AuthMiddleware()]),
+        GetPage(name: DashboardView.routeName, page: () => const DashboardView(), middlewares: [AuthMiddleware()],),
       ],
     );
   }
