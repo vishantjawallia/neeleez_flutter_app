@@ -4,5 +4,6 @@ class Url {
   Url._();
 
   static const String countryInfo = "https://ipwhois.app/json/";
-  static const String login = "$baseUrl/api/Customer/CustomerSignIn/";
+  static const String CustomerSignIn = "$baseUrl/api/Customer/CustomerSignIn/";
+  static const String customerById = "$baseUrl/api/Customer";
 }

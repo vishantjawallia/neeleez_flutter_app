@@ -25,6 +25,7 @@ void main() async {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await LocatorInjector.setupLocator();
   await SharedPreferenceHelper.init();
+  // SharedPreferenceHelper.clearPref();
   runApp(
     MultiProvider(
       providers: ProviderInjector.providers,

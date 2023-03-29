@@ -76,7 +76,7 @@ class _RegistrationMobile extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    const CustomTextField(
+                    CustomTextField(
                       name: 'Company Name:',
                       prefixIconPath: MyIcon.officeBuilding,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
@@ -124,23 +124,23 @@ class _RegistrationMobile extends StatelessWidget {
                         }).toList(),
                       ),
                     ),
-                    const CustomTextField(
+                    CustomTextField(
                       name: 'Gender:',
                       prefixIconPath: MyIcon.sex,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                       suffixIconPath: MyIcon.polygon,
                     ),
-                    const CustomTextField(
+                    CustomTextField(
                       name: 'WhatsApp:',
                       prefixIconPath: MyIcon.whatsapp,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
-                    const CustomTextField(
+                    CustomTextField(
                       name: 'Telephone:',
                       prefixIconPath: MyIcon.telephone,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
-                    const CustomTextField(
+                    CustomTextField(
                       name: 'Email:',
                       prefixIconPath: MyIcon.mail,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
@@ -174,24 +174,24 @@ class _RegistrationMobile extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    const CustomTextField(
+                    CustomTextField(
                       name: 'Country:',
                       prefixIconPath: MyIcon.mail,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                       suffixIconPath: MyIcon.polygon,
                     ),
-                    const CustomTextField(
+                    CustomTextField(
                       name: 'State/Province:',
                       prefixIconPath: MyIcon.locationPin,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                       suffixIconPath: MyIcon.polygon,
                     ),
-                    const CustomTextField(
+                    CustomTextField(
                       name: 'City:',
                       prefixIconPath: MyIcon.place,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
-                    const CustomTextField(
+                    CustomTextField(
                       height: 90,
                       name: 'Additional Information:',
                       prefixIconPath: MyIcon.information,
@@ -233,7 +233,7 @@ class _RegistrationMobile extends StatelessWidget {
                     //     ),
                     //   ),
                     // ),
-                    // const CustomTextField(
+                    //CustomTextField(
                     //   name: 'City:',
                     //   prefixIconPath: MyIcon.place,
                     //   widgetMargin: EdgeInsets.symmetric(vertical: 5),
@@ -275,12 +275,12 @@ class _RegistrationMobile extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    const CustomTextField(
+                    CustomTextField(
                       name: 'Username / Email:',
                       prefixIconPath: MyIcon.user,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
-                    const CustomTextField(
+                    CustomTextField(
                       name: 'Password:',
                       prefixIconPath: MyIcon.password,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),

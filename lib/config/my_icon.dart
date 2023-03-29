@@ -30,4 +30,23 @@ class MyIcon {
   static const String locationPin = "$icons/location-pin.png";
   static const String place = "$icons/place.png";
   static const String information = "$icons/information.png";
+  static const String iconEye2 = "$icons/icon_eye2.png";
+  static const String menu2Appointments = "$icons/menu2_appointments.png";
+  static const String menu2Dashboard = "$icons/menu2_dashboard.png";
+  static const String menu2Logout = "$icons/menu2_logout.png";
+  static const String menu2Packages = "$icons/menu2_packages.png";
+  static const String menu2Payments = "$icons/menu2_payments.png";
+  static const String menu2Preferences = "$icons/menu2_prefernces.png";
+  static const String menu2Services = "$icons/menu2_services.png";
+  static const String menu2StaffManagement = "$icons/menu2_staff_management.png";
+  static const String menu2StoryPage = "$icons/menu2_story_page.png";
+  static const String menu2Support = "$icons/menu2_support.png";
+  static const String pin = "$icons/pin.png";
+  static const String popC = "$icons/pop_c.png";
+  static const String popD = "$icons/pop_d.png";
+  static const String popE = "$icons/pop_e.png";
+  static const String popF = "$icons/pop_f.png";
+  static const String popG = "$icons/pop_g.png";
+  static const String staffGeneral = "$icons/Staff_General.png";
+  static const String upArrow = "$icons/up_arrow.png";
 }

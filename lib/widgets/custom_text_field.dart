@@ -17,6 +17,7 @@ class CustomTextField extends StatelessWidget {
   final int? maxLines;
   final int? minLines;
   final String? suffixIconPath;
+  final bool? checkedSuffixIcon;
   final EdgeInsetsGeometry? inputFieldPadding;
   final EdgeInsetsGeometry? prefixPadding;
   final EdgeInsetsGeometry? widgetMargin;
@@ -49,6 +50,7 @@ class CustomTextField extends StatelessWidget {
     this.onTap,
     this.enabled = true,
     this.suffixIconWidget,
+    this.checkedSuffixIcon = false,
   }) : super(key: key);
 
   @override
@@ -98,7 +100,7 @@ class CustomTextField extends StatelessWidget {
             child: Container(
               // color: Palettes.,
               child: TextField(
-                autofocus: autofocus ?? false,
+                // autofocus: autofocus ?? false,
                 controller: controller,
                 maxLength: maxLength,
                 maxLines: maxLines ?? 1,
@@ -119,6 +121,21 @@ class CustomTextField extends StatelessWidget {
               ),
             ),
           ),
+          // obscureText ?? false
+          //     ? Container(
+          //         padding: const EdgeInsets.only(bottom: 7),
+          //         child: Padding(
+          //           padding: Helper.isRtl() ? const EdgeInsets.only(right: 10, top: 6) : const EdgeInsets.only(left: 10, top: 6),
+          //           child: Image.asset(
+          //             '',
+          //             height: 26,
+          //             width: 26,
+          //             filterQuality: FilterQuality.high,
+          //             isAntiAlias: true,
+          //           ),
+          //         ),
+          //       )
+          //     : const SizedBox(),
           suffixIconPath!.isNotEmpty
               ? Container(
                   padding: const EdgeInsets.only(bottom: 7),
@@ -126,8 +143,8 @@ class CustomTextField extends StatelessWidget {
                     padding: Helper.isRtl() ? const EdgeInsets.only(right: 10, top: 6) : const EdgeInsets.only(left: 10, top: 6),
                     child: Image.asset(
                       suffixIconPath!,
-                      height: 16,
-                      width: 16,
+                      height: 20,
+                      width: 20,
                       filterQuality: FilterQuality.high,
                       isAntiAlias: true,
                     ),

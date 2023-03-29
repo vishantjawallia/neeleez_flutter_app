@@ -28,8 +28,8 @@ class SplashViewModel extends BaseViewModel {
         await SharedPreferenceHelper.setString(Preferences.countryInfo, jsonEncode(res));
         bool isOnboardingCompleted = SharedPreferenceHelper.getBoolean(Preferences.isOnboardingCompleted);
         bool isLogged = SharedPreferenceHelper.getBoolean(Preferences.isLogged);
-        int customerId = SharedPreferenceHelper.getInt(Preferences.customerId);
-        if (isLogged && customerId > 0) {
+        String? customerId = SharedPreferenceHelper.getString(Preferences.customerId);
+        if (isLogged && customerId != "N/A") {
           Get.off(() => const DashboardView(), transition: Transition.native);
         } else if (isOnboardingCompleted) {
           Get.off(() => const LoginView());
