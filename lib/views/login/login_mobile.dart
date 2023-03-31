@@ -1,13 +1,10 @@
 part of login_view;
 
-// ignore: must_be_immutable
 class _LoginMobile extends StatelessWidget {
   final LoginViewModel viewModel;
 
-  _LoginMobile(this.viewModel);
+  const _LoginMobile(this.viewModel);
 
-  // final TextEditingController _email = TextEditingController();
-  // final TextEditingController _password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     Get.log(jsonEncode(viewModel.isBusy));
@@ -39,7 +36,7 @@ class _LoginMobile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       GestureDetector(
-                        onTap: () => Get.locale == const Locale('ur', 'PK') ? Get.updateLocale(const Locale('en', 'US')) : Get.updateLocale(const Locale('ur', 'PK')),
+                        // onTap: () => Get.locale == const Locale('ur', 'PK') ? Get.updateLocale(const Locale('en', 'US')) : Get.updateLocale(const Locale('ur', 'PK')),
                         child: Text(
                           'logIn'.tr,
                           style: Get.textTheme.displayLarge,
@@ -62,16 +59,32 @@ class _LoginMobile extends StatelessWidget {
                         suffixIconPath: viewModel.usernameController.text.isNotEmpty ? MyIcon.checked1 : '',
                         widgetMargin: const EdgeInsets.symmetric(vertical: 10),
                       ),
-                      CustomTextField(
-                        controller: viewModel.passwordController,
-                        name: 'Password',
-                        obscureText: true,
-                        prefixIconPath: MyIcon.password,
-                        suffixIconPath: viewModel.passwordController.text.length > 5
-                            ? MyIcon.checked1
-                            : viewModel.passwordController.text.isNotEmpty
-                                ? MyIcon.crossed
-                                : '',
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          CustomTextField(
+                            controller: viewModel.passwordController,
+                            name: 'Password',
+                            obscureText: true,
+                            prefixIconPath: MyIcon.password,
+                            widgetMargin: const EdgeInsets.only(bottom: 6),
+                            suffixIconPath: viewModel.passwordController.text.length > 5
+                                ? MyIcon.checked1
+                                : viewModel.passwordController.text.isNotEmpty
+                                    ? MyIcon.crossed
+                                    : '',
+                          ),
+                          viewModel.passwordController.text.length > 5
+                              ? const SizedBox()
+                              : viewModel.passwordController.text.isNotEmpty
+                                  ? Text(
+                                      'Password must be atLeast 6 characters long',
+                                      style: Get.textTheme.bodySmall,
+                                      textAlign: TextAlign.right,
+                                    )
+                                  : const SizedBox(),
+                        ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

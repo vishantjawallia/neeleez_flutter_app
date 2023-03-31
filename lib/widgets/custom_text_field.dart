@@ -70,88 +70,91 @@ class CustomTextField extends StatelessWidget {
           BoxShadow(blurRadius: 0.4, color: Palettes.greyPrimary, spreadRadius: 0.2),
         ],
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Column(
         children: [
-          Container(
-            padding: prefixPadding ?? const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-            decoration: BoxDecoration(
-              color: Palettes.greyPrimary,
-              borderRadius: Helper.isRtl()
-                  ? const BorderRadius.only(
-                      topLeft: Radius.circular(8),
-                      bottomLeft: Radius.circular(8),
-                    )
-                  : const BorderRadius.only(
-                      topRight: Radius.circular(8),
-                      bottomRight: Radius.circular(8),
-                    ),
-            ),
-            child: Image.asset(
-              prefixIconPath!,
-              filterQuality: FilterQuality.high,
-              isAntiAlias: true,
-              color: prefixIconColor,
-              height: 26,
-              width: 26,
-            ),
-          ),
-          Flexible(
-            child: Container(
-              // color: Palettes.,
-              child: TextField(
-                // autofocus: autofocus ?? false,
-                controller: controller,
-                maxLength: maxLength,
-                maxLines: maxLines ?? 1,
-                minLines: minLines,
-                maxLengthEnforcement: maxLengthEnforcement ?? MaxLengthEnforcement.none,
-                autocorrect: true,
-                // onTap: onTap,
-                enabled: enabled,
-                // onChanged: (value) => onChanged!(value),
-                obscureText: obscureText ?? false,
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 14),
-                  border: InputBorder.none,
-                  hintText: name ?? 'Username / Email :',
-                  hintStyle: Get.textTheme.bodyText1!.copyWith(color: Palettes.primary, fontWeight: FontWeight.w600),
-                  isDense: true,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                padding: prefixPadding ?? const EdgeInsets.symmetric(horizontal: 14, vertical: 10.5),
+                decoration: BoxDecoration(
+                  color: Palettes.greyPrimary,
+                  borderRadius: Helper.isRtl()
+                      ? const BorderRadius.only(
+                          topLeft: Radius.circular(8),
+                          bottomLeft: Radius.circular(8),
+                        )
+                      : const BorderRadius.only(
+                          topRight: Radius.circular(8),
+                          bottomRight: Radius.circular(8),
+                        ),
+                ),
+                child: Image.asset(
+                  prefixIconPath!,
+                  filterQuality: FilterQuality.high,
+                  isAntiAlias: true,
+                  color: prefixIconColor,
+                  height: 26,
+                  width: 26,
                 ),
               ),
-            ),
-          ),
-          // obscureText ?? false
-          //     ? Container(
-          //         padding: const EdgeInsets.only(bottom: 7),
-          //         child: Padding(
-          //           padding: Helper.isRtl() ? const EdgeInsets.only(right: 10, top: 6) : const EdgeInsets.only(left: 10, top: 6),
-          //           child: Image.asset(
-          //             '',
-          //             height: 26,
-          //             width: 26,
-          //             filterQuality: FilterQuality.high,
-          //             isAntiAlias: true,
-          //           ),
-          //         ),
-          //       )
-          //     : const SizedBox(),
-          suffixIconPath!.isNotEmpty
-              ? Container(
-                  padding: const EdgeInsets.only(bottom: 7),
-                  child: Padding(
-                    padding: Helper.isRtl() ? const EdgeInsets.only(right: 10, top: 6) : const EdgeInsets.only(left: 10, top: 6),
-                    child: Image.asset(
-                      suffixIconPath!,
-                      height: 20,
-                      width: 20,
-                      filterQuality: FilterQuality.high,
-                      isAntiAlias: true,
+              Flexible(
+                child: Container(
+                  // color: Palettes.,
+                  child: TextField(
+                    // autofocus: autofocus ?? false,
+                    controller: controller,
+                    maxLength: maxLength,
+                    maxLines: maxLines ?? 1,
+                    minLines: minLines,
+                    maxLengthEnforcement: maxLengthEnforcement ?? MaxLengthEnforcement.none,
+                    // onTap: onTap,
+                    enabled: enabled,
+                    // onChanged: (value) => onChanged!(value),
+                    obscureText: obscureText ?? false,
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 14),
+                      border: InputBorder.none,
+                      hintText: name ?? 'Username / Email :',
+                      hintStyle: Get.textTheme.bodyMedium!.copyWith(color: Palettes.primary, fontWeight: FontWeight.w600),
+                      isDense: true,
                     ),
                   ),
-                )
-              : const SizedBox(),
-          suffixIconWidget ?? const SizedBox(),
+                ),
+              ),
+              // obscureText ?? false
+              //     ? Container(
+              //         padding: const EdgeInsets.only(bottom: 7),
+              //         child: Padding(
+              //           padding: Helper.isRtl() ? const EdgeInsets.only(right: 10, top: 6) : const EdgeInsets.only(left: 10, top: 6),
+              //           child: Image.asset(
+              //             '',
+              //             height: 26,
+              //             width: 26,
+              //             filterQuality: FilterQuality.high,
+              //             isAntiAlias: true,
+              //           ),
+              //         ),
+              //       )
+              //     : const SizedBox(),
+              suffixIconPath!.isNotEmpty
+                  ? Container(
+                      padding: const EdgeInsets.only(bottom: 7),
+                      child: Padding(
+                        padding: Helper.isRtl() ? const EdgeInsets.only(right: 10, top: 6) : const EdgeInsets.only(left: 10, top: 6),
+                        child: Image.asset(
+                          suffixIconPath!,
+                          height: 20,
+                          width: 20,
+                          filterQuality: FilterQuality.high,
+                          isAntiAlias: true,
+                        ),
+                      ),
+                    )
+                  : const SizedBox(),
+              suffixIconWidget ?? const SizedBox(),
+            ],
+          ),
         ],
       ),
     );

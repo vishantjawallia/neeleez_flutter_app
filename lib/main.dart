@@ -76,7 +76,11 @@ class _MyAppState extends State<MyApp> {
         GetPage(name: LoginView.routeName, page: () => const LoginView()),
         GetPage(name: RegistrationView.routeName, page: () => const RegistrationView()),
         GetPage(name: RegistrationView.routeName, page: () => const RegistrationView()),
-        GetPage(name: DashboardView.routeName, page: () => const DashboardView(), middlewares: [AuthMiddleware()],),
+        GetPage(
+          name: DashboardView.routeName,
+          page: () => const DashboardView(),
+          middlewares: [AuthMiddleware()],
+        ),
       ],
     );
   }

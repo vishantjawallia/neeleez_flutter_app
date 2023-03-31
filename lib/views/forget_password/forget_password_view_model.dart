@@ -3,8 +3,9 @@ import 'package:stacked/stacked.dart';
 
 class ForgetPasswordViewModel extends BaseViewModel {
   TextEditingController emailController = TextEditingController();
+  bool loading;
 
-  ForgetPasswordViewModel() {
+  ForgetPasswordViewModel(this.loading) {
     emailController.addListener(() {
       notifyListeners();
     });
@@ -13,11 +14,14 @@ class ForgetPasswordViewModel extends BaseViewModel {
 
   // Add ViewModel specific code here
   Future<void> loadItems() async {
-    setBusy(true);
+    // if(loading)
+    setBusy(loading);
     //Write your models loading codes here
 
     //Let other views to render again
-    setBusy(false);
+    Future.delayed(const Duration(seconds: 1), () {
+      setBusy(false);
+    });
     notifyListeners();
   }
 

@@ -4,11 +4,11 @@ part of forget_password_view;
 class _ForgetPasswordTablet extends StatelessWidget {
   final ForgetPasswordViewModel viewModel;
 
-  _ForgetPasswordTablet(this.viewModel);
+  const _ForgetPasswordTablet(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(child: Text('ForgetPasswordTablet')),
     );
   }

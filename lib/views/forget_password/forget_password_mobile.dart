@@ -9,74 +9,78 @@ class _ForgetPasswordMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        height: 100.h,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(
-              MyImage.splashBackground1,
+      body: ModalProgressHUD(
+        load: viewModel.isBusy,
+        child: Container(
+          height: 100.h,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(
+                MyImage.splashBackground1,
+              ),
             ),
           ),
-        ),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 28),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    SizedBox(height: 10.h),
-                    Image.asset(
-                      height: 115,
-                      MyImage.logo,
-                      fit: BoxFit.cover,
-                    ),
-                    SizedBox(height: 5.h),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        GestureDetector(
-                          onTap: () => Get.locale == const Locale('ur', 'PK') ? Get.updateLocale(const Locale('en', 'US')) : Get.updateLocale(const Locale('ur', 'PK')),
-                          child: Text(
-                            'forgetPass'.tr,
-                            style: Get.textTheme.displayLarge,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 28),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: [
+                      SizedBox(height: 10.h),
+                      Image.asset(
+                        height: 115,
+                        MyImage.logo,
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(height: 5.h),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          GestureDetector(
+                            onTap: () => Get.locale == const Locale('ur', 'PK') ? Get.updateLocale(const Locale('en', 'US')) : Get.updateLocale(const Locale('ur', 'PK')),
+                            child: Text(
+                              'forgetPass'.tr,
+                              style: Get.textTheme.displayLarge,
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 2.h),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 22),
-                          child: Text(
-                            'forgetPassText'.tr,
-                            style: Get.textTheme.bodyMedium,
-                            textAlign: TextAlign.center,
+                          SizedBox(height: 2.h),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 22),
+                            child: Text(
+                              'forgetPassText'.tr,
+                              style: Get.textTheme.bodyMedium,
+                              textAlign: TextAlign.center,
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 3.h),
-                        CustomTextField(
-                          controller: viewModel.emailController,
-                          name: 'Email',
-                          prefixIconPath: MyIcon.mail,
-                          prefixIconColor: Palettes.black,
-                          widgetMargin: EdgeInsets.symmetric(vertical: 5),
-                          // suffixIconPath: viewModel.emailController.i,
-                        ),
-                        SizedBox(height: 3.h),
-                        CustomButton(
-                          onTap: viewModel.sendHandler,
-                          text: 'send'.tr.capitalizeFirst,
-                          padding: const EdgeInsets.symmetric(horizontal: 85, vertical: 12),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                Container(
+                          SizedBox(height: 3.h),
+                          CustomTextField(
+                            controller: viewModel.emailController,
+                            name: 'Email',
+                            prefixIconPath: MyIcon.mail,
+                            prefixIconColor: Palettes.black,
+                            widgetMargin: const EdgeInsets.symmetric(vertical: 5),
+                            suffixIconPath: checkEmailPattern(viewModel.emailController.text),
+                          ),
+                          SizedBox(height: 3.h),
+                          CustomButton(
+                            onTap: viewModel.sendHandler,
+                            text: 'send'.tr.capitalizeFirst,
+                            padding: const EdgeInsets.symmetric(horizontal: 85, vertical: 12),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  Container(
+                    height: 42.h,
                     padding: const EdgeInsets.symmetric(vertical: 26),
                     alignment: Alignment.bottomCenter,
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
                         Text(
                           'Recover Password with Mobile OTP'.tr,
@@ -95,12 +99,25 @@ class _ForgetPasswordMobile extends StatelessWidget {
                           ),
                         )
                       ],
-                    ))
-              ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
       ),
     );
+  }
+
+  checkEmailPattern(String text) {
+    if (text.isEmpty) {
+      return '';
+    }
+    final bool emailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(text);
+    if (emailValid) {
+      return MyIcon.checked1;
+    }
+    return MyIcon.crossed;
   }
 }

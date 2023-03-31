@@ -1,6 +1,16 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:neeleez_flutter_app/config/my_icon.dart';
+import 'package:neeleez_flutter_app/views/about/about_view.dart';
+import 'package:neeleez_flutter_app/views/appointments/appointments_view.dart';
+import 'package:neeleez_flutter_app/views/change_password/change_password_view.dart';
+import 'package:neeleez_flutter_app/views/company_profile/company_profile_view.dart';
+import 'package:neeleez_flutter_app/views/data_listing/data_listing_view.dart';
+import 'package:neeleez_flutter_app/views/package_subscriptions/package_subscriptions_view.dart';
+import 'package:neeleez_flutter_app/views/payment_history/payment_history_view.dart';
+import 'package:neeleez_flutter_app/views/promo_codes/promo_codes_view.dart';
+import 'package:neeleez_flutter_app/views/service_providers/service_providers_view.dart';
+import 'package:neeleez_flutter_app/views/support/support_view.dart';
 
 const String APP_NAME = "Neeleez - We Care (Services)";
 
@@ -24,13 +34,13 @@ List drawer = [
   {
     "id": 2,
     "name": "Appointments",
-    "route": "",
+    "route": AppointmentsView(),
     "icon": MyIcon.menu2Appointments,
   },
   {
     "id": 3,
     "name": "Promo Codes",
-    "route": "",
+    "route": PromoCodesView(),
     "icon": MyIcon.menu2Appointments,
   },
   {
@@ -49,13 +59,13 @@ List drawer = [
   {
     "id": 6,
     "name": "Data Listing",
-    "route": "",
+    "route": DataListingView(),
     "icon": MyIcon.menu2Services,
   },
   {
     "id": 7,
     "name": "Service Providers",
-    "route": "",
+    "route": ServiceProvidersView(),
     "icon": MyIcon.menu2StaffManagement,
   },
   {
@@ -67,39 +77,39 @@ List drawer = [
   {
     "id": 9,
     "name": "Company Profile",
-    "route": "",
+    "route": CompanyProfileView(),
     "icon": MyIcon.staffGeneral,
   },
   {
     "id": 10,
     "name": "Change Password",
-    "route": "",
+    "route": ChangePasswordView(),
     "icon": MyIcon.password,
     "line": true,
   },
   {
     "id": 11,
     "name": "Package Subscriptions",
-    "route": "",
+    "route": PackageSubscriptionsView(),
     "icon": MyIcon.menu2Packages,
   },
   {
     "id": 12,
     "name": "Payment History",
-    "route": "",
+    "route": PaymentHistoryView(),
     "icon": MyIcon.menu2Payments,
     "line": true,
   },
   {
     "id": 13,
     "name": "Support",
-    "route": "",
+    "route": SupportView(),
     "icon": MyIcon.menu2Support,
   },
   {
     "id": 14,
     "name": "About",
-    "route": "",
+    "route": AboutView(),
     "icon": MyIcon.menu2Preferences,
   },
   {

@@ -17,8 +17,7 @@ import '../dashboard/dashboard_view.dart';
 
 class LoginViewModel extends BaseViewModel {
   bool rememberMe = false;
-  String username = "";
-  String password = "";
+
   UserData? userData;
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -37,7 +36,7 @@ class LoginViewModel extends BaseViewModel {
   Future<void> loadItems() async {
     setBusy(true);
     String username = SharedPreferenceHelper.getString(Preferences.username) ?? "N/A";
-    String password = SharedPreferenceHelper.getString(Preferences.username) ?? "N/A";
+    String password = SharedPreferenceHelper.getString(Preferences.password) ?? "N/A";
     if (username != "N/A") {
       usernameController.text = username;
       passwordController.text = password;
@@ -53,7 +52,7 @@ class LoginViewModel extends BaseViewModel {
   void onTap() {}
 
   void signUpHandler() {
-    Get.to(() => const MobileVerificationView(), transition: Transition.downToUp);
+    Get.to(() => const MobileVerificationView(loading: true), transition: Transition.downToUp);
   }
 
   onChangeRemember(bool? value) {
@@ -62,33 +61,37 @@ class LoginViewModel extends BaseViewModel {
   }
 
   void forgetPasswordHandler() {
-    Get.to(() => ForgetPasswordView());
+    Get.to(() => ForgetPasswordView(loading: true));
   }
 
-  void onChangeEmail(String? value) {
-    username = value!;
-    notifyListeners();
-  }
+  // void onChangeEmail(String? value) {
+  //   username = value!;
+  //   notifyListeners();
+  // }
 
-  void onChangePassword(String? value) {
-    password = value!;
-    notifyListeners();
-  }
+  // void onChangePassword(String? value) {
+  //   password = value!;
+  //   notifyListeners();
+  // }
 
   /* loginHandler */
   void loginHandler() async {
-    if (!rememberMe) {
+    String username = usernameController.text;
+    String password = passwordController.text;
+    if (!rememberMe || (username.isEmpty || password.isEmpty)) {
       return;
     }
     setBusy(true);
     try {
-      final res = await apiRepository.apiGet(url: '${Url.CustomerSignIn}${usernameController.text}/${passwordController.text}');
+      final res = await apiRepository.apiGet(url: '${Url.CustomerSignIn}/$username/$password');
       if (res != null) {
         userData = UserData.fromJson(res);
-        await SharedPreferenceHelper.setString(Preferences.customerId, userData!.countryId!.toString());
+        notifyListeners();
+        log("Error===========>${userData!.customerId!}");
+        await SharedPreferenceHelper.setString(Preferences.customerId, "${userData!.customerId!}");
         await SharedPreferenceHelper.setBoolean(Preferences.isLogged, true);
-        // await SharedPreferenceHelper.setString(Preferences.username, usernameController.text);
-        // await SharedPreferenceHelper.setString(Preferences.password, passwordController.text);
+        await SharedPreferenceHelper.setString(Preferences.username, username);
+        await SharedPreferenceHelper.setString(Preferences.password, password);
       }
     } catch (e) {
       log("Error===========>$e");

@@ -3,20 +3,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
-import 'package:neeleez_flutter_app/config/pref_constant.dart';
-import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
-import 'package:neeleez_flutter_app/views/login/login_view.dart';
 
 import '../../../config/config.dart';
 
 class CustomDrawer extends Drawer {
   String? username;
+  final void Function(Map obj)? onItemTap;
 
   String? email;
 
   CustomDrawer({
     Key? key,
+    required this.onItemTap,
     required this.username,
     required this.email,
   }) : super(key: key);
@@ -104,14 +103,15 @@ class CustomDrawer extends Drawer {
                     String name = obj['name'];
                     bool isLine = obj.containsKey('line') ? true : false;
                     return InkWell(
-                      onTap: () async {
-                        if (name == "Logout") {
-                          SharedPreferenceHelper.setString(Preferences.customerId, 'N/A');
-                          SharedPreferenceHelper.setString(Preferences.countryInfo, 'N/A');
-                          SharedPreferenceHelper.setBoolean(Preferences.isLogged, false);
-                          Get.off(() => const LoginView(), transition: Transition.native);
-                        }
-                      },
+                      onTap: () => onItemTap!(obj),
+                      // onTap: (Map ) async {
+                      //   if (name == "Logout") {
+                      //     SharedPreferenceHelper.setString(Preferences.customerId, 'N/A');
+                      //     SharedPreferenceHelper.setString(Preferences.countryInfo, 'N/A');
+                      //     SharedPreferenceHelper.setBoolean(Preferences.isLogged, false);
+                      //     Get.off(() => const LoginView(), transition: Transition.native);
+                      //   }
+                      // },
                       child: Container(
                         alignment: Alignment.center,
                         height: 42,

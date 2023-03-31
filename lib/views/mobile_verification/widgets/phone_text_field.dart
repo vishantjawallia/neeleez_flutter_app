@@ -124,7 +124,7 @@ class PhoneTextField extends StatelessWidget {
                   contentPadding: const EdgeInsets.symmetric(horizontal: 14),
                   border: InputBorder.none,
                   hintText: name ?? 'Username / Email :',
-                  hintStyle: Get.textTheme.bodyLarge!.copyWith(color: Palettes.primary, fontWeight: FontWeight.w600),
+                  hintStyle: Get.textTheme.bodySmall!.copyWith(color: Palettes.primary, fontWeight: FontWeight.w600),
                   isDense: true,
                 ),
               ),
