@@ -1,14 +1,12 @@
 import 'dart:developer';
 
-import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/api/apiRepository.dart';
+import 'package:neeleez_flutter_app/components/dailogs/logout_popup.dart';
 import 'package:neeleez_flutter_app/config/pref_constant.dart';
 import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/config/url.dart';
 import 'package:neeleez_flutter_app/models/user_data.dart';
 import 'package:stacked/stacked.dart';
-
-import '../login/login_view.dart';
 
 class DashboardViewModel extends BaseViewModel {
   UserData get user => userData ?? const UserData();
@@ -33,12 +31,14 @@ class DashboardViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void onDrawerItemTap(Map obj) {
+  void onDrawerItemTap(context, Map obj) {
     if (obj['id'] == 15) {
-      SharedPreferenceHelper.setString(Preferences.customerId, 'N/A');
-      SharedPreferenceHelper.setString(Preferences.countryInfo, 'N/A');
-      SharedPreferenceHelper.setBoolean(Preferences.isLogged, false);
-      Get.offAll(() => const LoginView());
+      // Get.to(() => const LogoutPopup());
+      logoutPopup(context);
+      // SharedPreferenceHelper.setString(Preferences.customerId, 'N/A');
+      // SharedPreferenceHelper.setString(Preferences.countryInfo, 'N/A');
+      // SharedPreferenceHelper.setBoolean(Preferences.isLogged, false);
+      // Get.offAll(() => const LoginView());
     } else {
       if ('${obj['route']}'.isNotEmpty) {
         // Get.to(() => '${obj['route']}');

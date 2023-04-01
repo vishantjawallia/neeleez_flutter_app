@@ -9,8 +9,11 @@ class CustomButton extends StatelessWidget {
   final String? text;
   final Color? backgroundColor;
   final Color? textColor;
+  final Color? borderColor;
+  final Color? rippleColor;
   final EdgeInsets? padding;
   final TextStyle? textStyle;
+  final double? width;
 
   final void Function()? onTap;
   const CustomButton({
@@ -21,6 +24,9 @@ class CustomButton extends StatelessWidget {
     this.backgroundColor,
     this.textColor,
     this.textStyle,
+    this.width,
+    this.borderColor,
+    this.rippleColor,
   }) : super(key: key);
 
   @override
@@ -34,21 +40,21 @@ class CustomButton extends StatelessWidget {
         ),
         overlayColor: MaterialStateProperty.resolveWith(
           (states) {
-            return states.contains(MaterialState.pressed) ? Palettes.red.withOpacity(0.045) : null;
+            return states.contains(MaterialState.pressed) ? (rippleColor ?? Palettes.red.withOpacity(0.045)) : null;
           },
         ),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
-            side: const BorderSide(
-              color: Palettes.white,
+            side: BorderSide(
+              color: borderColor ?? Palettes.white,
             ),
           ),
         ),
       ),
       child: Container(
         alignment: Alignment.center,
-        width: 100.w,
+        width: width ?? 100.w,
         child: Text(
           style: textStyle ?? Get.textTheme.headline5!.copyWith(color: textColor ?? Palettes.red, fontWeight: FontWeight.w600),
           text!,

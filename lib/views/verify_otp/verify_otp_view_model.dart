@@ -5,12 +5,10 @@ import 'dart:async';
 import 'package:stacked/stacked.dart';
 
 class VerifyOtpViewModel extends BaseViewModel {
-  late Timer _timer;
-  int timeLeftInSeconds = 0;
-  // int _timeLeftInSeconds = 0;
+  final String? phoneNumber;
 
-  VerifyOtpViewModel() {
-    // loadItems();
+  VerifyOtpViewModel({this.phoneNumber}) {
+    loadItems();
   }
 
   // Add ViewModel specific code here
@@ -25,26 +23,8 @@ class VerifyOtpViewModel extends BaseViewModel {
 
   void verifyHandler() {}
 
-  @override
-  void init() {
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (timeLeftInSeconds > 0) {
-        timeLeftInSeconds--;
-      } else {
-        _timer.cancel();
-      }
-      notifyListeners();
-    });
-  }
-
-  @override
-  void dispose() {
-    _timer.cancel();
-    super.dispose();
-  }
-
   Stream<int?> timerStream() async* {
-    int? i = 60;
+    int? i = 30;
     while (true) {
       await Future.delayed(const Duration(seconds: 1));
       if (i! > 0) {

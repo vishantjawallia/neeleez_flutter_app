@@ -8,14 +8,15 @@ import 'package:neeleez_flutter_app/helpers/helper.dart';
 import '../../../config/config.dart';
 
 class CustomDrawer extends Drawer {
-  String? username;
+  String username;
+  String email;
+  // final bool? isBusy;
   final void Function(Map obj)? onItemTap;
-
-  String? email;
 
   CustomDrawer({
     Key? key,
     required this.onItemTap,
+    // required this.isBusy,
     required this.username,
     required this.email,
   }) : super(key: key);
@@ -72,28 +73,14 @@ class CustomDrawer extends Drawer {
                     ),
                     // SizedBox(height: 20),
                     const SizedBox(height: 10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          '$username',
-                          // 'Fransesca Metts',
-                          style: Get.textTheme.headline4!.copyWith(fontWeight: FontWeight.w700),
-                        ),
-                        Text(
-                          '$email',
-                          // 'Fransesca@gmail.com',
-                          style: Get.textTheme.bodyText1!.copyWith(color: Palettes.white),
-                        ),
-                      ],
-                    )
+                    _nameData()
                   ],
                 ),
               ),
               Flexible(
                 fit: FlexFit.loose,
                 child: ListView.builder(
-                  physics: const ClampingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   itemCount: drawer.length,
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
@@ -104,52 +91,31 @@ class CustomDrawer extends Drawer {
                     bool isLine = obj.containsKey('line') ? true : false;
                     return InkWell(
                       onTap: () => onItemTap!(obj),
-                      // onTap: (Map ) async {
-                      //   if (name == "Logout") {
-                      //     SharedPreferenceHelper.setString(Preferences.customerId, 'N/A');
-                      //     SharedPreferenceHelper.setString(Preferences.countryInfo, 'N/A');
-                      //     SharedPreferenceHelper.setBoolean(Preferences.isLogged, false);
-                      //     Get.off(() => const LoginView(), transition: Transition.native);
-                      //   }
-                      // },
                       child: Container(
                         alignment: Alignment.center,
                         height: 42,
                         padding: Helper.isRtl() ? const EdgeInsets.only(left: 14) : const EdgeInsets.only(right: 14),
                         decoration: BoxDecoration(
-                            border: Border(
-                          bottom: BorderSide(
-                            color: isLine ? Palettes.grey2 : Colors.transparent,
-                          ),
-                        )
-                            // border: Border(
-                            //   left: BorderSide(
-                            //     color: index == 0 ? Palettes.primary : Colors.transparent,
-                            //     width: 2.5,
-                            //     style: BorderStyle.solid,
-                            //   ),
-                            // ),
+                          border: Border(
+                            bottom: BorderSide(
+                              color: isLine ? Palettes.grey2 : Colors.transparent,
                             ),
+                          ),
+                        ),
                         child: Row(
                           children: <Widget>[
-                            // const Icon(
-                            //   Icons.dashboard_customize,
-                            //   size: 20,
-                            // ),
                             Image.asset(
                               obj['icon'],
                               filterQuality: FilterQuality.low,
                               height: 20,
                               width: 20,
-                              // size: 20,
                             ),
                             const SizedBox(width: 16),
                             Text(
                               name,
-                              style: Get.textTheme.bodyText1!.copyWith(
+                              style: Get.textTheme.bodyLarge!.copyWith(
                                 color: Palettes.black,
                                 fontWeight: FontWeight.w600,
-                                // letterSpacing: 1,
                               ),
                             )
                           ],
@@ -170,6 +136,54 @@ class CustomDrawer extends Drawer {
           ),
         ),
       ),
+    );
+  }
+
+  Column _nameData() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        // isBusy!
+        //     ? SizedBox(
+        //         height: 14,
+        //         child: Shimmer.fromColors(
+        //           baseColor: Colors.grey,
+        //           highlightColor: Colors.white,
+        //           child: Container(
+        //             margin: const EdgeInsets.only(bottom: 2),
+        //             decoration: BoxDecoration(
+        //               borderRadius: BorderRadius.circular(22),
+        //               color: Palettes.white.withOpacity(0.4),
+        //             ),
+        //           ),
+        //         ),
+        //       )
+        //     :
+        Text(
+          username,
+          style: Get.textTheme.headline4!.copyWith(fontWeight: FontWeight.w700),
+        ),
+        // isBusy!
+        //     ? SizedBox(
+        //         height: 14,
+        //         child: Shimmer.fromColors(
+        //           baseColor: Colors.grey,
+        //           highlightColor: Colors.white,
+        //           child: Container(
+        //             margin: const EdgeInsets.only(top: 2),
+        //             decoration: BoxDecoration(
+        //               borderRadius: BorderRadius.circular(22),
+        //               color: Palettes.white.withOpacity(0.4),
+        //             ),
+        //           ),
+        //         ),
+        //       )
+        //     :
+        Text(
+          email,
+          style: Get.textTheme.bodyText1!.copyWith(color: Palettes.white),
+        ),
+      ],
     );
   }
 }

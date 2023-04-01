@@ -9,12 +9,8 @@ class _VerifyOtpMobile extends StatelessWidget {
   final TextEditingController _otp = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    // return Scaffold(
-    //   body: Center(child: Text('VerifyOtpMobile')),
-    // );
     return Scaffold(
       body: Container(
-        // height: 100.h,
         decoration: const BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
@@ -46,9 +42,9 @@ class _VerifyOtpMobile extends StatelessWidget {
                   ),
                   SizedBox(height: 2.h),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 22),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Text(
-                      'Provide 6 digit OTP (One Time Password) we just sent you on +212 242-352345'.tr,
+                      'Provide 6 digit OTP (One Time Password) we just sent you on ${viewModel.phoneNumber}',
                       style: Get.textTheme.bodyMedium,
                       textAlign: TextAlign.center,
                     ),
@@ -60,7 +56,7 @@ class _VerifyOtpMobile extends StatelessWidget {
                     obscureText: false,
                     // textInputAction: Text,
                     defaultPinTheme: PinTheme(
-                      height: 100,
+                      height: 80,
                       width: 200,
                       textStyle: Get.textTheme.headlineMedium!.copyWith(color: Palettes.black, fontWeight: FontWeight.w600),
                       margin: const EdgeInsets.symmetric(vertical: 36),
@@ -73,13 +69,28 @@ class _VerifyOtpMobile extends StatelessWidget {
                   StreamBuilder<int?>(
                       stream: viewModel.timerStream(),
                       builder: (context, snapshot) {
-                        return Padding(
-                          padding: const EdgeInsets.only(bottom: 30),
-                          child: Text(
-                            '00:${snapshot?.data ?? 00}',
-                            style: Get.textTheme.bodyLarge,
-                          ),
-                        );
+                        if (snapshot.data != 0) {
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 30),
+                            child: Text(
+                              '00:${snapshot.data ?? 00}',
+                              style: Get.textTheme.bodyLarge,
+                            ),
+                          );
+                        } else {
+                          return GestureDetector(
+                            onTap: () {},
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 30),
+                              child: Text(
+                                'Resend Verification Code',
+                                style: Get.textTheme.bodyMedium!.copyWith(
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                            ),
+                          );
+                        }
                       }),
                   // SizedBox(height: 3.h),
                   CustomButton(

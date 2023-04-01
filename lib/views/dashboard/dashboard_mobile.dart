@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings
+// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables, void_checks
 
 part of dashboard_view;
 
@@ -13,9 +13,12 @@ class _DashboardMobile extends StatelessWidget {
     return Scaffold(
       key: _scaffoldKey,
       drawer: CustomDrawer(
-        username: (viewModel.user.firstName ?? "") + "" + (viewModel.user.lastName ?? ""),
-        email: viewModel.user.email ?? "",
-        onItemTap: viewModel.onDrawerItemTap,
+        username: viewModel.user.firstName! + "" + viewModel.user.lastName!,
+        email: viewModel.user.email!,
+        onItemTap: (obj) {
+          _scaffoldKey.currentState!.closeDrawer();
+          return viewModel.onDrawerItemTap(context, obj);
+        },
       ),
       body: DashboardLayout(
         child: Padding(
@@ -26,67 +29,57 @@ class _DashboardMobile extends StatelessWidget {
             children: <Widget>[
               _topBox(context),
               _userDetail(),
-              Container(
-                child: Stack(
-                  fit: StackFit.passthrough,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          width: 90.w,
-                          // height: 20,
-                          padding: EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            // color: Palettes.red,
-                            borderRadius: BorderRadius.circular(12),
-                            gradient: LinearGradient(
-                                colors: [
-                                  Palettes.red,
-                                  Palettes.red.withOpacity(0.75),
-                                  Palettes.red.withOpacity(0.55),
-                                  Palettes.red.withOpacity(0.45),
-                                  Colors.transparent,
-                                ],
-                                begin: Alignment.bottomLeft,
-                                end: Alignment.topRight,
-                                stops: [
-                                  0.1,
-                                  0.3,
-                                  0.5,
-                                  0.7,
-                                  1,
-                                ]),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                '300'.tr,
-                                style: Get.textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w600),
-                                textAlign: TextAlign.left,
-                              ),
-                              Text(
-                                'Point Earned'.tr,
-                                style: Get.textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w600),
-                                textAlign: TextAlign.left,
-                              ),
+              Stack(
+                fit: StackFit.passthrough,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: 90.w,
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          gradient: LinearGradient(
+                            colors: [
+                              Palettes.red,
+                              Palettes.red.withOpacity(0.75),
+                              Palettes.red.withOpacity(0.55),
+                              Palettes.red.withOpacity(0.45),
+                              Colors.transparent,
                             ],
+                            begin: Alignment.bottomLeft,
+                            end: Alignment.topRight,
+                            stops: [0.1, 0.3, 0.5, 0.7, 1],
                           ),
                         ),
-                      ],
-                    ),
-                    Positioned(
-                      right: 1,
-                      child: Container(
-                        height: 90,
-                        // height: 60,
-                        child: Image.asset(MyImage.imgDashboard1),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              '300'.tr,
+                              style: Get.textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w600),
+                              textAlign: TextAlign.left,
+                            ),
+                            Text(
+                              'Point Earned'.tr,
+                              style: Get.textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w600),
+                              textAlign: TextAlign.left,
+                            ),
+                          ],
+                        ),
                       ),
+                    ],
+                  ),
+                  Positioned(
+                    right: 1,
+                    child: Container(
+                      height: 90,
+                      child: Image.asset(MyImage.imgDashboard1),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               )
             ],
           ),

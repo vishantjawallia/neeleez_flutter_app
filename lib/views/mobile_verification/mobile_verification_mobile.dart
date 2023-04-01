@@ -41,7 +41,6 @@ class _MobileVerificationMobile extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         GestureDetector(
-                          // onTap: () => Get.locale == const Locale('ur', 'PK') ? Get.updateLocale(const Locale('en', 'US')) : Get.updateLocale(const Locale('ur', 'PK')),
                           child: Text(
                             'Mobile Verification'.tr,
                             style: Get.textTheme.displayLarge,

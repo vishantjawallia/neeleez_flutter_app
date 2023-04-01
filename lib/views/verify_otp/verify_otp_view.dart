@@ -8,7 +8,6 @@ import 'package:stacked/stacked.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';
 import '../../config/my_Image.dart';
-import '../../config/my_icon.dart';
 import '../../widgets/custom_button.dart';
 import 'verify_otp_view_model.dart';
 
@@ -19,28 +18,25 @@ part 'verify_otp_desktop.dart';
 // ignore: must_be_immutable
 class VerifyOtpView extends StatelessWidget {
   static const routeName = '/verify_otp';
+  final String? phoneNumber;
+
+  const VerifyOtpView({super.key, this.phoneNumber});
 
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<VerifyOtpViewModel>.reactive(
-        viewModelBuilder: () => VerifyOtpViewModel(),
-        onViewModelReady: (viewModel) {
-          viewModel.init();
-          // Do something once your viewModel is initialized
-        },
-        onDispose: (viewModel) {
-          viewModel.dispose();
-        },
-        builder: (context, viewModel, child) {
-          return ScreenTypeLayout(
-            mobile: _VerifyOtpMobile(viewModel),
-            desktop: _VerifyOtpMobile(viewModel),
-            tablet: _VerifyOtpMobile(viewModel),
-
-            //Uncomment it if you've planned to support specifically for desktop and tablet
-            //desktop: _VerifyOtpDesktop(viewModel),
-            //tablet: _VerifyOtpTablet(viewModel),
-          );
-        });
+      viewModelBuilder: () => VerifyOtpViewModel(phoneNumber: phoneNumber),
+      onViewModelReady: (viewModel) {
+        // Do something once your viewModel is initialized
+      },
+      onDispose: (viewModel) {},
+      builder: (context, viewModel, child) {
+        return ScreenTypeLayout.builder(
+          mobile: (_) => _VerifyOtpMobile(viewModel),
+          desktop: (_) => _VerifyOtpMobile(viewModel),
+          tablet: (_) => _VerifyOtpMobile(viewModel),
+        );
+      },
+    );
   }
 }
