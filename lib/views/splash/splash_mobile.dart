@@ -12,6 +12,7 @@ class _SplashMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        height: 100.h,
         decoration: const BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,

@@ -16,10 +16,9 @@ class DashboardLayout extends StatelessWidget {
         Positioned(
           child: Image.asset(
             MyImage.dashBack,
-            fit: BoxFit.contain,
-            // scale: 2,
-            // height: 320,
-            // height: ,
+            fit: BoxFit.fitHeight,
+            scale: 2,
+            height: 320,
           ),
         ),
         Container(
