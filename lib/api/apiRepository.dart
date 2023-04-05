@@ -39,7 +39,7 @@ class apiRepository {
         },
       );
       if (response.statusCode == 200) {
-        return json.decode(response.body);
+        return json.decode(response.body.toString());
       } else {
         log(response.statusCode.toString());
         log(response.body.toString());

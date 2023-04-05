@@ -1,9 +1,10 @@
-// ignore_for_file: deprecated_member_use, unused_field
+// ignore_for_file: deprecated_member_use, unused_field, prefer_const_constructors_in_immutables
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
+import 'package:neeleez_flutter_app/widgets/url_image.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../config/config.dart';
@@ -12,16 +13,18 @@ import '../dashboard_view_model.dart';
 
 class CustomDrawer extends Drawer {
   final void Function(Map obj)? onItemTap;
-  final DashboardViewModel _dashboardController = DashboardViewModel();
-  CustomDrawer({
+  final DashboardViewModel? viewModel;
+  // final DashboardViewModel _dashboardController = DashboardViewModel();
+  CustomDrawer(
+    this.viewModel, {
     Key? key,
     required this.onItemTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    UserData? useData = _dashboardController.userData;
-    bool? isBusy = _dashboardController.isBusy;
+    UserData? useData = viewModel!.user;
+    bool? isBusy = viewModel!.isBusy;
     return SafeArea(
       child: ClipRRect(
         borderRadius: Helper.isRtl()
@@ -50,13 +53,11 @@ class CustomDrawer extends Drawer {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           height: 80,
                           width: 80,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Palettes.red,
-                            border: Border.all(color: Palettes.white),
+                          child: UrlImage(
+                            url: viewModel?.user?.customerImage?.imageFileName,
                           ),
                         ),
                         GestureDetector(

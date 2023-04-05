@@ -9,7 +9,7 @@ class _ServiceProvidersMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('ServiceProvidersMobile')),
+      body: Center(child: Text('ServiceProvidersMobile', style: TextStyle(color: Palettes.black),)),
     );
   }
 }

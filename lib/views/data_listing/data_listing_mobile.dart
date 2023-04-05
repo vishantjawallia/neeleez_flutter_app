@@ -9,7 +9,9 @@ class _DataListingMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('DataListingMobile')),
+      body: Center(child: Text('DataListingMobile',style: TextStyle(
+          color: Palettes.black,
+        ),)),
     );
   }
 }

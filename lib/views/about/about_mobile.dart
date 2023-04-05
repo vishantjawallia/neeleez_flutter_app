@@ -9,7 +9,13 @@ class _AboutMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('AboutMobile')),
+      body: Center(
+          child: Text(
+        'AboutMobile',
+        style: TextStyle(
+          color: Palettes.black,
+        ),
+      )),
     );
   }
 }

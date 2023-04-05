@@ -9,7 +9,13 @@ class _AppointmentsMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('AppointmentsMobile')),
+      body: Center(
+          child: Text(
+        'AppointmentsMobile',
+        style: TextStyle(
+          color: Palettes.black,
+        ),
+      )),
     );
   }
 }

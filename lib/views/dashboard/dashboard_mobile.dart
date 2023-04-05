@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables, void_checks, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables, void_checks, sized_box_for_whitespace, unnecessary_cast
 
 part of dashboard_view;
 
@@ -13,7 +13,8 @@ class _DashboardMobile extends StatelessWidget {
     return Scaffold(
       key: _scaffoldKey,
       drawer: CustomDrawer(
-        onItemTap: (obj) {
+        viewModel,
+        onItemTap: (Map obj) {
           _scaffoldKey.currentState!.closeDrawer();
           return viewModel.onDrawerItemTap(context, obj);
         },
@@ -249,14 +250,10 @@ class _DashboardMobile extends StatelessWidget {
             )
           ],
         ),
-        Container(
+        UrlImage(
           height: 56,
           width: 56,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Palettes.red,
-            border: Border.all(color: Palettes.white),
-          ),
+          url: viewModel.user?.customerImage?.imageFileName,
         ),
       ],
     );

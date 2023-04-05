@@ -6,7 +6,7 @@ import 'package:neeleez_flutter_app/config/my_Image.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
 import 'package:neeleez_flutter_app/models/user_data.dart';
 import 'package:neeleez_flutter_app/views/dashboard/widgets/box_widget.dart';
-import 'package:neeleez_flutter_app/widgets/dashed_rect.dart';
+import 'package:neeleez_flutter_app/widgets/url_image.dart';
 import 'package:stacked/stacked.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';

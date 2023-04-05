@@ -1,5 +1,6 @@
 library company_profile_view;
 
+import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:stacked/stacked.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';

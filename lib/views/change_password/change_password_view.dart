@@ -3,6 +3,7 @@ library change_password_view;
 import 'package:stacked/stacked.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';
+import '../../config/palettes.dart';
 import 'change_password_view_model.dart';
 
 part 'change_password_mobile.dart';

@@ -9,7 +9,9 @@ class _ChangePasswordMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('ChangePasswordMobile')),
+      body: Center(child: Text('ChangePasswordMobile',style: TextStyle(
+          color: Palettes.black,
+        ),)),
     );
   }
 }

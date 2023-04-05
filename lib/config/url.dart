@@ -5,5 +5,5 @@ class Url {
 
   static const String countryInfo = "https://ipwhois.app/json/";
   static const String CustomerSignIn = "$baseUrl/api/Customer/CustomerSignIn/";
-  static const String customerById = "$baseUrl/api/Customer";
+  static const String customerById = "$baseUrl/api/Customer/GetCustomer";
 }

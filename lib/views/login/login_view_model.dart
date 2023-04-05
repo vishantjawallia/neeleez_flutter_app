@@ -65,24 +65,16 @@ class LoginViewModel extends BaseViewModel {
     Get.to(() => ForgetPasswordView(loading: true));
   }
 
-  // void onChangeEmail(String? value) {
-  //   username = value!;
-  //   notifyListeners();
-  // }
-
-  // void onChangePassword(String? value) {
-  //   password = value!;
-  //   notifyListeners();
-  // }
-
   /* loginHandler */
   void loginHandler(context) async {
     String username = usernameController.text;
     String password = passwordController.text;
     if (!rememberMe || (username.isEmpty || password.isEmpty)) {
-      username.isEmpty ? warningPopup(context, head: "Error", dsc: "Email is Empty or Invalid.", btn: "Close") : "";
-      password.isEmpty ? warningPopup(context, head: "Error", dsc: "Password is empty or Invalid.", btn: "Close") : "";
-
+      if (username.isEmpty) {
+        warningPopup(context, head: "Error", dsc: "Email is Empty or Invalid.", btn: "Close");
+      } else if (password.isEmpty) {
+        warningPopup(context, head: "Error", dsc: "Password is empty or Invalid.", btn: "Close");
+      }
       return;
     }
     setBusy(true);

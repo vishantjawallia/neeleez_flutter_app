@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,7 +20,7 @@ import 'views/main/main_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  GestureBinding.instance.resamplingEnabled = true;
+  // GestureBinding.instance.resamplingEnabled = true;
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await LocatorInjector.setupLocator();
   await SharedPreferenceHelper.init();
@@ -52,17 +51,17 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primaryColor: Palettes.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        textTheme: TextTheme(
-          displayLarge: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 25, color: Palettes.white),
-          displayMedium: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 23, color: Palettes.white),
-          displaySmall: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 21, color: Palettes.white),
-          headlineMedium: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 19, color: Palettes.white),
-          headlineSmall: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 17, color: Palettes.white),
-          titleLarge: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 15, color: Palettes.white),
-          bodyLarge: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 14, color: Palettes.white),
-          bodyMedium: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 13, color: Palettes.white),
-          bodySmall: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 12, color: Palettes.white),
-        ),
+        textTheme: ThemeData.dark().textTheme.copyWith(
+              displayLarge: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 25, color: Palettes.white),
+              displayMedium: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 23, color: Palettes.white),
+              displaySmall: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 21, color: Palettes.white),
+              headlineMedium: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 19, color: Palettes.white),
+              headlineSmall: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 17, color: Palettes.white),
+              titleLarge: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 15, color: Palettes.white),
+              bodyLarge: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 14, color: Palettes.white),
+              bodyMedium: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 13, color: Palettes.white),
+              bodySmall: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 12, color: Palettes.white),
+            ),
         // textTheme: ThemeData.dark().textTheme.copyWith(
         //       displayLarge: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 25, color: Palettes.white),
         //       displayMedium: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 23, color: Palettes.white),

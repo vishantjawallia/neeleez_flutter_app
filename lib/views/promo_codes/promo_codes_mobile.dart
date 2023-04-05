@@ -9,7 +9,11 @@ class _PromoCodesMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('PromoCodesMobile')),
+      body: Center(
+          child: Text(
+        'PromoCodesMobile',
+        style: TextStyle(color: Palettes.black),
+      )),
     );
   }
 }

@@ -9,7 +9,11 @@ class _PackageSubscriptionsMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('PackageSubscriptionsMobile')),
+      body: Center(
+          child: Text(
+        'PackageSubscriptionsMobile',
+        style: TextStyle(color: Palettes.black),
+      )),
     );
   }
 }
