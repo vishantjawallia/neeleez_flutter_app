@@ -13,6 +13,7 @@ import 'package:neeleez_flutter_app/views/forget_password/forget_password_view.d
 import 'package:neeleez_flutter_app/views/mobile_verification/mobile_verification_view.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../components/dailogs/warning_popup.dart';
 import '../dashboard/dashboard_view.dart';
 
 class LoginViewModel extends BaseViewModel {
@@ -75,10 +76,13 @@ class LoginViewModel extends BaseViewModel {
   // }
 
   /* loginHandler */
-  void loginHandler() async {
+  void loginHandler(context) async {
     String username = usernameController.text;
     String password = passwordController.text;
     if (!rememberMe || (username.isEmpty || password.isEmpty)) {
+      username.isEmpty ? warningPopup(context, head: "Error", dsc: "Email is Empty or Invalid.", btn: "Close") : "";
+      password.isEmpty ? warningPopup(context, head: "Error", dsc: "Password is empty or Invalid.", btn: "Close") : "";
+
       return;
     }
     setBusy(true);
@@ -88,19 +92,19 @@ class LoginViewModel extends BaseViewModel {
         userData = UserData.fromJson(res);
         notifyListeners();
         log("Error===========>${userData!.customerId!}");
-        await SharedPreferenceHelper.setString(Preferences.customerId, "${userData!.customerId!}");
+        await SharedPreferenceHelper.setString(Preferences.userId, "${userData!.customerId!}");
         await SharedPreferenceHelper.setBoolean(Preferences.isLogged, true);
         await SharedPreferenceHelper.setString(Preferences.username, username);
         await SharedPreferenceHelper.setString(Preferences.password, password);
       }
     } catch (e) {
+      warningPopup(context);
       log("Error===========>$e");
     } finally {
       log(userData.toString());
       log("===========>finally");
     }
     setBusy(false);
-    notifyListeners();
     if (userData != null) {
       Get.offAll(() => DashboardView(userData: userData));
     }

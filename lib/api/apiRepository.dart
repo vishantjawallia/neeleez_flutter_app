@@ -49,7 +49,8 @@ class apiRepository {
         log(uri.toString());
         log(url.toString());
         // return;
-        throw "api-error";
+        return null;
+        // throw "api-error";
       }
     } on SocketException catch (e) {
       log('$e');

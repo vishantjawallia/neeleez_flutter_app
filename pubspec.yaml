@@ -26,6 +26,7 @@ dependencies:
     fl_country_code_picker: ^0.1.2
     pinput: ^2.2.21
     shimmer: ^2.0.0
+    dotted_border: ^2.0.0+3
 dev_dependencies:
     flutter_test:
         sdk: flutter

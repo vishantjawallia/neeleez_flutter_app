@@ -34,7 +34,7 @@ class LogoutPopup extends StatelessWidget {
       backgroundColor: Colors.transparent,
       body: Align(
         alignment: Alignment.bottomCenter,
-        heightFactor: 2.15,
+        heightFactor: 2,
         child: Wrap(
           children: [
             SizedBox(
@@ -66,7 +66,7 @@ class LogoutPopup extends StatelessWidget {
                           ),
                           color: Palettes.white,
                         ),
-                        height: 220,
+                        height: 210,
                         width: 330,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -119,7 +119,7 @@ class LogoutPopup extends StatelessWidget {
                                   text: 'Yes',
                                   onTap: () async {
                                     Get.back();
-                                    await SharedPreferenceHelper.setString(Preferences.customerId, 'N/A');
+                                    await SharedPreferenceHelper.setString(Preferences.userId, 'N/A');
                                     await SharedPreferenceHelper.setString(Preferences.countryInfo, 'N/A');
                                     await SharedPreferenceHelper.setBoolean(Preferences.isLogged, false);
                                     Get.offAll(() => const LoginView());

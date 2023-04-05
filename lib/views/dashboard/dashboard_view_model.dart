@@ -49,10 +49,12 @@ class DashboardViewModel extends BaseViewModel {
 
 Future<UserData?> getUserData() async {
   try {
-    String? id = SharedPreferenceHelper.getString(Preferences.customerId);
+    String? id = SharedPreferenceHelper.getString(Preferences.userId);
     final res = await apiRepository.apiGet(url: '${Url.customerById}/$id');
     if (res != null) {
-      return UserData.fromJson(res);
+      var data = UserData.fromJson(res);
+      log(data.toString());
+      return data;
     }
   } catch (e) {
     log("Error===========>$e");

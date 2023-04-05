@@ -14,6 +14,7 @@ class CustomButton extends StatelessWidget {
   final EdgeInsets? padding;
   final TextStyle? textStyle;
   final double? width;
+  final double? height;
 
   final void Function()? onTap;
   const CustomButton({
@@ -27,6 +28,7 @@ class CustomButton extends StatelessWidget {
     this.width,
     this.borderColor,
     this.rippleColor,
+    this.height,
   }) : super(key: key);
 
   @override
@@ -55,9 +57,12 @@ class CustomButton extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         width: width ?? 100.w,
+        height: height,
         child: Text(
-          style: textStyle ?? Get.textTheme.headline5!.copyWith(color: textColor ?? Palettes.red, fontWeight: FontWeight.w600),
           text!,
+          style: textStyle ?? Get.textTheme.headline6!.copyWith(color: textColor ?? Palettes.red, fontWeight: FontWeight.w600),
+          textAlign: TextAlign.center,
+
           // 'Log in Now',
         ),
       ),

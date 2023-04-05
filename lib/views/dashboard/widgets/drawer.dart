@@ -1,28 +1,27 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, unused_field
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../config/config.dart';
+import '../../../models/user_data.dart';
+import '../dashboard_view_model.dart';
 
 class CustomDrawer extends Drawer {
-  String username;
-  String email;
-  // final bool? isBusy;
   final void Function(Map obj)? onItemTap;
-
+  final DashboardViewModel _dashboardController = DashboardViewModel();
   CustomDrawer({
     Key? key,
     required this.onItemTap,
-    // required this.isBusy,
-    required this.username,
-    required this.email,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    UserData? useData = _dashboardController.userData;
+    bool? isBusy = _dashboardController.isBusy;
     return SafeArea(
       child: ClipRRect(
         borderRadius: Helper.isRtl()
@@ -39,7 +38,7 @@ class CustomDrawer extends Drawer {
           child: Column(
             children: [
               Container(
-                height: 24.h,
+                height: 212,
                 width: 100.w,
                 padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 22),
                 color: Palettes.primary,
@@ -71,9 +70,8 @@ class CustomDrawer extends Drawer {
                         ),
                       ],
                     ),
-                    // SizedBox(height: 20),
                     const SizedBox(height: 10),
-                    _nameData()
+                    _nameData(isBusy, useData)
                   ],
                 ),
               ),
@@ -139,50 +137,48 @@ class CustomDrawer extends Drawer {
     );
   }
 
-  Column _nameData() {
+  Column _nameData(isBusy, useData) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        // isBusy!
-        //     ? SizedBox(
-        //         height: 14,
-        //         child: Shimmer.fromColors(
-        //           baseColor: Colors.grey,
-        //           highlightColor: Colors.white,
-        //           child: Container(
-        //             margin: const EdgeInsets.only(bottom: 2),
-        //             decoration: BoxDecoration(
-        //               borderRadius: BorderRadius.circular(22),
-        //               color: Palettes.white.withOpacity(0.4),
-        //             ),
-        //           ),
-        //         ),
-        //       )
-        //     :
-        Text(
-          username,
-          style: Get.textTheme.headline4!.copyWith(fontWeight: FontWeight.w700),
-        ),
-        // isBusy!
-        //     ? SizedBox(
-        //         height: 14,
-        //         child: Shimmer.fromColors(
-        //           baseColor: Colors.grey,
-        //           highlightColor: Colors.white,
-        //           child: Container(
-        //             margin: const EdgeInsets.only(top: 2),
-        //             decoration: BoxDecoration(
-        //               borderRadius: BorderRadius.circular(22),
-        //               color: Palettes.white.withOpacity(0.4),
-        //             ),
-        //           ),
-        //         ),
-        //       )
-        //     :
-        Text(
-          email,
-          style: Get.textTheme.bodyText1!.copyWith(color: Palettes.white),
-        ),
+        isBusy! || useData == null
+            ? SizedBox(
+                height: 14,
+                child: Shimmer.fromColors(
+                  baseColor: Colors.grey,
+                  highlightColor: Colors.white,
+                  child: Container(
+                    margin: const EdgeInsets.only(bottom: 2),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(22),
+                      color: Palettes.white.withOpacity(0.4),
+                    ),
+                  ),
+                ),
+              )
+            : Text(
+                "${useData!.firstName!} ${useData!.lastName!}",
+                style: Get.textTheme.headline4!.copyWith(fontWeight: FontWeight.w700),
+              ),
+        isBusy! || useData == null
+            ? SizedBox(
+                height: 14,
+                child: Shimmer.fromColors(
+                  baseColor: Colors.grey,
+                  highlightColor: Colors.white,
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 2),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(22),
+                      color: Palettes.white.withOpacity(0.4),
+                    ),
+                  ),
+                ),
+              )
+            : Text(
+                useData!.email!,
+                style: Get.textTheme.bodyText1!.copyWith(color: Palettes.white),
+              ),
       ],
     );
   }

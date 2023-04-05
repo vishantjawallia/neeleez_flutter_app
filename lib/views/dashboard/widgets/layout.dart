@@ -14,11 +14,19 @@ class DashboardLayout extends StatelessWidget {
       fit: StackFit.passthrough,
       children: [
         Positioned(
-          child: Image.asset(
-            MyImage.dashBack,
-            fit: BoxFit.fitHeight,
-            scale: 2,
-            height: 320,
+          child: Container(
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(40),
+                bottomRight: Radius.circular(40),
+              ),
+              child: Image.asset(
+                MyImage.dashBack,
+                fit: BoxFit.fill,
+                scale: 2,
+                height: 350,
+              ),
+            ),
           ),
         ),
         Container(

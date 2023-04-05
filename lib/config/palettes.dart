@@ -10,5 +10,6 @@ class Palettes {
   static final Color grey3 = Colors.grey.shade600;
   static const Color orange = Color(0xffF67537);
   static const Color black = Colors.black;
-  // static const Color grey = Color(0xffffffff);
+  static const Color yellow = Color(0xffF7B93D); //#DB8A00
+  static const Color yellowDark = Color(0xffDB8A00); //#DB8A00
 }
