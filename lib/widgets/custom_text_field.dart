@@ -100,8 +100,11 @@ class CustomTextField extends StatelessWidget {
               ),
               Flexible(
                 child: Container(
-                  // color: Palettes.,
                   child: TextField(
+                    style: Get.textTheme.bodyMedium!.copyWith(
+                      color: Palettes.primary,
+                      fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
+                    ),
                     // autofocus: autofocus ?? false,
                     controller: controller,
                     maxLength: maxLength,
@@ -116,7 +119,10 @@ class CustomTextField extends StatelessWidget {
                       contentPadding: const EdgeInsets.symmetric(horizontal: 14),
                       border: InputBorder.none,
                       hintText: name ?? 'Username / Email :',
-                      hintStyle: Get.textTheme.bodyMedium!.copyWith(color: Palettes.primary, fontWeight: FontWeight.w600),
+                      hintStyle: Get.textTheme.bodyMedium!.copyWith(
+                        color: Palettes.primary.withOpacity(0.8),
+                        fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
+                      ),
                       isDense: true,
                     ),
                   ),
