@@ -4,16 +4,25 @@ part of promo_codes_view;
 class _PromoCodesMobile extends StatelessWidget {
   final PromoCodesViewModel viewModel;
 
-  _PromoCodesMobile(this.viewModel);
+  const _PromoCodesMobile(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: Text(
-        'PromoCodesMobile',
-        style: TextStyle(color: Palettes.black),
-      )),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: DefaultLayout(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              Text(
+                'PromoCodesMobile',
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
