@@ -1,5 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:flutter/material.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/views/about/about_view.dart';
 import 'package:neeleez_flutter_app/views/appointments/appointments_view.dart';
@@ -118,4 +119,278 @@ List drawer = [
     "route": "",
     "icon": MyIcon.menu2Logout,
   },
+];
+
+// List languageList = [
+//   {
+//     "id": 1,
+//     "image": "",
+//     "name": "Azerbaijan",
+//     "list": [
+//       {"name": "English", "local": const Locale('en', 'US')}
+//     ]
+//   },
+//   {
+//     "id": 2,
+//     "image": "",
+//     "name": "Georgio",
+//     "list": [
+//       {"name": "English", "local": const Locale('en', 'US')}
+//     ]
+//   },
+//   {
+//     "id": 3,
+//     "image": "",
+//     "name": "India",
+//     "list": [
+//       {"name": "English", "local": const Locale('en', 'US')}
+//     ],
+//   },
+//   {
+//     "id": 4,
+//     "image": "",
+//     "name": "Morocco",
+//     "list": [
+//       {
+//         "name": "",
+//         "local": const Locale('en', 'US'),
+//       },
+//       {
+//         "name": "English",
+//         "local": const Locale('en', 'US'),
+//       },
+//       {
+//         "name": "français",
+//         "local": const Locale('en', 'US'),
+//       }
+//     ],
+//   },
+//   {
+//     "id": 5,
+//     "image": "",
+//     "name": "Pakistan",
+//     "list": [
+//       {
+//         "name": "English",
+//         "local": const Locale('en', 'US'),
+//       }
+//     ],
+//   },
+//   {
+//     "id": 6,
+//     "image": "",
+//     "name": "Russia",
+//     "list": [
+//       {"name": "English", "local": const Locale('en', 'US')}
+//     ]
+//   },
+//   {
+//     "id": 7,
+//     "image": "",
+//     "name": "Saudi Arabia",
+//     "list": [
+//       {
+//         "name": "",
+//         "local": const Locale('en', 'US'),
+//       },
+//     ],
+//   },
+//   {
+//     "id": 8,
+//     "image": "",
+//     "name": "Tunisia",
+//     "list": [
+//       {
+//         "name": "",
+//         "local": const Locale('en', 'US'),
+//       },
+//       {
+//         "name": "English",
+//         "local": const Locale('en', 'US'),
+//       },
+//       {
+//         "name": "français",
+//         "local": const Locale('en', 'US'),
+//       }
+//     ],
+//   },
+//   {
+//     "id": 9,
+//     "image": "",
+//     "name": "United Arab Emirates",
+//     "list": [
+//       {
+//         "name": "",
+//         "local": const Locale('en', 'US'),
+//       },
+//       {
+//         "name": "English",
+//         "local": const Locale('en', 'US'),
+//       }
+//     ],
+//   },
+// ];
+
+List languageList = [
+  {
+    "id": 15,
+    "name": "Azerbaijan",
+    "nameAr": null,
+    "nameFr": "Azerbaijan",
+    "iconImage": "https://api.kayyen.com/Uploads/CountryFlag/6d256dbe-c6f2-4b32-923a-ad31d750df8e/noflag.png",
+    "languageList": [
+      // {"id": 16, "name": "Azerbaijani", "nameAr": "الأذربيجانية", "nameFr": "azerbaïdjanais"}
+    ]
+  },
+  {
+    "id": 80,
+    "name": "Georgia",
+    "nameAr": null,
+    "nameFr": "Georgia",
+    "iconImage": "https://api.kayyen.com/Uploads/CountryFlag/6d256dbe-c6f2-4b32-923a-ad31d750df8e/noflag.png",
+    "languageList": [
+      // {"id": 47, "name": "Georgian", "nameAr": "الجورجية", "nameFr": "géorgien"}
+    ]
+  },
+  {
+    "id": 100,
+    "name": "India",
+    "nameAr": "الهند",
+    "nameFr": "India",
+    "iconImage": "https://api.kayyen.com/Uploads/CountryFlag/6d256dbe-c6f2-4b32-923a-ad31d750df8e/India.png",
+    "languageList": [
+      {
+        "id": 41,
+        "name": "English",
+        "nameAr": "إنجليزي",
+        "nameFr": "Anglais",
+        "local": const Locale('en', 'US'),
+      }
+    ]
+  },
+  {
+    "id": 143,
+    "name": "Morocco",
+    "nameAr": "المغرب",
+    "nameFr": "Morocco",
+    "iconImage": "https://api.kayyen.com/Uploads/CountryFlag/6d256dbe-c6f2-4b32-923a-ad31d750df8e/Morocco.png",
+    "languageList": [
+      {
+        "id": 10,
+        "name": "Arabic ",
+        "nameAr": "العربية",
+        "nameFr": "Arabe",
+        "local": const Locale('en', 'US'),
+      },
+      {
+        "id": 41,
+        "name": "English",
+        "nameAr": "إنجليزي",
+        "nameFr": "Anglais",
+        "local": const Locale('en', 'US'),
+      },
+      {
+        "id": 46,
+        "name": "French",
+        "nameAr": "فرنسي",
+        "nameFr": "français",
+        "local": const Locale('en', 'US'),
+      }
+    ]
+  },
+  {
+    "id": 162,
+    "name": "Pakistan",
+    "nameAr": "الباكستان",
+    "nameFr": "Pakistan",
+    "iconImage": "https://api.kayyen.com/Uploads/CountryFlag/6d256dbe-c6f2-4b32-923a-ad31d750df8e/Pakistan.png",
+    "languageList": [
+      {
+        "id": 41,
+        "name": "English",
+        "nameAr": "إنجليزي",
+        "nameFr": "Anglais",
+        "local": const Locale('en', 'US'),
+      }
+    ]
+  },
+  {
+    "id": 177,
+    "name": "Russia",
+    "nameAr": null,
+    "nameFr": "Russia",
+    "iconImage": "https://api.kayyen.com/Uploads/CountryFlag/6d256dbe-c6f2-4b32-923a-ad31d750df8e/Russia.png",
+    "languageList": [
+      // {"id": 110, "name": "Russian", "nameAr": "الروسية", "nameFr": "russe",}
+    ]
+  },
+  {
+    "id": 187,
+    "name": "Saudi Arabia",
+    "nameAr": "المملكة العربية السعودية",
+    "nameFr": "Saudi Arabia",
+    "iconImage": "https://api.kayyen.com/Uploads/CountryFlag/6d256dbe-c6f2-4b32-923a-ad31d750df8e/noflag.png",
+    "languageList": [
+      {
+        "id": 10,
+        "name": "Arabic ",
+        "nameAr": "العربية",
+        "nameFr": "Arabe",
+        "local": const Locale('en', 'US'),
+      }
+    ]
+  },
+  {
+    "id": 216,
+    "name": "Tunisia",
+    "nameAr": "تونس",
+    "nameFr": "Tunisia",
+    "iconImage": "https://api.kayyen.com/Uploads/CountryFlag/6d256dbe-c6f2-4b32-923a-ad31d750df8e/Tunisia.png",
+    "languageList": [
+      {
+        "id": 10,
+        "name": "Arabic ",
+        "nameAr": "العربية",
+        "nameFr": "Arabe",
+        "local": const Locale('en', 'US'),
+      },
+      {
+        "id": 41,
+        "name": "English",
+        "nameAr": "إنجليزي",
+        "nameFr": "Anglais",
+        "local": const Locale('en', 'US'),
+      },
+      {
+        "id": 46,
+        "name": "French",
+        "nameAr": "فرنسي",
+        "nameFr": "français",
+        "local": const Locale('en', 'US'),
+      }
+    ]
+  },
+  {
+    "id": 223,
+    "name": "United Arab Emirates",
+    "nameAr": "متحدة عرب امارات",
+    "nameFr": "United Arab Emirates",
+    "iconImage": "https://api.kayyen.com/Uploads/CountryFlag/6d256dbe-c6f2-4b32-923a-ad31d750df8e/UAE.png",
+    "languageList": [
+      {
+        "id": 10,
+        "name": "Arabic ",
+        "nameAr": "العربية",
+        "nameFr": "Arabe",
+        "local": const Locale('en', 'US'),
+      },
+      {
+        "id": 41,
+        "name": "English",
+        "nameAr": "إنجليزي",
+        "nameFr": "Anglais",
+        "local": const Locale('en', 'US'),
+      }
+    ]
+  }
 ];

@@ -206,14 +206,15 @@ class _DashboardMobile extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     child: Row(
                       children: <Widget>[
-                        Icon(
-                          Icons.signal_wifi_statusbar_connected_no_internet_4_sharp,
+                        UrlImage(
+                          height: 20,
+                          url: (viewModel.lang?['iconImage']) ?? null,
                         ),
                         SizedBox(width: 4),
                         Container(
                           child: Text(
-                            'EN',
-                            style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
+                            Get.locale!.languageCode.toString().toUpperCase(),
+                            style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black, fontWeight: FontWeight.w500),
                           ),
                         ),
                       ],
@@ -253,7 +254,8 @@ class _DashboardMobile extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
             Text(
-              'Test Law'.tr,
+              viewModel.user!.firstName!,
+              // ''.tr,
               style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w600),
               textAlign: TextAlign.left,
             )

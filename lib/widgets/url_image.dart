@@ -11,7 +11,7 @@ class UrlImage extends StatelessWidget {
     Key? key,
     this.width,
     this.height,
-    this.url,
+    this.url = "",
   }) : super(key: key);
 
   @override
@@ -43,7 +43,7 @@ class UrlImage extends StatelessWidget {
             imageUrl: url!,
             fit: BoxFit.fill,
             progressIndicatorBuilder: (context, url, progress) {
-              return const CircularProgressIndicator();
+              return const Center(child: CircularProgressIndicator());
             },
           ),
         ),

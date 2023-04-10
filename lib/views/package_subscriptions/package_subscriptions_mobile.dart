@@ -67,14 +67,14 @@ class _PackageSubscriptionsMobile extends StatelessWidget {
   Material _packageInfo() {
     return Material(
       elevation: 4,
-      borderRadius: BorderRadius.circular(8),
+      borderRadius: BorderRadius.circular(12),
       child: Container(
         width: 100.w,
         child: Column(
           children: [
             Container(
               height: 130,
-              // margin: EdgeInsets.only(top: 12),
+              padding: EdgeInsets.only(top: 12),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 color: Colors.amber,

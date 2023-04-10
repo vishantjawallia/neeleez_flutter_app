@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -12,8 +13,15 @@ import 'package:neeleez_flutter_app/views/notifications/notifications_view.dart'
 import 'package:stacked/stacked.dart';
 
 class DashboardViewModel extends BaseViewModel {
+  //get
   UserData? get user => userData;
+  Map? get lang => languageObj;
+
+  // object
   UserData? userData;
+  Map? languageObj;
+
+  
   DashboardViewModel({this.userData}) {
     loadItems();
   }
@@ -22,6 +30,8 @@ class DashboardViewModel extends BaseViewModel {
   Future<void> loadItems() async {
     setBusy(true);
     userData ??= await getUserData();
+    languageObj ??= await getLanguage();
+
     //Write your models loading codes here
 
     //Let other views to render again
@@ -48,6 +58,16 @@ class DashboardViewModel extends BaseViewModel {
   void onNotificationTap() {
     Get.to(() => NotificationsView());
   }
+}
+
+Future<Map?> getLanguage() async {
+  String? language = SharedPreferenceHelper.getString(Preferences.languageSelected);
+  if (language != 'N/A') {
+    Map obj = await json.decode(language!);
+    obj['local'] = Locale("${obj['language_code']}", "${obj['country_code']}");
+    return obj;
+  }
+  return null;
 }
 
 Future<UserData?> getUserData() async {
