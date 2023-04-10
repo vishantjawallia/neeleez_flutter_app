@@ -71,15 +71,17 @@ class _DashboardMobile extends StatelessWidget {
     return Material(
       elevation: 20,
       borderRadius: BorderRadius.circular(14),
-      child: Container(
-        padding: EdgeInsets.all(8),
-        child: DottedBorder(
-          borderType: BorderType.RRect,
-          radius: Radius.circular(14),
-          dashPattern: [4, 4],
-          color: Palettes.yellowDark,
-          strokeWidth: 1.5,
-          child: Container(
+      child: InkWell(
+        borderRadius: BorderRadius.circular(14),
+        onTap: () => Get.to(() => PackageSubscriptionsView()),
+        child: Container(
+          padding: EdgeInsets.all(8),
+          child: DottedBorder(
+            borderType: BorderType.RRect,
+            radius: Radius.circular(14),
+            dashPattern: [4, 4],
+            color: Palettes.yellowDark,
+            strokeWidth: 1.5,
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 16, horizontal: 12),
               child: Column(
@@ -194,29 +196,36 @@ class _DashboardMobile extends StatelessWidget {
           ),
           Row(
             children: [
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                decoration: BoxDecoration(
-                  color: Palettes.white,
+              Material(
+                elevation: 20,
+                borderRadius: BorderRadius.circular(20),
+                child: InkWell(
                   borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.signal_wifi_statusbar_connected_no_internet_4_sharp,
+                  onTap: () => languagePopup(_),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    child: Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.signal_wifi_statusbar_connected_no_internet_4_sharp,
+                        ),
+                        SizedBox(width: 4),
+                        Container(
+                          child: Text(
+                            'EN',
+                            style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(width: 4),
-                    Container(
-                      child: Text(
-                        'EN',
-                        style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
               SizedBox(width: 12),
-              Icon(Icons.notification_add, color: Palettes.white),
+              GestureDetector(
+                onTap: viewModel.onNotificationTap,
+                child: Icon(Icons.notification_add, color: Palettes.white),
+              ),
             ],
           ),
           // IconButton(

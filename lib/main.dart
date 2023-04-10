@@ -20,7 +20,6 @@ import 'views/main/main_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // GestureBinding.instance.resamplingEnabled = true;
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await LocatorInjector.setupLocator();
   await SharedPreferenceHelper.init();

@@ -9,7 +9,12 @@ class _PaymentHistoryMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('PaymentHistoryMobile', style: TextStyle(color: Palettes.black),)),
+      body: Center(
+        child: Text(
+          'PaymentHistoryMobile',
+          style: TextStyle(color: Palettes.black),
+        ),
+      ),
     );
   }
 }

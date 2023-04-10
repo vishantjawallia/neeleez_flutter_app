@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:neeleez_flutter_app/config/config.dart';
 
 class Url {

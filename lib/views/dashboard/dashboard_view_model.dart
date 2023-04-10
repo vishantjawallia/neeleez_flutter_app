@@ -8,6 +8,7 @@ import 'package:neeleez_flutter_app/config/pref_constant.dart';
 import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/config/url.dart';
 import 'package:neeleez_flutter_app/models/user_data.dart';
+import 'package:neeleez_flutter_app/views/notifications/notifications_view.dart';
 import 'package:stacked/stacked.dart';
 
 class DashboardViewModel extends BaseViewModel {
@@ -42,6 +43,10 @@ class DashboardViewModel extends BaseViewModel {
         Get.to(() => hh);
       }
     }
+  }
+
+  void onNotificationTap() {
+    Get.to(() => NotificationsView());
   }
 }
 
