@@ -19,25 +19,28 @@ class _DashboardMobile extends StatelessWidget {
           return viewModel.onDrawerItemTap(context, obj);
         },
       ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        physics: BouncingScrollPhysics(),
-        child: DashboardLayout(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                _topBox(context),
-                _userDetail(),
-                const SizedBox(height: 20),
-                _box1(),
-                const SizedBox(height: 10),
-                _box2(),
-                const SizedBox(height: 20),
-                _box4(),
-              ],
+      body: ModalProgressHUD(
+        load: viewModel.isBusy,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          physics: BouncingScrollPhysics(),
+          child: DashboardLayout(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  _topBox(context),
+                  _userDetail(),
+                  const SizedBox(height: 20),
+                  _box1(),
+                  const SizedBox(height: 10),
+                  _box2(),
+                  const SizedBox(height: 20),
+                  _box4(),
+                ],
+              ),
             ),
           ),
         ),
@@ -201,7 +204,7 @@ class _DashboardMobile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 child: InkWell(
                   borderRadius: BorderRadius.circular(20),
-                  onTap: () => languagePopup(_),
+                  onTap: () => viewModel.onLanguageTap(_),
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     child: Row(
@@ -254,7 +257,7 @@ class _DashboardMobile extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
             Text(
-              viewModel.user!.firstName!,
+              viewModel.user?.firstName ?? "",
               // ''.tr,
               style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w600),
               textAlign: TextAlign.left,

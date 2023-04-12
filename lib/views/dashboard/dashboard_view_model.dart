@@ -12,6 +12,8 @@ import 'package:neeleez_flutter_app/models/user_data.dart';
 import 'package:neeleez_flutter_app/views/notifications/notifications_view.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../components/dailogs/language_popup.dart';
+
 class DashboardViewModel extends BaseViewModel {
   //get
   UserData? get user => userData;
@@ -21,7 +23,6 @@ class DashboardViewModel extends BaseViewModel {
   UserData? userData;
   Map? languageObj;
 
-  
   DashboardViewModel({this.userData}) {
     loadItems();
   }
@@ -29,8 +30,10 @@ class DashboardViewModel extends BaseViewModel {
   // Add ViewModel specific code here
   Future<void> loadItems() async {
     setBusy(true);
-    userData ??= await getUserData();
-    languageObj ??= await getLanguage();
+    userData = await getUserData();
+    languageObj = await getLanguage();
+    // userData ??= await getUserData();
+    // languageObj ??= await getLanguage();
 
     //Write your models loading codes here
 
@@ -57,6 +60,19 @@ class DashboardViewModel extends BaseViewModel {
 
   void onNotificationTap() {
     Get.to(() => NotificationsView());
+  }
+
+  Future onLanguageTap(_) async {
+    return languagePopup(
+      _,
+      onTap: (obj) async {
+        await SharedPreferenceHelper.setString(Preferences.languageSelected, jsonEncode(obj));
+        Get.updateLocale(Locale("${obj!["language_code"]}", "${obj["country_code"]}"));
+        Get.back();
+        loadItems();
+        notifyListeners();
+      },
+    );
   }
 }
 

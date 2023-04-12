@@ -3,9 +3,10 @@ import 'package:neeleez_flutter_app/config/my_Image.dart';
 
 class DefaultLayout extends StatelessWidget {
   final Widget? child;
+  final double? height;
   const DefaultLayout({
     Key? key,
-    this.child,
+    this.child, this.height,
   }) : super(key: key);
 
   @override
@@ -23,7 +24,7 @@ class DefaultLayout extends StatelessWidget {
               MyImage.dashBack,
               fit: BoxFit.fitWidth,
               width: double.infinity,
-              height: 135,
+              height: height ?? 135,
             ),
           ),
         ),

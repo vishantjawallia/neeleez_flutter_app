@@ -1,16 +1,17 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/config.dart';
-import 'package:neeleez_flutter_app/config/pref_constant.dart';
-import 'package:neeleez_flutter_app/views/dashboard/dashboard_view_model.dart';
 import 'package:neeleez_flutter_app/widgets/url_image.dart';
 
 import '../../config/palettes.dart';
-import '../../config/preference.dart';
 
-Future<Future<Object?>> languagePopup(_, {String? btn, String? dsc, String? head}) async {
+Future<Future<Object?>> languagePopup(
+  _, {
+  String? btn,
+  String? dsc,
+  String? head,
+  Function(Map? obj)? onTap,
+}) async {
   return showGeneralDialog(
     context: _,
     barrierDismissible: false,
@@ -98,11 +99,14 @@ Future<Future<Object?>> languagePopup(_, {String? btn, String? dsc, String? head
                                                           "language_code": local.languageCode,
                                                           "country_code": local.countryCode,
                                                         };
-                                                        await SharedPreferenceHelper.setString(Preferences.languageSelected, jsonEncode(obj));
-                                                        Get.updateLocale(Locale("${obj["language_code"]}", "${obj["country_code"]}"));
-                                                        Get.back();
-                                                        DashboardViewModel().loadItems();
-                                                        DashboardViewModel().rebuildUi();
+                                                        await onTap!(obj);
+                                                        // await SharedPreferenceHelper.setString(Preferences.languageSelected, jsonEncode(obj));
+                                                        // Get.updateLocale(Locale("${obj["language_code"]}", "${obj["country_code"]}"));
+                                                        // DashboardViewModel model = DashboardViewModel();
+                                                        // // DashboardViewModel().loadItems();
+                                                        // model.rebuildUi();
+                                                        // Get.back();
+                                                        // model.rebuildUi();
                                                       },
                                                       child: Container(
                                                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
