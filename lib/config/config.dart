@@ -201,6 +201,13 @@ List languageList = [
         "nameAr": "إنجليزي",
         "nameFr": "Anglais",
         "local": const Locale('en', 'US'),
+      },
+      {
+        "id": 42,
+        "name": "Urdu",
+        "nameAr": "إنجليزي",
+        "nameFr": "Anglais",
+        "local": const Locale('ur', 'PK'),
       }
     ]
   },

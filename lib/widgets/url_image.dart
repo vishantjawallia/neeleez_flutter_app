@@ -11,13 +11,15 @@ class UrlImage extends StatelessWidget {
     Key? key,
     this.width,
     this.height,
-    this.url = "",
+    this.url,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     if (url == null) {
-      return Container(
+      return SizedBox(
+        width: width,
+        height: height,
         child: Shimmer.fromColors(
           baseColor: Colors.grey,
           highlightColor: Colors.white,

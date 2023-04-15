@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 const String icons = "assets/icons";
 
 class MyIcon {
@@ -49,4 +51,12 @@ class MyIcon {
   static const String popG = "$icons/pop_g.png";
   static const String staffGeneral = "$icons/Staff_General.png";
   static const String upArrow = "$icons/up_arrow.png";
+  //
+  static const String profileBusinessHours = "$icons/profile_business_hours@2x.png";
+  static const String profileContactPersonInfo = "$icons/profile_contact_person_info@2x.png";
+  static const String profileGeneralInfo = "$icons/profile_general_info@3x.png";
+  static const String profilePackage = "$icons/profile_package@2x.png";
+  static const String profileSocialMedia = "$icons/profile_social_media@3x.png";
+  static const String profileLocation = "$icons/profile_location@2x.png";
+  static const String profileGallery = "$icons/profile_gallery@2x.png";
 }

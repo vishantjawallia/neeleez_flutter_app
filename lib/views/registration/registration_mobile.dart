@@ -31,7 +31,7 @@ class _RegistrationMobile extends StatelessWidget {
                     ),
                     const SizedBox(height: 50),
                     GestureDetector(
-                      onTap: () => Get.locale == const Locale('ur', 'PK') ? Get.updateLocale(const Locale('en', 'US')) : Get.updateLocale(const Locale('ur', 'PK')),
+                      // onTap: () => Get.locale == const Locale('ur', 'PK') ? Get.updateLocale(const Locale('en', 'US')) : Get.updateLocale(const Locale('ur', 'PK')),
                       child: Text(
                         'registerNow'.tr,
                         style: Get.textTheme.displayLarge,
@@ -76,7 +76,7 @@ class _RegistrationMobile extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    CustomTextField(
+                    const CustomTextField(
                       name: 'Company Name:',
                       prefixIconPath: MyIcon.officeBuilding,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
@@ -84,7 +84,7 @@ class _RegistrationMobile extends StatelessWidget {
                     CustomTextField(
                       name: 'Business Type:',
                       prefixIconPath: MyIcon.portfolio,
-                      widgetMargin: EdgeInsets.symmetric(vertical: 5),
+                      widgetMargin: const EdgeInsets.symmetric(vertical: 5),
                       suffixIconPath: MyIcon.polygon,
                       onTap: () {},
                     ),
@@ -98,7 +98,7 @@ class _RegistrationMobile extends StatelessWidget {
                         icon: const Icon(Icons.arrow_drop_down_sharp),
                         elevation: 16,
                         focusColor: Palettes.white,
-                        hint: Text(
+                        hint: const Text(
                           'Please Select......',
                           // style: MyTextStyle.subTitle2.copyWith(color: Palettes.greyDark),
                         ),
@@ -124,23 +124,23 @@ class _RegistrationMobile extends StatelessWidget {
                         }).toList(),
                       ),
                     ),
-                    CustomTextField(
+                    const CustomTextField(
                       name: 'Gender:',
                       prefixIconPath: MyIcon.sex,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                       suffixIconPath: MyIcon.polygon,
                     ),
-                    CustomTextField(
+                    const CustomTextField(
                       name: 'WhatsApp:',
                       prefixIconPath: MyIcon.whatsapp,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
-                    CustomTextField(
+                    const CustomTextField(
                       name: 'Telephone:',
                       prefixIconPath: MyIcon.telephone,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
-                    CustomTextField(
+                    const CustomTextField(
                       name: 'Email:',
                       prefixIconPath: MyIcon.mail,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
@@ -174,24 +174,24 @@ class _RegistrationMobile extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    CustomTextField(
+                    const CustomTextField(
                       name: 'Country:',
                       prefixIconPath: MyIcon.mail,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                       suffixIconPath: MyIcon.polygon,
                     ),
-                    CustomTextField(
+                    const CustomTextField(
                       name: 'State/Province:',
                       prefixIconPath: MyIcon.locationPin,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                       suffixIconPath: MyIcon.polygon,
                     ),
-                    CustomTextField(
+                    const CustomTextField(
                       name: 'City:',
                       prefixIconPath: MyIcon.place,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
-                    CustomTextField(
+                    const CustomTextField(
                       height: 90,
                       name: 'Additional Information:',
                       prefixIconPath: MyIcon.information,
@@ -275,12 +275,12 @@ class _RegistrationMobile extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    CustomTextField(
+                    const CustomTextField(
                       name: 'Username / Email:',
                       prefixIconPath: MyIcon.user,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
-                    CustomTextField(
+                    const CustomTextField(
                       name: 'Password:',
                       prefixIconPath: MyIcon.password,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),

@@ -1,23 +1,25 @@
+// ignore_for_file: prefer_const_constructors
+
 part of company_profile_view;
 
 // ignore: must_be_immutable
 class _CompanyProfileMobile extends StatelessWidget {
   final CompanyProfileViewModel viewModel;
 
-  _CompanyProfileMobile(this.viewModel);
+  const _CompanyProfileMobile(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: DefaultLayout(
         height: 155,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 22),
-          child: DefaultTabController(
-            length: 6,
-            child: Column(
-              children: [
-                Column(
+        child: DefaultTabController(
+          length: 7,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 22),
+                child: Column(
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(top: 18),
@@ -50,7 +52,6 @@ class _CompanyProfileMobile extends StatelessWidget {
                                   color: Palettes.white,
                                   size: 16,
                                 ),
-                                // const SizedBox(width: 3),
                                 Text(
                                   'Account',
                                   style: Get.textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600),
@@ -63,7 +64,7 @@ class _CompanyProfileMobile extends StatelessWidget {
                     ),
                     Container(
                       alignment: Alignment.centerLeft,
-                      padding: const EdgeInsets.only(top: 12),
+                      padding: const EdgeInsets.only(top: 12, bottom: 4),
                       child: Text(
                         'Company Profile',
                         style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w600),
@@ -75,66 +76,85 @@ class _CompanyProfileMobile extends StatelessWidget {
                     Material(
                       elevation: 20,
                       child: Container(
-                        height: 50,
+                        height: 45,
                         color: Palettes.white,
                         child: TabBar(
+                          indicatorWeight: 5,
+                          indicatorColor: Palettes.red,
                           tabs: [
-                            Tab(icon: Icon(Icons.directions_car)),
-                            Tab(icon: Icon(Icons.directions_car)),
-                            Tab(icon: Icon(Icons.directions_car)),
-                            Tab(icon: Icon(Icons.directions_car)),
-                            Tab(icon: Icon(Icons.directions_transit)),
-                            Tab(icon: Icon(Icons.directions_bike)),
+                            Tab(
+                              icon: Image.asset(
+                                MyIcon.profileGeneralInfo,
+                              ),
+                            ),
+                            Tab(
+                              icon: Image.asset(
+                                MyIcon.profileSocialMedia,
+                              ),
+                            ),
+                            Tab(
+                              icon: Image.asset(
+                                MyIcon.profileLocation,
+                              ),
+                            ),
+                            Tab(
+                              icon: Image.asset(
+                                MyIcon.profileContactPersonInfo,
+                              ),
+                            ),
+                            Tab(
+                              icon: Image.asset(
+                                MyIcon.profileBusinessHours,
+                              ),
+                            ),
+                            Tab(
+                              icon: Image.asset(
+                                MyIcon.profilePackage,
+                              ),
+                            ),
+                            Tab(
+                              icon: Image.asset(
+                                MyIcon.profileGallery,
+                              ),
+                            ),
                           ],
                         ),
                       ),
                     ),
                   ],
                 ),
-                Flexible(
-                  child: TabBarView(
-                    children: [
-                      Center(
-                        child: Text(
-                          "Icons.directions_car",
-                          style: Get.textTheme.headlineMedium!.copyWith(color: Palettes.black),
-                        ),
+              ),
+              Flexible(
+                child: TabBarView(
+                  dragStartBehavior: DragStartBehavior.start,
+                  children: [
+                    GeneralInfo(),
+                    SocialMedia(),
+                    Location(),
+                    Center(
+                      child: Image.asset(
+                        MyIcon.profileContactPersonInfo,
                       ),
-                      Center(
-                        child: Text(
-                          "Icons.directions_transit",
-                          style: Get.textTheme.headlineMedium!.copyWith(color: Palettes.black),
-                        ),
+                    ),
+                    Center(
+                      child: Image.asset(
+                        MyIcon.profileBusinessHours,
                       ),
-                      Center(
-                        child: Text(
-                          "Icons.directions_bike",
-                          style: Get.textTheme.headlineMedium!.copyWith(color: Palettes.black),
-                        ),
+                    ),
+                    Center(
+                      child: Image.asset(
+                        MyIcon.profilePackage,
                       ),
-                      Center(
-                        child: Text(
-                          "Icons.directions_bike",
-                          style: Get.textTheme.headlineMedium!.copyWith(color: Palettes.black),
-                        ),
+                    ),
+                    Center(
+                      child: Image.asset(
+                        MyIcon.profileGallery,
                       ),
-                      Center(
-                        child: Text(
-                          "Icons.directions_bike",
-                          style: Get.textTheme.headlineMedium!.copyWith(color: Palettes.black),
-                        ),
-                      ),
-                      Center(
-                        child: Text(
-                          "Icons.directions_bike",
-                          style: Get.textTheme.headlineMedium!.copyWith(color: Palettes.black),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

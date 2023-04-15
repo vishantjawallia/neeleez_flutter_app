@@ -1,7 +1,12 @@
 library company_profile_view;
 
+import 'package:flutter/gestures.dart';
 import 'package:get/get.dart';
+import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
+import 'package:neeleez_flutter_app/views/company_profile/widgets/general_info.dart';
+import 'package:neeleez_flutter_app/views/company_profile/widgets/loaction.dart';
+import 'package:neeleez_flutter_app/views/company_profile/widgets/social_media.dart';
 import 'package:neeleez_flutter_app/widgets/default_layout.dart';
 import 'package:stacked/stacked.dart';
 import 'package:responsive_builder/responsive_builder.dart';
