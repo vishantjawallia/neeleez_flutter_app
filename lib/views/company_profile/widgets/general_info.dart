@@ -5,7 +5,8 @@ import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
-import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down.dart';
+import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down%20copy.dart';
+
 import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 import 'package:neeleez_flutter_app/widgets/url_image.dart';
@@ -159,7 +160,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
             const CustomDropDown(
               list: ['Hello', 'Go'],
               name: 'Business Category',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.portfolio,
               prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),
@@ -171,7 +172,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
             const CustomDropDown(
               list: ['Hello', 'Go'],
               name: 'Business Sub-Category',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.portfolio,
               prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),
@@ -183,7 +184,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
             const CustomDropDown(
               list: ['Hello', 'Go'],
               name: 'Services For',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.sex,
               prefixIconColor: Palettes.primary,
             ),
 
@@ -220,7 +221,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
             ),
             const CustomTextField(
               name: 'Whatsapp No',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.whatsapp,
               prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),
@@ -231,7 +232,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
             ),
             const CustomTextField(
               name: 'Telephone',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.telephone,
               prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),
@@ -242,7 +243,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
             ),
             const CustomTextField(
               name: 'Email',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.mail,
               prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),
@@ -300,6 +301,11 @@ class _GeneralInfoState extends State<GeneralInfo> {
               textAlign: TextAlign.right,
             ),
             const CustomTextField(
+              // maxLines: 10,
+              // maxLength: 200,
+              // height: 80,
+              // prefixPadding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
+              // maxLengthEnforcement: MaxLengthEnforcement.none,
               name: 'Additional Information',
               prefixIconPath: MyIcon.information,
               prefixIconColor: Palettes.primary,

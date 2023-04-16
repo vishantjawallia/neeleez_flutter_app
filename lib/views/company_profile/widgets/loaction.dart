@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
-import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down.dart';
+import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down%20copy.dart';
+
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 
 class Location extends StatefulWidget {
@@ -93,7 +94,7 @@ class _SocialMediaState extends State<Location> {
             ),
             const CustomTextField(
               name: 'Google Address',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.place,
               prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),
@@ -103,8 +104,8 @@ class _SocialMediaState extends State<Location> {
               textAlign: TextAlign.right,
             ),
             const CustomTextField(
-              name: 'Additional Addresss',
-              prefixIconPath: MyIcon.officeBuilding,
+              name: 'Additional Address',
+              prefixIconPath: MyIcon.place,
               prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),

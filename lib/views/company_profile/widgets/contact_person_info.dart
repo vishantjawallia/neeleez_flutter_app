@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
-import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down.dart';
+import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down%20copy.dart';
+
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 
 class ContactPersonInfo extends StatefulWidget {
@@ -58,7 +59,7 @@ class _SocialMediaState extends State<ContactPersonInfo> {
             ),
             const CustomTextField(
               name: 'Full Name',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.user,
               prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),
@@ -70,7 +71,7 @@ class _SocialMediaState extends State<ContactPersonInfo> {
             ),
             const CustomTextField(
               name: 'Mobile No',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.mobileAnalytics,
               prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),
@@ -81,7 +82,7 @@ class _SocialMediaState extends State<ContactPersonInfo> {
             ),
             const CustomTextField(
               name: 'Email',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.mail,
               prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),
