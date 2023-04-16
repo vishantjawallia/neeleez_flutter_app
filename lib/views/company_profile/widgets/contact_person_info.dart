@@ -6,14 +6,14 @@ import 'package:neeleez_flutter_app/helpers/helper.dart';
 import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down.dart';
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 
-class Location extends StatefulWidget {
-  const Location({Key? key}) : super(key: key);
+class ContactPersonInfo extends StatefulWidget {
+  const ContactPersonInfo({Key? key}) : super(key: key);
 
   @override
   _SocialMediaState createState() => _SocialMediaState();
 }
 
-class _SocialMediaState extends State<Location> {
+class _SocialMediaState extends State<ContactPersonInfo> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -33,7 +33,7 @@ class _SocialMediaState extends State<Location> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Location'.tr,
+                    'Contact Person Info'.tr,
                     style: Get.textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.w600, color: Palettes.black, fontSize: 15),
                     textAlign: TextAlign.left,
                   ),
@@ -49,61 +49,62 @@ class _SocialMediaState extends State<Location> {
                 ],
               ),
             ),
+
             const SizedBox(height: 14),
             Text(
-              'Country',
-              style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
-              textAlign: TextAlign.right,
-            ),
-            const CustomDropDown(
-              list: ['Hello', 'Go'],
-              name: 'Country',
-              prefixIconPath: MyIcon.officeBuilding,
-              prefixIconColor: Palettes.primary,
-            ),
-            const SizedBox(height: 14),
-            Text(
-              'State/Province',
-              style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
-              textAlign: TextAlign.right,
-            ),
-            const CustomDropDown(
-              list: ['Hello', 'Go'],
-              name: 'State/Province',
-              prefixIconPath: MyIcon.officeBuilding,
-              prefixIconColor: Palettes.primary,
-            ),
-            const SizedBox(height: 14),
-            Text(
-              'City',
-              style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
-              textAlign: TextAlign.right,
-            ),
-            const CustomDropDown(
-              list: ['Hello', 'Go'],
-              name: 'City',
-              prefixIconPath: MyIcon.officeBuilding,
-              prefixIconColor: Palettes.primary,
-            ),
-            const SizedBox(height: 14),
-            Text(
-              'Google Address',
+              'Full Name',
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
             const CustomTextField(
-              name: 'Google Address',
+              name: 'Full Name',
+              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconColor: Palettes.primary,
+            ),
+            const SizedBox(height: 14),
+            //
+            Text(
+              'Mobile No',
+              style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
+              textAlign: TextAlign.right,
+            ),
+            const CustomTextField(
+              name: 'Mobile No',
               prefixIconPath: MyIcon.officeBuilding,
               prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),
             Text(
-              'Additional Address',
+              'Email',
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
             const CustomTextField(
-              name: 'Additional Addresss',
+              name: 'Email',
+              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconColor: Palettes.primary,
+            ),
+            const SizedBox(height: 14),
+            Text(
+              'Department',
+              style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
+              textAlign: TextAlign.right,
+            ),
+            const CustomDropDown(
+              list: ['Hello', 'Go'],
+              name: 'Department',
+              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconColor: Palettes.primary,
+            ),
+            const SizedBox(height: 14),
+            Text(
+              'Designation',
+              style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
+              textAlign: TextAlign.right,
+            ),
+            const CustomDropDown(
+              list: ['Hello', 'Go'],
+              name: 'Designation',
               prefixIconPath: MyIcon.officeBuilding,
               prefixIconColor: Palettes.primary,
             ),

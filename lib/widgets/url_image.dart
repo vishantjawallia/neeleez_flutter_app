@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:shimmer/shimmer.dart';
 
+
 class UrlImage extends StatelessWidget {
   final String? url;
   final double? width;

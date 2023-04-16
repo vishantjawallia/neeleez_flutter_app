@@ -127,30 +127,14 @@ class _CompanyProfileMobile extends StatelessWidget {
               Flexible(
                 child: TabBarView(
                   dragStartBehavior: DragStartBehavior.start,
-                  children: [
+                  children: const [
                     GeneralInfo(),
                     SocialMedia(),
                     Location(),
-                    Center(
-                      child: Image.asset(
-                        MyIcon.profileContactPersonInfo,
-                      ),
-                    ),
-                    Center(
-                      child: Image.asset(
-                        MyIcon.profileBusinessHours,
-                      ),
-                    ),
-                    Center(
-                      child: Image.asset(
-                        MyIcon.profilePackage,
-                      ),
-                    ),
-                    Center(
-                      child: Image.asset(
-                        MyIcon.profileGallery,
-                      ),
-                    ),
+                    ContactPersonInfo(),
+                    BusinessHours(),
+                    Packages(),
+                    FileSection(),
                   ],
                 ),
               ),

@@ -1,13 +1,13 @@
+import 'package:flutter/material.dart';
 // ignore_for_file: deprecated_member_use
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
 
-class CustomTextField extends StatelessWidget {
+class CustomDropDown extends StatefulWidget {
   final TextEditingController? controller;
+  final List<String>? list;
   final String? name;
   final String? prefixIconPath;
   final Color? prefixIconColor;
@@ -28,7 +28,7 @@ class CustomTextField extends StatelessWidget {
   final bool? enabled;
   final void Function(String? value)? onChanged;
   final void Function()? onTap;
-  const CustomTextField({
+  const CustomDropDown({
     Key? key,
     this.controller,
     this.name,
@@ -51,14 +51,24 @@ class CustomTextField extends StatelessWidget {
     this.enabled = true,
     this.suffixIconWidget,
     this.checkedSuffixIcon = false,
+    required this.list,
   }) : super(key: key);
+
+  @override
+  State<CustomDropDown> createState() => _CustomDropDownState();
+}
+
+class _CustomDropDownState extends State<CustomDropDown> {
+  List<String>? list;
+  _CustomDropDownState();
+  String? dropdownValue;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      key: Key('$name'),
-      height: height ?? 50,
-      margin: widgetMargin ?? EdgeInsets.zero,
+      key: Key('${widget.name}'),
+      height: widget.height ?? 50,
+      margin: widget.widgetMargin ?? EdgeInsets.zero,
       decoration: BoxDecoration(
         color: Palettes.white,
         borderRadius: BorderRadius.circular(10),
@@ -76,7 +86,7 @@ class CustomTextField extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                padding: prefixPadding ?? const EdgeInsets.symmetric(horizontal: 14, vertical: 10.5),
+                padding: widget.prefixPadding ?? const EdgeInsets.symmetric(horizontal: 14, vertical: 10.5),
                 decoration: BoxDecoration(
                   color: Palettes.greyPrimary,
                   borderRadius: Helper.isRtl()
@@ -90,61 +100,28 @@ class CustomTextField extends StatelessWidget {
                         ),
                 ),
                 child: Image.asset(
-                  prefixIconPath!,
+                  widget.prefixIconPath!,
                   filterQuality: FilterQuality.high,
                   isAntiAlias: true,
-                  color: prefixIconColor,
+                  color: widget.prefixIconColor,
                   height: 26,
                   width: 26,
                 ),
               ),
               Flexible(
-                child: TextField(
-                  style: Get.textTheme.bodyMedium!.copyWith(
-                    color: Palettes.primary,
-                    fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
-                  ),
-                  controller: controller,
-                  maxLength: maxLength,
-                  maxLines: maxLines ?? 1,
-                  minLines: minLines,
-                  maxLengthEnforcement: maxLengthEnforcement ?? MaxLengthEnforcement.none,
-                  enabled: enabled,
-                  obscureText: obscureText ?? false,
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 14),
-                    border: InputBorder.none,
-                    hintText: name ?? 'Username / Email :',
-                    hintStyle: Get.textTheme.bodyMedium!.copyWith(
-                      color: Palettes.primary.withOpacity(0.8),
-                      fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
-                    ),
-                    isDense: true,
-                  ),
+                fit: FlexFit.tight,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: _dropDown(),
                 ),
               ),
-              // obscureText ?? false
-              //     ? Container(
-              //         padding: const EdgeInsets.only(bottom: 7),
-              //         child: Padding(
-              //           padding: Helper.isRtl() ? const EdgeInsets.only(right: 10, top: 6) : const EdgeInsets.only(left: 10, top: 6),
-              //           child: Image.asset(
-              //             '',
-              //             height: 26,
-              //             width: 26,
-              //             filterQuality: FilterQuality.high,
-              //             isAntiAlias: true,
-              //           ),
-              //         ),
-              //       )
-              //     : const SizedBox(),
-              suffixIconPath!.isNotEmpty
+              widget.suffixIconPath!.isNotEmpty
                   ? Container(
                       padding: const EdgeInsets.only(bottom: 7),
                       child: Padding(
                         padding: Helper.isRtl() ? const EdgeInsets.only(right: 10, top: 6) : const EdgeInsets.only(left: 10, top: 6),
                         child: Image.asset(
-                          suffixIconPath!,
+                          widget.suffixIconPath!,
                           height: 20,
                           width: 20,
                           filterQuality: FilterQuality.high,
@@ -153,11 +130,35 @@ class CustomTextField extends StatelessWidget {
                       ),
                     )
                   : const SizedBox(),
-              suffixIconWidget ?? const SizedBox(),
+              widget.suffixIconWidget ?? const SizedBox(),
             ],
           ),
         ],
       ),
+    );
+  }
+
+  DropdownButton<String> _dropDown() {
+    return DropdownButton<String>(
+      isExpanded: true,
+      isDense: true,
+      value: dropdownValue ?? widget.list!.first,
+      icon: const Icon(Icons.arrow_drop_down_sharp),
+      // elevation: 16,
+      style: const TextStyle(color: Colors.deepPurple),
+      underline: Container(),
+      onChanged: (String? value) {
+        setState(() {
+          dropdownValue = value!;
+        });
+      },
+      items: widget.list!.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>
+        (
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
     );
   }
 }
