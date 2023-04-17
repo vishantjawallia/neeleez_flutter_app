@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
+import 'package:neeleez_flutter_app/views/company_profile/components/timimg_widget.dart';
 import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 
 class BusinessHours extends StatefulWidget {
@@ -63,7 +64,55 @@ class _SocialMediaState extends State<BusinessHours> {
                 ],
               ),
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 20),
+            Column(
+              children: <Widget>[
+                Container(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(color: Palettes.grey1),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Day',
+                        style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.grey3),
+                      ),
+                      Flexible(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Start',
+                              style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.grey3),
+                            ),
+                            SizedBox(width: 5.w),
+                            Text(
+                              'End',
+                              style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.grey3),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Text(
+                        'Holiday',
+                        style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.grey3),
+                      ),
+                    ],
+                  ),
+                ),
+                ...weekDayList.map((e) {
+                  return TimingWidget(
+                    name: e,
+                  );
+                }).toList(),
+              ],
+            ),
+            const SizedBox(height: 20),
             Align(
               alignment: Alignment.center,
               child: CustomButton(
@@ -75,9 +124,12 @@ class _SocialMediaState extends State<BusinessHours> {
                 onTap: () {},
               ),
             ),
+            const SizedBox(height: 40),
           ],
         ),
       ),
     );
   }
 }
+
+List weekDayList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
