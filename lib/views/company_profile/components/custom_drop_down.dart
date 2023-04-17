@@ -129,7 +129,9 @@ class _CustomDropDownState extends State<CustomDropDown> {
                         ),
                       ),
                     )
-                  : const SizedBox(),
+                  : const SizedBox(
+                    
+                  ),
               widget.suffixIconWidget ?? const SizedBox(),
             ],
           ),

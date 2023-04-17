@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
-import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down%20copy.dart';
+import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down.dart';
 
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 

@@ -27,7 +27,7 @@ class CustomMultiDropDown extends StatefulWidget {
   final bool? obscureText;
   final bool? autofocus;
   final bool? enabled;
-  final void Function(String? value)? onChanged;
+  final Function(List<String>? value)? onChanged;
   final void Function()? onTap;
   const CustomMultiDropDown({
     Key? key,
@@ -38,7 +38,7 @@ class CustomMultiDropDown extends StatefulWidget {
     this.obscureText,
     this.prefixIconPath = "",
     this.suffixIconPath = "",
-    this.onChanged,
+    required this.onChanged,
     this.prefixIconColor,
     this.prefixIconSize,
     this.maxLength,
@@ -61,13 +61,16 @@ class CustomMultiDropDown extends StatefulWidget {
 
 class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
   List<String>? list;
+  List<String>? selectItem = [];
   _CustomMultiDropDownState();
   String? dropdownValue;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      key: Key('${widget.name}'),
+      key: _scaffoldKey,
+      // key: Key('${widget.name}'),
       height: widget.height ?? 50,
       margin: widget.widgetMargin ?? EdgeInsets.zero,
       decoration: BoxDecoration(
@@ -110,10 +113,79 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
                 ),
               ),
               Flexible(
-                fit: FlexFit.tight,
+                fit: FlexFit.loose,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: _dropDown(),
+                  padding: const EdgeInsets.only(right: 10),
+                  child: SizedBox(
+                    height: 47,
+                    child: Stack(
+                      fit: StackFit.passthrough,
+                      children: [
+                        _dropDown(),
+                        Positioned(
+                          child: Container(
+                              width: 65.w,
+                              color: Palettes.white,
+                              padding: const EdgeInsets.only(left: 12),
+                              child: selectItem!.isNotEmpty
+                                  ? ListView.builder(
+                                      itemCount: selectItem!.length,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.horizontal,
+                                      itemBuilder: (context, index) {
+                                        return Padding(
+                                          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(16),
+                                              color: Palettes.greyPrimary,
+                                            ),
+                                            padding: const EdgeInsets.symmetric(horizontal: 14),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Text(
+                                                  selectItem![index] ?? 'Account',
+                                                  style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
+                                                ),
+                                                const SizedBox(width: 4),
+                                                GestureDetector(
+                                                  onTap: () async {
+                                                    setState(() {
+                                                      if (selectItem!.contains(selectItem![index])) {
+                                                        selectItem!.remove(selectItem![index]);
+                                                      }
+                                                    });
+                                                    return await widget.onChanged!(selectItem!.toSet().toList());
+                                                  },
+                                                  child: const Icon(
+                                                    Icons.cancel,
+                                                    color: Palettes.red,
+                                                    size: 19,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    )
+                                  : Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: SizedBox(
+                                        child: Text(
+                                          '${widget.name}',
+                                          style: Get.textTheme.bodyMedium!.copyWith(
+                                            color: Palettes.primary.withOpacity(0.8),
+                                            fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
+                                          ),
+                                        ),
+                                      ),
+                                    )),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
               widget.suffixIconPath!.isNotEmpty
@@ -139,31 +211,41 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
     );
   }
 
-  DropdownButton<String> _dropDown() {
-    return DropdownButton<String>(
-      isExpanded: true,
-      isDense: true,
-      value: dropdownValue ?? widget.list!.first,
-      icon: const Icon(Icons.arrow_drop_down_sharp,size: 20,),
-      // elevation: 16,
-      // style: const TextStyle(color: Colors.deepPurple),
-      style: Get.textTheme.bodyMedium!.copyWith(color: Palettes.black),
-      underline: Container(),
-      onChanged: (String? value) {
-        setState(() {
-          dropdownValue = value!;
-        });
-      },
+  _dropDown() {
+    return Align(
+      alignment: Alignment.center,
+      child: DropdownButton<String>(
+        isExpanded: true,
+        isDense: true,
+        value: dropdownValue ?? widget.list!.first,
+        icon: const Icon(
+          Icons.arrow_drop_down_sharp,
+          size: 20,
+        ),
+        // elevation: 16,
+        // style: const TextStyle(color: Colors.deepPurple),
+        style: Get.textTheme.bodyMedium!.copyWith(color: Palettes.black),
+        underline: Container(),
+        autofocus: true,
+        onChanged: (String? value) async {
+          setState(() {
+            if (!selectItem!.contains(value)) {
+              selectItem!.add(value!);
+            }
+          });
+          return await widget.onChanged!(selectItem!.toSet().toList());
+        },
 
-      items: widget.list!.map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(
-            value,
-            // style: Get.textTheme.bodyMedium!.copyWith(color: Palettes.black),
-          ),
-        );
-      }).toList(),
+        items: widget.list!.map<DropdownMenuItem<String>>((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(
+              value,
+              // style: Get.textTheme.bodyMedium!.copyWith(color: Palettes.black),
+            ),
+          );
+        }).toList(),
+      ),
     );
   }
 }

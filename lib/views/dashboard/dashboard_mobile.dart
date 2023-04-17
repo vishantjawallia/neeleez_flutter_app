@@ -128,7 +128,7 @@ class _DashboardMobile extends StatelessWidget {
             children: [
               Container(
                 width: 90.w,
-                height: 62,
+                height: 63,
                 padding: EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),

@@ -128,6 +128,16 @@ class _CompanyProfileMobile extends StatelessWidget {
                 child: TabBarView(
                   dragStartBehavior: DragStartBehavior.start,
                   children: const [
+//                     GET => /api/Genders/genders/true
+// 2) GET => /api/ BusinessService/BusinessServicesByCountry/IN
+// GET => /api/ BusinessTypes/{BusinessCat}/{Countryld}
+// 4) GET => /api/Amenities/
+// 5) GET => /api/Companies/CompanyEmailExist/{email}/0
+// 6) GET => /api/CompanyProfile/GeneralInformation/{companyld}
+// 7) PUT => /api/Companies/UpdateGeneralinformation/(companyld}
+// 8)
+// POST => /арі/
+// Companies/CompanyLogo/{companyld}/(IsProfileChange}
                     GeneralInfo(),
                     SocialMedia(),
                     Location(),

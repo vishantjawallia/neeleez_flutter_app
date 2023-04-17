@@ -5,7 +5,8 @@ import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
-import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down%20copy.dart';
+import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down.dart';
+import 'package:neeleez_flutter_app/views/company_profile/components/custom_multi_drop_down.dart';
 
 import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
@@ -289,10 +290,14 @@ class _GeneralInfoState extends State<GeneralInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomMultiDropDown(
+              list: const ['Hello', 'Go', 'How are', 'You'],
               name: 'Amenities',
               prefixIconPath: MyIcon.officeBuilding,
               prefixIconColor: Palettes.primary,
+              onChanged: (List<String>? value) {
+                log(value!.toString());
+              },
             ),
             const SizedBox(height: 14),
             Text(
