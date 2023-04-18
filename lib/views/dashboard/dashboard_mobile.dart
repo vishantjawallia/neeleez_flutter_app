@@ -130,21 +130,43 @@ class _DashboardMobile extends StatelessWidget {
                 width: 90.w,
                 height: 63,
                 padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  gradient: LinearGradient(
-                    colors: [
-                      Palettes.red,
-                      Palettes.red.withOpacity(0.75),
-                      Palettes.red.withOpacity(0.55),
-                      Palettes.red.withOpacity(0.45),
-                      Colors.transparent,
-                    ],
-                    begin: Alignment.bottomLeft,
-                    end: Alignment.topRight,
-                    stops: [0.1, 0.3, 0.5, 0.7, 1],
-                  ),
-                ),
+                decoration: Helper.isRtl()
+                    ? BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        gradient: LinearGradient(
+                          colors: [
+                            Palettes.red,
+                            Palettes.red.withOpacity(0.75),
+                            Palettes.red.withOpacity(0.55),
+                            Palettes.red.withOpacity(0.45),
+                            Colors.transparent,
+                          ],
+                          begin: Alignment.bottomLeft,
+                          end: Alignment.topRight,
+                          stops: [0.1, 0.3, 0.5, 0.7, 1],
+                        ),
+                      )
+                    : BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        gradient: LinearGradient(
+                          colors: [
+                            Colors.transparent,
+                            Palettes.red.withOpacity(0.45),
+                            Palettes.red.withOpacity(0.55),
+                            Palettes.red.withOpacity(0.75),
+                            Palettes.red,
+                          ],
+                          begin: Alignment.bottomLeft,
+                          end: Alignment.topRight,
+                          stops: [
+                            0.1,
+                            0.3,
+                            0.5,
+                            0.7,
+                            1,
+                          ],
+                        ),
+                      ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -164,16 +186,31 @@ class _DashboardMobile extends StatelessWidget {
               ),
             ],
           ),
-          Positioned(
-            right: 1,
-            child: Container(
-              child: Image.asset(
-                height: 90,
-                MyImage.imgDashboard1,
-                fit: BoxFit.fill,
-              ),
-            ),
-          ),
+          Helper.isRtl()
+              ? Positioned(
+                  right: 1,
+                  // right: Helper.isRtl() ? 1 : 0,
+                  // left: Helper.isRtl() ? 1 : 1,
+                  child: Container(
+                    child: Image.asset(
+                      height: 90,
+                      MyImage.imgDashboard1,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                )
+              : Positioned(
+                  left: 1,
+                  // right: Helper.isRtl() ? 1 : 0,
+                  // left: Helper.isRtl() ? 1 : 1,
+                  child: Container(
+                    child: Image.asset(
+                      height: 90,
+                      MyImage.imgDashboard1,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
         ],
       ),
     );
