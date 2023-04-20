@@ -6,7 +6,8 @@ import 'package:neeleez_flutter_app/views/company_profile/components/timimg_widg
 import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 
 class BusinessHours extends StatefulWidget {
-  const BusinessHours({Key? key}) : super(key: key);
+  final void Function()? onBusinessHoursSave;
+  const BusinessHours({Key? key, required this.onBusinessHoursSave}) : super(key: key);
 
   @override
   _SocialMediaState createState() => _SocialMediaState();

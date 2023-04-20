@@ -2,21 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 
-class FreelancerSwitch extends StatefulWidget {
-  final void Function(bool? value)? onChange;
+class FreelancerSwitch extends StatelessWidget {
+  final bool? initialValue;
+
+  final void Function(bool? initialValue)? onChange;
 
   const FreelancerSwitch({
     super.key,
     required this.onChange,
+    this.initialValue,
     // required this.value,
   });
 
-  @override
-  State<FreelancerSwitch> createState() => _FreelancerSwitchState();
-}
-
-class _FreelancerSwitchState extends State<FreelancerSwitch> {
-  bool? value = false;
+  // bool? value = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,16 +39,13 @@ class _FreelancerSwitchState extends State<FreelancerSwitch> {
             child: Row(
               children: [
                 GestureDetector(
-                  onTap: () {
-                    setState(() => value = false);
-                    return widget.onChange!(value);
-                  },
+                  onTap: () => onChange!(initialValue),
                   child: Align(
                     widthFactor: 0.85,
                     child: Container(
                       padding: const EdgeInsets.fromLTRB(12, 5, 12, 5),
                       decoration: BoxDecoration(
-                        color: !value! ? Palettes.primary : Colors.transparent,
+                        color: !initialValue! ? Palettes.primary : Colors.transparent,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Text(
@@ -61,16 +56,13 @@ class _FreelancerSwitchState extends State<FreelancerSwitch> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {
-                    setState(() => value = true);
-                    return widget.onChange!(value);
-                  },
+                  onTap: () => onChange!(initialValue),
                   child: Align(
                     widthFactor: 0.85,
                     child: Container(
                       padding: const EdgeInsets.fromLTRB(12, 5, 12, 5),
                       decoration: BoxDecoration(
-                        color: value! ? Palettes.primary : Colors.transparent,
+                        color: initialValue! ? Palettes.primary : Colors.transparent,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Text(

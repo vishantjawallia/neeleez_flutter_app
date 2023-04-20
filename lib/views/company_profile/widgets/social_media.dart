@@ -6,14 +6,21 @@ import 'package:neeleez_flutter_app/helpers/helper.dart';
 import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 
-class SocialMedia extends StatefulWidget {
-  const SocialMedia({Key? key}) : super(key: key);
+class SocialMedia extends StatelessWidget {
+  final TextEditingController? facebookController;
+  final TextEditingController? twitterController;
+  final TextEditingController? instagramController;
+  final TextEditingController? linkedInController;
+  final void Function()? onSocialSave;
+  const SocialMedia({
+    Key? key,
+    required this.facebookController,
+    required this.twitterController,
+    required this.instagramController,
+    required this.linkedInController,
+    required this.onSocialSave,
+  }) : super(key: key);
 
-  @override
-  _SocialMediaState createState() => _SocialMediaState();
-}
-
-class _SocialMediaState extends State<SocialMedia> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -56,7 +63,8 @@ class _SocialMediaState extends State<SocialMedia> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
+              controller: facebookController,
               name: 'Facebook',
               prefixIconPath: MyIcon.officeBuilding,
               prefixIconColor: Palettes.primary,
@@ -89,7 +97,8 @@ class _SocialMediaState extends State<SocialMedia> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
+              controller: instagramController ,
               name: 'Instagram',
               prefixIconPath: MyIcon.officeBuilding,
               prefixIconColor: Palettes.primary,
@@ -105,7 +114,8 @@ class _SocialMediaState extends State<SocialMedia> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
+              controller: linkedInController,
               name: 'Linked In',
               prefixIconPath: MyIcon.officeBuilding,
               prefixIconColor: Palettes.primary,
@@ -126,7 +136,7 @@ class _SocialMediaState extends State<SocialMedia> {
                 text: 'Save',
                 backgroundColor: Palettes.primary,
                 borderColor: Palettes.primary,
-                onTap: () {},
+                onTap: onSocialSave,
               ),
             ),
             const SizedBox(height: 34),

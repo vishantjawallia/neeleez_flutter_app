@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -14,14 +16,52 @@ import 'package:neeleez_flutter_app/widgets/url_image.dart';
 
 import '../components/freelancer_switch.dart';
 
-class GeneralInfo extends StatefulWidget {
-  const GeneralInfo({Key? key}) : super(key: key);
+class GeneralInfo extends StatelessWidget {
+  final bool? isFreelancer;
+  final void Function(bool? isFreelancer)? onFreelancerChange;
+  final TextEditingController? companyNameController;
+  final TextEditingController? taglineController;
+  final TextEditingController? companyEstablishmentYearController;
+  final DateTime? companyEstablishmentYearDate;
+  final String? businessCategory;
+  final List<String>? businessCategoryList;
+  final List<String>? businessSubCategorySelectedList;
+  final List<String>? businessSubCategoryList;
+  final String? serviceFor;
+  final List<String>? serviceForList;
+  final TextEditingController? whatsAppNoController;
+  final TextEditingController? telephoneController;
+  final TextEditingController? emailController;
+  final TextEditingController? websiteController;
+  final List<String>? amentiasList;
+  final List<String>? amentiasSelectedList;
+  final TextEditingController? additionalInfoController;
+  final void Function()? onSave;
 
-  @override
-  _GeneralInfoState createState() => _GeneralInfoState();
-}
+  const GeneralInfo({
+    Key? key,
+    required this.isFreelancer,
+    required this.companyNameController,
+    required this.taglineController,
+    required this.companyEstablishmentYearController,
+    required this.businessCategory,
+    required this.businessCategoryList,
+    required this.businessSubCategorySelectedList,
+    required this.businessSubCategoryList,
+    required this.serviceFor,
+    required this.serviceForList,
+    required this.whatsAppNoController,
+    required this.telephoneController,
+    required this.emailController,
+    required this.websiteController,
+    required this.amentiasList,
+    required this.amentiasSelectedList,
+    required this.onSave,
+    required this.additionalInfoController,
+    required this.onFreelancerChange,
+    required this.companyEstablishmentYearDate,
+  }) : super(key: key);
 
-class _GeneralInfoState extends State<GeneralInfo> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -52,38 +92,10 @@ class _GeneralInfoState extends State<GeneralInfo> {
                     decoration: const BoxDecoration(
                       color: Palettes.red,
                     ),
-                    // child: ,
                   )
                 ],
               ),
             ),
-            // SizedBox(
-            //   height: 88,
-            //   width: 99,
-            //   child: CustomDropdown(
-            //     // leadingIcon: ,
-            //     items: [
-            //       DropdownItem(
-            //         value: 'Hello',
-            //         child: Container(
-            //           child: const Text('Hello'),
-            //         ),
-            //       ),
-            //     ],
-            //     onChange: (int) {},
-
-            //     dropdownButtonStyle: const DropdownButtonStyle(height: 44, width: 33),
-            //     child: Container(
-            //       child: const Text(
-            //         'Hllo',
-            //         style: TextStyle(color: Palettes.black),
-            //       ),
-            //     ),
-            //   ),
-            // ),
-            // const DropdownButtonExample(
-            //   list: ['HEllo', 'Go', 'N'],
-            // ),
             Align(
               alignment: Alignment.centerRight,
               child: Stack(
@@ -106,9 +118,8 @@ class _GeneralInfoState extends State<GeneralInfo> {
             ),
             const SizedBox(height: 12),
             FreelancerSwitch(
-              onChange: (value) {
-                log(value.toString());
-              },
+              initialValue: isFreelancer,
+              onChange: onFreelancerChange,
             ),
             const SizedBox(height: 14),
             Text(
@@ -116,7 +127,8 @@ class _GeneralInfoState extends State<GeneralInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
+              controller: companyNameController,
               name: 'Company Name',
               prefixIconPath: MyIcon.officeBuilding,
               prefixIconColor: Palettes.primary,
@@ -128,7 +140,8 @@ class _GeneralInfoState extends State<GeneralInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
+              controller: taglineController,
               name: 'Tagline',
               prefixIconPath: MyIcon.officeBuilding,
               prefixIconColor: Palettes.primary,
@@ -147,7 +160,8 @@ class _GeneralInfoState extends State<GeneralInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
+              controller: companyEstablishmentYearController,
               name: 'Company Establishment Year',
               prefixIconPath: MyIcon.officeBuilding,
               prefixIconColor: Palettes.primary,
@@ -158,8 +172,8 @@ class _GeneralInfoState extends State<GeneralInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomDropDown(
-              list: ['Hello', 'Go'],
+            CustomDropDown(
+              list: businessCategoryList,
               name: 'Business Category',
               prefixIconPath: MyIcon.portfolio,
               prefixIconColor: Palettes.primary,
@@ -170,20 +184,24 @@ class _GeneralInfoState extends State<GeneralInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomDropDown(
-              list: ['Hello', 'Go'],
+            CustomMultiDropDown(
+              list: businessSubCategorySelectedList,
               name: 'Business Sub-Category',
               prefixIconPath: MyIcon.portfolio,
               prefixIconColor: Palettes.primary,
+              onChanged: (List<String>? value) {
+                log(value!.toString());
+              },
             ),
+
             const SizedBox(height: 14),
             Text(
               'Services For',
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomDropDown(
-              list: ['Hello', 'Go'],
+            CustomDropDown(
+              list: serviceForList,
               name: 'Services For',
               prefixIconPath: MyIcon.sex,
               prefixIconColor: Palettes.primary,
@@ -220,7 +238,8 @@ class _GeneralInfoState extends State<GeneralInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
+              controller: whatsAppNoController,
               name: 'Whatsapp No',
               prefixIconPath: MyIcon.whatsapp,
               prefixIconColor: Palettes.primary,
@@ -231,7 +250,8 @@ class _GeneralInfoState extends State<GeneralInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
+              controller: telephoneController,
               name: 'Telephone',
               prefixIconPath: MyIcon.telephone,
               prefixIconColor: Palettes.primary,
@@ -242,7 +262,8 @@ class _GeneralInfoState extends State<GeneralInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
+              controller: emailController,
               name: 'Email',
               prefixIconPath: MyIcon.mail,
               prefixIconColor: Palettes.primary,
@@ -253,7 +274,8 @@ class _GeneralInfoState extends State<GeneralInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
+              controller: websiteController,
               name: 'Website',
               prefixIconPath: MyIcon.officeBuilding,
               prefixIconColor: Palettes.primary,
@@ -291,7 +313,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
               textAlign: TextAlign.right,
             ),
             CustomMultiDropDown(
-              list: const ['Hello', 'Go', 'How are', 'You'],
+              list: amentiasList,
               name: 'Amenities',
               prefixIconPath: MyIcon.officeBuilding,
               prefixIconColor: Palettes.primary,
@@ -305,12 +327,13 @@ class _GeneralInfoState extends State<GeneralInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
               // maxLines: 10,
               // maxLength: 200,
               // height: 80,
               // prefixPadding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
               // maxLengthEnforcement: MaxLengthEnforcement.none,
+              controller: additionalInfoController,
               name: 'Additional Information',
               prefixIconPath: MyIcon.information,
               prefixIconColor: Palettes.primary,
@@ -325,7 +348,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
                 text: 'Save',
                 backgroundColor: Palettes.primary,
                 borderColor: Palettes.primary,
-                onTap: () {},
+                onTap: onSave,
               ),
             ),
             const SizedBox(height: 34),

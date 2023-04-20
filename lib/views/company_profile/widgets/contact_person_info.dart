@@ -8,7 +8,22 @@ import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 
 class ContactPersonInfo extends StatefulWidget {
-  const ContactPersonInfo({Key? key}) : super(key: key);
+  final TextEditingController? fullNameController;
+  final TextEditingController? mobileNoController;
+  final TextEditingController? countryCodeController;
+  final TextEditingController? emailController;
+  final bool? isDepartment;
+  final bool? isDesignation;
+  final void Function()? onContactSave;
+  const ContactPersonInfo({
+    Key? key,
+    required this.fullNameController,
+    required this.mobileNoController,
+    required this.countryCodeController,
+    required this.emailController,
+    required this.isDepartment,
+    required this.isDesignation, this.onContactSave,
+  }) : super(key: key);
 
   @override
   _SocialMediaState createState() => _SocialMediaState();

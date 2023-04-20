@@ -7,14 +7,27 @@ import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop
 
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 
-class Location extends StatefulWidget {
-  const Location({Key? key}) : super(key: key);
+class Location extends StatelessWidget {
+  final List<String>? countryList;
+  final List<String>? stateList;
+  final List<String>? cityList;
+  final String? countrySelected;
+  final String? stateSelected;
+  final String? citySelected;
+  final TextEditingController? googleAddressController;
+  final TextEditingController? additionalAddressController;
+  const Location({
+    Key? key,
+    required this.countryList,
+    required this.stateList,
+    required this.cityList,
+    required this.countrySelected,
+    required this.stateSelected,
+    required this.citySelected,
+    required this.googleAddressController,
+    required this.additionalAddressController,
+  }) : super(key: key);
 
-  @override
-  _SocialMediaState createState() => _SocialMediaState();
-}
-
-class _SocialMediaState extends State<Location> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -56,8 +69,8 @@ class _SocialMediaState extends State<Location> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomDropDown(
-              list: ['Hello', 'Go'],
+            CustomDropDown(
+              list: countryList,
               name: 'Country',
               prefixIconPath: MyIcon.officeBuilding,
               prefixIconColor: Palettes.primary,
@@ -68,8 +81,8 @@ class _SocialMediaState extends State<Location> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomDropDown(
-              list: ['Hello', 'Go'],
+            CustomDropDown(
+              list: stateList,
               name: 'State/Province',
               prefixIconPath: MyIcon.officeBuilding,
               prefixIconColor: Palettes.primary,
@@ -80,8 +93,8 @@ class _SocialMediaState extends State<Location> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomDropDown(
-              list: ['Hello', 'Go'],
+            CustomDropDown(
+              list: cityList,
               name: 'City',
               prefixIconPath: MyIcon.officeBuilding,
               prefixIconColor: Palettes.primary,
@@ -92,7 +105,8 @@ class _SocialMediaState extends State<Location> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
+              controller: googleAddressController,
               name: 'Google Address',
               prefixIconPath: MyIcon.place,
               prefixIconColor: Palettes.primary,
@@ -103,7 +117,8 @@ class _SocialMediaState extends State<Location> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
+              controller: additionalAddressController,
               name: 'Additional Address',
               prefixIconPath: MyIcon.place,
               prefixIconColor: Palettes.primary,

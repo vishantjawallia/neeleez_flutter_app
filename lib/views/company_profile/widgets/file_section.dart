@@ -1,10 +1,16 @@
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 
 class FileSection extends StatefulWidget {
-  const FileSection({Key? key}) : super(key: key);
+  final void Function(File? file) onUploadMedia;
+  const FileSection({
+    Key? key,
+    required this.onUploadMedia,
+  }) : super(key: key);
 
   @override
   _SocialMediaState createState() => _SocialMediaState();

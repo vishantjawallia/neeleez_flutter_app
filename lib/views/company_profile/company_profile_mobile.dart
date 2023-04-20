@@ -83,39 +83,25 @@ class _CompanyProfileMobile extends StatelessWidget {
                           indicatorColor: Palettes.red,
                           tabs: [
                             Tab(
-                              icon: Image.asset(
-                                MyIcon.profileGeneralInfo,
-                              ),
+                              icon: Image.asset(MyIcon.profileGeneralInfo),
                             ),
                             Tab(
-                              icon: Image.asset(
-                                MyIcon.profileSocialMedia,
-                              ),
+                              icon: Image.asset(MyIcon.profileSocialMedia),
                             ),
                             Tab(
-                              icon: Image.asset(
-                                MyIcon.profileLocation,
-                              ),
+                              icon: Image.asset(MyIcon.profileLocation),
                             ),
                             Tab(
-                              icon: Image.asset(
-                                MyIcon.profileContactPersonInfo,
-                              ),
+                              icon: Image.asset(MyIcon.profileContactPersonInfo),
                             ),
                             Tab(
-                              icon: Image.asset(
-                                MyIcon.profileBusinessHours,
-                              ),
+                              icon: Image.asset(MyIcon.profileBusinessHours),
                             ),
                             Tab(
-                              icon: Image.asset(
-                                MyIcon.profilePackage,
-                              ),
+                              icon: Image.asset(MyIcon.profilePackage),
                             ),
                             Tab(
-                              icon: Image.asset(
-                                MyIcon.profileGallery,
-                              ),
+                              icon: Image.asset(MyIcon.profileGallery),
                             ),
                           ],
                         ),
@@ -127,24 +113,62 @@ class _CompanyProfileMobile extends StatelessWidget {
               Flexible(
                 child: TabBarView(
                   dragStartBehavior: DragStartBehavior.start,
-                  children: const [
-//                     GET => /api/Genders/genders/true
-// 2) GET => /api/ BusinessService/BusinessServicesByCountry/IN
-// GET => /api/ BusinessTypes/{BusinessCat}/{Countryld}
-// 4) GET => /api/Amenities/
-// 5) GET => /api/Companies/CompanyEmailExist/{email}/0
-// 6) GET => /api/CompanyProfile/GeneralInformation/{companyld}
-// 7) PUT => /api/Companies/UpdateGeneralinformation/(companyld}
-// 8)
-// POST => /арі/
-// Companies/CompanyLogo/{companyld}/(IsProfileChange}
-                    GeneralInfo(),
-                    SocialMedia(),
-                    Location(),
-                    ContactPersonInfo(),
-                    BusinessHours(),
+                  children: [
+                    GeneralInfo(
+                      isFreelancer: viewModel.isFreelancer,
+                      companyNameController: viewModel.companyNameController,
+                      taglineController: viewModel.taglineController,
+                      companyEstablishmentYearController: viewModel.companyEstablishmentYearController,
+                      businessCategory: viewModel.businessCategory,
+                      businessCategoryList: viewModel.businessCategoryList,
+                      businessSubCategorySelectedList: viewModel.businessSubCategorySelectedList,
+                      businessSubCategoryList: viewModel.businessSubCategoryList,
+                      serviceFor: viewModel.serviceFor,
+                      serviceForList: viewModel.serviceForList,
+                      whatsAppNoController: viewModel.whatsAppNoController,
+                      telephoneController: viewModel.telephoneController,
+                      emailController: viewModel.emailController,
+                      websiteController: viewModel.websiteController,
+                      amentiasList: viewModel.amentiasList,
+                      amentiasSelectedList: viewModel.amentiasSelectedList,
+                      onSave: viewModel.onGeneralSave,
+                      additionalInfoController: viewModel.additionalInfoController,
+                      onFreelancerChange: viewModel.onFreelancerChange,
+                      companyEstablishmentYearDate: viewModel.companyEstablishmentYearDate,
+                    ),
+                    SocialMedia(
+                      facebookController: viewModel.facebookController,
+                      twitterController: viewModel.twitterController,
+                      instagramController: viewModel.instagramController,
+                      linkedInController: viewModel.linkedInController,
+                      onSocialSave: viewModel.onSocialSave,
+                    ),
+                    Location(
+                      countryList: viewModel.countryList,
+                      stateList: viewModel.stateList,
+                      cityList: viewModel.cityList,
+                      countrySelected: viewModel.countrySelected,
+                      stateSelected: viewModel.stateSelected,
+                      citySelected: viewModel.citySelected,
+                      googleAddressController: viewModel.googleAddressController,
+                      additionalAddressController: viewModel.additionalAddressController,
+                    ),
+                    ContactPersonInfo(
+                      fullNameController: viewModel.fullNameController,
+                      mobileNoController: viewModel.mobileNoController,
+                      countryCodeController: viewModel.countryCodeController,
+                      emailController: viewModel.emailController,
+                      isDepartment: viewModel.isDepartment,
+                      isDesignation: viewModel.isDesignation,
+                      onContactSave:viewModel.onContactSave,
+                    ),
+                    BusinessHours(
+                      onBusinessHoursSave:viewModel.onBusinessHoursSave,
+                    ),
                     Packages(),
-                    FileSection(),
+                    FileSection(
+                      onUploadMedia:viewModel.onUploadMedia,
+                    ),
                   ],
                 ),
               ),
