@@ -2,6 +2,9 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:neeleez_flutter_app/models/amenities/amenities.dart';
+import 'package:neeleez_flutter_app/models/gender/gender.dart';
+import 'package:neeleez_flutter_app/models/general_info/general_info.dart';
 import 'package:neeleez_flutter_app/views/company_profile/services/company_profile_service.dart';
 import 'package:stacked/stacked.dart';
 
@@ -43,11 +46,6 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   bool? isDesignation = false;
 
   CompanyProfileViewModel() {
-    loadItems();
-  }
-
-  // Add ViewModel specific code here
-  Future<void> loadItems() async {
     companyNameController.addListener(() => notifyListeners());
     taglineController.addListener(() => notifyListeners());
     companyEstablishmentYearController.addListener(() => notifyListeners());
@@ -65,8 +63,27 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     fullNameController.addListener(() => notifyListeners());
     mobileNoController.addListener(() => notifyListeners());
     countryCodeController.addListener(() => notifyListeners());
+    loadItems();
+  }
+
+  // Add ViewModel specific code here
+  Future<void> loadItems() async {
     setBusy(true);
     //Write your models loading codes here
+    List<Gender> gender = await getGenders() ?? [];
+    List<Amenities> amentias = await getAmenities() ?? [];
+    GeneralInformation generalInformation = await generalInformationWithCompanyId("72") ?? const GeneralInformation();
+    serviceForList = gender.isNotEmpty ? gender.map<String>((e) => e.genderEn.toString()).toList() : [];
+    amentiasList = amentias.isNotEmpty ? amentias.map<String>((e) => e.amenityNameEn.toString()).toList() : [];
+    companyNameController.text = generalInformation.companyNumber!;
+    taglineController.text = generalInformation.tagLine!;
+    companyEstablishmentYearController.text = generalInformation.edate!;
+
+    websiteController.text = generalInformation.whatsapp!;
+    telephoneController.text = generalInformation.tel1!;
+    emailController.text = generalInformation.email!;
+    additionalInfoController.text = generalInformation.aboutUs!;
+    // websiteController.text = generalInformation.w!;
 
     //Let other views to render again
     setBusy(false);
@@ -79,8 +96,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
 
   /* ------------------------------ general-info-save ------------------------------ */
   void onGeneralSave() {
-    log("onSave");
-    
+    // log("onSave");
   }
 
   /* ------------------------------ on-social-save ------------------------------ */
@@ -101,7 +117,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   // }
 
 // Gernal info
-// 1)	GET => /api/Genders/genders/true
+// 1)	GET => /api/Genders/genders/true =============================================================
 
 // 2)	GET => /api/ BusinessService/BusinessServicesByCountry/IN
 
@@ -143,10 +159,10 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
 // Business Hours
 // 1)	GET => /api/CompanyProfile/TimingInformation/{companyId}
 
-// 2)	PUT => /api/Companies/UpdateTiming/{comapnyId}
+// 2)	PUT => /api/Companies/UpdateTiming/77293115
 
 // Package
-// 1)	GET => /api/CompanyProfile/PackageInformation/{companyId}
+// 1)	GET => /api/CompanyProfile/PackageInformation/77293115
 
 // image upload/
 // 1)	GET => /api/ Companies/CompanyProfile2/{comapnyId}

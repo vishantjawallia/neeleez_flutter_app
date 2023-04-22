@@ -10,6 +10,7 @@ import 'package:neeleez_flutter_app/views/company_profile/widgets/general_info.d
 import 'package:neeleez_flutter_app/views/company_profile/widgets/loaction.dart';
 import 'package:neeleez_flutter_app/views/company_profile/widgets/packages.dart';
 import 'package:neeleez_flutter_app/views/company_profile/widgets/social_media.dart';
+import 'package:neeleez_flutter_app/widgets/custom_%20modal_progress_hud.dart';
 import 'package:neeleez_flutter_app/widgets/default_layout.dart';
 import 'package:stacked/stacked.dart';
 import 'package:responsive_builder/responsive_builder.dart';

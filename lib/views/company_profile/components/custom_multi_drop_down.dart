@@ -215,6 +215,7 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
     return Align(
       alignment: Alignment.center,
       child: DropdownButton<String>(
+        menuMaxHeight: 300,
         isExpanded: true,
         isDense: true,
         value: dropdownValue ?? widget.list!.first,

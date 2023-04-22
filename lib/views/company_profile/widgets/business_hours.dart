@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
@@ -122,7 +124,30 @@ class _SocialMediaState extends State<BusinessHours> {
                 text: 'Save',
                 backgroundColor: Palettes.primary,
                 borderColor: Palettes.primary,
-                onTap: () {},
+                onTap: () {
+                  var timing = [
+                    {
+                      "id": {"value": "<Error: Too many levels of nesting to fake this schema>"},
+                      "dowId": {"value": "<Error: Too many levels of nesting to fake this schema>"},
+                      "dowShort": {"value": "<Error: Too many levels of nesting to fake this schema>"},
+                      "dow": {"value": "<Error: Too many levels of nesting to fake this schema>"},
+                      "startTime": {"value": "<Error: Too many levels of nesting to fake this schema>"},
+                      "endTime": {"value": "<Error: Too many levels of nesting to fake this schema>"},
+                      "isHoliday": {"value": "<Error: Too many levels of nesting to fake this schema>"}
+                    },
+                    {
+                      "id": {"value": "<Error: Too many levels of nesting to fake this schema>"},
+                      "dowId": {"value": "<Error: Too many levels of nesting to fake this schema>"},
+                      "dowShort": {"value": "<Error: Too many levels of nesting to fake this schema>"},
+                      "dow": {"value": "<Error: Too many levels of nesting to fake this schema>"},
+                      "startTime": {"value": "<Error: Too many levels of nesting to fake this schema>"},
+                      "endTime": {"value": "<Error: Too many levels of nesting to fake this schema>"},
+                      "isHoliday": {"value": "<Error: Too many levels of nesting to fake this schema>"}
+                    }
+                  ];
+                  log(timing.toString());
+                  return widget.onBusinessHoursSave!();
+                },
               ),
             ),
             const SizedBox(height: 40),

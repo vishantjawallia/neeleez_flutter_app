@@ -23,6 +23,7 @@ class SplashViewModel extends BaseViewModel {
   /* loaders-items */
   void loadItems(context) async {
     final res = await apiRepository.apiGet(url: Url.countryInfo);
+    log(res.toString());
     try {
       if (res != null) {
         CountryInfo info = CountryInfo.fromJson(res);
@@ -40,7 +41,7 @@ class SplashViewModel extends BaseViewModel {
             "language_code": "en",
             "country_code": "US",
           };
-          await SharedPreferenceHelper.setString(Preferences.languageSelected,  jsonEncode(obj));
+          await SharedPreferenceHelper.setString(Preferences.languageSelected, jsonEncode(obj));
           Get.updateLocale(Locale("${obj["language_code"]}", "${obj["country_code"]}"));
         }
         String? customerId = SharedPreferenceHelper.getString(Preferences.userId);
