@@ -1,5 +1,7 @@
 library company_profile_view;
 
+import 'dart:math';
+
 import 'package:flutter/gestures.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';

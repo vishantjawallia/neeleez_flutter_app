@@ -8,6 +8,7 @@ class _CompanyProfileMobile extends StatelessWidget {
 
   const _CompanyProfileMobile(this.viewModel);
 
+  // static const List<Tab> myTabs = <Tab>[
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,6 +84,7 @@ class _CompanyProfileMobile extends StatelessWidget {
                           child: TabBar(
                             indicatorWeight: 5,
                             indicatorColor: Palettes.red,
+                            onTap: viewModel.onTabChanged,
                             tabs: [
                               Tab(
                                 icon: Image.asset(MyIcon.profileGeneralInfo),

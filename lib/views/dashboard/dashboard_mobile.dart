@@ -29,7 +29,7 @@ class _DashboardMobile extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   _topBox(context),
                   _userDetail(),
@@ -39,12 +39,86 @@ class _DashboardMobile extends StatelessWidget {
                   _box2(),
                   const SizedBox(height: 20),
                   _box4(),
+                  const SizedBox(height: 20),
+                  _graphBox(),
+                  const SizedBox(height: 80),
                 ],
               ),
             ),
           ),
         ),
       ),
+    );
+  }
+
+  Column _graphBox() {
+    return Column(
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 6, bottom: 8),
+              child: Text(
+                'Views'.tr,
+                style: Get.textTheme.titleLarge!.copyWith(fontWeight: FontWeight.w600, color: Palettes.black),
+                textAlign: TextAlign.left,
+              ),
+            ),
+            Material(
+              elevation: 6,
+              borderRadius: BorderRadius.circular(12),
+              color: Palettes.white,
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 5),
+                height: 300,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 40),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 6, bottom: 8),
+                  child: Text(
+                    'Appointments'.tr,
+                    style: Get.textTheme.titleLarge!.copyWith(fontWeight: FontWeight.w600, color: Palettes.black),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 6, bottom: 8),
+                  child: Text(
+                    'view'.tr,
+                    style: Get.textTheme.titleLarge!.copyWith(fontWeight: FontWeight.w600, color: Palettes.black),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+              ],
+            ),
+            Material(
+              elevation: 6,
+              borderRadius: BorderRadius.circular(12),
+              color: Palettes.white,
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 5),
+                height: 300,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 
@@ -229,8 +303,6 @@ class _DashboardMobile extends StatelessWidget {
               } catch (e) {
                 print(e);
               }
-              // viewModel.loadItems();
-              // Get.
             },
             child: Icon(Icons.menu, color: Palettes.white),
           ),

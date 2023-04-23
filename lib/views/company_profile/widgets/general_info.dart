@@ -3,6 +3,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
@@ -149,6 +150,10 @@ class GeneralInfo extends StatelessWidget {
           name: 'Additional Information',
           prefixIconPath: MyIcon.information,
           prefixIconColor: Palettes.primary,
+          maxLengthEnforcement: MaxLengthEnforcement.enforced,
+          widgetMargin: const EdgeInsets.symmetric(vertical: 5),
+          prefixPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 30),
+          height: 90,
         ),
         const SizedBox(height: 20),
       ],

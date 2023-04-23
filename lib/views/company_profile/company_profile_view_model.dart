@@ -9,6 +9,8 @@ import 'package:neeleez_flutter_app/views/company_profile/services/company_profi
 import 'package:stacked/stacked.dart';
 
 class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
+  // int? tabCurrentIndex = 0;
+  // late TabController tabController;
   TextEditingController companyNameController = TextEditingController();
   TextEditingController taglineController = TextEditingController();
   TextEditingController companyEstablishmentYearController = TextEditingController();
@@ -111,6 +113,11 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   /* ------------------------------ on-file-media-save------------------------------ */
   void onUploadMedia(File? file) {}
 
+  // void changeTab(int index) {
+  //   tabCurrentIndex = index;
+  //   notifyListeners();
+  // }
+
   // @override
   // Future<void> getGenders() {
   //   // TODO: implement getGenders
@@ -169,4 +176,46 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
 // 1)	GET => /api/ Companies/CompanyProfile2/{comapnyId}
 
 // 2)	POST => /api/Companies/CompanyLogo/{comapnyId}/{IsProfileChange}
+
+  void onTabChanged(int value) {
+    log(value.toString());
+    switch (value) {
+      case 0:
+        loadGeneralData();
+        break;
+      case 1:
+        loadSocialMediaData();
+        break;
+      case 2:
+        loadLocationData();
+        break;
+      case 3:
+        contactPersonInfoData();
+        break;
+      case 4:
+        businessHoursData();
+        break;
+      case 5:
+        packagesData();
+        break;
+      case 6:
+        spaceFilesData();
+        break;
+      default:
+    }
+  }
+
+  void loadGeneralData() {}
+
+  void loadSocialMediaData() {}
+
+  void loadLocationData() {}
+
+  void contactPersonInfoData() {}
+
+  void businessHoursData() {}
+
+  void packagesData() {}
+
+  void spaceFilesData() {}
 }

@@ -15,4 +15,6 @@ class MyImage {
 
   static const String imgDashboard1 = "$image/img_dashboard1.png";
   static const String imgEmptyOffer = "$image/imgEmptyOffer.png";
+  static const String imgEmptyData3x = "$image/imgEmptyData@3x.png";
+  static const String imgEmptyPayment2x = "$image/imgEmptyPayment@2x.png";
 }

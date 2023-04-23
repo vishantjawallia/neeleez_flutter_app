@@ -9,13 +9,14 @@ import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/languages/language.dart';
 import 'package:neeleez_flutter_app/middleware/auth_middleware.dart';
 import 'package:neeleez_flutter_app/views/login/login_view.dart';
+import 'package:neeleez_flutter_app/views/service_providers/service_providers_view.dart';
+import 'package:neeleez_flutter_app/views/splash/splash_view.dart';
 import 'core/locator.dart';
 import 'core/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'views/dashboard/dashboard_view.dart';
 import 'views/registration/registration_view.dart';
-import 'views/splash/splash_view.dart';
 import 'views/main/main_view.dart';
 
 void main() async {
