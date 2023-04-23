@@ -67,4 +67,13 @@ class MyIcon {
   static const String imgWebsite = "$icons/img_website.png";
   static const String serviceDescription3x = "$icons/service_description@3x.png";
   static const String serviceStart3x = "$icons/staff_service_start@3x.png";
+  //
+  static const String socialFacebook = "$icons/social_facebook.png";
+  static const String socialInstagram = "$icons/social_instagram.png";
+  static const String socialLinkedin = "$icons/social_linkedin.png";
+  static const String socialTwitter = "$icons/social_twitter.png";
+  static const String staffDepartment = "$icons/staff_department@3x.png";
+  static const String staffDesignation = "$icons/staff_designation@3x.png";
+  static const String imgLocationCity = "$icons/img_location_city.png";
+  static const String imgLocationState = "$icons/img_location_state.png";
 }

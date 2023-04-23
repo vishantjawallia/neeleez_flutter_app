@@ -66,7 +66,7 @@ class SocialMedia extends StatelessWidget {
             CustomTextField(
               controller: facebookController,
               name: 'Facebook',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.socialFacebook,
               prefixIconColor: Palettes.primary,
             ),
             Text(
@@ -83,7 +83,7 @@ class SocialMedia extends StatelessWidget {
             ),
             const CustomTextField(
               name: 'Twitter',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.socialTwitter,
               prefixIconColor: Palettes.primary,
             ),
             Text(
@@ -98,9 +98,9 @@ class SocialMedia extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
             CustomTextField(
-              controller: instagramController ,
+              controller: instagramController,
               name: 'Instagram',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.socialInstagram,
               prefixIconColor: Palettes.primary,
             ),
             Text(
@@ -117,7 +117,7 @@ class SocialMedia extends StatelessWidget {
             CustomTextField(
               controller: linkedInController,
               name: 'Linked In',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.socialLinkedin,
               prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),

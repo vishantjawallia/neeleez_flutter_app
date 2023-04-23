@@ -22,7 +22,8 @@ class ContactPersonInfo extends StatefulWidget {
     required this.countryCodeController,
     required this.emailController,
     required this.isDepartment,
-    required this.isDesignation, this.onContactSave,
+    required this.isDesignation,
+    this.onContactSave,
   }) : super(key: key);
 
   @override
@@ -109,7 +110,7 @@ class _SocialMediaState extends State<ContactPersonInfo> {
             const CustomDropDown(
               list: ['Hello', 'Go'],
               name: 'Department',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.staffDepartment,
               prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),
@@ -121,7 +122,7 @@ class _SocialMediaState extends State<ContactPersonInfo> {
             const CustomDropDown(
               list: ['Hello', 'Go'],
               name: 'Designation',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.staffDesignation,
               prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),

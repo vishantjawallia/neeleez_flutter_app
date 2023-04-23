@@ -72,7 +72,7 @@ class Location extends StatelessWidget {
             CustomDropDown(
               list: countryList,
               name: 'Country',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.place,
               prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),
@@ -84,7 +84,7 @@ class Location extends StatelessWidget {
             CustomDropDown(
               list: stateList,
               name: 'State/Province',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.imgLocationState,
               prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),
@@ -96,7 +96,7 @@ class Location extends StatelessWidget {
             CustomDropDown(
               list: cityList,
               name: 'City',
-              prefixIconPath: MyIcon.officeBuilding,
+              prefixIconPath: MyIcon.imgLocationCity,
               prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),
