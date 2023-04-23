@@ -9,7 +9,11 @@ class _SupportMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('SupportMobile')),
+      body: Center(
+          child: Text(
+        'SupportMobile',
+        style: TextStyle(color: Palettes.black),
+      )),
     );
   }
 }

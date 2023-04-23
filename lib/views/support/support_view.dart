@@ -3,6 +3,7 @@ library support_view;
 import 'package:stacked/stacked.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';
+import '../../config/palettes.dart';
 import 'support_view_model.dart';
 
 part 'support_mobile.dart';

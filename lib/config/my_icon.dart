@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 const String icons = "assets/icons";
 
 class MyIcon {
@@ -49,4 +51,29 @@ class MyIcon {
   static const String popG = "$icons/pop_g.png";
   static const String staffGeneral = "$icons/Staff_General.png";
   static const String upArrow = "$icons/up_arrow.png";
+  //
+  static const String profileBusinessHours = "$icons/profile_business_hours@2x.png";
+  static const String profileContactPersonInfo = "$icons/profile_contact_person_info@2x.png";
+  static const String profileGeneralInfo = "$icons/profile_general_info@3x.png";
+  static const String profilePackage = "$icons/profile_package@2x.png";
+  static const String profileSocialMedia = "$icons/profile_social_media@3x.png";
+  static const String profileLocation = "$icons/profile_location@2x.png";
+  static const String profileGallery = "$icons/profile_gallery@2x.png";
+  //22-04023
+  static const String imgAmenities = "$icons/img_amenities.png";
+  static const String imgCompany = "$icons/img_company.png";
+  static const String imgTag = "$icons/img_tag.png";
+  static const String imgTelephone = "$icons/img_telephone.png";
+  static const String imgWebsite = "$icons/img_website.png";
+  static const String serviceDescription3x = "$icons/service_description@3x.png";
+  static const String serviceStart3x = "$icons/staff_service_start@3x.png";
+  //
+  static const String socialFacebook = "$icons/social_facebook.png";
+  static const String socialInstagram = "$icons/social_instagram.png";
+  static const String socialLinkedin = "$icons/social_linkedin.png";
+  static const String socialTwitter = "$icons/social_twitter.png";
+  static const String staffDepartment = "$icons/staff_department@3x.png";
+  static const String staffDesignation = "$icons/staff_designation@3x.png";
+  static const String imgLocationCity = "$icons/img_location_city.png";
+  static const String imgLocationState = "$icons/img_location_state.png";
 }

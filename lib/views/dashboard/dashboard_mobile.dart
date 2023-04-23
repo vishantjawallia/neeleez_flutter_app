@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables, void_checks
+// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables, void_checks, sized_box_for_whitespace, unnecessary_cast
 
 part of dashboard_view;
 
@@ -13,77 +13,279 @@ class _DashboardMobile extends StatelessWidget {
     return Scaffold(
       key: _scaffoldKey,
       drawer: CustomDrawer(
-        username: viewModel.user.firstName! + "" + viewModel.user.lastName!,
-        email: viewModel.user.email!,
-        onItemTap: (obj) {
+        viewModel,
+        onItemTap: (Map obj) {
           _scaffoldKey.currentState!.closeDrawer();
           return viewModel.onDrawerItemTap(context, obj);
         },
       ),
-      body: DashboardLayout(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              _topBox(context),
-              _userDetail(),
-              Stack(
-                fit: StackFit.passthrough,
+      body: ModalProgressHUD(
+        load: viewModel.isBusy,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          physics: BouncingScrollPhysics(),
+          child: DashboardLayout(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  _topBox(context),
+                  _userDetail(),
+                  const SizedBox(height: 20),
+                  _box1(),
+                  const SizedBox(height: 10),
+                  _box2(),
+                  const SizedBox(height: 20),
+                  _box4(),
+                  const SizedBox(height: 20),
+                  _graphBox(),
+                  const SizedBox(height: 80),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Column _graphBox() {
+    return Column(
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 6, bottom: 8),
+              child: Text(
+                'Views'.tr,
+                style: Get.textTheme.titleLarge!.copyWith(fontWeight: FontWeight.w600, color: Palettes.black),
+                textAlign: TextAlign.left,
+              ),
+            ),
+            Material(
+              elevation: 6,
+              borderRadius: BorderRadius.circular(12),
+              color: Palettes.white,
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 5),
+                height: 300,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 40),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 6, bottom: 8),
+                  child: Text(
+                    'Appointments'.tr,
+                    style: Get.textTheme.titleLarge!.copyWith(fontWeight: FontWeight.w600, color: Palettes.black),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 6, bottom: 8),
+                  child: Text(
+                    'view'.tr,
+                    style: Get.textTheme.titleLarge!.copyWith(fontWeight: FontWeight.w600, color: Palettes.black),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+              ],
+            ),
+            Material(
+              elevation: 6,
+              borderRadius: BorderRadius.circular(12),
+              color: Palettes.white,
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 5),
+                height: 300,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Row _box4() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        BoxWidget(
+          color: Palettes.primary,
+          icon: "",
+          dsc: "0",
+          head1: "Clicks",
+          head2: "Total Clicks",
+        ),
+        BoxWidget(
+          color: Palettes.red,
+          icon: "",
+          dsc: "0",
+          head1: "Appointments",
+          head2: "Total Appointments",
+        ),
+      ],
+    );
+  }
+
+  Material _box2() {
+    return Material(
+      elevation: 20,
+      borderRadius: BorderRadius.circular(14),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(14),
+        onTap: () => Get.to(() => PackageSubscriptionsView()),
+        child: Container(
+          padding: EdgeInsets.all(8),
+          child: DottedBorder(
+            borderType: BorderType.RRect,
+            radius: Radius.circular(14),
+            dashPattern: [4, 4],
+            color: Palettes.yellowDark,
+            strokeWidth: 1.5,
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        width: 90.w,
-                        padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          gradient: LinearGradient(
-                            colors: [
-                              Palettes.red,
-                              Palettes.red.withOpacity(0.75),
-                              Palettes.red.withOpacity(0.55),
-                              Palettes.red.withOpacity(0.45),
-                              Colors.transparent,
-                            ],
-                            begin: Alignment.bottomLeft,
-                            end: Alignment.topRight,
-                            stops: [0.1, 0.3, 0.5, 0.7, 1],
-                          ),
+                  Text(
+                    'Entry Package'.tr,
+                    style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w800, color: Palettes.yellowDark),
+                    textAlign: TextAlign.left,
+                  ),
+                  Divider(
+                    height: 3,
+                    color: Palettes.black,
+                    thickness: 1,
+                  ),
+                  const SizedBox(height: 14),
+                  Text(
+                    'Renew Date: 09-29-2021'.tr,
+                    style: Get.textTheme.bodySmall!.copyWith(fontWeight: FontWeight.w700, color: Palettes.grey1),
+                    textAlign: TextAlign.left,
+                  ),
+                  // const SizedBox(height: 6),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Container _box1() {
+    return Container(
+      height: 100,
+      child: Stack(
+        fit: StackFit.passthrough,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                width: 90.w,
+                height: 63,
+                padding: EdgeInsets.all(8),
+                decoration: Helper.isRtl()
+                    ? BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        gradient: LinearGradient(
+                          colors: [
+                            Palettes.red,
+                            Palettes.red.withOpacity(0.75),
+                            Palettes.red.withOpacity(0.55),
+                            Palettes.red.withOpacity(0.45),
+                            Colors.transparent,
+                          ],
+                          begin: Alignment.bottomLeft,
+                          end: Alignment.topRight,
+                          stops: [0.1, 0.3, 0.5, 0.7, 1],
                         ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              '300'.tr,
-                              style: Get.textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w600),
-                              textAlign: TextAlign.left,
-                            ),
-                            Text(
-                              'Point Earned'.tr,
-                              style: Get.textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w600),
-                              textAlign: TextAlign.left,
-                            ),
+                      )
+                    : BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        gradient: LinearGradient(
+                          colors: [
+                            Colors.transparent,
+                            Palettes.red.withOpacity(0.45),
+                            Palettes.red.withOpacity(0.55),
+                            Palettes.red.withOpacity(0.75),
+                            Palettes.red,
+                          ],
+                          begin: Alignment.bottomLeft,
+                          end: Alignment.topRight,
+                          stops: [
+                            0.1,
+                            0.3,
+                            0.5,
+                            0.7,
+                            1,
                           ],
                         ),
                       ),
-                    ],
-                  ),
-                  Positioned(
-                    right: 1,
-                    child: Container(
-                      height: 90,
-                      child: Image.asset(MyImage.imgDashboard1),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      '300'.tr,
+                      style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w900, color: Color.fromARGB(255, 255, 214, 142)),
+                      textAlign: TextAlign.left,
                     ),
-                  ),
-                ],
-              )
+                    Text(
+                      'Point Earned'.tr,
+                      style: Get.textTheme.bodySmall!.copyWith(fontWeight: FontWeight.w600),
+                      textAlign: TextAlign.left,
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
-        ),
+          Helper.isRtl()
+              ? Positioned(
+                  right: 1,
+                  // right: Helper.isRtl() ? 1 : 0,
+                  // left: Helper.isRtl() ? 1 : 1,
+                  child: Container(
+                    child: Image.asset(
+                      height: 90,
+                      MyImage.imgDashboard1,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                )
+              : Positioned(
+                  left: 1,
+                  // right: Helper.isRtl() ? 1 : 0,
+                  // left: Helper.isRtl() ? 1 : 1,
+                  child: Container(
+                    child: Image.asset(
+                      height: 90,
+                      MyImage.imgDashboard1,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+        ],
       ),
     );
   }
@@ -98,40 +300,45 @@ class _DashboardMobile extends StatelessWidget {
             onTap: () {
               try {
                 _scaffoldKey.currentState!.openDrawer();
-                // Scaffold.of(_).openDrawer();
-                // _scaffoldKey.currentState!.openDrawer();
               } catch (e) {
                 print(e);
               }
-              // Get.
             },
             child: Icon(Icons.menu, color: Palettes.white),
           ),
           Row(
             children: [
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                decoration: BoxDecoration(
-                  color: Palettes.white,
+              Material(
+                elevation: 20,
+                borderRadius: BorderRadius.circular(20),
+                child: InkWell(
                   borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.signal_wifi_statusbar_connected_no_internet_4_sharp,
+                  onTap: () => viewModel.onLanguageTap(_),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    child: Row(
+                      children: <Widget>[
+                        UrlImage(
+                          height: 20,
+                          url: (viewModel.lang?['iconImage']) ?? null,
+                        ),
+                        SizedBox(width: 4),
+                        Container(
+                          child: Text(
+                            Get.locale!.languageCode.toString().toUpperCase(),
+                            style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black, fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(width: 4),
-                    Container(
-                      child: Text(
-                        'EN',
-                        style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
               SizedBox(width: 12),
-              Icon(Icons.notification_add, color: Palettes.white),
+              GestureDetector(
+                onTap: viewModel.onNotificationTap,
+                child: Icon(Icons.notification_add, color: Palettes.white),
+              ),
             ],
           ),
           // IconButton(
@@ -159,20 +366,17 @@ class _DashboardMobile extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
             Text(
-              'Test Law'.tr,
+              viewModel.user?.firstName ?? "",
+              // ''.tr,
               style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w600),
               textAlign: TextAlign.left,
             )
           ],
         ),
-        Container(
+        UrlImage(
           height: 56,
           width: 56,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Palettes.red,
-            border: Border.all(color: Palettes.white),
-          ),
+          url: viewModel.user?.customerImage?.imageFileName,
         ),
       ],
     );

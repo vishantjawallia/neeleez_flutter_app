@@ -3,11 +3,11 @@ part of login_view;
 class _LoginMobile extends StatelessWidget {
   final LoginViewModel viewModel;
 
-  const _LoginMobile(this.viewModel);
+  _LoginMobile(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
-    Get.log(jsonEncode(viewModel.isBusy));
+    // Get.log(jsonEncode(viewModel.isBusy));
     return Scaffold(
       body: ModalProgressHUD(
         load: viewModel.isBusy,
@@ -120,14 +120,14 @@ class _LoginMobile extends StatelessWidget {
                       ),
                       SizedBox(height: 3.h),
                       CustomButton(
-                        onTap: viewModel.loginHandler,
+                        onTap: () => viewModel.loginHandler(context),
                         text: 'loginNow'.tr,
                         padding: const EdgeInsets.symmetric(vertical: 12),
                       ),
                     ],
                   ),
                   Align(
-                    heightFactor: 1.4.h,
+                    heightFactor: 1.35.h,
                     alignment: Alignment.bottomCenter,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,

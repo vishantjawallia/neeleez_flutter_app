@@ -4,11 +4,11 @@ part of promo_codes_view;
 class _PromoCodesDesktop extends StatelessWidget {
   final PromoCodesViewModel viewModel;
 
-  _PromoCodesDesktop(this.viewModel);
+  const _PromoCodesDesktop(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(child: Text('PromoCodesDesktop')),
     );
   }

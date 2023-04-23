@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,22 +9,23 @@ import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/languages/language.dart';
 import 'package:neeleez_flutter_app/middleware/auth_middleware.dart';
 import 'package:neeleez_flutter_app/views/login/login_view.dart';
+import 'package:neeleez_flutter_app/views/service_providers/service_providers_view.dart';
+import 'package:neeleez_flutter_app/views/splash/splash_view.dart';
 import 'core/locator.dart';
 import 'core/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'views/dashboard/dashboard_view.dart';
 import 'views/registration/registration_view.dart';
-import 'views/splash/splash_view.dart';
 import 'views/main/main_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  GestureBinding.instance.resamplingEnabled = true;
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await LocatorInjector.setupLocator();
   await SharedPreferenceHelper.init();
   // SharedPreferenceHelper.clearPref();
+
   runApp(
     MultiProvider(
       providers: ProviderInjector.providers,

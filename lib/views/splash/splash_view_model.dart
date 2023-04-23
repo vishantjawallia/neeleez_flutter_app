@@ -3,6 +3,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/api/apiRepository.dart';
 import 'package:neeleez_flutter_app/config/pref_constant.dart';
@@ -22,13 +23,28 @@ class SplashViewModel extends BaseViewModel {
   /* loaders-items */
   void loadItems(context) async {
     final res = await apiRepository.apiGet(url: Url.countryInfo);
+    log(res.toString());
     try {
       if (res != null) {
         CountryInfo info = CountryInfo.fromJson(res);
         await SharedPreferenceHelper.setString(Preferences.countryInfo, jsonEncode(res));
         bool isOnboardingCompleted = SharedPreferenceHelper.getBoolean(Preferences.isOnboardingCompleted);
         bool isLogged = SharedPreferenceHelper.getBoolean(Preferences.isLogged);
-        String? customerId = SharedPreferenceHelper.getString(Preferences.customerId);
+        String? languageSelected = SharedPreferenceHelper.getString(Preferences.languageSelected);
+        if (languageSelected != "N/A") {
+          Map dd = await json.decode(languageSelected!);
+          Locale? local = Locale("${dd["language_code"]}", "${dd["country_code"]}");
+          Get.updateLocale(local);
+        } else {
+          Map<String, dynamic> obj = {
+            "iconImage": "https://api.kayyen.com/Uploads/CountryFlag/6d256dbe-c6f2-4b32-923a-ad31d750df8e/noflag.png",
+            "language_code": "en",
+            "country_code": "US",
+          };
+          await SharedPreferenceHelper.setString(Preferences.languageSelected, jsonEncode(obj));
+          Get.updateLocale(Locale("${obj["language_code"]}", "${obj["country_code"]}"));
+        }
+        String? customerId = SharedPreferenceHelper.getString(Preferences.userId);
         if (isLogged && customerId != "N/A") {
           Get.off(() => const DashboardView(), transition: Transition.native);
         } else if (isOnboardingCompleted) {
