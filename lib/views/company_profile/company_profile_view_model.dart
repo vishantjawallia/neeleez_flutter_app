@@ -75,14 +75,15 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     GeneralInformation generalInformation = await generalInformationWithCompanyId("72") ?? const GeneralInformation();
     serviceForList = gender.isNotEmpty ? gender.map<String>((e) => e.genderEn.toString()).toList() : [];
     amentiasList = amentias.isNotEmpty ? amentias.map<String>((e) => e.amenityNameEn.toString()).toList() : [];
-    companyNameController.text = generalInformation.companyNumber!;
-    taglineController.text = generalInformation.tagLine!;
-    companyEstablishmentYearController.text = generalInformation.edate!;
+    isFreelancer = generalInformation.isFreeLancer ?? false;
+    companyNameController.text = generalInformation.companyNumber ?? "";
+    taglineController.text = generalInformation.tagLine ?? "";
+    companyEstablishmentYearController.text = generalInformation.edate ?? "";
 
-    websiteController.text = generalInformation.whatsapp!;
-    telephoneController.text = generalInformation.tel1!;
-    emailController.text = generalInformation.email!;
-    additionalInfoController.text = generalInformation.aboutUs!;
+    websiteController.text = generalInformation.whatsapp ?? "";
+    telephoneController.text = generalInformation.tel1 ?? "";
+    emailController.text = generalInformation.email ?? "";
+    additionalInfoController.text = generalInformation.aboutUs ?? "";
     // websiteController.text = generalInformation.w!;
 
     //Let other views to render again

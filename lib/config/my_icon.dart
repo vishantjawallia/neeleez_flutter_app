@@ -59,4 +59,12 @@ class MyIcon {
   static const String profileSocialMedia = "$icons/profile_social_media@3x.png";
   static const String profileLocation = "$icons/profile_location@2x.png";
   static const String profileGallery = "$icons/profile_gallery@2x.png";
+  //22-04023
+  static const String imgAmenities = "$icons/img_amenities.png";
+  static const String imgCompany = "$icons/img_company.png";
+  static const String imgTag = "$icons/img_tag.png";
+  static const String imgTelephone = "$icons/img_telephone.png";
+  static const String imgWebsite = "$icons/img_website.png";
+  static const String serviceDescription3x = "$icons/service_description@3x.png";
+  static const String serviceStart3x = "$icons/staff_service_start@3x.png";
 }

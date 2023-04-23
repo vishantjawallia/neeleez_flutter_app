@@ -9,7 +9,8 @@ import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 
 class BusinessHours extends StatefulWidget {
   final void Function()? onBusinessHoursSave;
-  const BusinessHours({Key? key, required this.onBusinessHoursSave}) : super(key: key);
+  const BusinessHours({Key? key, required this.onBusinessHoursSave})
+      : super(key: key);
 
   @override
   _SocialMediaState createState() => _SocialMediaState();
@@ -29,7 +30,8 @@ class _SocialMediaState extends State<BusinessHours> {
           children: [
             const SizedBox(height: 12),
             Align(
-              alignment: Helper.isRtl() ? Alignment.centerLeft : Alignment.centerRight,
+              alignment:
+                  Helper.isRtl() ? Alignment.centerLeft : Alignment.centerRight,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -39,7 +41,10 @@ class _SocialMediaState extends State<BusinessHours> {
                     children: [
                       Text(
                         'Business Hours'.tr,
-                        style: Get.textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.w600, color: Palettes.black, fontSize: 15),
+                        style: Get.textTheme.bodyLarge!.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: Palettes.black,
+                            fontSize: 15),
                         textAlign: TextAlign.left,
                       ),
                       Container(
@@ -53,14 +58,16 @@ class _SocialMediaState extends State<BusinessHours> {
                     ],
                   ),
                   Container(
-                    padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 6),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 5, horizontal: 6),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(color: Palettes.primary),
                     ),
                     child: Text(
                       'Apply All'.tr,
-                      style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black, fontSize: 15),
+                      style: Get.textTheme.bodyLarge!
+                          .copyWith(color: Palettes.black, fontSize: 15),
                       textAlign: TextAlign.left,
                     ),
                   ),
@@ -82,7 +89,8 @@ class _SocialMediaState extends State<BusinessHours> {
                     children: [
                       Text(
                         'Day',
-                        style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.grey3),
+                        style: Get.textTheme.bodyLarge!
+                            .copyWith(color: Palettes.grey3),
                       ),
                       Flexible(
                         child: Row(
@@ -91,19 +99,22 @@ class _SocialMediaState extends State<BusinessHours> {
                           children: [
                             Text(
                               'Start',
-                              style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.grey3),
+                              style: Get.textTheme.bodyLarge!
+                                  .copyWith(color: Palettes.grey3),
                             ),
                             SizedBox(width: 5.w),
                             Text(
                               'End',
-                              style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.grey3),
+                              style: Get.textTheme.bodyLarge!
+                                  .copyWith(color: Palettes.grey3),
                             ),
                           ],
                         ),
                       ),
                       Text(
                         'Holiday',
-                        style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.grey3),
+                        style: Get.textTheme.bodyLarge!
+                            .copyWith(color: Palettes.grey3),
                       ),
                     ],
                   ),
@@ -127,22 +138,64 @@ class _SocialMediaState extends State<BusinessHours> {
                 onTap: () {
                   var timing = [
                     {
-                      "id": {"value": "<Error: Too many levels of nesting to fake this schema>"},
-                      "dowId": {"value": "<Error: Too many levels of nesting to fake this schema>"},
-                      "dowShort": {"value": "<Error: Too many levels of nesting to fake this schema>"},
-                      "dow": {"value": "<Error: Too many levels of nesting to fake this schema>"},
-                      "startTime": {"value": "<Error: Too many levels of nesting to fake this schema>"},
-                      "endTime": {"value": "<Error: Too many levels of nesting to fake this schema>"},
-                      "isHoliday": {"value": "<Error: Too many levels of nesting to fake this schema>"}
+                      "id": {
+                        "value":
+                            "<Error: Too many levels of nesting to fake this schema>"
+                      },
+                      "dowId": {
+                        "value":
+                            "<Error: Too many levels of nesting to fake this schema>"
+                      },
+                      "dowShort": {
+                        "value":
+                            "<Error: Too many levels of nesting to fake this schema>"
+                      },
+                      "dow": {
+                        "value":
+                            "<Error: Too many levels of nesting to fake this schema>"
+                      },
+                      "startTime": {
+                        "value":
+                            "<Error: Too many levels of nesting to fake this schema>"
+                      },
+                      "endTime": {
+                        "value":
+                            "<Error: Too many levels of nesting to fake this schema>"
+                      },
+                      "isHoliday": {
+                        "value":
+                            "<Error: Too many levels of nesting to fake this schema>"
+                      }
                     },
                     {
-                      "id": {"value": "<Error: Too many levels of nesting to fake this schema>"},
-                      "dowId": {"value": "<Error: Too many levels of nesting to fake this schema>"},
-                      "dowShort": {"value": "<Error: Too many levels of nesting to fake this schema>"},
-                      "dow": {"value": "<Error: Too many levels of nesting to fake this schema>"},
-                      "startTime": {"value": "<Error: Too many levels of nesting to fake this schema>"},
-                      "endTime": {"value": "<Error: Too many levels of nesting to fake this schema>"},
-                      "isHoliday": {"value": "<Error: Too many levels of nesting to fake this schema>"}
+                      "id": {
+                        "value":
+                            "<Error: Too many levels of nesting to fake this schema>"
+                      },
+                      "dowId": {
+                        "value":
+                            "<Error: Too many levels of nesting to fake this schema>"
+                      },
+                      "dowShort": {
+                        "value":
+                            "<Error: Too many levels of nesting to fake this schema>"
+                      },
+                      "dow": {
+                        "value":
+                            "<Error: Too many levels of nesting to fake this schema>"
+                      },
+                      "startTime": {
+                        "value":
+                            "<Error: Too many levels of nesting to fake this schema>"
+                      },
+                      "endTime": {
+                        "value":
+                            "<Error: Too many levels of nesting to fake this schema>"
+                      },
+                      "isHoliday": {
+                        "value":
+                            "<Error: Too many levels of nesting to fake this schema>"
+                      }
                     }
                   ];
                   log(timing.toString());
@@ -158,4 +211,12 @@ class _SocialMediaState extends State<BusinessHours> {
   }
 }
 
-List weekDayList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+List weekDayList = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday'
+];
