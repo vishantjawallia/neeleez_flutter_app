@@ -145,7 +145,7 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                               children: [
                                                 Text(
-                                                  selectItem![index] ?? 'Account',
+                                                  selectItem?[index] ?? 'Account',
                                                   style: Get.textTheme.bodyMedium!.copyWith(
                                                     color: Palettes.black,
                                                     fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),

@@ -1,12 +1,10 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
-
-part of support_view;
+part of package_order_summary_view;
 
 // ignore: must_be_immutable
-class _SupportMobile extends StatelessWidget {
-  final SupportViewModel viewModel;
+class _PackageOrderSummaryMobile extends StatelessWidget {
+  final PackageOrderSummaryViewModel viewModel;
 
-  _SupportMobile(this.viewModel);
+  _PackageOrderSummaryMobile(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +12,9 @@ class _SupportMobile extends StatelessWidget {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: DefaultLayout(
-          height: 160,
+          height: 150,
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(22, 22, 22, 0),
+            padding: const EdgeInsets.fromLTRB(22, 18, 22, 0),
             child: Column(
               children: [
                 Column(
@@ -35,9 +33,9 @@ class _SupportMobile extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 18),
+                      padding: const EdgeInsets.only(top: 15),
                       child: Text(
-                        'Support',
+                        'Order Summary',
                         style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w600),
                       ),
                     ),
@@ -45,7 +43,7 @@ class _SupportMobile extends StatelessWidget {
                 ),
                 Container(
                   height: 82.h,
-                  padding: EdgeInsets.only(top: 30),
+                  padding: EdgeInsets.only(top: 20),
                   child: Column(
                     children: <Widget>[],
                   ),

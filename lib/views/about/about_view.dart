@@ -1,6 +1,11 @@
 library about_view;
 
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:neeleez_flutter_app/config/my_Image.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
+import 'package:neeleez_flutter_app/helpers/helper.dart';
+import 'package:neeleez_flutter_app/widgets/default_layout.dart';
 import 'package:stacked/stacked.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';

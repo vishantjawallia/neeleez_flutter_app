@@ -4,8 +4,14 @@ import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 
 class CustomListTile extends StatelessWidget {
+  final String? text;
+  final String? imagePath;
+  final Color? imagePathBackground;
   const CustomListTile({
     super.key,
+    this.text,
+    this.imagePath,
+    this.imagePathBackground,
   });
 
   @override
@@ -27,27 +33,29 @@ class CustomListTile extends StatelessWidget {
               ),
             ),
             child: ListTile(
-              contentPadding: EdgeInsets.zero,
+              contentPadding: const EdgeInsets.only(right: 30),
               leading: Container(
+                width: 55,
                 decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(8),
-                    bottomLeft: Radius.circular(8),
-                  ),
-                  color: Palettes.black.withOpacity(0.2),
+                  borderRadius: const BorderRadius.only(topLeft: Radius.circular(8), bottomLeft: Radius.circular(8)),
+                  color: (imagePathBackground ?? Palettes.black).withOpacity(0.1),
                 ),
-                width: 60,
-                child: Image.asset(
-                  MyIcon.staffDesignation,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  child: Image.asset(
+                    imagePath ?? MyIcon.staffDesignation,
+                  ),
                 ),
               ),
-              minLeadingWidth: 152.5,
-              title: Text(
-                'Department'.tr,
-                style: Get.textTheme.titleLarge!.copyWith(
-                  color: Palettes.black,
+              title: Align(
+                child: Text(
+                  text ?? 'Department'.tr,
+                  style: Get.textTheme.titleLarge!.copyWith(
+                    color: Palettes.black,
+                  ),
+                  textAlign: TextAlign.center,
+                  // textAlign: TextAlign.center,
                 ),
-                // textAlign: TextAlign.center,
               ),
             ),
           ),

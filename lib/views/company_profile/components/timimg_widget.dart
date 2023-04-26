@@ -218,7 +218,7 @@ class _TimingWidgetState extends State<TimingWidget> {
         builder: (BuildContext? context, Widget? child) {
           return MediaQuery(data: MediaQuery.of(context!).copyWith(alwaysUse24HourFormat: false), child: child!);
         });
-    log(pickedS!.hour ?? 0);
+    log(pickedS?.hour ?? 0);
   }
 
   endCalenderOpen1() async {
@@ -228,7 +228,7 @@ class _TimingWidgetState extends State<TimingWidget> {
         builder: (BuildContext? context, Widget? child) {
           return MediaQuery(data: MediaQuery.of(context!).copyWith(alwaysUse24HourFormat: false), child: child!);
         });
-    log(pickedS!.hour ?? 0);
+    log(pickedS?.hour ?? 0);
   }
 
   startCalenderOpen2() async {
@@ -238,7 +238,7 @@ class _TimingWidgetState extends State<TimingWidget> {
         builder: (BuildContext? context, Widget? child) {
           return MediaQuery(data: MediaQuery.of(context!).copyWith(alwaysUse24HourFormat: false), child: child!);
         });
-    log(pickedS!.hour ?? 0);
+    log(pickedS?.hour ?? 0);
   }
 
   endCalenderOpen2() async {
@@ -248,7 +248,7 @@ class _TimingWidgetState extends State<TimingWidget> {
         builder: (BuildContext? context, Widget? child) {
           return MediaQuery(data: MediaQuery.of(context!).copyWith(alwaysUse24HourFormat: false), child: child!);
         });
-    log(pickedS!.hour ?? 0);
+    log(pickedS?.hour ?? 0);
   }
 
   startCalenderOpen3() async {
@@ -258,7 +258,7 @@ class _TimingWidgetState extends State<TimingWidget> {
         builder: (BuildContext? context, Widget? child) {
           return MediaQuery(data: MediaQuery.of(context!).copyWith(alwaysUse24HourFormat: false), child: child!);
         });
-    log(pickedS!.hour ?? 0);
+    log(pickedS?.hour ?? 0);
   }
 
   endCalenderOpen3() async {
@@ -268,6 +268,6 @@ class _TimingWidgetState extends State<TimingWidget> {
         builder: (BuildContext? context, Widget? child) {
           return MediaQuery(data: MediaQuery.of(context!).copyWith(alwaysUse24HourFormat: false), child: child!);
         });
-    log(pickedS!.hour ?? 0);
+    log(pickedS?.hour ?? 0);
   }
 }

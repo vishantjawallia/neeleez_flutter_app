@@ -2,14 +2,13 @@
 
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:neeleez_flutter_app/config/config.dart';
-import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/languages/language.dart';
 import 'package:neeleez_flutter_app/middleware/auth_middleware.dart';
+import 'package:neeleez_flutter_app/theme/theme.dart';
+import 'package:neeleez_flutter_app/views/appointments/appointments_view.dart';
 import 'package:neeleez_flutter_app/views/login/login_view.dart';
-import 'package:neeleez_flutter_app/views/service_providers/service_providers_view.dart';
 import 'package:neeleez_flutter_app/views/splash/splash_view.dart';
 import 'core/locator.dart';
 import 'core/providers.dart';
@@ -24,7 +23,6 @@ void main() async {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await LocatorInjector.setupLocator();
   await SharedPreferenceHelper.init();
-  // SharedPreferenceHelper.clearPref();
 
   runApp(
     MultiProvider(
@@ -34,12 +32,7 @@ void main() async {
   );
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -49,39 +42,14 @@ class _MyAppState extends State<MyApp> {
       fallbackLocale: const Locale('en', 'US'),
       defaultTransition: Transition.rightToLeft,
       translations: LocalLanguage(),
-      theme: ThemeData(
-        primaryColor: Palettes.red,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        textTheme: TextTheme(
-          displayLarge: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 25, color: Palettes.white),
-          displayMedium: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 23, color: Palettes.white),
-          displaySmall: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 21, color: Palettes.white),
-          headlineMedium: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 19, color: Palettes.white),
-          headlineSmall: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 17, color: Palettes.white),
-          titleLarge: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 15, color: Palettes.white),
-          bodyLarge: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 14, color: Palettes.white),
-          bodyMedium: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 13, color: Palettes.white),
-          bodySmall: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 12, color: Palettes.white),
-        ),
-        // textTheme: ThemeData.dark().textTheme.copyWith(
-        //       displayLarge: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 25, color: Palettes.white),
-        //       displayMedium: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 23, color: Palettes.white),
-        //       displaySmall: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 21, color: Palettes.white),
-        //       headlineMedium: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 19, color: Palettes.white),
-        //       headlineSmall: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 17, color: Palettes.white),
-        //       titleLarge: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 15, color: Palettes.white),
-        //       bodyLarge: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 14, color: Palettes.white),
-        //       bodyMedium: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 13, color: Palettes.white),
-        //       bodySmall: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 12, color: Palettes.white),
-        //     ),
-      ),
-      home: const SplashView(),
+      theme: CustomTheme.light,
       builder: (context, child) {
         return MediaQuery(
           data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
           child: child!,
         );
       },
+      home: const SplashView(),
       getPages: [
         GetPage(name: MainView.routeName, page: () => MainView()),
         GetPage(name: LoginView.routeName, page: () => const LoginView()),

@@ -20,6 +20,7 @@ class MyImage {
   // 24-04-23
   static const String contolSepartment = "$image/contol_department@zx.png";
   static const String contolDesignation = "$image/contol_designation@3x.png";
+  static const String contolDepartment2x = "$image/contol_department@2x.png";
   static const String contolFormat = "$image/contol_format@3x.png";
   static const String contolGrouper = "$image/contol_grouper@3x.png";
   static const String contolOffers = "$image/contol_offers@3x.png";

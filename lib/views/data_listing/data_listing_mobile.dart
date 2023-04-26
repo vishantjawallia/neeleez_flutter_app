@@ -53,8 +53,17 @@ class _DataListingMobile extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      CustomListTile(),
-                      CustomListTile(),
+                      CustomListTile(
+                        text: 'Department',
+                        imagePathBackground: Palettes.yellow,
+                        imagePath: MyImage.contolDepartment2x,
+                      ),
+
+                      CustomListTile(
+                        text: 'Designation',
+                        imagePathBackground: Colors.red,
+                        imagePath: MyImage.contolDesignation,
+                      ),
                       const SizedBox(height: 10),
                       Align(
                         alignment: Helper.isRtl() ? Alignment.centerLeft : Alignment.centerRight,
@@ -82,14 +91,37 @@ class _DataListingMobile extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      CustomListTile(),
-                      CustomListTile(),
-                      CustomListTile(),
-                      CustomListTile(),
-                      CustomListTile(),
-                      CustomListTile(),
-                      CustomListTile(),
-                      CustomListTile(),
+                      CustomListTile(
+                        text: 'Group',
+                        imagePathBackground: Colors.purple,
+                        imagePath: MyImage.contolGrouper,
+                      ),
+                      CustomListTile(
+                        text: 'Format',
+                        imagePathBackground: Colors.blue,
+                        imagePath: MyImage.contolFormat,
+                      ),
+                      CustomListTile(
+                        text: 'Service',
+                        imagePathBackground: Colors.orange,
+                        imagePath: MyImage.contolService,
+                      ),
+                      CustomListTile(
+                        text: 'Service Format',
+                        imagePathBackground: Colors.green,
+                        imagePath: MyImage.contolServiceFormat,
+                      ),
+                      CustomListTile(
+                        text: 'Service Composition',
+                        imagePathBackground: Colors.pink,
+                        imagePath: MyImage.contolServicePrice,
+                      ),
+                      CustomListTile(
+                        text: 'Service Offer',
+                        imagePathBackground: Color.fromARGB(255, 45, 194, 159),
+                        imagePath: MyImage.contolOffers,
+                      ),
+
                       // Material(
                       //   elevation: 6,
                       //   borderRadius: BorderRadius.circular(6),

@@ -81,9 +81,7 @@ class apiRepository {
         final obj = json.decode(response.body);
         throw obj['detail'];
       } else {
-        // log(response.bodyBytes.toString());
         log(response.statusCode.toString());
-        // log(response.body.toString());
         log(url.toString());
         throw "Exception-Occurred";
       }

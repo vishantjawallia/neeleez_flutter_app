@@ -1,12 +1,17 @@
 library promo_codes_view;
 
+import 'package:flutter/gestures.dart';
+import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
+import 'package:neeleez_flutter_app/views/promo_codes/components/activated.dart';
+import 'package:neeleez_flutter_app/views/promo_codes/components/redeemed.dart';
 import 'package:neeleez_flutter_app/widgets/custom_%20modal_progress_hud.dart';
 import 'package:stacked/stacked.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/default_layout.dart';
+
 import 'promo_codes_view_model.dart';
 
 part 'promo_codes_mobile.dart';

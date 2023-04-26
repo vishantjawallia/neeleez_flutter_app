@@ -1,7 +1,7 @@
 import 'package:stacked/stacked.dart';
 
-class PromoCodesViewModel extends BaseViewModel {
-  PromoCodesViewModel(){
+class PackageOrderSummaryViewModel extends BaseViewModel {
+  PackageOrderSummaryViewModel(){
     loadItems();
   }
   
@@ -15,7 +15,4 @@ class PromoCodesViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-
-  void onTabChanged(int value) {
-  }
 }
