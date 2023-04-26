@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
 
@@ -129,9 +130,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
                         ),
                       ),
                     )
-                  : const SizedBox(
-                    
-                  ),
+                  : const SizedBox(),
               widget.suffixIconWidget ?? const SizedBox(),
             ],
           ),
@@ -155,10 +154,15 @@ class _CustomDropDownState extends State<CustomDropDown> {
         });
       },
       items: widget.list!.map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>
-        (
+        return DropdownMenuItem<String>(
           value: value,
-          child: Text(value),
+          child: Text(
+            value,
+            style: Get.textTheme.bodyMedium!.copyWith(
+              color: Palettes.black,
+              fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
+            ),
+          ),
         );
       }).toList(),
     );

@@ -1,10 +1,10 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:neeleez_flutter_app/api/apiRepository.dart';
 import 'package:neeleez_flutter_app/config/config.dart';
 import 'package:neeleez_flutter_app/config/url.dart';
 import 'package:neeleez_flutter_app/models/amenities/amenities.dart';
+import 'package:neeleez_flutter_app/models/business_types/business_services_by_country.dart';
 import 'package:neeleez_flutter_app/models/gender/gender.dart';
 import 'package:neeleez_flutter_app/models/general_info/general_info.dart';
 
@@ -35,6 +35,21 @@ class CompanyProfileService {
     return null;
   }
 
+  //business category
+  Future<List<BusinessServicesByCountry>?> getBusinessCategory(String countryId) async {
+    try {
+      final res = await apiRepository.apiGet(url: '$baseUrl/api/BusinessService/BusinessServicesByCountry/$countryId');
+      if (res != null) {
+        return BusinessServicesByCountry.fromJsonList(res);
+      }
+    } catch (e) {
+      log(e.toString());
+      log("getBusinessCategory========>$e");
+    }
+    return null;
+  }
+
+  // CompanyEmailExist
   Future<bool> companyEmailExist(String? email) async {
     try {
       final res = await apiRepository.apiGet(url: "$baseUrl/api/Companies/CompanyEmailExist/$email");

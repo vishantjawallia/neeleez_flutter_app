@@ -146,7 +146,11 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
                                               children: [
                                                 Text(
                                                   selectItem![index] ?? 'Account',
-                                                  style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
+                                                  style: Get.textTheme.bodyMedium!.copyWith(
+                                                    color: Palettes.black,
+                                                    fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
+                                                  ),
+                                                  // style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
                                                 ),
                                                 const SizedBox(width: 4),
                                                 GestureDetector(
@@ -242,7 +246,11 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
             value: value,
             child: Text(
               value,
-              // style: Get.textTheme.bodyMedium!.copyWith(color: Palettes.black),
+              // style: Get.textTheme.bodyMedium!.copyWith(
+              //   color: Palettes.primary,
+              //   fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
+              // ),
+              style: Get.textTheme.bodyMedium!.copyWith(color: Palettes.black),
             ),
           );
         }).toList(),

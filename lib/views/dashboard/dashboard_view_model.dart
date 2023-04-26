@@ -34,10 +34,6 @@ class DashboardViewModel extends BaseViewModel {
     languageObj = await getLanguage();
     // userData ??= await getUserData();
     // languageObj ??= await getLanguage();
-
-    //Write your models loading codes here
-
-    //Let other views to render again
     setBusy(false);
     notifyListeners();
   }

@@ -35,6 +35,20 @@ extension NumberParsing on num {
   /// Calculates the sp (Scalable Pixel) depending on the device's screen size
   double get sp => this * (Get.width / 3) / 100;
 }
+extension StringParsing on String {
+  /// Calculates the height depending on the device's screen size
+  ///
+  /// Eg: 20.h -> will take 20% of the screen's height
+  // String get str => Helper.isRtl()?;
+
+  // /// Calculates the width depending on the device's screen size
+  // ///
+  // /// Eg: 20.w -> will take 20% of the screen's width
+  // double get w => this * Get.width / 100;
+
+  // /// Calculates the sp (Scalable Pixel) depending on the device's screen size
+  // double get sp => this * (Get.width / 3) / 100;
+}
 // class LocaleString extends GetX {
 //   /// Calculates the height depending on the device's screen size
 //   ///

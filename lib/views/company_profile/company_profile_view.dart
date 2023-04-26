@@ -1,11 +1,10 @@
 library company_profile_view;
 
-import 'dart:math';
-
 import 'package:flutter/gestures.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
+import 'package:neeleez_flutter_app/models/user_data.dart';
 import 'package:neeleez_flutter_app/views/company_profile/widgets/business_hours.dart';
 import 'package:neeleez_flutter_app/views/company_profile/widgets/contact_person_info.dart';
 import 'package:neeleez_flutter_app/views/company_profile/widgets/general_info.dart';
@@ -27,25 +26,22 @@ part 'company_profile_desktop.dart';
 // ignore: must_be_immutable
 class CompanyProfileView extends StatelessWidget {
   static const routeName = '/company_profile';
+  final UserData? user;
+
+  const CompanyProfileView({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<CompanyProfileViewModel>.reactive(
-      viewModelBuilder: () => CompanyProfileViewModel(),
-      onModelReady: (viewModel) {
-        // Do something once your viewModel is initialized
-      },
+      viewModelBuilder: () => CompanyProfileViewModel(user: user),
+      onViewModelReady: (viewModel) {},
       builder: (context, viewModel, child) {
-        return ScreenTypeLayout(
-          mobile: _CompanyProfileMobile(viewModel),
-          desktop: _CompanyProfileMobile(viewModel),
-          tablet: _CompanyProfileMobile(viewModel),
-
-          //Uncomment it if you've planned to support specifically for desktop and tablet
-          //desktop: _CompanyProfileDesktop(viewModel),
-          //tablet: _CompanyProfileTablet(viewModel),  
+        return ScreenTypeLayout.builder(
+          mobile: (_) => _CompanyProfileMobile(viewModel),
+          desktop: (_) => _CompanyProfileMobile(viewModel),
+          tablet: (_) => _CompanyProfileMobile(viewModel),
         );
-      }
+      },
     );
   }
 }

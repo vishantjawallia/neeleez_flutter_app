@@ -3,12 +3,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:neeleez_flutter_app/models/amenities/amenities.dart';
+import 'package:neeleez_flutter_app/models/business_types/business_services_by_country.dart';
 import 'package:neeleez_flutter_app/models/gender/gender.dart';
 import 'package:neeleez_flutter_app/models/general_info/general_info.dart';
+import 'package:neeleez_flutter_app/models/user_data.dart';
 import 'package:neeleez_flutter_app/views/company_profile/services/company_profile_service.dart';
 import 'package:stacked/stacked.dart';
 
 class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
+  final UserData? user;
   // int? tabCurrentIndex = 0;
   // late TabController tabController;
   TextEditingController companyNameController = TextEditingController();
@@ -47,7 +50,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   bool? isDepartment = false;
   bool? isDesignation = false;
 
-  CompanyProfileViewModel() {
+  CompanyProfileViewModel({this.user}) {
     companyNameController.addListener(() => notifyListeners());
     taglineController.addListener(() => notifyListeners());
     companyEstablishmentYearController.addListener(() => notifyListeners());
@@ -74,9 +77,15 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     //Write your models loading codes here
     List<Gender> gender = await getGenders() ?? [];
     List<Amenities> amentias = await getAmenities() ?? [];
+    List<BusinessServicesByCountry> businessList = await getBusinessCategory('143') ?? [];
+
     GeneralInformation generalInformation = await generalInformationWithCompanyId("72") ?? const GeneralInformation();
+    //
     serviceForList = gender.isNotEmpty ? gender.map<String>((e) => e.genderEn.toString()).toList() : [];
     amentiasList = amentias.isNotEmpty ? amentias.map<String>((e) => e.amenityNameEn.toString()).toList() : [];
+    businessCategoryList = businessList.isNotEmpty ? businessList.map<String>((e) => e.service.toString()).toList() : [];
+    //
+
     isFreelancer = generalInformation.isFreeLancer ?? false;
     companyNameController.text = generalInformation.companyNumber ?? "";
     taglineController.text = generalInformation.tagLine ?? "";

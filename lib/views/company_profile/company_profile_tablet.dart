@@ -4,11 +4,11 @@ part of company_profile_view;
 class _CompanyProfileTablet extends StatelessWidget {
   final CompanyProfileViewModel viewModel;
 
-  _CompanyProfileTablet(this.viewModel);
+  const _CompanyProfileTablet(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(child: Text('CompanyProfileTablet')),
     );
   }
