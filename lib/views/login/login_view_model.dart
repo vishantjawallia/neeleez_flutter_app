@@ -79,7 +79,7 @@ class LoginViewModel extends BaseViewModel {
     }
     setBusy(true);
     try {
-      final res = await apiRepository.apiGet(url: '${Url.CustomerSignIn}/$username/$password');
+      final res = await apiRepository.apiGet('${Url.CustomerSignIn}/$username/$password');
       if (res != null) {
         userData = UserData.fromJson(res);
         notifyListeners();

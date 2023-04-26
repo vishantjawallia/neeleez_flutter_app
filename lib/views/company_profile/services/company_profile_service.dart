@@ -5,13 +5,17 @@ import 'package:neeleez_flutter_app/config/config.dart';
 import 'package:neeleez_flutter_app/config/url.dart';
 import 'package:neeleez_flutter_app/models/amenities/amenities.dart';
 import 'package:neeleez_flutter_app/models/business_types/business_services_by_country.dart';
+import 'package:neeleez_flutter_app/models/company/companies.dart';
+import 'package:neeleez_flutter_app/models/company/company_profile_images.dart';
+import 'package:neeleez_flutter_app/models/company/region_Info.dart';
 import 'package:neeleez_flutter_app/models/gender/gender.dart';
 import 'package:neeleez_flutter_app/models/general_info/general_info.dart';
+import 'package:neeleez_flutter_app/models/package/package_info.dart';
 
 class CompanyProfileService {
   Future<List<Gender>?> getGenders() async {
     try {
-      final res = await apiRepository.apiGet(url: Url.Genders);
+      final res = await apiRepository.apiGet(Url.Genders);
       if (res != null) {
         return Gender.fromJsonList(res);
       }
@@ -24,13 +28,13 @@ class CompanyProfileService {
 
   Future<List<Amenities>?> getAmenities() async {
     try {
-      final res = await apiRepository.apiGet(url: Url.Amenities);
+      final res = await apiRepository.apiGet(Url.Amenities);
       if (res != null) {
         return Amenities.fromJsonList(res);
       }
     } catch (e) {
       log(e.toString());
-      log("getGenders========>$e");
+      log("getAmenities========>$e");
     }
     return null;
   }
@@ -38,7 +42,7 @@ class CompanyProfileService {
   //business category
   Future<List<BusinessServicesByCountry>?> getBusinessCategory(String countryId) async {
     try {
-      final res = await apiRepository.apiGet(url: '$baseUrl/api/BusinessService/BusinessServicesByCountry/$countryId');
+      final res = await apiRepository.apiGet('$baseUrl/api/BusinessService/BusinessServicesByCountry/$countryId');
       if (res != null) {
         return BusinessServicesByCountry.fromJsonList(res);
       }
@@ -52,26 +56,26 @@ class CompanyProfileService {
   // CompanyEmailExist
   Future<bool> companyEmailExist(String? email) async {
     try {
-      final res = await apiRepository.apiGet(url: "$baseUrl/api/Companies/CompanyEmailExist/$email");
+      final res = await apiRepository.apiGet("$baseUrl/api/Companies/CompanyEmailExist/$email");
       if (res != null) {
         return res as bool;
       }
     } catch (e) {
       log(e.toString());
-      log("getGenders========>$e");
+      log("companyEmailExist========>$e");
     }
     return false;
   }
 
   Future<GeneralInformation?> generalInformationWithCompanyId(String? companyId) async {
     try {
-      final res = await apiRepository.apiGet(url: "$baseUrl/api/CompanyProfile/GeneralInformation/$companyId");
+      final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/GeneralInformation/$companyId");
       if (res != null) {
         return GeneralInformation.fromJson(res);
       }
     } catch (e) {
       log(e.toString());
-      log("getGenders========>$e");
+      log("generalInformationWithCompanyId========>$e");
     }
     return null;
   }
@@ -81,41 +85,79 @@ class CompanyProfileService {
     String? countryId,
   ) async {
     try {
-      final res = await apiRepository.apiGet(url: "$baseUrl/api/BusinessTypes/$businessServiceId/$countryId");
+      final res = await apiRepository.apiGet("$baseUrl/api/BusinessTypes/$businessServiceId/$countryId");
       log(res.toString());
       if (res != null) {
         // return GeneralInformation.fromJson(res);
       }
     } catch (e) {
       log(e.toString());
-      log("getGenders========>$e");
+      log("businessServiceIdWithCountryId========>$e");
     }
     return;
   }
-  // Future<List<Gender>?> getGenders() async {
-  //   try {
-  //     final res = await apiRepository.apiGet(url: Url.Genders);
-  //     if (res != null) {
-  //       return Gender.fromJsonList(res);
-  //     }
-  //   } catch (e) {
-  //     log(e.toString());
-  //     log("getGenders========>$e");
-  //   }
-  //   return null;
-  // }
 
-  // Future<void> getGenders() async {
-  //   try {
-  //     final res = await apiRepository.apiGet(url: "$baseUrl/api/Genders");
-  //     if (res != null) {
-  //       return res;
-  //     }
-  //   } catch (e) {
-  //     log(e.toString());
-  //     log("getGenders========>$e");
-  //   }
-  // }
+  Future<List<Companies>?> getCountries() async {
+    try {
+      final res = await apiRepository.apiGet("$baseUrl/api/Countries");
+      log(res.toString());
+      if (res != null) {
+        return Companies.fromJsonList(res);
+      }
+    } catch (e) {
+      log(e.toString());
+      log("getCountries========>$e");
+    }
+    return null;
+  }
+
+  Future<PackageInformation?> packageInformation(
+    String? companyId,
+  ) async {
+    try {
+      final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/PackageInformation/$companyId");
+      log(res.toString());
+      if (res != null) {
+        return PackageInformation.fromJson(res);
+      }
+    } catch (e) {
+      log(e.toString());
+      log("packageInformation========>$e");
+    }
+    return null;
+  }
+
+  Future<RegionInformation?> regionInformation(
+    String? companyId,
+  ) async {
+    try {
+      final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/RegionInformation/$companyId");
+      log(res.toString());
+      if (res != null) {
+        return RegionInformation.fromJson(res);
+      }
+    } catch (e) {
+      log(e.toString());
+      log("regionInformation========>$e");
+    }
+    return null;
+  }
+
+  Future<List<CompanyProfileImage>?> companyProfileImage(
+    String? companyId,
+  ) async {
+    try {
+      final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/Images/$companyId");
+      log(res.toString());
+      if (res != null) {
+        return CompanyProfileImage.fromJsonList(res);
+      }
+    } catch (e) {
+      log(e.toString());
+      log("companyProfileImage========>$e");
+    }
+    return null;
+  }
 
   // Gernal info
 

@@ -22,7 +22,7 @@ class SplashViewModel extends BaseViewModel {
 
   /* loaders-items */
   void loadItems(context) async {
-    final res = await apiRepository.apiGet(url: Url.countryInfo);
+    final res = await apiRepository.apiGet(Url.countryInfo);
     log(res.toString());
     try {
       if (res != null) {

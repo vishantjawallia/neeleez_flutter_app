@@ -3,7 +3,6 @@ library dashboard_view;
 // import 'package:dotted_border/dotted_border.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:get/get.dart';
-import 'package:neeleez_flutter_app/components/dailogs/language_popup.dart';
 import 'package:neeleez_flutter_app/config/my_Image.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
 import 'package:neeleez_flutter_app/models/user_data.dart';
@@ -32,20 +31,15 @@ class DashboardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<DashboardViewModel>.reactive(
-        viewModelBuilder: () => DashboardViewModel(userData: userData),
-        onViewModelReady: (viewModel) {
-          // Do something once your viewModel is initialized
-        },
-        builder: (context, viewModel, child) {
-          return ScreenTypeLayout.builder(
-            mobile: (_) => _DashboardMobile(viewModel),
-            desktop: (_) => _DashboardMobile(viewModel),
-            tablet: (_) => _DashboardMobile(viewModel),
-
-            //Uncomment it if you've planned to support specifically for desktop and tablet
-            //desktop: _DashboardDesktop(viewModel),
-            //tablet: _DashboardTablet(viewModel),
-          );
-        });
+      viewModelBuilder: () => DashboardViewModel(userData: userData),
+      onViewModelReady: (viewModel) {},
+      builder: (context, viewModel, child) {
+        return ScreenTypeLayout.builder(
+          mobile: (_) => _DashboardMobile(viewModel),
+          desktop: (_) => _DashboardMobile(viewModel),
+          tablet: (_) => _DashboardMobile(viewModel),
+        );
+      },
+    );
   }
 }

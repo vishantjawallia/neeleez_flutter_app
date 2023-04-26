@@ -320,7 +320,7 @@ class _DashboardMobile extends StatelessWidget {
                       children: <Widget>[
                         UrlImage(
                           height: 20,
-                          url: (viewModel.lang?['iconImage']) ?? null,
+                          url: (viewModel.lang?['iconImage']),
                         ),
                         SizedBox(width: 4),
                         Container(

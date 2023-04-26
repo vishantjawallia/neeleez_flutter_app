@@ -13,7 +13,7 @@ class ChangePasswordViewModel extends BaseViewModel {
   // Add ViewModel specific code here
   Future<void> loadItems() async {
     setBusy(true);
-    userData ??= await getUserData();
+    // userData ??= await getUserData();
     //Write your models loading codes here
 
     //Let other views to render again

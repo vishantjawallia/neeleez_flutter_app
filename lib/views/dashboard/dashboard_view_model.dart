@@ -9,12 +9,13 @@ import 'package:neeleez_flutter_app/config/pref_constant.dart';
 import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/config/url.dart';
 import 'package:neeleez_flutter_app/models/user_data.dart';
+import 'package:neeleez_flutter_app/views/dashboard/service/dashboard_service.dart';
 import 'package:neeleez_flutter_app/views/notifications/notifications_view.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../components/dailogs/language_popup.dart';
 
-class DashboardViewModel extends BaseViewModel {
+class DashboardViewModel extends BaseViewModel with DashboardService {
   //get
   UserData? get user => userData;
   Map? get lang => languageObj;
@@ -72,24 +73,3 @@ class DashboardViewModel extends BaseViewModel {
   }
 }
 
-Future<Map?> getLanguage() async {
-  String? language = SharedPreferenceHelper.getString(Preferences.languageSelected);
-  if (language != 'N/A') {
-    Map obj = await json.decode(language!);
-    obj['local'] = Locale("${obj['language_code']}", "${obj['country_code']}");
-    return obj;
-  }
-  return null;
-}
-
-Future<UserData?> getUserData() async {
-  String? id = SharedPreferenceHelper.getString(Preferences.userId);
-  final res = await apiRepository.apiGet(url: '${Url.customerById}/$id');
-  if (res != null) {
-    UserData? data = UserData.fromJson(res);
-    log(data.customerImage!.imageFileName!);
-    return data;
-  } else {
-    return null;
-  }
-}
