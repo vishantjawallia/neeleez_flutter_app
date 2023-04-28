@@ -34,7 +34,7 @@ class _TimingWidgetState extends State<TimingWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            width: 20.w,
+            width: 19.w,
             child: Text(
               widget.name ?? 'Monday',
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.grey3),

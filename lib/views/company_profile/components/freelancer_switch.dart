@@ -5,12 +5,12 @@ import 'package:neeleez_flutter_app/config/palettes.dart';
 class FreelancerSwitch extends StatelessWidget {
   final bool? initialValue;
 
-  final void Function(bool? initialValue)? onChange;
+  final void Function()? onChange;
 
   const FreelancerSwitch({
     super.key,
     required this.onChange,
-    this.initialValue,
+    required this.initialValue,
     // required this.value,
   });
 
@@ -39,7 +39,7 @@ class FreelancerSwitch extends StatelessWidget {
             child: Row(
               children: [
                 GestureDetector(
-                  onTap: () => onChange!(initialValue),
+                  onTap: () => onChange!(),
                   child: Align(
                     widthFactor: 0.85,
                     child: Container(
@@ -56,7 +56,7 @@ class FreelancerSwitch extends StatelessWidget {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () => onChange!(initialValue),
+                  onTap: () => onChange!(),
                   child: Align(
                     widthFactor: 0.85,
                     child: Container(

@@ -102,8 +102,10 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     notifyListeners();
   }
 
-  void onFreelancerChange(value) {
-    log(value);
+  void onFreelancerChange() {
+    isFreelancer = !isFreelancer!;
+    notifyListeners();
+    log(isFreelancer.toString());
   }
 
   /* ------------------------------ general-info-save ------------------------------ */

@@ -19,7 +19,7 @@ import '../components/freelancer_switch.dart';
 
 class GeneralInfo extends StatelessWidget {
   final bool? isFreelancer;
-  final void Function(bool? isFreelancer)? onFreelancerChange;
+  final void Function()? onFreelancerChange;
   final TextEditingController? companyNameController;
   final TextEditingController? taglineController;
   final TextEditingController? companyEstablishmentYearController;
@@ -93,7 +93,7 @@ class GeneralInfo extends StatelessWidget {
     );
   }
 
-  Column _aboutBusinessBox() {
+  _aboutBusinessBox() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

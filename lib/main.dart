@@ -7,7 +7,6 @@ import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/languages/language.dart';
 import 'package:neeleez_flutter_app/middleware/auth_middleware.dart';
 import 'package:neeleez_flutter_app/theme/theme.dart';
-import 'package:neeleez_flutter_app/views/appointments/appointments_view.dart';
 import 'package:neeleez_flutter_app/views/login/login_view.dart';
 import 'package:neeleez_flutter_app/views/splash/splash_view.dart';
 import 'core/locator.dart';
@@ -55,7 +54,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: LoginView.routeName, page: () => const LoginView()),
         GetPage(name: RegistrationView.routeName, page: () => const RegistrationView()),
         GetPage(name: RegistrationView.routeName, page: () => const RegistrationView()),
-        GetPage(name: DashboardView.routeName, page: () => const DashboardView(), middlewares: [AuthMiddleware()]),
+        GetPage(name: DashboardView.routeName, page: () => const DashboardView(), middlewares: [AuthMiddleware()],),
       ],
     );
   }

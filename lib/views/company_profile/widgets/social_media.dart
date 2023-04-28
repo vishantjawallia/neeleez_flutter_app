@@ -3,8 +3,9 @@ import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
-import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
+
+import '../../../widgets/custom_button.dart';
 
 class SocialMedia extends StatelessWidget {
   final TextEditingController? facebookController;
@@ -67,13 +68,16 @@ class SocialMedia extends StatelessWidget {
               controller: facebookController,
               name: 'Facebook',
               prefixIconPath: MyIcon.socialFacebook,
-              prefixIconColor: Palettes.primary,
+              prefixIconColor: const Color.fromRGBO(10, 28, 83, 1),
+              suffixIconPath: facebookController!.text.isEmpty ? '' : MyIcon.checked1,
             ),
-            Text(
-              'https://www.facebook.com/kkvbkv',
-              style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
-              textAlign: TextAlign.right,
-            ),
+            facebookController!.text.isEmpty
+                ? const SizedBox()
+                : Text(
+                    'https://www.facebook.com/${facebookController!.text}',
+                    style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
+                    textAlign: TextAlign.right,
+                  ),
             const SizedBox(height: 14),
             //
             Text(
@@ -81,16 +85,20 @@ class SocialMedia extends StatelessWidget {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
+              controller: twitterController,
               name: 'Twitter',
               prefixIconPath: MyIcon.socialTwitter,
               prefixIconColor: Palettes.primary,
+              suffixIconPath: facebookController!.text.isEmpty ? '' : MyIcon.checked1,
             ),
-            Text(
-              'https://www.twitter.com/@jvjviv',
-              style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
-              textAlign: TextAlign.right,
-            ),
+            twitterController!.text.isEmpty
+                ? const SizedBox()
+                : Text(
+                    'https://www.twitter.com/${twitterController!.text}',
+                    style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
+                    textAlign: TextAlign.right,
+                  ),
             const SizedBox(height: 14),
             Text(
               'Instagram',
@@ -101,14 +109,17 @@ class SocialMedia extends StatelessWidget {
               controller: instagramController,
               name: 'Instagram',
               prefixIconPath: MyIcon.socialInstagram,
+              suffixIconPath: instagramController!.text.isEmpty ? '' : MyIcon.checked1,
               prefixIconColor: Palettes.primary,
             ),
-            Text(
-              'https://www.instagram.com/kayyenwecare',
-              style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
-              textAlign: TextAlign.right,
-            ),
-            const SizedBox(height: 14),
+            instagramController!.text.isEmpty
+                ? const SizedBox()
+                : Text(
+                    'https://www.instagram.com/${instagramController!.text}',
+                    style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
+                    textAlign: TextAlign.right,
+                  ),
+            const SizedBox(height: 20),
             Text(
               'Linked In',
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
@@ -119,7 +130,15 @@ class SocialMedia extends StatelessWidget {
               name: 'Linked In',
               prefixIconPath: MyIcon.socialLinkedin,
               prefixIconColor: Palettes.primary,
+              suffixIconPath: linkedInController!.text.isEmpty ? '' : MyIcon.checked1,
             ),
+            linkedInController!.text.isEmpty
+                ? const SizedBox()
+                : Text(
+                    'https://www.instagram.com/${linkedInController!.text}',
+                    style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
+                    textAlign: TextAlign.right,
+                  ),
             const SizedBox(height: 14),
             Text(
               'Only Enter Username/Userld of your social media account',
