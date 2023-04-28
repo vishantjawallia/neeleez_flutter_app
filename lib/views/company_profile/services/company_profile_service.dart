@@ -5,12 +5,17 @@ import 'package:neeleez_flutter_app/config/config.dart';
 import 'package:neeleez_flutter_app/config/url.dart';
 import 'package:neeleez_flutter_app/models/amenities/amenities.dart';
 import 'package:neeleez_flutter_app/models/business_types/business_services_by_country.dart';
-import 'package:neeleez_flutter_app/models/company/companies.dart';
+
 import 'package:neeleez_flutter_app/models/company/company_profile_images.dart';
 import 'package:neeleez_flutter_app/models/company/region_Info.dart';
 import 'package:neeleez_flutter_app/models/gender/gender.dart';
 import 'package:neeleez_flutter_app/models/general_info/general_info.dart';
 import 'package:neeleez_flutter_app/models/package/package_info.dart';
+
+import '../../../models/company/cities.dart';
+import '../../../models/company/companies.dart';
+import '../../../models/company/designation.dart';
+import '../../../models/company/provinces.dart';
 
 class CompanyProfileService {
   Future<List<Gender>?> getGenders() async {
@@ -54,7 +59,7 @@ class CompanyProfileService {
   }
 
   // CompanyEmailExist
-  Future<bool> companyEmailExist(String? email) async {
+  Future<bool> companyEmailExist(String email) async {
     try {
       final res = await apiRepository.apiGet("$baseUrl/api/Companies/CompanyEmailExist/$email");
       if (res != null) {
@@ -67,7 +72,7 @@ class CompanyProfileService {
     return false;
   }
 
-  Future<GeneralInformation?> generalInformationWithCompanyId(String? companyId) async {
+  Future<GeneralInformation?> generalInformationWithCompanyId(String companyId) async {
     try {
       final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/GeneralInformation/$companyId");
       if (res != null) {
@@ -81,8 +86,8 @@ class CompanyProfileService {
   }
 
   Future<void> businessServiceIdWithCountryId(
-    String? businessServiceId,
-    String? countryId,
+    String businessServiceId,
+    String countryId,
   ) async {
     try {
       final res = await apiRepository.apiGet("$baseUrl/api/BusinessTypes/$businessServiceId/$countryId");
@@ -97,12 +102,26 @@ class CompanyProfileService {
     return;
   }
 
-  Future<List<Companies>?> getCountries() async {
+  Future<List<Designation>?> getDesignation() async {
+    try {
+      final res = await apiRepository.apiGet("$baseUrl/api/Designation");
+      log(res.toString());
+      if (res != null) {
+        return Designation.fromJsonList(res);
+      }
+    } catch (e) {
+      log(e.toString());
+      log("regionInformation========>$e");
+    }
+    return null;
+  }
+
+  Future<List<Countries>?> getCountries() async {
     try {
       final res = await apiRepository.apiGet("$baseUrl/api/Countries");
       log(res.toString());
       if (res != null) {
-        return Companies.fromJsonList(res);
+        return Countries.fromJsonList(res);
       }
     } catch (e) {
       log(e.toString());
@@ -111,8 +130,50 @@ class CompanyProfileService {
     return null;
   }
 
+  Future<List<Provinces>?> getProvinces(String companyId) async {
+    try {
+      final res = await apiRepository.apiGet("$baseUrl/api/Provinces/$companyId");
+      log(res.toString());
+      if (res != null) {
+        return Provinces.fromJsonList(res);
+      }
+    } catch (e) {
+      log(e.toString());
+      log("getProvinces========>$e");
+    }
+    return null;
+  }
+
+  Future<List<Cities>?> getCities(String provinceId) async {
+    try {
+      final res = await apiRepository.apiGet("$baseUrl/api/Cities/$provinceId");
+      log(res.toString());
+      if (res != null) {
+        return Cities.fromJsonList(res);
+      }
+    } catch (e) {
+      log(e.toString());
+      log("getProgetCitiesvinces========>$e");
+    }
+    return null;
+  }
+
+  Future<RegionInformation?> getRegionInformation(String companyId) async {
+    try {
+      final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/RegionInformation/$companyId");
+      log(res.toString());
+      if (res != null) {
+        return RegionInformation.fromJson(res);
+      }
+    } catch (e) {
+      log(e.toString());
+      log("getRegionInformation========>$e");
+    }
+    return null;
+  }
+
   Future<PackageInformation?> packageInformation(
-    String? companyId,
+    String companyId,
   ) async {
     try {
       final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/PackageInformation/$companyId");
@@ -128,7 +189,7 @@ class CompanyProfileService {
   }
 
   Future<RegionInformation?> regionInformation(
-    String? companyId,
+    String companyId,
   ) async {
     try {
       final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/RegionInformation/$companyId");
@@ -144,7 +205,7 @@ class CompanyProfileService {
   }
 
   Future<List<CompanyProfileImage>?> companyProfileImage(
-    String? companyId,
+    String companyId,
   ) async {
     try {
       final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/Images/$companyId");
@@ -159,49 +220,172 @@ class CompanyProfileService {
     return null;
   }
 
-  // Gernal info
+  Future<void> postCompanyLogo(
+    String companyId,
+    isProfileChange,
+  ) async {
+    try {
+      final res = await apiRepository.apiPost("$baseUrl/api/Companies/CompanyLogo/$companyId/:IsProfileChange", {});
+      log(res.toString());
+      if (res != null) {
+        return;
+      }
+    } catch (e) {
+      log(e.toString());
+      log("postCompanyLogo========>$e");
+    }
+    return;
+  }
 
-// 2)	GET => /api/ BusinessService/BusinessServicesByCountry/IN
+  Future<void> putGeneralInformation(
+    String companyId,
+    String email,
+    int genderId,
+    String mobile,
+    String nameEn,
+    String logo,
+    bool isFreeLancer,
+    int businessServiceId,
+    String nameAr,
+    String tagLine,
+    String edate,
+    String whatsapp,
+    String tel1,
+    String url,
+    String tel2,
+    String aboutUs,
+    String taxNumber,
+    List companyBusinessTypes,
+    List companyAmenity,
+  ) async {
+    Map<String, dynamic> data = {
+      "email": email,
+      "genderId": genderId,
+      "mobile": mobile,
+      "nameEn": nameEn,
+      "logo": logo,
+      "isFreeLancer": isFreeLancer,
+      "businessServiceId": businessServiceId,
+      "nameAr": nameAr,
+      "tagLine": tagLine,
+      "edate": edate,
+      "whatsapp": whatsapp,
+      "tel1": tel1,
+      "url": url,
+      "tel2": tel2,
+      "aboutUs": aboutUs,
+      "taxNumber": taxNumber,
+      "companyBusinessTypes": companyBusinessTypes,
+      "companyAmenity": companyAmenity,
+    };
+    try {
+      final res = await apiRepository.apiPut("$baseUrl/api/Companies/UpdateGeneralInformation/$companyId", data);
+      log(res.toString());
+      if (res != null) {
+        log(res.toString());
+        return;
+      }
+    } catch (e) {
+      log(e.toString());
+      log("putGeneralInformation========>$e");
+    }
+    return;
+  }
 
-// 3)	GET => /api/ BusinessTypes/{BusinessCat}/{CountryId}
+  Future<void> putUpdateSocialMedia(
+    String companyId,
+    String facebook,
+    String instagram,
+    String linkedIn,
+    String twitter,
+  ) async {
+    Map<String, dynamic> data = {
+      "facebook": facebook,
+      "instagram": instagram,
+      "linkedIn": linkedIn,
+      "twitter": twitter,
+    };
+    try {
+      final res = await apiRepository.apiPut("$baseUrl/api/Companies/UpdateSocialMedia/$companyId", data);
+      log(res.toString());
+      if (res != null) {
+        log(res.toString());
+        return;
+      }
+    } catch (e) {
+      log(e.toString());
+      log("putGeneralInformation========>$e");
+    }
+    return;
+  }
 
-// 7)	PUT => /api/Companies/UpdateGeneralInformation/{companyId}
+  Future<void> putUpdateContactPerson(
+    String companyId,
+    int id,
+    String nameEn,
+    String nameAr,
+    String email,
+    String mobile,
+    String whatsApp,
+    String tel,
+    String designation,
+    String department,
+    int designationId,
+    int departmentId,
+  ) async {
+    Map<String, dynamic> data = {
+      "id": id,
+      "nameEn": nameEn,
+      "nameAr": nameAr,
+      "email": email,
+      "mobile": mobile,
+      "whatsApp": whatsApp,
+      "tel": tel,
+      "designation": designation,
+      "department": department,
+      "designationId": designationId,
+      "departmentId": departmentId,
+    };
+    try {
+      final res = await apiRepository.apiPut("$baseUrl/api/Companies/UpdateContactPerson/$companyId", data);
+      log(res.toString());
+      if (res != null) {
+        log(res.toString());
+        return;
+      }
+    } catch (e) {
+      log(e.toString());
+      log("putUpdateContactPerson========>$e");
+    }
+    return;
+  }
 
-// 8)	POST => /api/ Companies/CompanyLogo/{companyId}/{IsProfileChange}
-
-// Social Media
-// 1)	GET => /api/CompanyProfile/GeneralInformation/{companyId}
-
-// 2)	PUT => /api/Companies/UpdateSocialMedia/{comapnyId}
-
-// Location
-// 1)	GET => /api/ Countries/
-
-// 2)	GET => /api/ Provinces/{countryId}
-
-// 3)	GET => /api/ Cities/{provinceId}
-
-// 4)	GET => /api/CompanyProfile/RegionInformation/{companyId}
-
-// 5)	PUT => /api/Companies/UpdateAddress/{companyId}
-
-// Contact Person info
-// 1)	GET => /api/CompanyProfile/ContactPersonInfo/{companyId}
-
-// 2)	PUT => /api/Companies/UpdateContactPerson/{companyId}
-
-// 3)	GET => /api/ Designation/
-
-// Business Hours
-// 1)	GET => /api/CompanyProfile/TimingInformation/{companyId}
-
-// 2)	PUT => /api/Companies/UpdateTiming/{comapnyId}
-
-// Package
-// 1)	GET => /api/CompanyProfile/PackageInformation/{companyId}
-
-// image upload/
-// 1)	GET => /api/ Companies/CompanyProfile2/{comapnyId}
-
-// 2)	POST => /api/Companies/CompanyLogo/{comapnyId}/{IsProfileChange}
+  Future<void> putUpdateAddress(
+    String companyId,
+    String address,
+    String googleAddress,
+    double lattitude,
+    double longitude,
+    int areaId,
+  ) async {
+    Map<String, dynamic> data = {
+      "address": address,
+      "googleAddress": googleAddress,
+      "lattitude": lattitude,
+      "longitude": longitude,
+      "areaId": areaId,
+    };
+    try {
+      final res = await apiRepository.apiPut("$baseUrl/api/Companies/UpdateAddress/$companyId", data);
+      log(res.toString());
+      if (res != null) {
+        log(res.toString());
+        return;
+      }
+    } catch (e) {
+      log(e.toString());
+      log("putUpdateAddress========>$e");
+    }
+    return;
+  }
 }

@@ -10,10 +10,10 @@ import 'package:neeleez_flutter_app/models/user_data.dart';
 import 'package:neeleez_flutter_app/views/company_profile/services/company_profile_service.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../models/company/companies.dart';
+
 class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   final UserData? user;
-  // int? tabCurrentIndex = 0;
-  // late TabController tabController;
   TextEditingController companyNameController = TextEditingController();
   TextEditingController taglineController = TextEditingController();
   TextEditingController companyEstablishmentYearController = TextEditingController();
@@ -75,27 +75,32 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   Future<void> loadItems() async {
     setBusy(true);
     //Write your models loading codes here
+    //gender
     List<Gender> gender = await getGenders() ?? [];
-    List<Amenities> amentias = await getAmenities() ?? [];
-    List<BusinessServicesByCountry> businessList = await getBusinessCategory('143') ?? [];
-
-    GeneralInformation generalInformation = await generalInformationWithCompanyId("72") ?? const GeneralInformation();
-    //
     serviceForList = gender.isNotEmpty ? gender.map<String>((e) => e.genderEn.toString()).toList() : [];
+    //amentias
+    List<Amenities> amentias = await getAmenities() ?? [];
     amentiasList = amentias.isNotEmpty ? amentias.map<String>((e) => e.amenityNameEn.toString()).toList() : [];
-    businessCategoryList = businessList.isNotEmpty ? businessList.map<String>((e) => e.service.toString()).toList() : [];
-    //
 
-    isFreelancer = generalInformation.isFreeLancer ?? false;
+    // businessList
+    List<BusinessServicesByCountry> businessList = await getBusinessCategory('143') ?? [];
+    countryList = businessList.isNotEmpty ? businessList.map<String>((e) => e.service.toString()).toList() : [];
+    // businessServiceIdWithCountryId()
+    GeneralInformation? generalInformation = await generalInformationWithCompanyId("72");
+    isFreelancer = generalInformation!.isFreeLancer ?? false;
     companyNameController.text = generalInformation.companyNumber ?? "";
     taglineController.text = generalInformation.tagLine ?? "";
     companyEstablishmentYearController.text = generalInformation.edate ?? "";
-
     websiteController.text = generalInformation.whatsapp ?? "";
     telephoneController.text = generalInformation.tel1 ?? "";
     emailController.text = generalInformation.email ?? "";
     additionalInfoController.text = generalInformation.aboutUs ?? "";
-    // websiteController.text = generalInformation.w!;
+
+    // socialMidea
+    facebookController.text = generalInformation.socialMediaInfo?.facebook ?? "";
+    instagramController.text = generalInformation.socialMediaInfo?.instagram ?? "";
+    linkedInController.text = generalInformation.socialMediaInfo?.linkedIn ?? "";
+    twitterController.text = generalInformation.socialMediaInfo?.twitter ?? "";
 
     //Let other views to render again
     setBusy(false);
@@ -109,84 +114,101 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   }
 
   /* ------------------------------ general-info-save ------------------------------ */
-  void onGeneralSave() {
-    // log("onSave");
+  void onGeneralSave() async {
+    String companyId = "";
+    String email = "";
+    String mobile = "";
+    String nameEn = "";
+    String logo = "";
+    String nameAr = "";
+    String tagLine = "";
+    String edate = "";
+    String whatsapp = "";
+    String tel1 = "";
+    String url = "";
+    String tel2 = "";
+    String aboutUs = "";
+    String taxNumber = "";
+    int businessServiceId = 0;
+    int genderId = 0;
+    List companyBusinessTypes = [];
+    List companyAmenity = [];
+    bool isFreeLancer = false;
+    await putGeneralInformation(
+      companyId,
+      email,
+      genderId,
+      mobile,
+      nameEn,
+      logo,
+      isFreeLancer,
+      businessServiceId,
+      nameAr,
+      tagLine,
+      edate,
+      whatsapp,
+      tel1,
+      url,
+      tel2,
+      aboutUs,
+      taxNumber,
+      companyBusinessTypes,
+      companyAmenity,
+    );
   }
 
   /* ------------------------------ on-social-save ------------------------------ */
-  void onSocialSave() {}
+  void onSocialSave() async {
+    String companyId = "72";
+    String facebook = facebookController.text;
+    String instagram = instagramController.text;
+    String linkedIn = linkedInController.text;
+    String twitter = twitterController.text;
+    await putUpdateSocialMedia(companyId, facebook, instagram, linkedIn, twitter);
+  }
 
   /* ------------------------------ on-contact-save------------------------------ */
-  void onContactSave() {}
+  void onContactSave() {
+    // putUpdateContactPerson(
+    //   companyId,
+    //   id,
+    //   nameEn,
+    //   nameAr,
+    //   email,
+    //   mobile,
+    //   whatsApp,
+    //   tel,
+    //   designation,
+    //   department,
+    //   designationId,
+    //   departmentId,
+    // );
+  }
 
   /* ------------------------------ on-contact-save------------------------------ */
   void onBusinessHoursSave() {}
   /* ------------------------------ on-file-media-save------------------------------ */
   void onUploadMedia(File? file) {}
 
-  // void changeTab(int index) {
-  //   tabCurrentIndex = index;
-  //   notifyListeners();
-  // }
+  void loadGeneralData() {}
 
-  // @override
-  // Future<void> getGenders() {
-  //   // TODO: implement getGenders
-  //   throw UnimplementedError();
-  // }
+  void loadSocialMediaData() {}
 
-// Gernal info
-// 1)	GET => /api/Genders/genders/true =============================================================
+  void loadLocationData() async {
+    setBusy(true);
+    List<Countries> countries = await getCountries() ?? [];
+    amentiasList = countries.isNotEmpty ? countries.map<String>((e) => e.nameEn.toString()).toList() : [];
+    setBusy(false);
+    notifyListeners();
+  }
 
-// 2)	GET => /api/ BusinessService/BusinessServicesByCountry/IN
+  void contactPersonInfoData() {}
 
-// 3)	GET => /api/ BusinessTypes/{BusinessCat}/{CountryId}
+  void businessHoursData() {}
 
-// 4)	GET => /api/Amenities/
+  void packagesData() {}
 
-// 5)	GET => /api/Companies/CompanyEmailExist/{email}/0
-
-// 6)	GET => /api/CompanyProfile/GeneralInformation/{companyId}
-
-// 7)	PUT => /api/Companies/UpdateGeneralInformation/{companyId}
-
-// 8)	POST => /api/ Companies/CompanyLogo/{companyId}/{IsProfileChange}
-
-// Social Media
-// 1)	GET => /api/CompanyProfile/GeneralInformation/{companyId}
-
-// 2)	PUT => /api/Companies/UpdateSocialMedia/{comapnyId}
-
-// Location
-// 1)	GET => /api/ Countries/
-
-// 2)	GET => /api/ Provinces/{countryId}
-
-// 3)	GET => /api/ Cities/{provinceId}
-
-// 4)	GET => /api/CompanyProfile/RegionInformation/{companyId}
-
-// 5)	PUT => /api/Companies/UpdateAddress/{companyId}
-
-// Contact Person info
-// 1)	GET => /api/CompanyProfile/ContactPersonInfo/{companyId}
-
-// 2)	PUT => /api/Companies/UpdateContactPerson/{companyId}
-
-// 3)	GET => /api/ Designation/
-
-// Business Hours
-// 1)	GET => /api/CompanyProfile/TimingInformation/{companyId}
-
-// 2)	PUT => /api/Companies/UpdateTiming/77293115
-
-// Package
-// 1)	GET => /api/CompanyProfile/PackageInformation/77293115
-
-// image upload/
-// 1)	GET => /api/ Companies/CompanyProfile2/{comapnyId}
-
-// 2)	POST => /api/Companies/CompanyLogo/{comapnyId}/{IsProfileChange}
+  void spaceFilesData() {}
 
   void onTabChanged(int value) {
     log(value.toString());
@@ -215,18 +237,4 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
       default:
     }
   }
-
-  void loadGeneralData() {}
-
-  void loadSocialMediaData() {}
-
-  void loadLocationData() {}
-
-  void contactPersonInfoData() {}
-
-  void businessHoursData() {}
-
-  void packagesData() {}
-
-  void spaceFilesData() {}
 }

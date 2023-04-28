@@ -1,4 +1,4 @@
-class Companies {
+class Countries {
   final int? id;
   final String? regionName;
   final dynamic regionNameAr;
@@ -31,7 +31,7 @@ class Companies {
   final int? numberDecimalDigits;
   final String? numberGroupSeparator;
   final String? numberDecimalSeparator;
-  const Companies(
+  const Countries(
       {this.id,
       this.regionName,
       this.regionNameAr,
@@ -64,7 +64,7 @@ class Companies {
       this.numberDecimalDigits,
       this.numberGroupSeparator,
       this.numberDecimalSeparator});
-  Companies copyWith(
+  Countries copyWith(
       {int? id,
       String? regionName,
       dynamic? regionNameAr,
@@ -97,7 +97,7 @@ class Companies {
       int? numberDecimalDigits,
       String? numberGroupSeparator,
       String? numberDecimalSeparator}) {
-    return Companies(
+    return Countries(
         id: id ?? this.id,
         regionName: regionName ?? this.regionName,
         regionNameAr: regionNameAr ?? this.regionNameAr,
@@ -169,8 +169,8 @@ class Companies {
     };
   }
 
-  static Companies fromJson(Map<String, Object?> json) {
-    return Companies(
+  static Countries fromJson(Map<String, Object?> json) {
+    return Countries(
         id: json['id'] == null ? null : json['id'] as int,
         regionName: json['regionName'] == null ? null : json['regionName'] as String,
         regionNameAr: json['regionNameAr'] as dynamic,
@@ -205,18 +205,18 @@ class Companies {
         numberDecimalSeparator: json['numberDecimalSeparator'] == null ? null : json['numberDecimalSeparator'] as String);
   }
 
-  static List<Companies> fromJsonList(dynamic json) {
-    List<Companies> companiesList = [];
+  static List<Countries> fromJsonList(dynamic json) {
+    List<Countries> countriesList = [];
 
     for (Map<String, dynamic> element in json) {
-      companiesList.add(Companies.fromJson(element));
+      countriesList.add(Countries.fromJson(element));
     }
-    return companiesList;
+    return countriesList;
   }
 
   @override
   String toString() {
-    return '''Companies(
+    return '''Countries(
                 id:$id,
 regionName:$regionName,
 regionNameAr:$regionNameAr,
@@ -254,7 +254,7 @@ numberDecimalSeparator:$numberDecimalSeparator
 
   @override
   bool operator ==(Object other) {
-    return other is Companies &&
+    return other is Countries &&
         other.runtimeType == runtimeType &&
         other.id == id &&
         other.regionName == regionName &&
