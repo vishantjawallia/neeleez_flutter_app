@@ -222,7 +222,7 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
         menuMaxHeight: 300,
         isExpanded: true,
         isDense: true,
-        value: dropdownValue ?? widget.list!.first,
+        value: dropdownValue ?? widget.list?.first ?? '',
         icon: const Icon(
           Icons.arrow_drop_down_sharp,
           size: 20,

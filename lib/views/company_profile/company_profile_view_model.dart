@@ -5,16 +5,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:neeleez_flutter_app/config/pref_constant.dart';
 import 'package:neeleez_flutter_app/config/preference.dart';
-import 'package:neeleez_flutter_app/models/amenities/amenities.dart';
-import 'package:neeleez_flutter_app/models/business_types/business_services_by_country.dart';
 import 'package:neeleez_flutter_app/models/gender/gender.dart';
 import 'package:neeleez_flutter_app/models/general_info/general_info.dart';
 import 'package:neeleez_flutter_app/models/user_data.dart';
 import 'package:neeleez_flutter_app/views/company_profile/services/company_profile_service.dart';
 import 'package:stacked/stacked.dart';
-
-import '../../models/business_types/business_types.dart';
-import '../../models/company/cities.dart';
 
 class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   final UserData? user;
@@ -38,21 +33,21 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   TextEditingController countryCodeController = TextEditingController();
   DateTime? companyEstablishmentYearDate = DateTime.now();
   // BusinessServicesByCountry
-  BusinessServicesByCountry? busCatSelectedObj;
-  List<BusinessServicesByCountry>? businessCategoryList = [const BusinessServicesByCountry()];
+  String? busCatSelectedObj;
+  List<String>? businessCategoryList = [];
 
   // businessSubCategoryList
-  List<BusinessTypes>? businessSubCategoryList = [const BusinessTypes()];
-  List<BusinessTypes>? businessSubCategorySelectedList;
+  List<String>? businessSubCategoryList = [];
+  List<String>? businessSubCategorySelectedList;
 
-  List<Cities>? countryList;
+  List<String>? countryList;
   List<String>? stateList = ['Hello', 'Go'];
   List<String>? cityList = ['Hello', 'Go'];
 // Gender
-  List<Gender>? serviceForList;
+  List<String>? serviceForList;
   // Amenities
-  List<Amenities>? amentiasList;
-  List<Amenities>? amentiasSelectedList;
+  List<String>? amentiasList;
+  List<String>? amentiasSelectedList;
 
   String? businessCategory = "Hello";
   int? serviceForId;
@@ -90,15 +85,15 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     String? id = SharedPreferenceHelper.getString(Preferences.companyId);
     //Write your models loading codes here
     //gender
-    serviceForList = await getGenders() ?? [];
-    // List<Gender> gender = await getGenders() ?? [];
-    // serviceForList = gender.isNotEmpty ? gender.map<String>((e) => e.genderEn.toString()).toList() : [];
+    // serviceForList = await getGenders() ?? [];
+    List<Gender> gender = await getGenders() ?? [];
+    serviceForList = gender.isNotEmpty ? gender.map<String>((e) => e.genderEn.toString()).toList() : [];
     //amentias
-    amentiasList = await getAmenities() ?? [];
+    // amentiasList = await getAmenities() ?? [];
     // amentiasList = amentias.isNotEmpty ? amentias.map<String>((e) => e.amenityNameEn.toString()).toList() : [];
 
     // businessList
-    businessCategoryList = await getBusinessCategory('143') ?? [];
+    // businessCategoryList = await getBusinessCategory('143') ?? [];
     // businessCategoryList = businessList.isNotEmpty ? businessList s.map<String>((e) => e.service!).toList() : [];
     // businessServiceIdWithCountryId()
     GeneralInformation? generalInformation = await generalInformationWithCompanyId(id!);

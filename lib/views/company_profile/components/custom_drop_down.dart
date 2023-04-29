@@ -143,7 +143,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
     return DropdownButton<String>(
       isExpanded: true,
       isDense: true,
-      value: dropdownValue ?? widget.list!.first,
+      value: dropdownValue ?? widget.list?.first ?? '',
       icon: const Icon(Icons.arrow_drop_down_sharp),
       // elevation: 16,
       style: const TextStyle(color: Colors.deepPurple),

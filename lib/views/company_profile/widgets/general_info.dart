@@ -131,7 +131,8 @@ class GeneralInfo extends StatelessWidget {
           textAlign: TextAlign.right,
         ),
         CustomMultiDropDown(
-          list: amentiasList,
+          list: const ['Hello'],
+          // list: amentiasList,
           name: 'Amenities',
           prefixIconPath: MyIcon.imgAmenities,
           prefixIconColor: Palettes.primary,
@@ -359,8 +360,9 @@ class GeneralInfo extends StatelessWidget {
             style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
             textAlign: TextAlign.right,
           ),
-          CustomDropDown(
-            list: businessCategoryList,
+          const CustomDropDown(
+            list: [],
+            // list: businessCategoryList,
             name: 'Business Category',
             prefixIconPath: MyIcon.portfolio,
             prefixIconColor: Palettes.primary,
@@ -372,7 +374,8 @@ class GeneralInfo extends StatelessWidget {
             textAlign: TextAlign.right,
           ),
           CustomMultiDropDown(
-            list: businessSubCategorySelectedList,
+            list: const ['Hello'],
+            // list: businessSubCategorySelectedList,
             name: 'Business Sub-Category',
             prefixIconPath: MyIcon.portfolio,
             prefixIconColor: Palettes.primary,
