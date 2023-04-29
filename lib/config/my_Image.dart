@@ -27,4 +27,5 @@ class MyImage {
   static const String contolServiceFormat = "$image/contol_service_format@3x.png";
   static const String contolServicePrice = "$image/contol_Service_price@3x.png";
   static const String contolService = "$image/contol_service@3x.png";
+  static const String userBlankCircle = "$image/user_blank_circle.png";
 }

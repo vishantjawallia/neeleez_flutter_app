@@ -107,11 +107,13 @@ class _SocialMediaState extends State<ContactPersonInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomDropDown(
-              list: ['Hello', 'Go'],
+            CustomDropDown(
+              list: const [],
+              // list: ['Hello', 'Go'],
               name: 'Department',
               prefixIconPath: MyIcon.staffDepartment,
               prefixIconColor: Palettes.primary,
+              onChanged: (value) {},
             ),
             const SizedBox(height: 14),
             Text(
@@ -119,11 +121,12 @@ class _SocialMediaState extends State<ContactPersonInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomDropDown(
-              list: ['Hello', 'Go'],
+            CustomDropDown(
+              list: const ['Hello', 'Go'],
               name: 'Designation',
               prefixIconPath: MyIcon.staffDesignation,
               prefixIconColor: Palettes.primary,
+              onChanged: (value) {},
             ),
             const SizedBox(height: 14),
             Text(

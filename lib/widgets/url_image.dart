@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:neeleez_flutter_app/config/my_Image.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -35,15 +36,9 @@ class UrlImage extends StatelessWidget {
       return SizedBox(
         width: width,
         height: height,
-        child: Shimmer.fromColors(
-          baseColor: Colors.grey,
-          highlightColor: Colors.white,
-          child: Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Palettes.white.withOpacity(0.7),
-            ),
-          ),
+        child: Image.asset(
+          MyImage.userBlankCircle,
+          fit: BoxFit.fill,
         ),
       );
     } else {

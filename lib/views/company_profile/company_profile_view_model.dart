@@ -1,3 +1,4 @@
+import 'dart:core';
 import 'dart:developer';
 import 'dart:io';
 
@@ -12,7 +13,8 @@ import 'package:neeleez_flutter_app/models/user_data.dart';
 import 'package:neeleez_flutter_app/views/company_profile/services/company_profile_service.dart';
 import 'package:stacked/stacked.dart';
 
-import '../../models/company/companies.dart';
+import '../../models/business_types/business_types.dart';
+import '../../models/company/cities.dart';
 
 class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   final UserData? user;
@@ -35,15 +37,23 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   TextEditingController mobileNoController = TextEditingController();
   TextEditingController countryCodeController = TextEditingController();
   DateTime? companyEstablishmentYearDate = DateTime.now();
-  List<String>? businessCategoryList = ['Hello', 'Go'];
-  List<String>? businessSubCategorySelectedList = ['Hello', 'Go'];
-  List<String>? businessSubCategoryList = ['Hello', 'Go'];
-  List<String>? countryList = ['Hello', 'Go'];
+  // BusinessServicesByCountry
+  BusinessServicesByCountry? busCatSelectedObj;
+  List<BusinessServicesByCountry>? businessCategoryList = [const BusinessServicesByCountry()];
+
+  // businessSubCategoryList
+  List<BusinessTypes>? businessSubCategoryList = [const BusinessTypes()];
+  List<BusinessTypes>? businessSubCategorySelectedList;
+
+  List<Cities>? countryList;
   List<String>? stateList = ['Hello', 'Go'];
   List<String>? cityList = ['Hello', 'Go'];
-  List<String>? serviceForList = ['Hello', 'Go'];
-  List<String>? amentiasList = ['Hello', 'Go'];
-  List<String>? amentiasSelectedList = ['Hello', 'Go'];
+// Gender
+  List<Gender>? serviceForList;
+  // Amenities
+  List<Amenities>? amentiasList;
+  List<Amenities>? amentiasSelectedList;
+
   String? businessCategory = "Hello";
   int? serviceForId;
   String? countrySelected;
@@ -80,22 +90,23 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     String? id = SharedPreferenceHelper.getString(Preferences.companyId);
     //Write your models loading codes here
     //gender
-    List<Gender> gender = await getGenders() ?? [];
-    serviceForList = gender.isNotEmpty ? gender.map<String>((e) => e.genderEn.toString()).toList() : [];
+    serviceForList = await getGenders() ?? [];
+    // List<Gender> gender = await getGenders() ?? [];
+    // serviceForList = gender.isNotEmpty ? gender.map<String>((e) => e.genderEn.toString()).toList() : [];
     //amentias
-    List<Amenities> amentias = await getAmenities() ?? [];
-    amentiasList = amentias.isNotEmpty ? amentias.map<String>((e) => e.amenityNameEn.toString()).toList() : [];
+    amentiasList = await getAmenities() ?? [];
+    // amentiasList = amentias.isNotEmpty ? amentias.map<String>((e) => e.amenityNameEn.toString()).toList() : [];
 
     // businessList
-    List<BusinessServicesByCountry> businessList = await getBusinessCategory('143') ?? [];
-    countryList = businessList.isNotEmpty ? businessList.map<String>((e) => e.service.toString()).toList() : [];
+    businessCategoryList = await getBusinessCategory('143') ?? [];
+    // businessCategoryList = businessList.isNotEmpty ? businessList s.map<String>((e) => e.service!).toList() : [];
     // businessServiceIdWithCountryId()
     GeneralInformation? generalInformation = await generalInformationWithCompanyId(id!);
     isFreelancer = generalInformation!.isFreeLancer ?? false;
     companyNameController.text = generalInformation.companyNumber ?? "";
     taglineController.text = generalInformation.tagLine ?? "";
     companyEstablishmentYearController.text = generalInformation.edate ?? "";
-    websiteController.text = generalInformation.whatsapp ?? "";
+    websiteController.text = generalInformation.url ?? "";
     telephoneController.text = generalInformation.tel1 ?? "";
     emailController.text = generalInformation.email ?? "";
     additionalInfoController.text = generalInformation.aboutUs ?? "";
@@ -198,11 +209,11 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   void loadSocialMediaData() {}
 
   void loadLocationData() async {
-    setBusy(true);
-    List<Countries> countries = await getCountries() ?? [];
-    amentiasList = countries.isNotEmpty ? countries.map<String>((e) => e.nameEn.toString()).toList() : [];
-    setBusy(false);
-    notifyListeners();
+    // setBusy(true);
+    // List<Countries> countries = await getCountries() ?? [];
+    // amentiasList = countries.isNotEmpty ? countries.map<String>((e) => e.nameEn.toString()).toList() : [];
+    // setBusy(false);
+    // notifyListeners();
   }
 
   void contactPersonInfoData() {}
@@ -239,5 +250,13 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
         break;
       default:
     }
+  }
+
+  onChangedBusinessSubCategory(value) async {
+    // setBusy(true);
+    // List<BusinessTypes> businessSubCategory = await businessServiceIdWithCountryId(, '143') ?? [];
+    // businessSubCategoryList = businessSubCategory.isNotEmpty ? businessSubCategory.map<String>((e) => e.businessTypeNameEn!).toList() : [];
+    // setBusy(false);
+    // notifyListeners();
   }
 }

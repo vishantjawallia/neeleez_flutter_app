@@ -246,7 +246,7 @@ class _DashboardMobile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      '300'.tr,
+                      "${viewModel.company?.points ?? 0}",
                       style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w900, color: Color.fromARGB(255, 255, 214, 142)),
                       textAlign: TextAlign.left,
                     ),
@@ -365,11 +365,28 @@ class _DashboardMobile extends StatelessWidget {
               style: Get.textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w600),
               textAlign: TextAlign.left,
             ),
-            Text(
-              viewModel.companyAllData?.nameEn ?? "",
-              style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w600),
-              textAlign: TextAlign.left,
-            )
+            viewModel.isBusy
+                ? Container(
+                    height: 20,
+                    width: 160,
+                    padding: const EdgeInsets.only(top: 4),
+                    child: Shimmer.fromColors(
+                      baseColor: Colors.grey,
+                      highlightColor: Colors.white,
+                      child: Container(
+                        margin: const EdgeInsets.only(top: 2),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(22),
+                          color: Palettes.white.withOpacity(0.4),
+                        ),
+                      ),
+                    ),
+                  )
+                : Text(
+                    viewModel.companyAllData?.nameEn ?? "",
+                    style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w600),
+                    textAlign: TextAlign.left,
+                  )
           ],
         ),
         UrlImage(

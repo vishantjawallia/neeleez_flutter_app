@@ -27,7 +27,7 @@ class CustomMultiDropDown extends StatefulWidget {
   final bool? obscureText;
   final bool? autofocus;
   final bool? enabled;
-  final Function(List<String>? value)? onChanged;
+  final void Function(List<String>? value)? onChanged;
   final void Function()? onTap;
   const CustomMultiDropDown({
     Key? key,
@@ -160,7 +160,7 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
                                                         selectItem!.remove(selectItem![index]);
                                                       }
                                                     });
-                                                    return await widget.onChanged!(selectItem!.toSet().toList());
+                                                    return widget.onChanged!(selectItem!.toSet().toList());
                                                   },
                                                   child: const Icon(
                                                     Icons.cancel,
@@ -238,7 +238,7 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
               selectItem!.add(value!);
             }
           });
-          return await widget.onChanged!(selectItem!.toSet().toList());
+          return widget.onChanged!(selectItem!.toSet().toList());
         },
 
         items: widget.list!.map<DropdownMenuItem<String>>((String value) {
