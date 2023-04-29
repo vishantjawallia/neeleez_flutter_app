@@ -294,7 +294,7 @@ class _RegistrationMobile extends StatelessWidget {
                 ),
                 const SizedBox(height: 40),
                 _bottomLine(),
-                const SizedBox(height: 20),
+                const SizedBox(height: 60),
               ],
             ),
           ),

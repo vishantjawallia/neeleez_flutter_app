@@ -2,6 +2,8 @@
 
 import 'dart:async';
 
+import 'package:get/get.dart';
+import 'package:neeleez_flutter_app/views/registration/registration_view.dart';
 import 'package:stacked/stacked.dart';
 
 class VerifyOtpViewModel extends BaseViewModel {
@@ -21,7 +23,9 @@ class VerifyOtpViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void verifyHandler() {}
+  void verifyHandler() {
+    Get.off(() => const RegistrationView());
+  }
 
   Stream<int?> timerStream() async* {
     int? i = 30;

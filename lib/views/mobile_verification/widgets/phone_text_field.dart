@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
@@ -13,9 +14,11 @@ class PhoneTextField extends StatelessWidget {
   final EdgeInsetsDirectional? inputFieldPadding;
   final EdgeInsetsGeometry? widgetMargin;
   final bool? obscureText;
+  final List<TextInputFormatter>? inputFormatters;
+  final TextInputType? keyboardType;
   final void Function(String? value)? onChanged;
   const PhoneTextField(
-      {Key? key,
+      {super.key,
       this.controller,
       this.name,
       this.prefixIconPath,
@@ -24,9 +27,10 @@ class PhoneTextField extends StatelessWidget {
       this.suffixIconPath,
       this.inputFieldPadding,
       this.widgetMargin,
+      this.inputFormatters,
+      this.keyboardType,
       this.obscureText,
-      this.onChanged})
-      : super(key: key);
+      this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -78,46 +82,25 @@ class PhoneTextField extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(vertical: 4),
             width: 65,
-            // decoration: const BoxDecoration(
-            //   border: Border(
-            //     right: BorderSide(width: 0.5, color: Palettes.primary),
-            //   ),
-            // ),
             child: Text(
               '+212',
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.red, fontWeight: FontWeight.w700),
               textAlign: TextAlign.center,
             ),
           ),
-          // SizedBox(
-          //   width: 55,
-          //   child: CountryCodePicker(
-          //     padding: EdgeInsets.zero,
-          //     onChanged: print,
-          //     initialSelection: 'IT',
-          //     favorite: const ['+39', 'FR'],
-          //     countryFilter: const ['IT', 'FR'],
-          //     // showDropDownButton: true,
-          //     textStyle: Get.textTheme.bodyLarge!.copyWith(color: Palettes.red, fontWeight: FontWeight.w700),
-          //     showFlagDialog: false,
-          //     showFlag: false,
-          //     comparator: (a, b) => b.name!.compareTo(a.name!),
-          //     onInit: (code) => debugPrint("on init ${code!.name} ${code.dialCode} ${code.name}"),
-
-          //   ),
-          // ),
           Flexible(
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 8),
-              // width: 65,
               decoration: const BoxDecoration(
                 border: Border(
                   left: BorderSide(width: 1, color: Palettes.primary),
                 ),
               ),
               child: TextField(
-                // onChanged: (value) => onChanged!(value),
-                keyboardType: TextInputType.phone,
+                onChanged: (value) => onChanged!(value),
+
+                keyboardType: keyboardType,
+                // keybrdType: TextInputType.phone,
                 obscureText: obscureText ?? false,
                 controller: controller,
                 decoration: InputDecoration(
@@ -127,6 +110,7 @@ class PhoneTextField extends StatelessWidget {
                   hintStyle: Get.textTheme.bodySmall!.copyWith(color: Palettes.primary, fontWeight: FontWeight.w600),
                   isDense: true,
                 ),
+                inputFormatters: inputFormatters,
               ),
             ),
           ),

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_final_fields
+// ignore_for_file: prefer_final_fields, prefer_const_constructors_in_immutables
 
 part of mobile_verification_view;
 
@@ -14,7 +14,6 @@ class _MobileVerificationMobile extends StatelessWidget {
       body: ModalProgressHUD(
         load: viewModel.isBusy,
         child: Container(
-          // height: 100.h,
           decoration: const BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
@@ -57,6 +56,7 @@ class _MobileVerificationMobile extends StatelessWidget {
                         ),
                         SizedBox(height: 3.h),
                         PhoneTextField(
+                          // onChanged: viewModel.onPhoneInputChange,
                           controller: viewModel.phoneController,
                           name: 'XXX-XXXXXXX',
                           obscureText: false,
@@ -66,6 +66,7 @@ class _MobileVerificationMobile extends StatelessWidget {
                               : viewModel.phoneController.text.isNotEmpty
                                   ? MyIcon.crossed
                                   : '',
+                          inputFormatters: [],
                         ),
                         SizedBox(height: 3.h),
                         CustomButton(
