@@ -11,7 +11,8 @@ import 'package:neeleez_flutter_app/models/company/region_Info.dart';
 import 'package:neeleez_flutter_app/models/gender/gender.dart';
 import 'package:neeleez_flutter_app/models/general_info/general_info.dart';
 import 'package:neeleez_flutter_app/models/package/package_info.dart';
-
+// /api/CompanyProfile/GeneralInformation/{CompanyId}
+// /api/CompanyProfile/RegionInformation/{CompanyId}/api/CompanyProfile/ContactPersonInfo/{CompanyId}
 import '../../../models/company/cities.dart';
 import '../../../models/company/companies.dart';
 import '../../../models/company/designation.dart';
@@ -168,21 +169,21 @@ class CompanyProfileService {
     return null;
   }
 
-  Future<RegionInformation?> getRegionInformation(
-    String companyId,
-  ) async {
-    try {
-      final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/RegionInformation/$companyId");
-      log(res.toString());
-      if (res != null) {
-        return RegionInformation.fromJson(res);
-      }
-    } catch (e) {
-      log(e.toString());
-      log("getRegionInformation========>$e");
-    }
-    return null;
-  }
+  // Future<RegionInformation?> getRegionInformation(
+  //   String companyId,
+  // ) async {
+  //   try {
+  //     final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/RegionInformation/$companyId");
+  //     log(res.toString());
+  //     if (res != null) {
+  //       return RegionInformation.fromJson(res);
+  //     }
+  //   } catch (e) {
+  //     log(e.toString());
+  //     log("getRegionInformation========>$e");
+  //   }
+  //   return null;
+  // }
 
   Future<PackageInformation?> packageInformation(
     String companyId,
@@ -214,6 +215,40 @@ class CompanyProfileService {
       log("regionInformation========>$e");
     }
     return null;
+  }
+
+  Future<void> getContactPersonInfo(
+    String companyId,
+  ) async {
+    try {
+      final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/ContactPersonInfo/$companyId");
+      log(res.toString());
+      if (res != null) {
+        return;
+        // return RegionInformation.fromJson(res);
+      }
+    } catch (e) {
+      log(e.toString());
+      log("regionInformation========>$e");
+    }
+    return;
+  }
+
+  Future<void> getTimingInformation(
+    String companyId,
+  ) async {
+    try {
+      final res = await apiRepository.apiGet("$baseUrl//api/CompanyProfile/TimingInformation/$companyId");
+      log(res.toString());
+      if (res != null) {
+        return;
+        // return RegionInformation.fromJson(res);
+      }
+    } catch (e) {
+      log(e.toString());
+      log("regionInformation========>$e");
+    }
+    return;
   }
 
   Future<List<CompanyProfileImage>?> companyProfileImage(

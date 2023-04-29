@@ -22,6 +22,7 @@ void main() async {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await LocatorInjector.setupLocator();
   await SharedPreferenceHelper.init();
+  // SharedPreferenceHelper.clearPref();
 
   runApp(
     MultiProvider(
@@ -54,7 +55,11 @@ class MyApp extends StatelessWidget {
         GetPage(name: LoginView.routeName, page: () => const LoginView()),
         GetPage(name: RegistrationView.routeName, page: () => const RegistrationView()),
         GetPage(name: RegistrationView.routeName, page: () => const RegistrationView()),
-        GetPage(name: DashboardView.routeName, page: () => const DashboardView(), middlewares: [AuthMiddleware()],),
+        GetPage(
+          name: DashboardView.routeName,
+          page: () => const DashboardView(),
+          middlewares: [AuthMiddleware()],
+        ),
       ],
     );
   }

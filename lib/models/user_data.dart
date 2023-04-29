@@ -1,189 +1,217 @@
 class UserData {
-  final int? isRegistered;
-  final int? customerId;
-  final String? firstName;
-  final String? lastName;
-  final int? genderId;
-  final String? genderEn;
-  final String? genderAr;
-  final String? genderFr;
-  final String? dob;
+  final bool? isRegistered;
+  final bool? isRegisteredBySalesTeam;
+  final dynamic companyLogo;
+  final bool? isFreeLancer;
+  final double? companyId;
+  final int? businessServiceId;
+  final String? companyNameEn;
+  final dynamic companyNameAr;
   final String? mobile;
-  final String? whatsapp;
+  final String? whatsApp;
+  final String? tel1;
   final String? email;
-  final String? password;
-  final bool? notifications;
-  final bool? termsAccepted;
-  final bool? isEmailVerified;
+  final double? lattitude;
+  final double? longitude;
+  final String? address;
   final int? countryId;
-  final String? countryEn;
-  final String? countryAr;
-  final String? countryFr;
+  final int? cityId;
+  final int? areaId;
+  final bool? isEmailVerified;
+  final String? googleAddress;
+  final int? teamUserId;
+  final int? salesTeamId;
+  final String? registrationDate;
   final bool? isDeactivated;
   final bool? isDeleted;
-  final CustomerImage? customerImage;
-  final dynamic customerDeletionHistory;
+  final dynamic companyDeletionHistory;
+  final int? packageId;
+  final bool? isPaid;
   const UserData(
       {this.isRegistered,
-      this.customerId,
-      this.firstName,
-      this.lastName,
-      this.genderId,
-      this.genderEn,
-      this.genderAr,
-      this.genderFr,
-      this.dob,
+      this.isRegisteredBySalesTeam,
+      this.companyLogo,
+      this.isFreeLancer,
+      this.companyId,
+      this.businessServiceId,
+      this.companyNameEn,
+      this.companyNameAr,
       this.mobile,
-      this.whatsapp,
+      this.whatsApp,
+      this.tel1,
       this.email,
-      this.password,
-      this.notifications,
-      this.termsAccepted,
-      this.isEmailVerified,
+      this.lattitude,
+      this.longitude,
+      this.address,
       this.countryId,
-      this.countryEn,
-      this.countryAr,
-      this.countryFr,
+      this.cityId,
+      this.areaId,
+      this.isEmailVerified,
+      this.googleAddress,
+      this.teamUserId,
+      this.salesTeamId,
+      this.registrationDate,
       this.isDeactivated,
       this.isDeleted,
-      this.customerImage,
-      this.customerDeletionHistory});
+      this.companyDeletionHistory,
+      this.packageId,
+      this.isPaid});
   UserData copyWith(
-      {int? isRegistered,
-      int? customerId,
-      String? firstName,
-      String? lastName,
-      int? genderId,
-      String? genderEn,
-      String? genderAr,
-      String? genderFr,
-      String? dob,
+      {bool? isRegistered,
+      bool? isRegisteredBySalesTeam,
+      dynamic? companyLogo,
+      bool? isFreeLancer,
+      double? companyId,
+      int? businessServiceId,
+      String? companyNameEn,
+      dynamic? companyNameAr,
       String? mobile,
-      String? whatsapp,
+      String? whatsApp,
+      String? tel1,
       String? email,
-      String? password,
-      bool? notifications,
-      bool? termsAccepted,
-      bool? isEmailVerified,
+      double? lattitude,
+      double? longitude,
+      String? address,
       int? countryId,
-      String? countryEn,
-      String? countryAr,
-      String? countryFr,
+      int? cityId,
+      int? areaId,
+      bool? isEmailVerified,
+      String? googleAddress,
+      int? teamUserId,
+      int? salesTeamId,
+      String? registrationDate,
       bool? isDeactivated,
       bool? isDeleted,
-      CustomerImage? customerImage,
-      dynamic? customerDeletionHistory}) {
+      dynamic? companyDeletionHistory,
+      int? packageId,
+      bool? isPaid}) {
     return UserData(
         isRegistered: isRegistered ?? this.isRegistered,
-        customerId: customerId ?? this.customerId,
-        firstName: firstName ?? this.firstName,
-        lastName: lastName ?? this.lastName,
-        genderId: genderId ?? this.genderId,
-        genderEn: genderEn ?? this.genderEn,
-        genderAr: genderAr ?? this.genderAr,
-        genderFr: genderFr ?? this.genderFr,
-        dob: dob ?? this.dob,
+        isRegisteredBySalesTeam: isRegisteredBySalesTeam ?? this.isRegisteredBySalesTeam,
+        companyLogo: companyLogo ?? this.companyLogo,
+        isFreeLancer: isFreeLancer ?? this.isFreeLancer,
+        companyId: companyId ?? this.companyId,
+        businessServiceId: businessServiceId ?? this.businessServiceId,
+        companyNameEn: companyNameEn ?? this.companyNameEn,
+        companyNameAr: companyNameAr ?? this.companyNameAr,
         mobile: mobile ?? this.mobile,
-        whatsapp: whatsapp ?? this.whatsapp,
+        whatsApp: whatsApp ?? this.whatsApp,
+        tel1: tel1 ?? this.tel1,
         email: email ?? this.email,
-        password: password ?? this.password,
-        notifications: notifications ?? this.notifications,
-        termsAccepted: termsAccepted ?? this.termsAccepted,
-        isEmailVerified: isEmailVerified ?? this.isEmailVerified,
+        lattitude: lattitude ?? this.lattitude,
+        longitude: longitude ?? this.longitude,
+        address: address ?? this.address,
         countryId: countryId ?? this.countryId,
-        countryEn: countryEn ?? this.countryEn,
-        countryAr: countryAr ?? this.countryAr,
-        countryFr: countryFr ?? this.countryFr,
+        cityId: cityId ?? this.cityId,
+        areaId: areaId ?? this.areaId,
+        isEmailVerified: isEmailVerified ?? this.isEmailVerified,
+        googleAddress: googleAddress ?? this.googleAddress,
+        teamUserId: teamUserId ?? this.teamUserId,
+        salesTeamId: salesTeamId ?? this.salesTeamId,
+        registrationDate: registrationDate ?? this.registrationDate,
         isDeactivated: isDeactivated ?? this.isDeactivated,
         isDeleted: isDeleted ?? this.isDeleted,
-        customerImage: customerImage ?? this.customerImage,
-        customerDeletionHistory: customerDeletionHistory ?? this.customerDeletionHistory);
+        companyDeletionHistory: companyDeletionHistory ?? this.companyDeletionHistory,
+        packageId: packageId ?? this.packageId,
+        isPaid: isPaid ?? this.isPaid);
   }
 
   Map<String, Object?> toJson() {
     return {
       'isRegistered': isRegistered,
-      'customerId': customerId,
-      'firstName': firstName,
-      'lastName': lastName,
-      'genderId': genderId,
-      'genderEn': genderEn,
-      'genderAr': genderAr,
-      'genderFr': genderFr,
-      'dob': dob,
+      'isRegisteredBySalesTeam': isRegisteredBySalesTeam,
+      'companyLogo': companyLogo,
+      'isFreeLancer': isFreeLancer,
+      'companyId': companyId,
+      'businessServiceId': businessServiceId,
+      'companyNameEn': companyNameEn,
+      'companyNameAr': companyNameAr,
       'mobile': mobile,
-      'whatsapp': whatsapp,
+      'whatsApp': whatsApp,
+      'tel1': tel1,
       'email': email,
-      'password': password,
-      'notifications': notifications,
-      'termsAccepted': termsAccepted,
-      'isEmailVerified': isEmailVerified,
+      'lattitude': lattitude,
+      'longitude': longitude,
+      'address': address,
       'countryId': countryId,
-      'countryEn': countryEn,
-      'countryAr': countryAr,
-      'countryFr': countryFr,
+      'cityId': cityId,
+      'areaId': areaId,
+      'isEmailVerified': isEmailVerified,
+      'googleAddress': googleAddress,
+      'teamUserId': teamUserId,
+      'salesTeamId': salesTeamId,
+      'registrationDate': registrationDate,
       'isDeactivated': isDeactivated,
       'isDeleted': isDeleted,
-      'customerImage': customerImage?.toJson(),
-      'customerDeletionHistory': customerDeletionHistory
+      'companyDeletionHistory': companyDeletionHistory,
+      'packageId': packageId,
+      'isPaid': isPaid
     };
   }
 
   static UserData fromJson(Map<String, Object?> json) {
     return UserData(
-        isRegistered: json['isRegistered'] == null ? null : json['isRegistered'] as int,
-        customerId: json['customerId'] == null ? null : json['customerId'] as int,
-        firstName: json['firstName'] == null ? null : json['firstName'] as String,
-        lastName: json['lastName'] == null ? null : json['lastName'] as String,
-        genderId: json['genderId'] == null ? null : json['genderId'] as int,
-        genderEn: json['genderEn'] == null ? null : json['genderEn'] as String,
-        genderAr: json['genderAr'] == null ? null : json['genderAr'] as String,
-        genderFr: json['genderFr'] == null ? null : json['genderFr'] as String,
-        dob: json['dob'] == null ? null : json['dob'] as String,
+        isRegistered: json['isRegistered'] == null ? null : json['isRegistered'] as bool,
+        isRegisteredBySalesTeam: json['isRegisteredBySalesTeam'] == null ? null : json['isRegisteredBySalesTeam'] as bool,
+        companyLogo: json['companyLogo'] as dynamic,
+        isFreeLancer: json['isFreeLancer'] == null ? null : json['isFreeLancer'] as bool,
+        companyId: json['companyId'] == null ? null : json['companyId'] as double,
+        businessServiceId: json['businessServiceId'] == null ? null : json['businessServiceId'] as int,
+        companyNameEn: json['companyNameEn'] == null ? null : json['companyNameEn'] as String,
+        companyNameAr: json['companyNameAr'] as dynamic,
         mobile: json['mobile'] == null ? null : json['mobile'] as String,
-        whatsapp: json['whatsapp'] == null ? null : json['whatsapp'] as String,
+        whatsApp: json['whatsApp'] == null ? null : json['whatsApp'] as String,
+        tel1: json['tel1'] == null ? null : json['tel1'] as String,
         email: json['email'] == null ? null : json['email'] as String,
-        password: json['password'] == null ? null : json['password'] as String,
-        notifications: json['notifications'] == null ? null : json['notifications'] as bool,
-        termsAccepted: json['termsAccepted'] == null ? null : json['termsAccepted'] as bool,
-        isEmailVerified: json['isEmailVerified'] == null ? null : json['isEmailVerified'] as bool,
+        lattitude: json['lattitude'] == null ? null : json['lattitude'] as double,
+        longitude: json['longitude'] == null ? null : json['longitude'] as double,
+        address: json['address'] == null ? null : json['address'] as String,
         countryId: json['countryId'] == null ? null : json['countryId'] as int,
-        countryEn: json['countryEn'] == null ? null : json['countryEn'] as String,
-        countryAr: json['countryAr'] == null ? null : json['countryAr'] as String,
-        countryFr: json['countryFr'] == null ? null : json['countryFr'] as String,
+        cityId: json['cityId'] == null ? null : json['cityId'] as int,
+        areaId: json['areaId'] == null ? null : json['areaId'] as int,
+        isEmailVerified: json['isEmailVerified'] == null ? null : json['isEmailVerified'] as bool,
+        googleAddress: json['googleAddress'] == null ? null : json['googleAddress'] as String,
+        teamUserId: json['teamUserId'] == null ? null : json['teamUserId'] as int,
+        salesTeamId: json['salesTeamId'] == null ? null : json['salesTeamId'] as int,
+        registrationDate: json['registrationDate'] == null ? null : json['registrationDate'] as String,
         isDeactivated: json['isDeactivated'] == null ? null : json['isDeactivated'] as bool,
         isDeleted: json['isDeleted'] == null ? null : json['isDeleted'] as bool,
-        customerImage: json['customerImage'] == null ? null : CustomerImage.fromJson(json['customerImage'] as Map<String, Object?>),
-        customerDeletionHistory: json['customerDeletionHistory'] as dynamic);
+        companyDeletionHistory: json['companyDeletionHistory'] as dynamic,
+        packageId: json['packageId'] == null ? null : json['packageId'] as int,
+        isPaid: json['isPaid'] == null ? null : json['isPaid'] as bool);
   }
 
   @override
   String toString() {
     return '''UserData(
-          isRegistered:$isRegistered,
-          customerId:$customerId,
-          firstName:$firstName,
-          lastName:$lastName,
-          genderId:$genderId,
-          genderEn:$genderEn,
-          genderAr:$genderAr,
-          genderFr:$genderFr,
-          dob:$dob,
-          mobile:$mobile,
-          whatsapp:$whatsapp,
-          email:$email,
-          password:$password,
-          notifications:$notifications,
-          termsAccepted:$termsAccepted,
-          isEmailVerified:$isEmailVerified,
-          countryId:$countryId,
-          countryEn:$countryEn,
-          countryAr:$countryAr,
-          countryFr:$countryFr,
-          isDeactivated:$isDeactivated,
-          isDeleted:$isDeleted,
-          customerImage:${customerImage.toString()},
-          customerDeletionHistory:$customerDeletionHistory
+                isRegistered:$isRegistered,
+isRegisteredBySalesTeam:$isRegisteredBySalesTeam,
+companyLogo:$companyLogo,
+isFreeLancer:$isFreeLancer,
+companyId:$companyId,
+businessServiceId:$businessServiceId,
+companyNameEn:$companyNameEn,
+companyNameAr:$companyNameAr,
+mobile:$mobile,
+whatsApp:$whatsApp,
+tel1:$tel1,
+email:$email,
+lattitude:$lattitude,
+longitude:$longitude,
+address:$address,
+countryId:$countryId,
+cityId:$cityId,
+areaId:$areaId,
+isEmailVerified:$isEmailVerified,
+googleAddress:$googleAddress,
+teamUserId:$teamUserId,
+salesTeamId:$salesTeamId,
+registrationDate:$registrationDate,
+isDeactivated:$isDeactivated,
+isDeleted:$isDeleted,
+companyDeletionHistory:$companyDeletionHistory,
+packageId:$packageId,
+isPaid:$isPaid
     ) ''';
   }
 
@@ -192,121 +220,38 @@ class UserData {
     return other is UserData &&
         other.runtimeType == runtimeType &&
         other.isRegistered == isRegistered &&
-        other.customerId == customerId &&
-        other.firstName == firstName &&
-        other.lastName == lastName &&
-        other.genderId == genderId &&
-        other.genderEn == genderEn &&
-        other.genderAr == genderAr &&
-        other.genderFr == genderFr &&
-        other.dob == dob &&
+        other.isRegisteredBySalesTeam == isRegisteredBySalesTeam &&
+        other.companyLogo == companyLogo &&
+        other.isFreeLancer == isFreeLancer &&
+        other.companyId == companyId &&
+        other.businessServiceId == businessServiceId &&
+        other.companyNameEn == companyNameEn &&
+        other.companyNameAr == companyNameAr &&
         other.mobile == mobile &&
-        other.whatsapp == whatsapp &&
+        other.whatsApp == whatsApp &&
+        other.tel1 == tel1 &&
         other.email == email &&
-        other.password == password &&
-        other.notifications == notifications &&
-        other.termsAccepted == termsAccepted &&
-        other.isEmailVerified == isEmailVerified &&
+        other.lattitude == lattitude &&
+        other.longitude == longitude &&
+        other.address == address &&
         other.countryId == countryId &&
-        other.countryEn == countryEn &&
-        other.countryAr == countryAr &&
-        other.countryFr == countryFr &&
+        other.cityId == cityId &&
+        other.areaId == areaId &&
+        other.isEmailVerified == isEmailVerified &&
+        other.googleAddress == googleAddress &&
+        other.teamUserId == teamUserId &&
+        other.salesTeamId == salesTeamId &&
+        other.registrationDate == registrationDate &&
         other.isDeactivated == isDeactivated &&
         other.isDeleted == isDeleted &&
-        other.customerImage == customerImage &&
-        other.customerDeletionHistory == customerDeletionHistory;
+        other.companyDeletionHistory == companyDeletionHistory &&
+        other.packageId == packageId &&
+        other.isPaid == isPaid;
   }
 
   @override
   int get hashCode {
-    return Object.hash(runtimeType, isRegistered, customerId, firstName, lastName, genderId, genderEn, genderAr, genderFr, dob, mobile, whatsapp, email, password, notifications, termsAccepted,
-        isEmailVerified, countryId, countryEn, countryAr);
-  }
-}
-
-class CustomerImage {
-  final int? id;
-  final int? customerId;
-  final dynamic imageFile;
-  final String? guid;
-  final String? imageFileName;
-  final bool? isVerified;
-  final bool? isActive;
-  final String? stateDate;
-  final int? companyUserId;
-  const CustomerImage({this.id, this.customerId, this.imageFile, this.guid, this.imageFileName, this.isVerified, this.isActive, this.stateDate, this.companyUserId});
-  CustomerImage copyWith({int? id, int? customerId, dynamic? imageFile, String? guid, String? imageFileName, bool? isVerified, bool? isActive, String? stateDate, int? companyUserId}) {
-    return CustomerImage(
-        id: id ?? this.id,
-        customerId: customerId ?? this.customerId,
-        imageFile: imageFile ?? this.imageFile,
-        guid: guid ?? this.guid,
-        imageFileName: imageFileName ?? this.imageFileName,
-        isVerified: isVerified ?? this.isVerified,
-        isActive: isActive ?? this.isActive,
-        stateDate: stateDate ?? this.stateDate,
-        companyUserId: companyUserId ?? this.companyUserId);
-  }
-
-  Map<String, Object?> toJson() {
-    return {
-      'id': id,
-      'customerId': customerId,
-      'imageFile': imageFile,
-      'guid': guid,
-      'imageFileName': imageFileName,
-      'isVerified': isVerified,
-      'isActive': isActive,
-      'stateDate': stateDate,
-      'companyUserId': companyUserId
-    };
-  }
-
-  static CustomerImage fromJson(Map<String, Object?> json) {
-    return CustomerImage(
-        id: json['id'] == null ? null : json['id'] as int,
-        customerId: json['customerId'] == null ? null : json['customerId'] as int,
-        imageFile: json['imageFile'] as dynamic,
-        guid: json['guid'] == null ? null : json['guid'] as String,
-        imageFileName: json['imageFileName'] == null ? null : json['imageFileName'] as String,
-        isVerified: json['isVerified'] == null ? null : json['isVerified'] as bool,
-        isActive: json['isActive'] == null ? null : json['isActive'] as bool,
-        stateDate: json['stateDate'] == null ? null : json['stateDate'] as String,
-        companyUserId: json['companyUserId'] == null ? null : json['companyUserId'] as int);
-  }
-
-  @override
-  String toString() {
-    return '''CustomerImage(
-                id:$id,
-customerId:$customerId,
-imageFile:$imageFile,
-guid:$guid,
-imageFileName:$imageFileName,
-isVerified:$isVerified,
-isActive:$isActive,
-stateDate:$stateDate,
-companyUserId:$companyUserId
-    ) ''';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is CustomerImage &&
-        other.runtimeType == runtimeType &&
-        other.id == id &&
-        other.customerId == customerId &&
-        other.imageFile == imageFile &&
-        other.guid == guid &&
-        other.imageFileName == imageFileName &&
-        other.isVerified == isVerified &&
-        other.isActive == isActive &&
-        other.stateDate == stateDate &&
-        other.companyUserId == companyUserId;
-  }
-
-  @override
-  int get hashCode {
-    return Object.hash(runtimeType, id, customerId, imageFile, guid, imageFileName, isVerified, isActive, stateDate, companyUserId);
+    return Object.hash(runtimeType, isRegistered, isRegisteredBySalesTeam, companyLogo, isFreeLancer, companyId, businessServiceId, companyNameEn, companyNameAr, mobile, whatsApp, tel1, email,
+        lattitude, longitude, address, countryId, cityId, areaId, isEmailVerified);
   }
 }

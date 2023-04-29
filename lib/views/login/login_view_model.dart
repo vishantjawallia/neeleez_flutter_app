@@ -7,13 +7,13 @@ import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/api/apiRepository.dart';
 import 'package:neeleez_flutter_app/config/pref_constant.dart';
 import 'package:neeleez_flutter_app/config/preference.dart';
-import 'package:neeleez_flutter_app/config/url.dart';
 import 'package:neeleez_flutter_app/models/user_data.dart';
 import 'package:neeleez_flutter_app/views/forget_password/forget_password_view.dart';
 import 'package:neeleez_flutter_app/views/mobile_verification/mobile_verification_view.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../components/dailogs/warning_popup.dart';
+import '../../config/config.dart';
 import '../dashboard/dashboard_view.dart';
 
 class LoginViewModel extends BaseViewModel {
@@ -79,12 +79,13 @@ class LoginViewModel extends BaseViewModel {
     }
     setBusy(true);
     try {
-      final res = await apiRepository.apiGet('${Url.CustomerSignIn}/$username/$password');
+      final res = await apiRepository.apiGet('$baseUrl/api/Companies/CompanySignInNew/$username/$password');
       if (res != null) {
         userData = UserData.fromJson(res);
         notifyListeners();
-        log("Error===========>${userData!.customerId!}");
-        await SharedPreferenceHelper.setString(Preferences.userId, "${userData!.customerId!}");
+        log("Error===========>${userData!.email!}");
+        int companyId = userData!.companyId!.toInt();
+        await SharedPreferenceHelper.setString(Preferences.companyId, "$companyId");
         await SharedPreferenceHelper.setBoolean(Preferences.isLogged, true);
         await SharedPreferenceHelper.setString(Preferences.username, username);
         await SharedPreferenceHelper.setString(Preferences.password, password);

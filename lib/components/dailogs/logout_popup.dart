@@ -119,7 +119,7 @@ class LogoutPopup extends StatelessWidget {
                                   text: 'Yes',
                                   onTap: () async {
                                     Get.back();
-                                    await SharedPreferenceHelper.setString(Preferences.userId, 'N/A');
+                                    await SharedPreferenceHelper.setString(Preferences.companyId, 'N/A');
                                     await SharedPreferenceHelper.setString(Preferences.countryInfo, 'N/A');
                                     await SharedPreferenceHelper.setBoolean(Preferences.isLogged, false);
                                     Get.offAll(() => const LoginView());

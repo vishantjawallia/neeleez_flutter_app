@@ -167,7 +167,8 @@ class _ChangePasswordMobile extends StatelessWidget {
               height: 80,
               width: 80,
               child: UrlImage(
-                url: viewModel.user?.customerImage?.imageFileName,
+                url: '',
+                // url: viewModel.user?.customerImage?.imageFileName,
               ),
             ),
           ),

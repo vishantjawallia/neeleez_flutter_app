@@ -366,8 +366,7 @@ class _DashboardMobile extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
             Text(
-              viewModel.user?.firstName ?? "",
-              // ''.tr,
+              viewModel.companyAllData?.nameEn ?? "",
               style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w600),
               textAlign: TextAlign.left,
             )
@@ -376,7 +375,8 @@ class _DashboardMobile extends StatelessWidget {
         UrlImage(
           height: 56,
           width: 56,
-          url: viewModel.user?.customerImage?.imageFileName,
+          url: '',
+          // url: viewModel.user?.customerImage?.imageFileName,
         ),
       ],
     );

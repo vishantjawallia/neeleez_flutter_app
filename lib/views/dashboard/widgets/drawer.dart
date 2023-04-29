@@ -8,7 +8,7 @@ import 'package:neeleez_flutter_app/widgets/url_image.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../config/config.dart';
-import '../../../models/user_data.dart';
+import '../../../models/company/company_all_data.dart';
 import '../dashboard_view_model.dart';
 
 class CustomDrawer extends Drawer {
@@ -23,7 +23,7 @@ class CustomDrawer extends Drawer {
 
   @override
   Widget build(BuildContext context) {
-    UserData? useData = viewModel!.user;
+    CompanyAllData? useData = viewModel!.companyAllData;
     bool? isBusy = viewModel!.isBusy;
     return SafeArea(
       child: ClipRRect(
@@ -53,11 +53,11 @@ class CustomDrawer extends Drawer {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        SizedBox(
+                        const SizedBox(
                           height: 80,
                           width: 80,
                           child: UrlImage(
-                            url: viewModel?.user?.customerImage?.imageFileName,
+                            url: '',
                           ),
                         ),
                         GestureDetector(
@@ -72,7 +72,7 @@ class CustomDrawer extends Drawer {
                       ],
                     ),
                     const SizedBox(height: 10),
-                    _nameData(isBusy, useData)
+                    _nameData(isBusy, useData!)
                   ],
                 ),
               ),
@@ -138,11 +138,11 @@ class CustomDrawer extends Drawer {
     );
   }
 
-  Column _nameData(isBusy, useData) {
+  Column _nameData(isBusy, CompanyAllData useData) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        isBusy! || useData == null
+        isBusy!
             ? SizedBox(
                 height: 14,
                 child: Shimmer.fromColors(
@@ -158,10 +158,10 @@ class CustomDrawer extends Drawer {
                 ),
               )
             : Text(
-                "${useData!.firstName!} ${useData!.lastName!}",
+                useData.nameEn!,
                 style: Get.textTheme.headline4!.copyWith(fontWeight: FontWeight.w700),
               ),
-        isBusy! || useData == null
+        isBusy!
             ? SizedBox(
                 height: 14,
                 child: Shimmer.fromColors(
@@ -177,7 +177,7 @@ class CustomDrawer extends Drawer {
                 ),
               )
             : Text(
-                useData!.email!,
+                useData.email!,
                 style: Get.textTheme.bodyText1!.copyWith(color: Palettes.white),
               ),
       ],

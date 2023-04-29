@@ -7,7 +7,7 @@ class Preferences {
   static const String countryInfo = "countryInfo";
   static const String languageSelected = "languageSelected";
   static const String isOnboardingCompleted = "isOnboardingCompleted";
-  static const String userId = "userId";
+  static const String companyId = "companyId";
   static const String password = "password";
   static const String username = "username";
 }

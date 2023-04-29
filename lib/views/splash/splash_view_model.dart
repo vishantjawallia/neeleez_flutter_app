@@ -44,7 +44,7 @@ class SplashViewModel extends BaseViewModel {
           await SharedPreferenceHelper.setString(Preferences.languageSelected, jsonEncode(obj));
           Get.updateLocale(Locale("${obj["language_code"]}", "${obj["country_code"]}"));
         }
-        String? customerId = SharedPreferenceHelper.getString(Preferences.userId);
+        String? customerId = SharedPreferenceHelper.getString(Preferences.companyId);
         if (isLogged && customerId != "N/A") {
           Get.off(() => const DashboardView(), transition: Transition.native);
         } else if (isOnboardingCompleted) {

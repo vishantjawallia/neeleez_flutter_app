@@ -1,23 +1,24 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:neeleez_flutter_app/api/apiRepository.dart';
 import 'package:neeleez_flutter_app/components/dailogs/logout_popup.dart';
 import 'package:neeleez_flutter_app/config/pref_constant.dart';
 import 'package:neeleez_flutter_app/config/preference.dart';
-import 'package:neeleez_flutter_app/config/url.dart';
 import 'package:neeleez_flutter_app/models/user_data.dart';
 import 'package:neeleez_flutter_app/views/dashboard/service/dashboard_service.dart';
 import 'package:neeleez_flutter_app/views/notifications/notifications_view.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../components/dailogs/language_popup.dart';
+import '../../models/company/company_all_data.dart';
+import '../../models/company/company_dashboard.dart';
 
 class DashboardViewModel extends BaseViewModel with DashboardService {
   //get
-  UserData? get user => userData;
+  // UserData? get user => userData;
+  CompanyAllData? companyAllData;
+  CompanyDashBoard? company;
   Map? get lang => languageObj;
 
   // object
@@ -31,7 +32,9 @@ class DashboardViewModel extends BaseViewModel with DashboardService {
   // Add ViewModel specific code here
   Future<void> loadItems() async {
     setBusy(true);
-    userData = await getUserData();
+    // userData = await getUserData();
+    company = await getCompanyDashBoard();
+    companyAllData = await getCompanyAllData();
     languageObj = await getLanguage();
     // userData ??= await getUserData();
     // languageObj ??= await getLanguage();
@@ -72,4 +75,3 @@ class DashboardViewModel extends BaseViewModel with DashboardService {
     );
   }
 }
-

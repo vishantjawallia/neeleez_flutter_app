@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:shimmer/shimmer.dart';
 
-
 class UrlImage extends StatelessWidget {
   final String? url;
   final double? width;
@@ -18,6 +17,21 @@ class UrlImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (url == null) {
+      return SizedBox(
+        width: width,
+        height: height,
+        child: Shimmer.fromColors(
+          baseColor: Colors.grey,
+          highlightColor: Colors.white,
+          child: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Palettes.white.withOpacity(0.7),
+            ),
+          ),
+        ),
+      );
+    } else if (url!.isEmpty) {
       return SizedBox(
         width: width,
         height: height,

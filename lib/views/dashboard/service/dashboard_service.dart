@@ -1,14 +1,16 @@
 import 'dart:convert';
-import 'dart:developer';
+import 'dart:math';
+
 import 'dart:ui';
 
 import 'package:neeleez_flutter_app/api/apiRepository.dart';
 import 'package:neeleez_flutter_app/models/company/company_dashboard.dart';
 
+import '../../../config/config.dart';
 import '../../../config/pref_constant.dart';
 import '../../../config/preference.dart';
-import '../../../config/url.dart';
-import '../../../models/user_data.dart';
+import '../../../models/company/company_all_data.dart';
+import '../../../models/company/company_profile.dart';
 
 mixin DashboardService {
   Future<Map?> getLanguage() async {
@@ -21,20 +23,31 @@ mixin DashboardService {
     return null;
   }
 
-  Future<UserData?> getUserData() async {
-    String? id = SharedPreferenceHelper.getString(Preferences.userId);
-    final res = await apiRepository.apiGet('${Url.customerById}/$id');
+  // Future<UserData?> getUserData() async {
+  //   String? id = SharedPreferenceHelper.getString(Preferences.companyId);
+  //   final res = await apiRepository.apiGet('/api/Companies/$id');
+  //   if (res != null) {
+  //     UserData? data = UserData.fromJson(res);
+  //     // log(data.customerImage!.imageFileName!);
+  //     return data;
+  //   } else {
+  //     return null;
+  //   }
+  // }
+
+  Future<void> postCompanyLogo() async {
+    final res = await apiRepository.apiPost('/api/Companies/CompanyLogo/', {});
     if (res != null) {
-      UserData? data = UserData.fromJson(res);
-      log(data.customerImage!.imageFileName!);
-      return data;
+      log(res);
+      return;
     } else {
-      return null;
+      return;
     }
   }
 
-  Future<CompanyDashBoard?> companyDashBoard(String companyId) async {
-    final res = await apiRepository.apiGet("/api/CompanyDashBoard/$companyId");
+  Future<CompanyDashBoard?> getCompanyDashBoard() async {
+    String? id = SharedPreferenceHelper.getString(Preferences.companyId);
+    final res = await apiRepository.apiGet("$baseUrl/api/CompanyDashBoard/$id");
     if (res != null) {
       CompanyDashBoard? data = CompanyDashBoard.fromJson(res);
       // log(data.customerImage!.imageFileName!);
@@ -44,5 +57,26 @@ mixin DashboardService {
     }
   }
 
+  Future<CompanyProfile?> getCompanyProfile() async {
+    String? id = SharedPreferenceHelper.getString(Preferences.companyId);
+    final res = await apiRepository.apiGet("$baseUrl/api/Companies/CompanyProfile/$id");
+    if (res != null) {
+      CompanyProfile? data = CompanyProfile.fromJson(res);
+      return data;
+    } else {
+      return null;
+    }
+  }
 
+  Future<CompanyAllData?> getCompanyAllData() async {
+    String? id = SharedPreferenceHelper.getString(Preferences.companyId);
+    final res = await apiRepository.apiGet("$baseUrl/api/Companies/$id");
+    if (res != null) {
+      CompanyAllData? data = CompanyAllData.fromJson(res);
+      // log(data.customerImage!.imageFileName!);
+      return data;
+    } else {
+      return null;
+    }
+  }
 }

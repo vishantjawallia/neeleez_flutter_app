@@ -2,6 +2,8 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:neeleez_flutter_app/config/pref_constant.dart';
+import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/models/amenities/amenities.dart';
 import 'package:neeleez_flutter_app/models/business_types/business_services_by_country.dart';
 import 'package:neeleez_flutter_app/models/gender/gender.dart';
@@ -75,6 +77,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   // Add ViewModel specific code here
   Future<void> loadItems() async {
     setBusy(true);
+    String? id = SharedPreferenceHelper.getString(Preferences.companyId);
     //Write your models loading codes here
     //gender
     List<Gender> gender = await getGenders() ?? [];
@@ -87,7 +90,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     List<BusinessServicesByCountry> businessList = await getBusinessCategory('143') ?? [];
     countryList = businessList.isNotEmpty ? businessList.map<String>((e) => e.service.toString()).toList() : [];
     // businessServiceIdWithCountryId()
-    GeneralInformation? generalInformation = await generalInformationWithCompanyId("72");
+    GeneralInformation? generalInformation = await generalInformationWithCompanyId(id!);
     isFreelancer = generalInformation!.isFreeLancer ?? false;
     companyNameController.text = generalInformation.companyNumber ?? "";
     taglineController.text = generalInformation.tagLine ?? "";
