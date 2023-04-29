@@ -45,7 +45,9 @@ class CompanyProfileService {
   }
 
   //business category
-  Future<List<BusinessServicesByCountry>?> getBusinessCategory(String countryId) async {
+  Future<List<BusinessServicesByCountry>?> getBusinessCategory(
+    String countryId,
+  ) async {
     try {
       final res = await apiRepository.apiGet('$baseUrl/api/BusinessService/BusinessServicesByCountry/$countryId');
       if (res != null) {
@@ -59,7 +61,9 @@ class CompanyProfileService {
   }
 
   // CompanyEmailExist
-  Future<bool> companyEmailExist(String email) async {
+  Future<bool> companyEmailExist(
+    String email,
+  ) async {
     try {
       final res = await apiRepository.apiGet("$baseUrl/api/Companies/CompanyEmailExist/$email");
       if (res != null) {
@@ -72,7 +76,9 @@ class CompanyProfileService {
     return false;
   }
 
-  Future<GeneralInformation?> generalInformationWithCompanyId(String companyId) async {
+  Future<GeneralInformation?> generalInformationWithCompanyId(
+    String companyId,
+  ) async {
     try {
       final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/GeneralInformation/$companyId");
       if (res != null) {
@@ -130,7 +136,9 @@ class CompanyProfileService {
     return null;
   }
 
-  Future<List<Provinces>?> getProvinces(String companyId) async {
+  Future<List<Provinces>?> getProvinces(
+    String companyId,
+  ) async {
     try {
       final res = await apiRepository.apiGet("$baseUrl/api/Provinces/$companyId");
       log(res.toString());
@@ -144,7 +152,9 @@ class CompanyProfileService {
     return null;
   }
 
-  Future<List<Cities>?> getCities(String provinceId) async {
+  Future<List<Cities>?> getCities(
+    String provinceId,
+  ) async {
     try {
       final res = await apiRepository.apiGet("$baseUrl/api/Cities/$provinceId");
       log(res.toString());
@@ -153,12 +163,14 @@ class CompanyProfileService {
       }
     } catch (e) {
       log(e.toString());
-      log("getProgetCitiesvinces========>$e");
+      log("getCities========>$e");
     }
     return null;
   }
 
-  Future<RegionInformation?> getRegionInformation(String companyId) async {
+  Future<RegionInformation?> getRegionInformation(
+    String companyId,
+  ) async {
     try {
       final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/RegionInformation/$companyId");
       log(res.toString());
