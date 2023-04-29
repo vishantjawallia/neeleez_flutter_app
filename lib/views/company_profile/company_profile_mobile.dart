@@ -34,7 +34,7 @@ class _CompanyProfileMobile extends StatelessWidget {
                         businessCategoryList: viewModel.businessCategoryList,
                         businessSubCategorySelectedList: viewModel.businessSubCategorySelectedList,
                         businessSubCategoryList: viewModel.businessSubCategoryList,
-                        serviceFor: viewModel.serviceFor,
+                        serviceForId: viewModel.serviceForId,
                         serviceForList: viewModel.serviceForList,
                         whatsAppNoController: viewModel.whatsAppNoController,
                         telephoneController: viewModel.telephoneController,

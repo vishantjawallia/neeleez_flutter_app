@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:get/get.dart';
 
 class Helper {
@@ -11,6 +13,12 @@ class Helper {
     } catch (e) {
       return true;
     }
+  }
+
+  static mapLoop(Map<String, dynamic> value) {
+    value.forEach((key, value) {
+      log('"$key" : "$value"');
+    });
   }
 }
 
@@ -35,6 +43,7 @@ extension NumberParsing on num {
   /// Calculates the sp (Scalable Pixel) depending on the device's screen size
   double get sp => this * (Get.width / 3) / 100;
 }
+
 extension StringParsing on String {
   /// Calculates the height depending on the device's screen size
   ///

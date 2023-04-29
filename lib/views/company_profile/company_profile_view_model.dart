@@ -14,6 +14,7 @@ import '../../models/company/companies.dart';
 
 class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   final UserData? user;
+  String companyId = "72";
   TextEditingController companyNameController = TextEditingController();
   TextEditingController taglineController = TextEditingController();
   TextEditingController companyEstablishmentYearController = TextEditingController();
@@ -42,7 +43,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   List<String>? amentiasList = ['Hello', 'Go'];
   List<String>? amentiasSelectedList = ['Hello', 'Go'];
   String? businessCategory = "Hello";
-  String? serviceFor;
+  int? serviceForId;
   String? countrySelected;
   String? stateSelected;
   String? citySelected;
@@ -115,25 +116,24 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
 
   /* ------------------------------ general-info-save ------------------------------ */
   void onGeneralSave() async {
-    String companyId = "";
-    String email = "";
-    String mobile = "";
-    String nameEn = "";
+    String email = emailController.text;
+    String mobile = mobileNoController.text;
+    String nameEn = fullNameController.text;
     String logo = "";
     String nameAr = "";
-    String tagLine = "";
+    String tagLine = taglineController.text;
     String edate = "";
-    String whatsapp = "";
+    String whatsapp = websiteController.text;
+    String url = websiteController.text;
     String tel1 = "";
-    String url = "";
     String tel2 = "";
-    String aboutUs = "";
+    String aboutUs = additionalInfoController.text;
     String taxNumber = "";
     int businessServiceId = 0;
-    int genderId = 0;
+    int genderId = serviceForId ?? 0;
     List companyBusinessTypes = [];
     List companyAmenity = [];
-    bool isFreeLancer = false;
+    bool isFreeLancer = isFreelancer ?? false;
     await putGeneralInformation(
       companyId,
       email,

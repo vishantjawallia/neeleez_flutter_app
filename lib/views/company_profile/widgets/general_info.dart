@@ -28,7 +28,7 @@ class GeneralInfo extends StatelessWidget {
   final List<String>? businessCategoryList;
   final List<String>? businessSubCategorySelectedList;
   final List<String>? businessSubCategoryList;
-  final String? serviceFor;
+  final int? serviceForId;
   final List<String>? serviceForList;
   final TextEditingController? whatsAppNoController;
   final TextEditingController? telephoneController;
@@ -49,7 +49,7 @@ class GeneralInfo extends StatelessWidget {
     required this.businessCategoryList,
     required this.businessSubCategorySelectedList,
     required this.businessSubCategoryList,
-    required this.serviceFor,
+    required this.serviceForId,
     required this.serviceForList,
     required this.whatsAppNoController,
     required this.telephoneController,
@@ -391,6 +391,9 @@ class GeneralInfo extends StatelessWidget {
             name: 'Services For',
             prefixIconPath: MyIcon.sex,
             prefixIconColor: Palettes.primary,
+            onChanged: (value) {
+              // log(value.toString());
+            },
           ),
         ],
       ),

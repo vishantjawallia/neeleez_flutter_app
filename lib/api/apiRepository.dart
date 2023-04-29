@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 import 'package:http/http.dart' as http;
+import 'package:neeleez_flutter_app/helpers/helper.dart';
 
 class apiRepository {
   apiRepository._();
@@ -144,25 +145,25 @@ class apiRepository {
 
   /* -------------------------------- Api Put ------------------------------- */
   static Future apiPut(
-    String? url,
-    Map<String, dynamic>? body, {
+    String url,
+    Map<String, dynamic> body, {
     bool? auth,
   }) async {
-    log(url.toString());
+    Helper.mapLoop(body);
+    log(body.toString());
     try {
       final response = await http.put(
-        Uri.parse(url!),
+        Uri.parse(url),
         headers: {
           'Content-Type': "application/json",
         },
-        body: json.encode(body!),
+        body: jsonEncode(body),
       );
       if (response.statusCode == 200) {
         return json.decode(response.body.toString());
       } else {
         log(response.statusCode.toString());
         log(response.body.toString());
-        log(url.toString());
         throw "api-error";
       }
     } on SocketException catch (e) {

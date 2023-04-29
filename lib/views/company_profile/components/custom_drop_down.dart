@@ -27,7 +27,7 @@ class CustomDropDown extends StatefulWidget {
   final bool? obscureText;
   final bool? autofocus;
   final bool? enabled;
-  final void Function(String? value)? onChanged;
+  final void Function(int? value)? onChanged;
   final void Function()? onTap;
   const CustomDropDown({
     Key? key,
