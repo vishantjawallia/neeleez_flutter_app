@@ -200,4 +200,29 @@ class apiRepository {
       throw "no-internet";
     }
   }
+
+  /* -------------------------------- Api File Upload  ------------------------------- */
+  static Future<String> apiUploadFile(
+    String? url, {
+    bool? auth,
+    File? file,
+  }) async {
+    log(url.toString());
+    final bytes = await file!.readAsBytes();
+    try {
+      final response = await http.post(
+        Uri.parse(url!),
+        headers: {'Content-Type': "application/json"},
+        body: bytes,
+      );
+      if (response.statusCode == 200) {
+        return "'File uploaded successfully";
+      } else {
+        throw Exception('Failed to upload file');
+      }
+    } on SocketException catch (e) {
+      log('$e');
+      throw "no-internet";
+    }
+  }
 }

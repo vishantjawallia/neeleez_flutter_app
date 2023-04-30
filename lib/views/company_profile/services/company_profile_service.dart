@@ -13,6 +13,7 @@ import 'package:neeleez_flutter_app/models/general_info/general_info.dart';
 import 'package:neeleez_flutter_app/models/package/package_info.dart';
 // /api/CompanyProfile/GeneralInformation/{CompanyId}
 // /api/CompanyProfile/RegionInformation/{CompanyId}/api/CompanyProfile/ContactPersonInfo/{CompanyId}
+import '../../../models/business_types/business_types.dart';
 import '../../../models/company/cities.dart';
 import '../../../models/company/companies.dart';
 import '../../../models/company/designation.dart';
@@ -92,7 +93,7 @@ class CompanyProfileService {
     return null;
   }
 
-  Future<void> businessServiceIdWithCountryId(
+  Future<List<BusinessTypes>> businessServiceIdWithCountryId(
     String businessServiceId,
     String countryId,
   ) async {
@@ -100,13 +101,13 @@ class CompanyProfileService {
       final res = await apiRepository.apiGet("$baseUrl/api/BusinessTypes/$businessServiceId/$countryId");
       log(res.toString());
       if (res != null) {
-        // return GeneralInformation.fromJson(res);
+        return BusinessTypes.fromJsonList(res);
       }
     } catch (e) {
       log(e.toString());
       log("businessServiceIdWithCountryId========>$e");
     }
-    return;
+    return null!;
   }
 
   Future<List<Designation>?> getDesignation() async {

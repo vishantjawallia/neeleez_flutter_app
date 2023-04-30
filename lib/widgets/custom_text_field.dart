@@ -38,7 +38,7 @@ class CustomTextField extends StatelessWidget {
     this.prefixIconPath = "",
     this.suffixIconPath = "",
     this.onChanged,
-    this.prefixIconColor,
+    this.prefixIconColor = Palettes.primary,
     this.prefixIconSize,
     this.maxLength,
     this.maxLines,
@@ -99,27 +99,31 @@ class CustomTextField extends StatelessWidget {
                 ),
               ),
               Flexible(
-                child: TextField(
-                  style: Get.textTheme.bodyMedium!.copyWith(
-                    color: Palettes.primary,
-                    fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
-                  ),
-                  controller: controller,
-                  maxLength: maxLength,
-                  maxLines: maxLines ?? 1,
-                  minLines: minLines,
-                  maxLengthEnforcement: maxLengthEnforcement ?? MaxLengthEnforcement.none,
-                  enabled: enabled,
-                  obscureText: obscureText ?? false,
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 14),
-                    border: InputBorder.none,
-                    hintText: name ?? 'Username / Email :',
-                    hintStyle: Get.textTheme.bodyMedium!.copyWith(
-                      color: Palettes.primary.withOpacity(0.8),
-                      fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
+                child: GestureDetector(
+                  onTap: onTap,
+                  child: TextField(
+                    // onTap: onTap,
+                    style: Get.textTheme.bodyMedium!.copyWith(
+                      color: Palettes.primary,
+                      fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
                     ),
-                    isDense: true,
+                    controller: controller,
+                    maxLength: maxLength,
+                    maxLines: maxLines ?? 1,
+                    minLines: minLines,
+                    maxLengthEnforcement: maxLengthEnforcement ?? MaxLengthEnforcement.none,
+                    enabled: enabled,
+                    obscureText: obscureText ?? false,
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 14),
+                      border: InputBorder.none,
+                      hintText: name ?? 'Username / Email :',
+                      hintStyle: Get.textTheme.bodyMedium!.copyWith(
+                        color: Palettes.primary.withOpacity(0.8),
+                        fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
+                      ),
+                      isDense: true,
+                    ),
                   ),
                 ),
               ),

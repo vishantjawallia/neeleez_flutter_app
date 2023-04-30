@@ -18,6 +18,7 @@ class _CompanyProfileMobile extends StatelessWidget {
           height: 155,
           child: DefaultTabController(
             length: 7,
+            initialIndex: viewModel.tabIndex,
             child: Column(
               children: [
                 _appBar(),
@@ -27,25 +28,39 @@ class _CompanyProfileMobile extends StatelessWidget {
                     children: [
                       GeneralInfo(
                         isFreelancer: viewModel.isFreelancer,
+                        onFreelancerChange: viewModel.onFreelancerChange,
+                        //
                         companyNameController: viewModel.companyNameController,
                         taglineController: viewModel.taglineController,
                         companyEstablishmentYearController: viewModel.companyEstablishmentYearController,
-                        businessCategory: viewModel.businessCategory,
+                        additionalInfoController: viewModel.additionalInfoController,
+
+                        //
                         businessCategoryList: viewModel.businessCategoryList,
-                        businessSubCategorySelectedList: viewModel.businessSubCategorySelectedList,
+                        busCatValue: viewModel.busCatValue,
+                        busCatOnChange: viewModel.busCatOnChange,
+                        //
                         businessSubCategoryList: viewModel.businessSubCategoryList,
-                        serviceForId: viewModel.serviceForId,
+                        businessSubCategorySelectedList: viewModel.businessSubCategorySelectedList,
+                        busSubCatSelectedOnChange: viewModel.busSubCatSelectedOnChange,
+                        //
                         serviceForList: viewModel.serviceForList,
+                        serviceForValue: viewModel.serviceForValue,
+                        serviceForOnChange: viewModel.serviceForOnChange,
+                        //
                         whatsAppNoController: viewModel.whatsAppNoController,
                         telephoneController: viewModel.telephoneController,
                         emailController: viewModel.emailController,
                         websiteController: viewModel.websiteController,
+                        //
                         amentiasList: viewModel.amentiasList,
                         amentiasSelectedList: viewModel.amentiasSelectedList,
-                        onSave: viewModel.onGeneralSave,
-                        additionalInfoController: viewModel.additionalInfoController,
-                        onFreelancerChange: viewModel.onFreelancerChange,
+                        amentiasOnChange: viewModel.amentiasOnChange,
+                        //
                         companyEstablishmentYearDate: viewModel.companyEstablishmentYearDate,
+                        copEstabYearOnTap: viewModel.copEstabYearOnTap,
+                        //
+                        onSave: viewModel.onGeneralSave,
                       ),
                       SocialMedia(
                         facebookController: viewModel.facebookController,

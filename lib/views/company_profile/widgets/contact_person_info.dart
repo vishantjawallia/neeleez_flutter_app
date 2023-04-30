@@ -108,6 +108,7 @@ class _SocialMediaState extends State<ContactPersonInfo> {
               textAlign: TextAlign.right,
             ),
             CustomDropDown(
+              value: '',
               list: const [],
               // list: ['Hello', 'Go'],
               name: 'Department',
@@ -122,6 +123,7 @@ class _SocialMediaState extends State<ContactPersonInfo> {
               textAlign: TextAlign.right,
             ),
             CustomDropDown(
+              value: '',
               list: const ['Hello', 'Go'],
               name: 'Designation',
               prefixIconPath: MyIcon.staffDesignation,

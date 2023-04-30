@@ -27,6 +27,8 @@ dependencies:
     pinput: ^2.2.21
     shimmer: ^2.0.0
     dotted_border: ^2.0.0+3
+    image_picker: ^0.8.7+4
+    intl: ^0.17.0
 dev_dependencies:
     flutter_test:
         sdk: flutter

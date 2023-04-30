@@ -70,6 +70,7 @@ class Location extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
             CustomDropDown(
+              value: '',
               list: countryList,
               name: 'Country',
               prefixIconPath: MyIcon.place,
@@ -82,6 +83,7 @@ class Location extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
             CustomDropDown(
+              value: '',
               list: stateList,
               name: 'State/Province',
               prefixIconPath: MyIcon.imgLocationState,
@@ -98,6 +100,7 @@ class Location extends StatelessWidget {
               name: 'City',
               prefixIconPath: MyIcon.imgLocationCity,
               prefixIconColor: Palettes.primary,
+              value: '',
             ),
             const SizedBox(height: 14),
             Text(

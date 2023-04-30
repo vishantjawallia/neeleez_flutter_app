@@ -3,17 +3,21 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:neeleez_flutter_app/config/pref_constant.dart';
-import 'package:neeleez_flutter_app/config/preference.dart';
-import 'package:neeleez_flutter_app/models/gender/gender.dart';
-import 'package:neeleez_flutter_app/models/general_info/general_info.dart';
+import 'package:neeleez_flutter_app/models/amenities/amenities.dart';
 import 'package:neeleez_flutter_app/models/user_data.dart';
 import 'package:neeleez_flutter_app/views/company_profile/services/company_profile_service.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../models/business_types/business_services_by_country.dart';
+import '../../models/business_types/business_types.dart';
+import '../../models/gender/gender.dart';
+import '../../models/general_info/general_info.dart';
+
 class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   final UserData? user;
   String companyId = "72";
+  String countryId = "143";
+  GeneralInformation? genInfo;
   TextEditingController companyNameController = TextEditingController();
   TextEditingController taglineController = TextEditingController();
   TextEditingController companyEstablishmentYearController = TextEditingController();
@@ -32,25 +36,22 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   TextEditingController mobileNoController = TextEditingController();
   TextEditingController countryCodeController = TextEditingController();
   DateTime? companyEstablishmentYearDate = DateTime.now();
-  // BusinessServicesByCountry
-  String? busCatSelectedObj;
+  // String? busCatSelectedObj;
   List<String>? businessCategoryList = [];
 
   // businessSubCategoryList
   List<String>? businessSubCategoryList = [];
-  List<String>? businessSubCategorySelectedList;
+  List<String>? businessSubCategorySelectedList = [];
 
-  List<String>? countryList;
-  List<String>? stateList = ['Hello', 'Go'];
-  List<String>? cityList = ['Hello', 'Go'];
+  List<String>? countryList = [];
+  List<String>? stateList = [];
+  List<String>? cityList = [];
 // Gender
-  List<String>? serviceForList;
+  List<String>? serviceForList = [];
   // Amenities
-  List<String>? amentiasList;
-  List<String>? amentiasSelectedList;
+  List<String>? amentiasList = [];
+  List<String>? amentiasSelectedList = [];
 
-  String? businessCategory = "Hello";
-  int? serviceForId;
   String? countrySelected;
   String? stateSelected;
   String? citySelected;
@@ -58,10 +59,20 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   bool? isDepartment = false;
   bool? isDesignation = false;
 
+  String? busCatValue;
+
+  String? serviceForValue;
+
+  int tabIndex = 0;
+
+  ///
+  List<BusinessServicesByCountry> businessCategory = [];
+  List<BusinessTypes> businessSubCategory = [];
+
   CompanyProfileViewModel({this.user}) {
     companyNameController.addListener(() => notifyListeners());
     taglineController.addListener(() => notifyListeners());
-    companyEstablishmentYearController.addListener(() => notifyListeners());
+    // companyEstablishmentYearController.addListener(() => notifyListeners());
     whatsAppNoController.addListener(() => notifyListeners());
     telephoneController.addListener(() => notifyListeners());
     emailController.addListener(() => notifyListeners());
@@ -76,41 +87,36 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     fullNameController.addListener(() => notifyListeners());
     mobileNoController.addListener(() => notifyListeners());
     countryCodeController.addListener(() => notifyListeners());
+    // onTabChanged(tabIndex);
     loadItems();
   }
 
   // Add ViewModel specific code here
   Future<void> loadItems() async {
     setBusy(true);
-    String? id = SharedPreferenceHelper.getString(Preferences.companyId);
-    //Write your models loading codes here
-    //gender
-    // serviceForList = await getGenders() ?? [];
+    genInfo = await generalInformationWithCompanyId(companyId);
     List<Gender> gender = await getGenders() ?? [];
-    serviceForList = gender.isNotEmpty ? gender.map<String>((e) => e.genderEn.toString()).toList() : [];
-    //amentias
-    // amentiasList = await getAmenities() ?? [];
-    // amentiasList = amentias.isNotEmpty ? amentias.map<String>((e) => e.amenityNameEn.toString()).toList() : [];
-
-    // businessList
-    // businessCategoryList = await getBusinessCategory('143') ?? [];
-    // businessCategoryList = businessList.isNotEmpty ? businessList s.map<String>((e) => e.service!).toList() : [];
-    // businessServiceIdWithCountryId()
-    GeneralInformation? generalInformation = await generalInformationWithCompanyId(id!);
-    isFreelancer = generalInformation!.isFreeLancer ?? false;
-    companyNameController.text = generalInformation.companyNumber ?? "";
-    taglineController.text = generalInformation.tagLine ?? "";
-    companyEstablishmentYearController.text = generalInformation.edate ?? "";
-    websiteController.text = generalInformation.url ?? "";
-    telephoneController.text = generalInformation.tel1 ?? "";
-    emailController.text = generalInformation.email ?? "";
-    additionalInfoController.text = generalInformation.aboutUs ?? "";
-
-    // socialMidea
-    facebookController.text = generalInformation.socialMediaInfo?.facebook ?? "";
-    instagramController.text = generalInformation.socialMediaInfo?.instagram ?? "";
-    linkedInController.text = generalInformation.socialMediaInfo?.linkedIn ?? "";
-    twitterController.text = generalInformation.socialMediaInfo?.twitter ?? "";
+    serviceForList = gender.isNotEmpty ? gender.map<String>((e) => e.genderEn!).toList() : [];
+    //
+    List<Amenities> amentias = await getAmenities() ?? [];
+    amentiasList = amentias.isNotEmpty ? amentias.map<String>((e) => e.amenityNameEn!).toList() : [];
+    //
+    businessCategory = await getBusinessCategory('143') ?? [];
+    businessCategoryList = businessCategory.isNotEmpty ? businessCategory.map<String>((e) => e.service!).toList() : [];
+    //
+    isFreelancer = genInfo!.isFreeLancer ?? false;
+    companyNameController.text = genInfo!.companyNumber ?? "";
+    taglineController.text = genInfo!.tagLine ?? "";
+    companyEstablishmentYearController.text = genInfo!.edate ?? "";
+    websiteController.text = genInfo!.url ?? "";
+    telephoneController.text = genInfo!.tel1 ?? "";
+    emailController.text = genInfo!.email ?? "";
+    additionalInfoController.text = genInfo!.aboutUs ?? "";
+    // socialMedia
+    facebookController.text = genInfo!.socialMediaInfo?.facebook ?? "";
+    instagramController.text = genInfo!.socialMediaInfo?.instagram ?? "";
+    linkedInController.text = genInfo!.socialMediaInfo?.linkedIn ?? "";
+    twitterController.text = genInfo!.socialMediaInfo?.twitter ?? "";
 
     //Let other views to render again
     setBusy(false);
@@ -139,7 +145,8 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     String aboutUs = additionalInfoController.text;
     String taxNumber = "";
     int businessServiceId = 0;
-    int genderId = serviceForId ?? 0;
+    int genderId = 0;
+    // int genderId = serviceForId ?? 0;
     List companyBusinessTypes = [];
     List companyAmenity = [];
     bool isFreeLancer = isFreelancer ?? false;
@@ -199,7 +206,26 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   /* ------------------------------ on-file-media-save------------------------------ */
   void onUploadMedia(File? file) {}
 
-  void loadGeneralData() {}
+  void loadGeneralData() {
+    // // businessCategoryList = await getBusinessCategory('143') ?? [];
+    // // businessCategoryList = businessList.isNotEmpty ? businessList s.map<String>((e) => e.service!).toList() : [];
+    // // businessServiceIdWithCountryId()
+    // GeneralInformation? generalInformation = await generalInformationWithCompanyId(id!);
+    // isFreelancer = generalInformation!.isFreeLancer ?? false;
+    // companyNameController.text = genInfo!.companyNumber ?? "";
+    // taglineController.text = genInfo!.tagLine ?? "";
+    // companyEstablishmentYearController.text = genInfo!.edate ?? "";
+    // websiteController.text = genInfo!.url ?? "";
+    // telephoneController.text = genInfo!.tel1 ?? "";
+    // emailController.text = genInfo!.email ?? "";
+    // additionalInfoController.text = genInfo!.aboutUs ?? "";
+
+    // // socialMidea
+    // facebookController.text = genInfo!.socialMediaInfo?.facebook ?? "";
+    // instagramController.text = genInfo!.socialMediaInfo?.instagram ?? "";
+    // linkedInController.text = genInfo!.socialMediaInfo?.linkedIn ?? "";
+    // twitterController.text = genInfo!.socialMediaInfo?.twitter ?? "";
+  }
 
   void loadSocialMediaData() {}
 
@@ -220,7 +246,6 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   void spaceFilesData() {}
 
   void onTabChanged(int value) {
-    log(value.toString());
     switch (value) {
       case 0:
         loadGeneralData();
@@ -245,6 +270,9 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
         break;
       default:
     }
+    log(value.toString());
+    tabIndex = value;
+    notifyListeners();
   }
 
   onChangedBusinessSubCategory(value) async {
@@ -253,5 +281,43 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     // businessSubCategoryList = businessSubCategory.isNotEmpty ? businessSubCategory.map<String>((e) => e.businessTypeNameEn!).toList() : [];
     // setBusy(false);
     // notifyListeners();
+  }
+
+  void copEstabYearOnTap(_) async {
+    // log("message");
+    final DateTime? picked = await showDatePicker(
+      context: _,
+      initialDate: companyEstablishmentYearDate!,
+      firstDate: DateTime(2015, 8),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null && picked != companyEstablishmentYearDate) {
+      companyEstablishmentYearDate = picked;
+      companyEstablishmentYearController.text = companyEstablishmentYearDate.toString();
+      notifyListeners();
+    }
+  }
+
+  void amentiasOnChange(List<String>? value) {
+    log(value.toString());
+    amentiasSelectedList = value;
+    notifyListeners();
+  }
+
+  void busCatOnChange(String? value) async {
+    setBusy(true);
+    busCatValue = value;
+    BusinessServicesByCountry obj = businessCategory.firstWhere((e) => e.service == value);
+    businessSubCategory = await businessServiceIdWithCountryId("${obj.businessServiceId!}", countryId);
+    businessSubCategoryList = businessSubCategory.map<String>((e) => e.businessTypeNameEn!).toList();
+    setBusy(false);
+    notifyListeners();
+  }
+
+  void busSubCatSelectedOnChange(List? value) {}
+
+  void serviceForOnChange(String? value) {
+    serviceForValue = value;
+    notifyListeners();
   }
 }
