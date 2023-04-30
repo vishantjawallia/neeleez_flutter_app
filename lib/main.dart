@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
 
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/config.dart';
@@ -43,10 +44,14 @@ class MyApp extends StatelessWidget {
       defaultTransition: Transition.rightToLeft,
       translations: LocalLanguage(),
       theme: CustomTheme.light,
-      builder: (context, child) {
+      navigatorObservers: [
+        BotToastNavigatorObserver(),
+      ],
+      builder: (context, myWidget) {
+        myWidget = BotToastInit()(context, myWidget);
         return MediaQuery(
           data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-          child: child!,
+          child: myWidget,
         );
       },
       home: const SplashView(),

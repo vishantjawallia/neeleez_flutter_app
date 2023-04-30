@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:neeleez_flutter_app/api/apiRepository.dart';
 import 'package:neeleez_flutter_app/config/config.dart';
 import 'package:neeleez_flutter_app/config/url.dart';
-import 'package:neeleez_flutter_app/models/amenities/amenities.dart';
+import 'package:neeleez_flutter_app/models/amenities/amenities.dart' as am;
 import 'package:neeleez_flutter_app/models/business_types/business_services_by_country.dart';
 
 import 'package:neeleez_flutter_app/models/company/company_profile_images.dart';
@@ -16,6 +16,7 @@ import 'package:neeleez_flutter_app/models/package/package_info.dart';
 import '../../../models/business_types/business_types.dart';
 import '../../../models/company/cities.dart';
 import '../../../models/company/companies.dart';
+import '../../../models/company/company_profile.dart';
 import '../../../models/company/designation.dart';
 import '../../../models/company/provinces.dart';
 
@@ -33,11 +34,11 @@ class CompanyProfileService {
     return null;
   }
 
-  Future<List<Amenities>?> getAmenities() async {
+  Future<List<am.Amenities>?> getAmenities() async {
     try {
       final res = await apiRepository.apiGet(Url.Amenities);
       if (res != null) {
-        return Amenities.fromJsonList(res);
+        return am.Amenities.fromJsonList(res);
       }
     } catch (e) {
       log(e.toString());
@@ -170,21 +171,21 @@ class CompanyProfileService {
     return null;
   }
 
-  // Future<RegionInformation?> getRegionInformation(
-  //   String companyId,
-  // ) async {
-  //   try {
-  //     final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/RegionInformation/$companyId");
-  //     log(res.toString());
-  //     if (res != null) {
-  //       return RegionInformation.fromJson(res);
-  //     }
-  //   } catch (e) {
-  //     log(e.toString());
-  //     log("getRegionInformation========>$e");
-  //   }
-  //   return null;
-  // }
+  Future<CompanyProfile?> getRegionInformation(
+    String companyId,
+  ) async {
+    try {
+      final res = await apiRepository.apiGet("$baseUrl/api/Companies/CompanyProfile/$companyId");
+      log(res.toString());
+      if (res != null) {
+        return CompanyProfile.fromJson(res);
+      }
+    } catch (e) {
+      log(e.toString());
+      log("getRegionInformation========>$e");
+    }
+    return null;
+  }
 
   Future<PackageInformation?> packageInformation(
     String companyId,

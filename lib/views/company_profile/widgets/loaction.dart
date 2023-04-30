@@ -1,17 +1,25 @@
+// ignore_for_file: unused_field, prefer_final_fields
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
+import 'package:neeleez_flutter_app/models/company/companies.dart';
 import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down.dart';
 
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 
-class Location extends StatelessWidget {
-  final List<String>? countryList;
+import '../components/country_drop_down.dart';
+
+class Location extends StatefulWidget {
+  final List<Countries>? countryList;
+  final void Function(Countries value) countryOnChange;
   final List<String>? stateList;
+  final void Function(String? value) stateOnChange;
   final List<String>? cityList;
-  final String? countrySelected;
+  final void Function(String? value) cityOnChange;
+  final Countries? countrySelected;
   final String? stateSelected;
   final String? citySelected;
   final TextEditingController? googleAddressController;
@@ -26,8 +34,16 @@ class Location extends StatelessWidget {
     required this.citySelected,
     required this.googleAddressController,
     required this.additionalAddressController,
+    required this.countryOnChange,
+    required this.stateOnChange,
+    required this.cityOnChange,
   }) : super(key: key);
 
+  @override
+  State<Location> createState() => _LocationState();
+}
+
+class _LocationState extends State<Location> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -69,13 +85,23 @@ class Location extends StatelessWidget {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            CustomDropDown(
-              value: '',
-              list: countryList,
+            CountryDropDown(
+              list: widget.countryList,
+              value: null,
               name: 'Country',
               prefixIconPath: MyIcon.place,
-              prefixIconColor: Palettes.primary,
             ),
+            // CustomDropDown(
+            //   value: '',
+            //   list: widget.countryList,
+            //   name: 'Country',
+            //   prefixIconPath: MyIcon.place,
+            //   prefixIconColor: Palettes.primary,
+            // ),
+            // const CountryDropDown(
+            //   list: coun,
+            //   value: '',
+            // ),
             const SizedBox(height: 14),
             Text(
               'State/Province',
@@ -84,10 +110,10 @@ class Location extends StatelessWidget {
             ),
             CustomDropDown(
               value: '',
-              list: stateList,
+              list: const [],
               name: 'State/Province',
               prefixIconPath: MyIcon.imgLocationState,
-              prefixIconColor: Palettes.primary,
+              onChanged: widget.stateOnChange,
             ),
             const SizedBox(height: 14),
             Text(
@@ -96,11 +122,11 @@ class Location extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
             CustomDropDown(
-              list: cityList,
+              list: const [],
+              value: '',
               name: 'City',
               prefixIconPath: MyIcon.imgLocationCity,
-              prefixIconColor: Palettes.primary,
-              value: '',
+              onChanged: widget.cityOnChange,
             ),
             const SizedBox(height: 14),
             Text(
@@ -109,10 +135,9 @@ class Location extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
             CustomTextField(
-              controller: googleAddressController,
+              controller: widget.googleAddressController,
               name: 'Google Address',
               prefixIconPath: MyIcon.place,
-              prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),
             Text(
@@ -121,10 +146,9 @@ class Location extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
             CustomTextField(
-              controller: additionalAddressController,
+              controller: widget.additionalAddressController,
               name: 'Additional Address',
               prefixIconPath: MyIcon.place,
-              prefixIconColor: Palettes.primary,
             ),
             const SizedBox(height: 14),
             Text(

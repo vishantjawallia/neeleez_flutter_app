@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
-import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down.dart';
 
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 
@@ -73,8 +72,9 @@ class _SocialMediaState extends State<ContactPersonInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
               name: 'Full Name',
+              controller: widget.fullNameController,
               prefixIconPath: MyIcon.user,
               prefixIconColor: Palettes.primary,
             ),
@@ -85,7 +85,8 @@ class _SocialMediaState extends State<ContactPersonInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
+              controller: widget.mobileNoController,
               name: 'Mobile No',
               prefixIconPath: MyIcon.mobileAnalytics,
               prefixIconColor: Palettes.primary,
@@ -96,7 +97,8 @@ class _SocialMediaState extends State<ContactPersonInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
+              controller: widget.emailController,
               name: 'Email',
               prefixIconPath: MyIcon.mail,
               prefixIconColor: Palettes.primary,
@@ -107,29 +109,29 @@ class _SocialMediaState extends State<ContactPersonInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            CustomDropDown(
-              value: '',
-              list: const [],
-              // list: ['Hello', 'Go'],
-              name: 'Department',
-              prefixIconPath: MyIcon.staffDepartment,
-              prefixIconColor: Palettes.primary,
-              onChanged: (value) {},
-            ),
+            // CustomDropDown(
+            //   value: '',
+            //   list: const [],
+            //   // list: ['Hello', 'Go'],
+            //   name: 'Department',
+            //   prefixIconPath: MyIcon.staffDepartment,
+            //   prefixIconColor: Palettes.primary,
+            //   onChanged: (value) {},
+            // ),
             const SizedBox(height: 14),
             Text(
               'Designation',
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            CustomDropDown(
-              value: '',
-              list: const ['Hello', 'Go'],
-              name: 'Designation',
-              prefixIconPath: MyIcon.staffDesignation,
-              prefixIconColor: Palettes.primary,
-              onChanged: (value) {},
-            ),
+            // CustomDropDown(
+            //   value: '',
+            //   list: const ['Hello', 'Go'],
+            //   name: 'Designation',
+            //   prefixIconPath: MyIcon.staffDesignation,
+            //   prefixIconColor: Palettes.primary,
+            //   onChanged: (value) {},
+            // ),
             const SizedBox(height: 14),
             Text(
               'To update the location, please contact our Support team',

@@ -86,6 +86,7 @@ class LoginViewModel extends BaseViewModel {
         log("Error===========>${userData!.email!}");
         int companyId = userData!.companyId!.toInt();
         await SharedPreferenceHelper.setString(Preferences.companyId, "$companyId");
+        await SharedPreferenceHelper.setString(Preferences.countryId, "${userData!.countryId}");
         await SharedPreferenceHelper.setBoolean(Preferences.isLogged, true);
         await SharedPreferenceHelper.setString(Preferences.username, username);
         await SharedPreferenceHelper.setString(Preferences.password, password);

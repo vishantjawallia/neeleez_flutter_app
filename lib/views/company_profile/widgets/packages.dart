@@ -4,14 +4,15 @@ import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
 import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 
-class Packages extends StatefulWidget {
-  const Packages({Key? key}) : super(key: key);
+import '../../../models/company/company_profile.dart';
 
-  @override
-  _SocialMediaState createState() => _SocialMediaState();
-}
+class Packages extends StatelessWidget {
+  final CompanyPackage? companyPackage;
+  const Packages({
+    Key? key,
+    required this.companyPackage,
+  }) : super(key: key);
 
-class _SocialMediaState extends State<Packages> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -47,54 +48,59 @@ class _SocialMediaState extends State<Packages> {
               ),
             ),
             const SizedBox(height: 20),
-            Container(
-              height: 230,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Palettes.red,
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: const [
-                  BoxShadow(blurRadius: 20, spreadRadius: 0.5, color: Palettes.grey1),
-                ],
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 14),
-                  Container(
-                    padding: const EdgeInsets.symmetric(vertical: 4),
-                    width: double.infinity,
-                    color: Palettes.white,
-                    alignment: Alignment.center,
-                    child: Text(
-                      'Entry Package'.tr,
-                      style: Get.textTheme.displayLarge!.copyWith(fontWeight: FontWeight.w500, color: Palettes.red),
-                    ),
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    'Expiry Date: 09-29-2021'.tr,
-                    style: Get.textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w600, color: Palettes.white),
-                  ),
-                  const SizedBox(height: 1),
-                  Text(
-                    'Unlock premium feature by upgrading your plan listed below'.tr,
-                    style: Get.textTheme.titleLarge!.copyWith(color: Palettes.white),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 10),
-                  CustomButton(
-                    onTap: () {},
-                    text: 'Upgrade',
-                    backgroundColor: Palettes.white,
-                    borderColor: Palettes.primary,
-                  )
-                ],
-              ),
-            ),
+            companyPackage != null ? _activePackage() : const SizedBox(),
           ],
         ),
+      ),
+    );
+  }
+
+  Container _activePackage() {
+    return Container(
+      height: 230,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Palettes.red,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: const [
+          BoxShadow(blurRadius: 20, spreadRadius: 0.5, color: Palettes.grey1),
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const SizedBox(height: 14),
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 4),
+            width: double.infinity,
+            color: Palettes.white,
+            alignment: Alignment.center,
+            child: Text(
+              companyPackage!.packageNameEn!,
+              // 'Entry Package'.tr,
+              style: Get.textTheme.displayLarge!.copyWith(fontWeight: FontWeight.w500, color: Palettes.red),
+            ),
+          ),
+          const SizedBox(height: 5),
+          Text(
+            'Expiry Date: ${companyPackage!.expiryDateTime!}'.tr,
+            style: Get.textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w600, color: Palettes.white),
+          ),
+          const SizedBox(height: 1),
+          Text(
+            companyPackage!.remarkEn!,
+            style: Get.textTheme.titleLarge!.copyWith(color: Palettes.white),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 10),
+          CustomButton(
+            onTap: () {},
+            text: 'Upgrade',
+            backgroundColor: Palettes.white,
+            borderColor: Palettes.primary,
+          )
+        ],
       ),
     );
   }

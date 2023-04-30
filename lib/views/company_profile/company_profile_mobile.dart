@@ -39,6 +39,7 @@ class _CompanyProfileMobile extends StatelessWidget {
                         businessCategoryList: viewModel.businessCategoryList,
                         busCatValue: viewModel.busCatValue,
                         busCatOnChange: viewModel.busCatOnChange,
+                        // businessCategoryFocus: viewModel.businessCategoryFocus,
                         //
                         businessSubCategoryList: viewModel.businessSubCategoryList,
                         businessSubCategorySelectedList: viewModel.businessSubCategorySelectedList,
@@ -71,11 +72,17 @@ class _CompanyProfileMobile extends StatelessWidget {
                       ),
                       Location(
                         countryList: viewModel.countryList,
-                        stateList: viewModel.stateList,
-                        cityList: viewModel.cityList,
+                        countryOnChange: viewModel.countryOnChange,
                         countrySelected: viewModel.countrySelected,
+                        //
+                        stateList: viewModel.stateList,
+                        stateOnChange: viewModel.stateOnChange,
                         stateSelected: viewModel.stateSelected,
+                        //
+                        cityList: viewModel.cityList,
+                        cityOnChange: viewModel.cityOnChange,
                         citySelected: viewModel.citySelected,
+                        //
                         googleAddressController: viewModel.googleAddressController,
                         additionalAddressController: viewModel.additionalAddressController,
                       ),
@@ -91,9 +98,12 @@ class _CompanyProfileMobile extends StatelessWidget {
                       BusinessHours(
                         onBusinessHoursSave: viewModel.onBusinessHoursSave,
                       ),
-                      Packages(),
+                      Packages(
+                        companyPackage: viewModel.cp?.companyPackage ?? null,
+                      ),
                       FileSection(
                         onUploadMedia: viewModel.onUploadMedia,
+                        companyImages: viewModel.cp?.companyImages ?? [],
                       ),
                     ],
                   ),

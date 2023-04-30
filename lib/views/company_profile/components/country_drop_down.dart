@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 // ignore_for_file: deprecated_member_use
 
@@ -5,10 +7,11 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
+import 'package:neeleez_flutter_app/models/company/companies.dart';
 
-class CustomDropDown extends StatelessWidget {
+class CountryDropDown extends StatelessWidget {
   final TextEditingController? controller;
-  final List<String>? list;
+  final List<Countries>? list;
   final String? name;
   final String? hint;
   final String? prefixIconPath;
@@ -31,8 +34,8 @@ class CustomDropDown extends StatelessWidget {
   // final bool? autofocus;
   final bool? enabled;
   final void Function(String? value)? onChanged;
-  final void Function()? onTap;
-  const CustomDropDown({
+  final void Function(Countries value)? onTap;
+  const CountryDropDown({
     Key? key,
     this.controller,
     this.name,
@@ -137,8 +140,8 @@ class CustomDropDown extends StatelessWidget {
     );
   }
 
-  DropdownButton<String> _dropDown() {
-    return DropdownButton<String>(
+  DropdownButton _dropDown() {
+    return DropdownButton(
       focusNode: focusNode,
       key: Key('$name'),
       hint: Text(
@@ -151,11 +154,12 @@ class CustomDropDown extends StatelessWidget {
       isExpanded: true,
       isDense: true,
       value: value,
-      items: list!.map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
+      items: list!.map<DropdownMenuItem<Countries>>((Countries value) {
+        return DropdownMenuItem(
+          onTap: () => onTap!(value),
           value: value,
           child: Text(
-            value,
+            value.currencyName!,
             style: Get.textTheme.bodyMedium!.copyWith(
               color: Palettes.black,
               fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
@@ -166,7 +170,10 @@ class CustomDropDown extends StatelessWidget {
       icon: const Icon(Icons.arrow_drop_down_sharp),
       style: const TextStyle(color: Colors.deepPurple),
       underline: Container(),
-      onChanged: onChanged,
+      onChanged: (value) {
+        log(value.toString());
+      },
+      // onChanged: onChanged,
     );
   }
 }

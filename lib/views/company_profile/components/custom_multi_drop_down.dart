@@ -1,4 +1,4 @@
-// ignore_for_file: unused_element, unused_field
+// ignore_for_file: unused_element, unused_field, no_logic_in_create_state
 
 import 'dart:developer';
 
@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
+import 'package:neeleez_flutter_app/widgets/global_widget.dart';
 
 class CustomMultiDropDown extends StatefulWidget {
   final TextEditingController? controller;
@@ -62,13 +63,13 @@ class CustomMultiDropDown extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<CustomMultiDropDown> createState() => _CustomMultiDropDownState();
+  State<CustomMultiDropDown> createState() => _CustomMultiDropDownState(selectItem: selectedList);
 }
 
 class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
   List<String>? list;
   List<String>? selectItem = [];
-  _CustomMultiDropDownState();
+  _CustomMultiDropDownState({this.selectItem});
   String? dropdownValue;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final GlobalKey<PopupMenuButtonState> _menuKey = GlobalKey<PopupMenuButtonState>();
@@ -77,33 +78,6 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
   @override
   Widget build(BuildContext context) {
     final button = _showPopupMenu();
-    // _scrollController.addListener(() async {
-    //   if ((_scrollController.position.maxScrollExtent == _scrollController.position.pixels)) {
-    //     log("message");
-    //     // setState(() {
-    //     //   isScroll = false;
-    //     //   page = page! + 1;
-    //     // });
-    //     // final url = '${widget.url}?page=$page&user_id=$userId';
-    //     // final res = await apiRepository.apiGet(url, true);
-    //     // if (res != null) {
-    //     //   MembersData data = MembersData.fromJson(res);
-    //     //   if (mounted) {
-    //     //     setState(
-    //     //       () {
-    //     //         if (memberList!.length < data.members!.toList().length) {
-    //     //           isScroll = true;
-    //     //           memberList = data.members!.toList();
-    //     //         } else {
-    //     //           noMoreData = true;
-    //     //           log('No more Data');
-    //     //         }
-    //     //       },
-    //     //     );
-    //     //   }
-    //     // }
-    //   }
-    // });
     return Container(
       key: _scaffoldKey,
       // key: Key('${widget.name}'),
@@ -154,6 +128,10 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
                   padding: const EdgeInsets.only(right: 10),
                   child: GestureDetector(
                     onTap: () {
+                      if (widget.list!.isEmpty) {
+                        GlobalWidgets.toast('Select business category first.');
+                        return;
+                      }
                       try {
                         final state = _menuKey.currentState;
                         log(state.runtimeType.toString());
@@ -180,9 +158,6 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
                                         ? Flexible(
                                             child: ListView.builder(
                                               controller: _scrollController,
-                                              // addAutomaticKeepAlives: true,
-                                              // addRepaintBoundaries: true,
-                                              // addSemanticIndexes: true,
                                               itemCount: selectItem!.length,
                                               shrinkWrap: true,
                                               scrollDirection: Axis.horizontal,
@@ -213,13 +188,6 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
                                                                 selectItem!.remove(selectItem![index]);
                                                               }
                                                             });
-                                                            // try {
-                                                            //   setState(() {
-                                                            //     _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
-                                                            //   });
-                                                            // } catch (e) {
-                                                            //   log(e.toString());
-                                                            // }
                                                             return widget.onChanged!(selectItem!.toSet().toList());
                                                           },
                                                           child: const Icon(
@@ -273,8 +241,6 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
         minWidth: 78.w,
       ),
       offset: const Offset(15, 0),
-      position: PopupMenuPosition.over,
-      // itemBuilder: (context) => ['Delete', 'Rename', 'Delete', 'Deete', 'Delete', 'Delete']
       itemBuilder: (context) => widget.list!
           .map((e) => PopupMenuItem(
                 onTap: () {
@@ -285,14 +251,11 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
                   });
                   widget.onChanged!(selectItem);
                 },
-                child: SizedBox(
-                  child: Text(
-                    e,
-                    style: Get.textTheme.bodyMedium!.copyWith(
-                      color: Palettes.black,
-                      fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
-                    ),
-                    // style: Get.textTheme.bodyMedium!.copyWith(color: Palettes.black),
+                child: Text(
+                  e,
+                  style: Get.textTheme.bodyMedium!.copyWith(
+                    color: Palettes.black,
+                    fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
                   ),
                 ),
               ))

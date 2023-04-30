@@ -21,61 +21,58 @@ class GeneralInformation {
   final bool? isPromoAvailable;
   final bool? isFreeLancer;
   final SocialMediaInfo? socialMediaInfo;
-  final List<BusinessTypesViewModel>? businessTypesViewModel;
-  final List<dynamic>? amenitiesViewModels;
-
-  const GeneralInformation({
-    this.logo,
-    this.companyNumber,
-    this.nameEn,
-    this.nameAr,
-    this.nameFr,
-    this.tagLine,
-    this.edate,
-    this.genderId,
-    this.gender,
-    this.mobile,
-    this.whatsapp,
-    this.tel1,
-    this.email,
-    this.url,
-    this.aboutUs,
-    this.taxNumber,
-    this.isEmailVerified,
-    this.appMobileVerified,
-    this.webMobileVerified,
-    this.isPromoAvailable,
-    this.isFreeLancer,
-    this.socialMediaInfo,
-    this.businessTypesViewModel,
-    this.amenitiesViewModels,
-  });
-  GeneralInformation copyWith({
-    String? logo,
-    String? companyNumber,
-    String? nameEn,
-    String? nameAr,
-    dynamic? nameFr,
-    String? tagLine,
-    String? edate,
-    int? genderId,
-    dynamic? gender,
-    String? mobile,
-    String? whatsapp,
-    String? tel1,
-    String? email,
-    String? url,
-    String? aboutUs,
-    String? taxNumber,
-    bool? isEmailVerified,
-    bool? appMobileVerified,
-    bool? webMobileVerified,
-    bool? isPromoAvailable,
-    bool? isFreeLancer,
-    SocialMediaInfo? socialMediaInfo,
-    List<BusinessTypesViewModel>? businessTypesViewModel,
-    List<dynamic>? amenitiesViewModels,
-  }) {
+  final List<dynamic>? businessTypesViewModel;
+  final List<AmenitiesViewModels>? amenitiesViewModels;
+  const GeneralInformation(
+      {this.logo,
+      this.companyNumber,
+      this.nameEn,
+      this.nameAr,
+      this.nameFr,
+      this.tagLine,
+      this.edate,
+      this.genderId,
+      this.gender,
+      this.mobile,
+      this.whatsapp,
+      this.tel1,
+      this.email,
+      this.url,
+      this.aboutUs,
+      this.taxNumber,
+      this.isEmailVerified,
+      this.appMobileVerified,
+      this.webMobileVerified,
+      this.isPromoAvailable,
+      this.isFreeLancer,
+      this.socialMediaInfo,
+      this.businessTypesViewModel,
+      this.amenitiesViewModels});
+  GeneralInformation copyWith(
+      {String? logo,
+      String? companyNumber,
+      String? nameEn,
+      String? nameAr,
+      dynamic? nameFr,
+      String? tagLine,
+      String? edate,
+      int? genderId,
+      dynamic? gender,
+      String? mobile,
+      String? whatsapp,
+      String? tel1,
+      String? email,
+      String? url,
+      String? aboutUs,
+      String? taxNumber,
+      bool? isEmailVerified,
+      bool? appMobileVerified,
+      bool? webMobileVerified,
+      bool? isPromoAvailable,
+      bool? isFreeLancer,
+      SocialMediaInfo? socialMediaInfo,
+      List<dynamic>? businessTypesViewModel,
+      List<AmenitiesViewModels>? amenitiesViewModels}) {
     return GeneralInformation(
         logo: logo ?? this.logo,
         companyNumber: companyNumber ?? this.companyNumber,
@@ -127,8 +124,8 @@ class GeneralInformation {
       'isPromoAvailable': isPromoAvailable,
       'isFreeLancer': isFreeLancer,
       'socialMediaInfo': socialMediaInfo?.toJson(),
-      'businessTypesViewModel': businessTypesViewModel?.map<Map<String, dynamic>>((data) => data.toJson()).toList(),
-      'amenitiesViewModels': amenitiesViewModels
+      'businessTypesViewModel': businessTypesViewModel,
+      'amenitiesViewModels': amenitiesViewModels?.map<Map<String, dynamic>>((data) => data.toJson()).toList()
     };
   }
 
@@ -156,39 +153,38 @@ class GeneralInformation {
         isPromoAvailable: json['isPromoAvailable'] == null ? null : json['isPromoAvailable'] as bool,
         isFreeLancer: json['isFreeLancer'] == null ? null : json['isFreeLancer'] as bool,
         socialMediaInfo: json['socialMediaInfo'] == null ? null : SocialMediaInfo.fromJson(json['socialMediaInfo'] as Map<String, Object?>),
-        businessTypesViewModel: json['businessTypesViewModel'] == null
-            ? null
-            : (json['businessTypesViewModel'] as List).map<BusinessTypesViewModel>((data) => BusinessTypesViewModel.fromJson(data as Map<String, Object?>)).toList(),
-        amenitiesViewModels: json['amenitiesViewModels'] == null ? null : json['amenitiesViewModels'] as List<dynamic>);
+        businessTypesViewModel: json['businessTypesViewModel'] == null ? null : json['businessTypesViewModel'] as List<dynamic>,
+        amenitiesViewModels:
+            json['amenitiesViewModels'] == null ? null : (json['amenitiesViewModels'] as List).map<AmenitiesViewModels>((data) => AmenitiesViewModels.fromJson(data as Map<String, Object?>)).toList());
   }
 
   @override
   String toString() {
     return '''GeneralInformation(
                 logo:$logo,
-                companyNumber:$companyNumber,
-                nameEn:$nameEn,
-                nameAr:$nameAr,
-                nameFr:$nameFr,
-                tagLine:$tagLine,
-                edate:$edate,
-                genderId:$genderId,
-                gender:$gender,
-                mobile:$mobile,
-                whatsapp:$whatsapp,
-                tel1:$tel1,
-                email:$email,
-                url:$url,
-                aboutUs:$aboutUs,
-                taxNumber:$taxNumber,
-                isEmailVerified:$isEmailVerified,
-                appMobileVerified:$appMobileVerified,
-                webMobileVerified:$webMobileVerified,
-                isPromoAvailable:$isPromoAvailable,
-                isFreeLancer:$isFreeLancer,
-                socialMediaInfo:${socialMediaInfo.toString()},
-                businessTypesViewModel:${businessTypesViewModel.toString()},
-                amenitiesViewModels:$amenitiesViewModels
+companyNumber:$companyNumber,
+nameEn:$nameEn,
+nameAr:$nameAr,
+nameFr:$nameFr,
+tagLine:$tagLine,
+edate:$edate,
+genderId:$genderId,
+gender:$gender,
+mobile:$mobile,
+whatsapp:$whatsapp,
+tel1:$tel1,
+email:$email,
+url:$url,
+aboutUs:$aboutUs,
+taxNumber:$taxNumber,
+isEmailVerified:$isEmailVerified,
+appMobileVerified:$appMobileVerified,
+webMobileVerified:$webMobileVerified,
+isPromoAvailable:$isPromoAvailable,
+isFreeLancer:$isFreeLancer,
+socialMediaInfo:${socialMediaInfo.toString()},
+businessTypesViewModel:$businessTypesViewModel,
+amenitiesViewModels:${amenitiesViewModels.toString()}
     ) ''';
   }
 
@@ -224,175 +220,100 @@ class GeneralInformation {
 
   @override
   int get hashCode {
-    return Object.hash(
-      runtimeType,
-      logo,
-      companyNumber,
-      nameEn,
-      nameAr,
-      nameFr,
-      tagLine,
-      edate,
-      genderId,
-      gender,
-      mobile,
-      whatsapp,
-      tel1,
-      email,
-      url,
-      aboutUs,
-      taxNumber,
-      isEmailVerified,
-      appMobileVerified,
-      webMobileVerified,
-    );
+    return Object.hash(runtimeType, logo, companyNumber, nameEn, nameAr, nameFr, tagLine, edate, genderId, gender, mobile, whatsapp, tel1, email, url, aboutUs, taxNumber, isEmailVerified,
+        appMobileVerified, webMobileVerified);
   }
 }
 
-class BusinessTypesViewModel {
+class AmenitiesViewModels {
   final int? id;
-  final int? countryId;
-  final int? businessServiceId;
-  final String? businessTypeNameEn;
-  final String? businessTypeNameAr;
-  final String? businessTypeNameFr;
-  final String? businessService;
-  final String? businessServiceAr;
-  final dynamic iconImage;
-  final dynamic isActive;
+  final String? amenityNameEn;
+  final String? amenityNameAr;
+  final String? amenityNameFr;
+  final String? iconImage;
   final int? userId;
-  const BusinessTypesViewModel(
-      {this.id,
-      this.countryId,
-      this.businessServiceId,
-      this.businessTypeNameEn,
-      this.businessTypeNameAr,
-      this.businessTypeNameFr,
-      this.businessService,
-      this.businessServiceAr,
-      this.iconImage,
-      this.isActive,
-      this.userId});
-  BusinessTypesViewModel copyWith(
-      {int? id,
-      int? countryId,
-      int? businessServiceId,
-      String? businessTypeNameEn,
-      String? businessTypeNameAr,
-      String? businessTypeNameFr,
-      String? businessService,
-      String? businessServiceAr,
-      dynamic? iconImage,
-      dynamic? isActive,
-      int? userId}) {
-    return BusinessTypesViewModel(
+  final dynamic isActive;
+  final dynamic stateDate;
+  const AmenitiesViewModels({this.id, this.amenityNameEn, this.amenityNameAr, this.amenityNameFr, this.iconImage, this.userId, this.isActive, this.stateDate});
+  AmenitiesViewModels copyWith({int? id, String? amenityNameEn, String? amenityNameAr, String? amenityNameFr, String? iconImage, int? userId, dynamic? isActive, dynamic? stateDate}) {
+    return AmenitiesViewModels(
         id: id ?? this.id,
-        countryId: countryId ?? this.countryId,
-        businessServiceId: businessServiceId ?? this.businessServiceId,
-        businessTypeNameEn: businessTypeNameEn ?? this.businessTypeNameEn,
-        businessTypeNameAr: businessTypeNameAr ?? this.businessTypeNameAr,
-        businessTypeNameFr: businessTypeNameFr ?? this.businessTypeNameFr,
-        businessService: businessService ?? this.businessService,
-        businessServiceAr: businessServiceAr ?? this.businessServiceAr,
+        amenityNameEn: amenityNameEn ?? this.amenityNameEn,
+        amenityNameAr: amenityNameAr ?? this.amenityNameAr,
+        amenityNameFr: amenityNameFr ?? this.amenityNameFr,
         iconImage: iconImage ?? this.iconImage,
+        userId: userId ?? this.userId,
         isActive: isActive ?? this.isActive,
-        userId: userId ?? this.userId);
+        stateDate: stateDate ?? this.stateDate);
   }
 
   Map<String, Object?> toJson() {
     return {
       'id': id,
-      'countryId': countryId,
-      'businessServiceId': businessServiceId,
-      'businessTypeNameEn': businessTypeNameEn,
-      'businessTypeNameAr': businessTypeNameAr,
-      'businessTypeNameFr': businessTypeNameFr,
-      'businessService': businessService,
-      'businessServiceAr': businessServiceAr,
+      'amenityNameEn': amenityNameEn,
+      'amenityNameAr': amenityNameAr,
+      'amenityNameFr': amenityNameFr,
       'iconImage': iconImage,
+      'userId': userId,
       'isActive': isActive,
-      'userId': userId
+      'stateDate': stateDate
     };
   }
 
-  static BusinessTypesViewModel fromJson(Map<String, Object?> json) {
-    return BusinessTypesViewModel(
+  static AmenitiesViewModels fromJson(Map<String, Object?> json) {
+    return AmenitiesViewModels(
         id: json['id'] == null ? null : json['id'] as int,
-        countryId: json['countryId'] == null ? null : json['countryId'] as int,
-        businessServiceId: json['businessServiceId'] == null ? null : json['businessServiceId'] as int,
-        businessTypeNameEn: json['businessTypeNameEn'] == null ? null : json['businessTypeNameEn'] as String,
-        businessTypeNameAr: json['businessTypeNameAr'] == null ? null : json['businessTypeNameAr'] as String,
-        businessTypeNameFr: json['businessTypeNameFr'] == null ? null : json['businessTypeNameFr'] as String,
-        businessService: json['businessService'] == null ? null : json['businessService'] as String,
-        businessServiceAr: json['businessServiceAr'] == null ? null : json['businessServiceAr'] as String,
-        iconImage: json['iconImage'] as dynamic,
+        amenityNameEn: json['amenityNameEn'] == null ? null : json['amenityNameEn'] as String,
+        amenityNameAr: json['amenityNameAr'] == null ? null : json['amenityNameAr'] as String,
+        amenityNameFr: json['amenityNameFr'] == null ? null : json['amenityNameFr'] as String,
+        iconImage: json['iconImage'] == null ? null : json['iconImage'] as String,
+        userId: json['userId'] == null ? null : json['userId'] as int,
         isActive: json['isActive'] as dynamic,
-        userId: json['userId'] == null ? null : json['userId'] as int);
+        stateDate: json['stateDate'] as dynamic);
   }
 
   @override
   String toString() {
-    return '''BusinessTypesViewModel(
+    return '''AmenitiesViewModels(
                 id:$id,
-                countryId:$countryId,
-                businessServiceId:$businessServiceId,
-                businessTypeNameEn:$businessTypeNameEn,
-                businessTypeNameAr:$businessTypeNameAr,
-                businessTypeNameFr:$businessTypeNameFr,
-                businessService:$businessService,
-                businessServiceAr:$businessServiceAr,
-                iconImage:$iconImage,
-                isActive:$isActive,
-                userId:$userId
+amenityNameEn:$amenityNameEn,
+amenityNameAr:$amenityNameAr,
+amenityNameFr:$amenityNameFr,
+iconImage:$iconImage,
+userId:$userId,
+isActive:$isActive,
+stateDate:$stateDate
     ) ''';
   }
 
   @override
   bool operator ==(Object other) {
-    return other is BusinessTypesViewModel &&
+    return other is AmenitiesViewModels &&
         other.runtimeType == runtimeType &&
         other.id == id &&
-        other.countryId == countryId &&
-        other.businessServiceId == businessServiceId &&
-        other.businessTypeNameEn == businessTypeNameEn &&
-        other.businessTypeNameAr == businessTypeNameAr &&
-        other.businessTypeNameFr == businessTypeNameFr &&
-        other.businessService == businessService &&
-        other.businessServiceAr == businessServiceAr &&
+        other.amenityNameEn == amenityNameEn &&
+        other.amenityNameAr == amenityNameAr &&
+        other.amenityNameFr == amenityNameFr &&
         other.iconImage == iconImage &&
+        other.userId == userId &&
         other.isActive == isActive &&
-        other.userId == userId;
+        other.stateDate == stateDate;
   }
 
   @override
   int get hashCode {
-    return Object.hash(runtimeType, id, countryId, businessServiceId, businessTypeNameEn, businessTypeNameAr, businessTypeNameFr, businessService, businessServiceAr, iconImage, isActive, userId);
+    return Object.hash(runtimeType, id, amenityNameEn, amenityNameAr, amenityNameFr, iconImage, userId, isActive, stateDate);
   }
 }
 
 class SocialMediaInfo {
-  final dynamic facebook;
-  final dynamic instagram;
-  final dynamic twitter;
-  final dynamic linkedIn;
-  const SocialMediaInfo({
-    this.facebook,
-    this.instagram,
-    this.twitter,
-    this.linkedIn,
-  });
-  SocialMediaInfo copyWith({
-    dynamic? facebook,
-    dynamic? instagram,
-    dynamic? twitter,
-    dynamic? linkedIn,
-  }) {
-    return SocialMediaInfo(
-      facebook: facebook ?? this.facebook,
-      instagram: instagram ?? this.instagram,
-      twitter: twitter ?? this.twitter,
-      linkedIn: linkedIn ?? this.linkedIn,
-    );
+  final String? facebook;
+  final String? instagram;
+  final String? twitter;
+  final String? linkedIn;
+  const SocialMediaInfo({this.facebook, this.instagram, this.twitter, this.linkedIn});
+  SocialMediaInfo copyWith({String? facebook, String? instagram, String? twitter, String? linkedIn}) {
+    return SocialMediaInfo(facebook: facebook ?? this.facebook, instagram: instagram ?? this.instagram, twitter: twitter ?? this.twitter, linkedIn: linkedIn ?? this.linkedIn);
   }
 
   Map<String, Object?> toJson() {
@@ -400,16 +321,20 @@ class SocialMediaInfo {
   }
 
   static SocialMediaInfo fromJson(Map<String, Object?> json) {
-    return SocialMediaInfo(facebook: json['facebook'] as dynamic, instagram: json['instagram'] as dynamic, twitter: json['twitter'] as dynamic, linkedIn: json['linkedIn'] as dynamic);
+    return SocialMediaInfo(
+        facebook: json['facebook'] == null ? null : json['facebook'] as String,
+        instagram: json['instagram'] == null ? null : json['instagram'] as String,
+        twitter: json['twitter'] == null ? null : json['twitter'] as String,
+        linkedIn: json['linkedIn'] == null ? null : json['linkedIn'] as String);
   }
 
   @override
   String toString() {
     return '''SocialMediaInfo(
-              facebook:$facebook,
-              instagram:$instagram,
-              twitter:$twitter,
-              linkedIn:$linkedIn
+                facebook:$facebook,
+instagram:$instagram,
+twitter:$twitter,
+linkedIn:$linkedIn
     ) ''';
   }
 
@@ -420,12 +345,6 @@ class SocialMediaInfo {
 
   @override
   int get hashCode {
-    return Object.hash(
-      runtimeType,
-      facebook,
-      instagram,
-      twitter,
-      linkedIn,
-    );
+    return Object.hash(runtimeType, facebook, instagram, twitter, linkedIn);
   }
 }

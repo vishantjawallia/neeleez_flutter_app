@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -5,11 +7,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 
+import '../../../models/company/company_profile.dart';
+
 class FileSection extends StatefulWidget {
   final void Function(File? file) onUploadMedia;
+  final List<CompanyImages>? companyImages;
   const FileSection({
     Key? key,
     required this.onUploadMedia,
+    this.companyImages,
   }) : super(key: key);
 
   @override
@@ -36,53 +42,55 @@ class _SocialMediaState extends State<FileSection> {
               style: Get.textTheme.titleLarge!.copyWith(fontWeight: FontWeight.w500, color: Palettes.black),
               textAlign: TextAlign.center,
             ),
-            ListView.builder(
-              itemCount: 10,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              padding: const EdgeInsets.only(top: 4, bottom: 20),
-              itemBuilder: (context, index) {
-                return Stack(
-                  children: [
-                    Container(
-                      height: 240,
-                      padding: const EdgeInsets.symmetric(horizontal: 50),
-                      margin: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Palettes.primary),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      width: double.infinity,
-                      child: CachedNetworkImage(
-                        imageUrl: '',
-                        fit: BoxFit.fill,
-                        progressIndicatorBuilder: (context, url, progress) {
-                          return const Center(child: CircularProgressIndicator());
-                        },
-                        errorWidget: (context, url, error) => Container(
-                          color: Palettes.grey2,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      top: 4,
-                      right: 4,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(100),
-                        child: Container(
-                          color: Palettes.white,
-                          child: const Icon(
-                            Icons.cancel,
-                            color: Palettes.red,
-                            size: 30,
+            widget.companyImages != null
+                ? ListView.builder(
+                    itemCount: widget.companyImages!.length,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding: const EdgeInsets.only(top: 4, bottom: 20),
+                    itemBuilder: (context, index) {
+                      return Stack(
+                        children: [
+                          Container(
+                            height: 240,
+                            padding: const EdgeInsets.symmetric(horizontal: 50),
+                            margin: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Palettes.primary),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            width: double.infinity,
+                            child: CachedNetworkImage(
+                              imageUrl: '${widget.companyImages![index].image}',
+                              fit: BoxFit.fill,
+                              progressIndicatorBuilder: (context, url, progress) {
+                                return const Center(child: CircularProgressIndicator());
+                              },
+                              errorWidget: (context, url, error) => Container(
+                                color: Palettes.grey2,
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ],
-                );
-              },
-            )
+                          Positioned(
+                            top: 4,
+                            right: 4,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: Container(
+                                color: Palettes.white,
+                                child: const Icon(
+                                  Icons.cancel,
+                                  color: Palettes.red,
+                                  size: 30,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  )
+                : const SizedBox(),
           ],
         ),
       ),
