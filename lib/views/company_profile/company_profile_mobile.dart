@@ -96,6 +96,7 @@ class _CompanyProfileMobile extends StatelessWidget {
                         onContactSave: viewModel.onContactSave,
                       ),
                       BusinessHours(
+                        timings:viewModel.timings,
                         onBusinessHoursSave: viewModel.onBusinessHoursSave,
                       ),
                       Packages(

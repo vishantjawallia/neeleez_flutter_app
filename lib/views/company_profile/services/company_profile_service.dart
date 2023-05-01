@@ -19,6 +19,7 @@ import '../../../models/company/companies.dart';
 import '../../../models/company/company_profile.dart';
 import '../../../models/company/designation.dart';
 import '../../../models/company/provinces.dart';
+import '../../../models/company/timing.dart';
 
 class CompanyProfileService {
   Future<List<Gender>?> getGenders() async {
@@ -222,6 +223,19 @@ class CompanyProfileService {
   Future<void> getContactPersonInfo(
     String companyId,
   ) async {
+    //     {
+    //     "id": 3240,
+    //     "nameEn": "Raheel Lodhi",
+    //     "nameAr": "",
+    //     "email": "raheel@ymail.com",
+    //     "mobile": "212700313000",
+    //     "whatsApp": "",
+    //     "tel": "",
+    //     "designation": "",
+    //     "department": "",
+    //     "designationId": 0,
+    //     "departmentId": 0
+    // }
     try {
       final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/ContactPersonInfo/$companyId");
       log(res.toString());
@@ -240,7 +254,7 @@ class CompanyProfileService {
     String companyId,
   ) async {
     try {
-      final res = await apiRepository.apiGet("$baseUrl//api/CompanyProfile/TimingInformation/$companyId");
+      final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/TimingInformation/$companyId");
       log(res.toString());
       if (res != null) {
         return;
@@ -251,6 +265,22 @@ class CompanyProfileService {
       log("regionInformation========>$e");
     }
     return;
+  }
+
+  Future<List<CompanyTimings>?> getCompanyTimings(
+    String companyId,
+  ) async {
+    try {
+      final res = await apiRepository.apiGet("$baseUrl/api/CompanyTimings/$companyId");
+      log(res.toString());
+      if (res != null) {
+        return CompanyTimings.fromJsonList(res);
+      }
+    } catch (e) {
+      log(e.toString());
+      log("regionInformation========>$e");
+    }
+    return null;
   }
 
   Future<List<CompanyProfileImage>?> companyProfileImage(

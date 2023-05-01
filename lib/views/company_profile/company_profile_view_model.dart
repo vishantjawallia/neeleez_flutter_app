@@ -9,6 +9,7 @@ import 'package:neeleez_flutter_app/config/pref_constant.dart';
 import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/models/amenities/amenities.dart';
 import 'package:neeleez_flutter_app/models/company/provinces.dart';
+import 'package:neeleez_flutter_app/models/company/timing.dart';
 import 'package:neeleez_flutter_app/models/user_data.dart';
 import 'package:neeleez_flutter_app/views/company_profile/services/company_profile_service.dart';
 import 'package:stacked/stacked.dart';
@@ -26,7 +27,9 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   String? countryId = SharedPreferenceHelper.getString(Preferences.countryId);
   GeneralInformation? genInfo;
   cm.CompanyProfile? cp;
+
   List<Countries>? countries;
+  List<CompanyTimings>? timings;
 
   TextEditingController companyNameController = TextEditingController();
   TextEditingController taglineController = TextEditingController();
@@ -109,6 +112,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     setBusy(true);
     genInfo = await generalInformationWithCompanyId(companyId!);
     cp = await getRegionInformation(companyId!);
+
     List<Gender> gender = await getGenders() ?? [];
     serviceForList = gender.isNotEmpty ? gender.map<String>((e) => e.genderEn!).toList() : [];
     //
@@ -256,7 +260,12 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
 
   void contactPersonInfoData() {}
 
-  void businessHoursData() {}
+  void businessHoursData() async {
+    setBusy(true);
+    timings = await getCompanyTimings(companyId!);
+    setBusy(false);
+    notifyListeners();
+  }
 
   void packagesData() {}
 
