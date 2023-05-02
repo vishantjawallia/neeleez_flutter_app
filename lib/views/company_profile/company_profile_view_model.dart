@@ -30,6 +30,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
 
   List<Countries>? countries;
   List<CompanyTimings>? timings;
+  // List<CompanyTimings>? timings;
 
   TextEditingController companyNameController = TextEditingController();
   TextEditingController taglineController = TextEditingController();
@@ -77,13 +78,15 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
 
   String? serviceForValue;
 
-  int tabIndex = 0;
+  int tabIndex = 4;
 
   ///
   List<BusinessServicesByCountry> businessCategory = [];
   List<BusinessTypes> businessSubCategory = [];
 
   FocusNode? businessCategoryFocus;
+
+  List<int> closedTimingList = [];
 
   CompanyProfileViewModel({this.user}) {
     companyNameController.addListener(() => notifyListeners());
@@ -104,7 +107,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     mobileNoController.addListener(() => notifyListeners());
     countryCodeController.addListener(() => notifyListeners());
     // onTabChanged(tabIndex);
-    loadItems();
+    // loadItems();
   }
 
   // Add ViewModel specific code here
@@ -263,6 +266,12 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   void businessHoursData() async {
     setBusy(true);
     timings = await getCompanyTimings(companyId!);
+    for (CompanyTimings element in timings!) {
+      if (element.defaultIsHoliday!) {
+        closedTimingList.add(element.id!);
+      }
+    }
+    // closedTimingList=timings!.map((e) => e.).t
     setBusy(false);
     notifyListeners();
   }
@@ -363,5 +372,25 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
 
   void countryOnChange(value) {
     log(value);
+  }
+
+  void onCloseTap() {}
+
+  void onEndTimingTap() {}
+
+  void onStartTimingTap() {}
+
+  void onOpenTap() {}
+
+  void onIconTap(CompanyTimes value) {
+    for (var i = 0; i < timings!.length; i++) {
+      for (var j = 0; j < timings![i].companyDayDetailViewModels!.length; j++) {
+        // if()
+      }
+    }
+// List<CompanyDayDetailViewModels> tim = ...timings!.map((e) => e.companyDayDetailViewModels!).t;
+    // final tim2 = tim.firstWhere((e) => e.first.)
+
+    // if (value.length == 3) return;
   }
 }

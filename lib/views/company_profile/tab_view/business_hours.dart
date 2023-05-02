@@ -4,18 +4,30 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
-import 'package:neeleez_flutter_app/views/company_profile/components/timimg_widget.dart';
 import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 
 import '../../../models/company/timing.dart';
+import '../widgets/timing_box.dart';
 
 class BusinessHours extends StatefulWidget {
   final void Function()? onBusinessHoursSave;
   List<CompanyTimings>? timings;
+  final List<int>? closedTimingList;
+  final void Function()? onStartTimingTap;
+  final void Function()? onEndTimingTap;
+  final void Function()? onCloseTap;
+  final void Function()? onOpenTap;
+  final void Function(CompanyTimes value)? onIconTap;
   BusinessHours({
     Key? key,
     required this.onBusinessHoursSave,
     required this.timings,
+    required this.closedTimingList,
+    required this.onStartTimingTap,
+    required this.onEndTimingTap,
+    required this.onCloseTap,
+    required this.onOpenTap,
+    required this.onIconTap,
   }) : super(key: key);
 
   @override
@@ -23,6 +35,7 @@ class BusinessHours extends StatefulWidget {
 }
 
 class _SocialMediaState extends State<BusinessHours> {
+  List<CompanyTimings>? timings;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -115,12 +128,86 @@ class _SocialMediaState extends State<BusinessHours> {
                     ],
                   ),
                 ),
-                ...widget.timings!.map((e) {
-                  return TimingWidget(
-                    name: e.dow,
-                  
-                  );
-                }).toList(),
+                ...(widget.timings ?? []).map(
+                  (x) {
+                    return Column(
+                      children: x.companyDayDetailViewModels!.map(
+                        (y) {
+                          return TimingBox(
+                              closedTimingList: widget.closedTimingList,
+                              obj: y,
+                              text: y.dow,
+                              switchValue: y.isHoliday,
+                              onSwitchChange: (value) {},
+                              items:
+                                  // tt.isEmpty && tt.map<int>((e) => e.companyId!).toList().contains(y.companyId)
+                                  // ?
+                                  y.companyTimes!.map(
+                                (e) {
+                                  return TimingBoxItem(
+                                    isHoliday: y.isHoliday!,
+                                    onStartTimingTap: () {},
+                                    onEndTimingTap: () {},
+                                    endTiming: "${e.endHour}:00",
+                                    icon: y.companyTimes!.first.id == e.id,
+                                    startTiming: "${e.startHour}:00",
+                                    onIconTap: () => widget.onIconTap!(e),
+                                  );
+                                },
+                              ).toList()
+                              // : [
+                              //     ...y.companyTimes!.map(
+                              //       (e) {
+                              //         return TimingBoxItem(
+                              //           isHoliday: y.isHoliday!,
+                              //           onStartTimingTap: () {},
+                              //           onEndTimingTap: () {},
+                              //           endTiming: "${e.endHour}:00",
+                              //           icon: y.companyTimes!.first.id == e.id,
+                              //           startTiming: "${e.startHour}:00",
+
+                              //           onIconTap: () {},
+                              //           // onIconTap: () => widget.onIconTap!(y.companyTimes!),
+                              //         );
+                              //       },
+                              //     ).toList(),
+                              //     ...tt.map((e) {
+                              //       return TimingBoxItem(
+                              //         isHoliday: y.isHoliday!,
+                              //         onStartTimingTap: () {},
+                              //         onEndTimingTap: () {},
+                              //         endTiming: "${e.endHour}:00",
+                              //         icon: false,
+                              //         startTiming: "${e.startHour}:00",
+                              //         onIconTap: () {
+                              //           if (y.companyTimes!.length == 3) return;
+                              //         },
+                              //       );
+                              //     }).toList(),
+                              //   ],
+
+                              // ...tt.map((e) {
+                              //   return e.companyId == y.companyId
+                              //       ? TimingBoxItem(
+                              //           isHoliday: y.isHoliday!,
+                              //           onStartTimingTap: () {},
+                              //           onEndTimingTap: () {},
+                              //           endTiming: "${e.endHour}:00",
+                              //           icon: false,
+                              //           startTiming: "${e.startHour}:00",
+                              //           onIconTap: () {
+                              //             if (y.companyTimes!.length == 3) return;
+                              //           },
+                              //         )
+                              //       : ;
+                              // }).toList(),
+                              // ],
+                              );
+                        },
+                      ).toList(),
+                    );
+                  },
+                ).toList(),
               ],
             ),
             const SizedBox(height: 20),
