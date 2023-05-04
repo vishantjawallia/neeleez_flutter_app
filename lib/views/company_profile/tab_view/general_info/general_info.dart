@@ -34,6 +34,7 @@ class GeneralInfo extends StatelessWidget {
   final String? busCatValue;
   final List<String>? businessCategoryList;
   final void Function(String? value)? busCatOnChange;
+  final FocusNode? busCatOnFocus;
   //
   final String? serviceForValue;
   final List<String>? serviceForList;
@@ -74,6 +75,7 @@ class GeneralInfo extends StatelessWidget {
     required this.companyEstablishmentYearDate,
     required this.serviceForOnChange,
     required this.busCatOnChange,
+    required this.busCatOnFocus,
     required this.busSubCatSelectedOnChange,
     required this.busCatValue,
     required this.serviceForValue,
@@ -376,6 +378,7 @@ class GeneralInfo extends StatelessWidget {
             textAlign: TextAlign.right,
           ),
           CustomDropDown(
+            focusNode: busCatOnFocus,
             name: 'Business Category',
             value: busCatValue,
             prefixIconPath: MyIcon.portfolio,

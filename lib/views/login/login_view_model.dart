@@ -8,13 +8,14 @@ import 'package:neeleez_flutter_app/api/apiRepository.dart';
 import 'package:neeleez_flutter_app/config/pref_constant.dart';
 import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/models/user_data.dart';
-import 'package:neeleez_flutter_app/views/forget_password/forget_password_view.dart';
+// import 'package:neeleez_flutter_app/views/forget_password/forget_password_view.dart';
 import 'package:neeleez_flutter_app/views/mobile_verification/mobile_verification_view.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../components/dailogs/warning_popup.dart';
 import '../../config/config.dart';
 import '../dashboard/dashboard_view.dart';
+import '../forget_password/forget_password_view.dart';
 
 class LoginViewModel extends BaseViewModel {
   bool rememberMe = false;

@@ -6,15 +6,20 @@ import 'package:neeleez_flutter_app/components/dailogs/logout_popup.dart';
 import 'package:neeleez_flutter_app/config/pref_constant.dart';
 import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/models/user_data.dart';
+import 'package:neeleez_flutter_app/views/company_profile/company_profile_view.dart';
+import 'package:neeleez_flutter_app/views/company_profile/services/company_profile_service.dart';
 import 'package:neeleez_flutter_app/views/dashboard/service/dashboard_service.dart';
 import 'package:neeleez_flutter_app/views/notifications/notifications_view.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../components/dailogs/language_popup.dart';
+import '../../models/amenities/amenities.dart';
+import '../../models/business_types/business_services_by_country.dart';
 import '../../models/company/company_all_data.dart';
 import '../../models/company/company_dashboard.dart';
+import '../../models/gender/gender.dart';
 
-class DashboardViewModel extends BaseViewModel with DashboardService {
+class DashboardViewModel extends BaseViewModel with DashboardService, CompanyProfileService {
   //get
   // UserData? get user => userData;
   CompanyAllData? companyAllData;
@@ -47,13 +52,27 @@ class DashboardViewModel extends BaseViewModel with DashboardService {
     notifyListeners();
   }
 
-  void onDrawerItemTap(context, Map obj) {
+  void onDrawerItemTap(context, Map obj) async {
     if (obj['id'] == 15) {
       logoutPopup(context);
     } else {
       if (obj['route'].runtimeType != String) {
         Widget hh = obj['route'] as Widget;
-        Get.to(() => hh);
+        if (hh is CompanyProfileView) {
+          setBusy(true);
+          List<Gender> genders = await getGenders() ?? [];
+          List<Amenities> amentias = await getAmenities() ?? [];
+          List<BusinessServicesByCountry>? businessCategory = await getBusinessCategory('143') ?? [];
+          setBusy(false);
+          notifyListeners();
+          Get.to(() => CompanyProfileView(
+                user: userData,
+                amentiasList: amentias,
+                businessCategoryList: businessCategory,
+                serviceForList: genders,
+              ));
+        }
+        // Get.to(() => hh);
       }
     }
   }

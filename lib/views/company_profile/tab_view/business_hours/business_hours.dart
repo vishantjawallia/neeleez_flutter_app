@@ -15,12 +15,12 @@ import 'widgets/timing_box.dart';
 // import '../../widgets/timing_box.dart';
 
 class BusinessHours extends StatelessWidget {
-  final Future Function(dynamic body)? onBusinessHoursSave;
+  final void Function(dynamic body)? onBusinessHoursSave;
   List<CompanyTimings>? timings;
   BusinessHours({
     Key? key,
     required this.timings,
-    this.onBusinessHoursSave,
+    required this.onBusinessHoursSave,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -126,51 +126,57 @@ class BusinessHours extends StatelessWidget {
                 ...buss.timings
                     .asMap()
                     .map(
-                      (i, CompanyTimings companyTimings) => MapEntry(
-                        i,
-                        Column(
-                          children: companyTimings.companyDayDetailViewModels!
-                              .asMap()
-                              .map(
-                                (j, CompanyDayDetailViewModels companyDayDetailViewModels) => MapEntry(
-                                  j,
-                                  TimingBox(
-                                    index: j,
-                                    // isClosed: companyDayDetailViewModels.isHoliday!,
-                                    text: companyDayDetailViewModels.dow,
-                                    switchValue: companyDayDetailViewModels.isHoliday,
-                                    onSwitchChange: (value, index) => buss.onSwitchChange(value, i, index),
-                                    items: companyDayDetailViewModels.companyTimes!
-                                        .asMap()
-                                        .map(
-                                          (k, CompanyTimes companyTimes) => MapEntry(
-                                            k,
-                                            TimingBoxItem(
-                                              index: k,
-                                              onStartTimingTap: () => buss.onStartTimingTap(context, companyTimes, k),
-                                              onEndTimingTap: () => buss.onEndTimingTap(context, companyTimes, k),
-                                              endTiming: "${companyTimes.endHour}:00",
-                                              icon: companyDayDetailViewModels.companyTimes!.first.id == companyTimes.id,
-                                              startTiming: "${companyTimes.startHour}:00",
-                                              isHoliday: companyDayDetailViewModels.isHoliday!,
-                                              onAddTap: (index) {
-                                                buss.way2AddList(i, j, k, companyTimes);
-                                              },
-                                              onCloseTap: (index) {
-                                                buss.way2RemoveList(i, j, k);
-                                              },
-                                            ),
+                      (i, CompanyTimings companyTimings) {
+                        if (companyTimings.companyDayDetailViewModels!.isEmpty) {
+                          buss.addSingleEntryInAll(i, companyTimings);
+                        }
+                        return MapEntry(
+                          i,
+                          Column(
+                              children: companyTimings.companyDayDetailViewModels!.isNotEmpty
+                                  ? companyTimings.companyDayDetailViewModels!
+                                      .asMap()
+                                      .map(
+                                        (j, CompanyDayDetailViewModels companyDayDetailViewModels) => MapEntry(
+                                          j,
+                                          TimingBox(
+                                            index: j,
+                                            // isClosed: companyDayDetailViewModels.isHoliday!,
+                                            text: companyDayDetailViewModels.dow,
+                                            switchValue: companyDayDetailViewModels.isHoliday,
+                                            onSwitchChange: (value, index) => buss.onSwitchChange(value, i, index),
+                                            items: companyDayDetailViewModels.companyTimes!
+                                                .asMap()
+                                                .map(
+                                                  (k, CompanyTimes companyTimes) => MapEntry(
+                                                    k,
+                                                    TimingBoxItem(
+                                                      index: k,
+                                                      onStartTimingTap: () => buss.onStartTimingTap(context, companyTimes, i, j, k),
+                                                      onEndTimingTap: () => buss.onEndTimingTap(context, companyTimes, i, j, k),
+                                                      endTiming: "${companyTimes.endHour}:00",
+                                                      icon: companyDayDetailViewModels.companyTimes!.first.id == companyTimes.id,
+                                                      startTiming: "${companyTimes.startHour}:00",
+                                                      isHoliday: companyDayDetailViewModels.isHoliday!,
+                                                      onAddTap: (index) {
+                                                        buss.way2AddList(i, j, k, companyTimes);
+                                                      },
+                                                      onCloseTap: (index) {
+                                                        buss.way2RemoveList(i, j, k);
+                                                      },
+                                                    ),
+                                                  ),
+                                                )
+                                                .values
+                                                .toList(),
                                           ),
-                                        )
-                                        .values
-                                        .toList(),
-                                  ),
-                                ),
-                              )
-                              .values
-                              .toList(),
-                        ),
-                      ),
+                                        ),
+                                      )
+                                      .values
+                                      .toList()
+                                  : []),
+                        );
+                      },
                     )
                     .values
                     .toList(),
@@ -194,8 +200,9 @@ class BusinessHours extends StatelessWidget {
                       kk.add(c.companyDayDetailViewModels![j]);
                     }
                   }
-                  //onBusinessHoursSave()
-
+                  // var mm = (kk);
+                  log(jsonEncode(kk));
+                  // return onBusinessHoursSave!(kk);
 
                   // buss.timings.map((e) {
                   // List<CompanyDayDetailViewModels> kk = [];

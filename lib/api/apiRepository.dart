@@ -92,6 +92,39 @@ class apiRepository {
     }
   }
 
+  /* -------------------------------- Api Post With Dynamic Body------------------------------- */
+  static Future apiPostWithDynamic(
+    String? url,
+    dynamic body, {
+    bool? auth,
+  }) async {
+    try {
+      final response = await http.post(
+        Uri.parse(url!),
+        headers: {
+          'Content-Type': "application/json",
+        },
+        body: json.encode(body!),
+      );
+      log(body.toString());
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return json.decode(response.body);
+      } else if (response.statusCode == 401) {
+        log(response.statusCode.toString());
+        log(url.toString());
+        final obj = json.decode(response.body);
+        throw obj['detail'];
+      } else {
+        log(response.statusCode.toString());
+        log(url.toString());
+        throw "Exception-Occurred";
+      }
+    } on SocketException catch (e) {
+      log('$e');
+      throw "no-internet";
+    }
+  }
+
   /* -------------------------------- Api Get ------------------------------- */
   static Future apiGet(
     String? url, {

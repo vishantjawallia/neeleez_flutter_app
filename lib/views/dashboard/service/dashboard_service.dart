@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'dart:ui';
 
@@ -35,15 +34,15 @@ mixin DashboardService {
   //   }
   // }
 
-  Future<void> postCompanyLogo() async {
-    final res = await apiRepository.apiPost('/api/Companies/CompanyLogo/', {});
-    if (res != null) {
-      log(res);
-      return;
-    } else {
-      return;
-    }
-  }
+  // Future<void> postCompanyLogo() async {
+  //   final res = await apiRepository.apiPost('/api/Companies/CompanyLogo/', {});
+  //   if (res != null) {
+  //     log(res);
+  //     return;
+  //   } else {
+  //     return;
+  //   }
+  // }
 
   Future<CompanyDashBoard?> getCompanyDashBoard() async {
     String? id = SharedPreferenceHelper.getString(Preferences.companyId);

@@ -78,7 +78,7 @@ List drawer = [
   {
     "id": 9,
     "name": "Company Profile",
-    "route": const CompanyProfileView(user: null),
+    "route":  CompanyProfileView(user: null),
     "icon": MyIcon.staffGeneral,
   },
   {

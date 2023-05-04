@@ -29,38 +29,29 @@ class _CompanyProfileMobile extends StatelessWidget {
                       GeneralInfo(
                         isFreelancer: viewModel.isFreelancer,
                         onFreelancerChange: viewModel.onFreelancerChange,
-                        //
                         companyNameController: viewModel.companyNameController,
                         taglineController: viewModel.taglineController,
                         companyEstablishmentYearController: viewModel.companyEstablishmentYearController,
                         additionalInfoController: viewModel.additionalInfoController,
-
-                        //
-                        businessCategoryList: viewModel.businessCategoryList,
+                        businessCategoryList: viewModel.businessCategoryList!.map((e) => e.service!).toList(),
                         busCatValue: viewModel.busCatValue,
                         busCatOnChange: viewModel.busCatOnChange,
-                        // businessCategoryFocus: viewModel.businessCategoryFocus,
-                        //
+                        busCatOnFocus:viewModel.busMyFocusNode,
                         businessSubCategoryList: viewModel.businessSubCategoryList,
                         businessSubCategorySelectedList: viewModel.businessSubCategorySelectedList,
                         busSubCatSelectedOnChange: viewModel.busSubCatSelectedOnChange,
-                        //
-                        serviceForList: viewModel.serviceForList,
+                        serviceForList: viewModel.serviceForList!.map((e) => e.genderEn!).toList(),
                         serviceForValue: viewModel.serviceForValue,
                         serviceForOnChange: viewModel.serviceForOnChange,
-                        //
                         whatsAppNoController: viewModel.whatsAppNoController,
                         telephoneController: viewModel.telephoneController,
                         emailController: viewModel.emailController,
                         websiteController: viewModel.websiteController,
-                        //
-                        amentiasList: viewModel.amentiasList,
+                        amentiasList: viewModel.amentiasList!.map((e) => e.amenityNameEn!).toList(),
                         amentiasSelectedList: viewModel.amentiasSelectedList,
                         amentiasOnChange: viewModel.amentiasOnChange,
-                        //
                         companyEstablishmentYearDate: viewModel.companyEstablishmentYearDate,
                         copEstabYearOnTap: viewModel.copEstabYearOnTap,
-                        //
                         onSave: viewModel.onGeneralSave,
                       ),
                       SocialMedia(
@@ -97,6 +88,7 @@ class _CompanyProfileMobile extends StatelessWidget {
                       ),
                       BusinessHours(
                         timings: viewModel.timings,
+                        onBusinessHoursSave: viewModel.onBusinessHoursSave,
                         // onBusinessHoursSave: viewModel.onBusinessHoursSave,
                         // closedTimingList: viewModel.closedTimingList,
                         // onCloseTap: viewModel.onCloseTap,

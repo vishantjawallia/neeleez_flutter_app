@@ -144,6 +144,14 @@ class CompanyDayDetailViewModels {
         companyTimes: json['companyTimes'] == null ? null : (json['companyTimes'] as List).map<CompanyTimes>((data) => CompanyTimes.fromJson(data as Map<String, Object?>)).toList());
   }
 
+  static List<CompanyDayDetailViewModels> fromJsonList(dynamic json) {
+    List<CompanyDayDetailViewModels> data = [];
+    for (Map<String, dynamic> element in json) {
+      data.add(CompanyDayDetailViewModels.fromJson(element));
+    }
+    return data;
+  }
+
   @override
   String toString() {
     return '''CompanyDayDetailViewModels(

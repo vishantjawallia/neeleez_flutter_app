@@ -44,6 +44,24 @@ class BusinessHoursProvider extends ChangeNotifier {
     }
   }
 
+  void addStartingTime(int companyTimingsIndex, int companyDayDetailViewModelsIndex, int companyTimesIndex, CompanyTimes obj) async {
+    List<CompanyTimings> ctL = [];
+    CompanyTimings ct = timings[companyTimingsIndex];
+    List<CompanyDayDetailViewModels> cdL = timings[companyTimingsIndex].companyDayDetailViewModels!;
+    CompanyDayDetailViewModels cd = timings[companyTimingsIndex].companyDayDetailViewModels![companyDayDetailViewModelsIndex];
+    List<CompanyTimes> cL = timings[companyTimingsIndex].companyDayDetailViewModels![companyDayDetailViewModelsIndex].companyTimes!;
+    CompanyTimes cc = obj;
+    if (!(cL.length >= 3)) {
+      cL.replaceRange(companyTimesIndex, companyTimesIndex + 1, [obj]);
+      // cd.companyTimes != cL;
+      // ct.companyDayDetailViewModels!.replaceRange(companyDayDetailViewModelsIndex, companyDayDetailViewModelsIndex + 1, [cd]);
+      ct.companyDayDetailViewModels != cdL;
+
+      timings.replaceRange(companyTimingsIndex, companyTimingsIndex + 1, [ct]);
+      notifyListeners();
+    }
+  }
+
   void way2RemoveList(int iX, int iY, int iZ) {
     List<CompanyTimings> ctL = [];
     CompanyTimings ct = timings[iX];
@@ -61,7 +79,7 @@ class BusinessHoursProvider extends ChangeNotifier {
     }
   }
 
-  void onStartTimingTap(_, CompanyTimes companyTimes, index) async {
+  void onStartTimingTap(_, CompanyTimes companyTimes, i, j, k) async {
     final TimeOfDay? picked = await showTimePicker(
       context: _,
       initialTime: TimeOfDay.now(),
@@ -73,9 +91,17 @@ class BusinessHoursProvider extends ChangeNotifier {
         );
       },
     );
+    if (picked != null) {
+      CompanyTimes ct = companyTimes.copyWith(
+        startHour: picked.hour,
+        startMinute: picked.minute,
+      );
+      addStartingTime(i, j, k, ct);
+      // log(picked.toString());
+    }
   }
 
-  onEndTimingTap(_, CompanyTimes companyTimes, index) async {
+  onEndTimingTap(_, CompanyTimes companyTimes, i, j, k) async {
     final TimeOfDay? picked = await showTimePicker(
       context: _,
       initialTime: TimeOfDay.now(),
@@ -87,6 +113,14 @@ class BusinessHoursProvider extends ChangeNotifier {
         );
       },
     );
+    if (picked != null) {
+      CompanyTimes ct = companyTimes.copyWith(
+        endHour: picked.hour,
+        endMinute: picked.minute,
+      );
+      addStartingTime(i, j, k, ct);
+      // log(picked.toString());
+    }
   }
 
   void onSwitchChange(bool? value, int i, int j) {
@@ -104,5 +138,31 @@ class BusinessHoursProvider extends ChangeNotifier {
     timings.replaceRange(i, i + 1, [ct]);
     notifyListeners();
     // }
+  }
+
+  void addSingleEntryInAll(int i, CompanyTimings companyTimes) {
+    List<CompanyTimings> ctL = [];
+    CompanyTimings ct = timings[i];
+    List<CompanyDayDetailViewModels> cdL = timings[i].companyDayDetailViewModels!;
+    if (cdL.isEmpty) {
+      CompanyDayDetailViewModels ccc = CompanyDayDetailViewModels(
+        dow: companyTimes.dow,
+        dowId: companyTimes.id,
+        dowShort: companyTimes.dowShort,
+        isOpen24Hours: companyTimes.defaultIsOpen24Hours,
+        isHoliday: companyTimes.defaultIsHoliday,
+        companyTimes: [
+          const CompanyTimes(
+            //  companyId: ,
+            endHour: 20,
+            endMinute: 0,
+            startMinute: 0,
+            startHour: 9,
+          ),
+        ],
+      );
+      cdL.add(ccc);
+      notifyListeners();
+    }
   }
 }

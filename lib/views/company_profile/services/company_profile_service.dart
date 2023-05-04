@@ -21,7 +21,7 @@ import '../../../models/company/designation.dart';
 import '../../../models/company/provinces.dart';
 import '../../../models/company/timing.dart';
 
-class CompanyProfileService {
+mixin CompanyProfileService {
   Future<List<Gender>?> getGenders() async {
     try {
       final res = await apiRepository.apiGet(Url.Genders);
@@ -279,6 +279,23 @@ class CompanyProfileService {
     } catch (e) {
       log(e.toString());
       log("regionInformation========>$e");
+    }
+    return null;
+  }
+
+  Future<List<CompanyDayDetailViewModels>?> postCompanyTimings(
+    String companyId,
+    dynamic companyDayDetailViewModels,
+  ) async {
+    try {
+      final res = await apiRepository.apiPostWithDynamic("$baseUrl/api/CompanyTimings/$companyId", companyDayDetailViewModels);
+      log(res.toString());
+      if (res != null) {
+        return CompanyDayDetailViewModels.fromJsonList(res);
+      }
+    } catch (e) {
+      log(e.toString());
+      log("postCompanyTimings========>$e");
     }
     return null;
   }
