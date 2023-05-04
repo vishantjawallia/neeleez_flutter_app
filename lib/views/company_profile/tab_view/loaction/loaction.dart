@@ -1,10 +1,11 @@
-// ignore_for_file: unused_field, prefer_final_fields
+// ignore_for_file: unused_field, prefer_final_fields, null_check_always_fails, unnecessary_null_in_if_null_operators
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
+import 'package:neeleez_flutter_app/models/company/region_Info.dart';
 import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down.dart';
 
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
@@ -17,14 +18,16 @@ import 'widgets/country_drop_down.dart';
 
 class Location extends StatelessWidget {
   final List<Countries>? countryList;
-  Location({
+  final RegionInformation? regionInfo;
+  final TextEditingController? googleAddressController;
+  final TextEditingController? additionalAddressController;
+  const Location({
     super.key,
     required this.countryList,
+    this.regionInfo,
+    this.googleAddressController,
+    this.additionalAddressController,
   });
-
-  TextEditingController _google = TextEditingController();
-
-  TextEditingController _addr = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -69,11 +72,12 @@ class Location extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
             CountryDropDown(
-              urlImage: loaction.obj?.iconImage2 ?? "",
-              onChanged: loaction.onCountryChange,
-              list: countryList,
+              value: loaction.country?.nameEn,
+              urlImage: loaction.country?.iconImage2 ?? "",
+              list: countryList ?? [],
               name: 'Country',
               prefixIconPath: MyIcon.place,
+              onChanged: loaction.onCountryChange,
             ),
             const SizedBox(height: 14),
             Text(
@@ -82,11 +86,12 @@ class Location extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
             CustomDropDown(
-              value: '',
-              list: const [],
+              loading: loaction.loadingC,
+              value: loaction.province?.provinceNameEn ?? null,
+              list: (loaction.provinces ?? []).map((e) => e.provinceNameEn!).toList(),
               name: 'State/Province',
               prefixIconPath: MyIcon.imgLocationState,
-              onChanged: (value) {},
+              onChanged: loaction.onStateChanged,
             ),
             const SizedBox(height: 14),
             Text(
@@ -95,11 +100,12 @@ class Location extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
             CustomDropDown(
-              list: const [],
-              value: '',
+              loading: loaction.loadingP,
+              value: loaction.city?.cityNameEn ?? null,
+              list: (loaction.cities ?? []).map((e) => e.cityNameEn!).toList(),
               name: 'City',
               prefixIconPath: MyIcon.imgLocationCity,
-              onChanged: (value) {},
+              onChanged: loaction.onCityChanged,
             ),
             const SizedBox(height: 14),
             Text(
@@ -108,7 +114,8 @@ class Location extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
             CustomTextField(
-              controller: _google,
+              enabled: false,
+              controller: googleAddressController,
               name: 'Google Address',
               prefixIconPath: MyIcon.place,
             ),
@@ -119,7 +126,8 @@ class Location extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
             CustomTextField(
-              controller: _addr,
+              controller: additionalAddressController,
+              enabled: false,
               name: 'Additional Address',
               prefixIconPath: MyIcon.place,
             ),

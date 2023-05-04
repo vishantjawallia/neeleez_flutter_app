@@ -30,6 +30,7 @@ class CustomDropDown extends StatelessWidget {
   // final bool? obscureText;
   // final bool? autofocus;
   final bool? enabled;
+  final bool? loading;
   final void Function(String? value)? onChanged;
   final void Function()? onTap;
   const CustomDropDown({
@@ -59,6 +60,7 @@ class CustomDropDown extends StatelessWidget {
     required this.value,
     this.hint,
     this.focusNode,
+    this.loading = false,
   }) : super(key: key);
 
   // List<String>? list;
@@ -138,35 +140,64 @@ class CustomDropDown extends StatelessWidget {
   }
 
   DropdownButton<String> _dropDown() {
-    return DropdownButton<String>(
-      focusNode: focusNode,
-      key: Key('$name'),
-      hint: Text(
-        "Select ${name!}",
-        style: Get.textTheme.bodyMedium!.copyWith(
-          color: Palettes.primary.withOpacity(0.8),
-          fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
-        ),
-      ),
-      isExpanded: true,
-      isDense: true,
-      value: value,
-      items: list!.map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(
-            value,
-            style: Get.textTheme.bodyMedium!.copyWith(
-              color: Palettes.black,
-              fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
-            ),
+    if (!loading!) {
+      return DropdownButton<String>(
+        focusNode: focusNode,
+        key: Key('$name'),
+        hint: Text(
+          "Select ${name!}",
+          style: Get.textTheme.bodyMedium!.copyWith(
+            color: Palettes.primary.withOpacity(0.8),
+            fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
           ),
-        );
-      }).toList(),
-      icon: const Icon(Icons.arrow_drop_down_sharp),
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(),
-      onChanged: onChanged,
-    );
+        ),
+        isExpanded: true,
+        isDense: true,
+        value: value,
+        items: list!.map<DropdownMenuItem<String>>((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(
+              value,
+              style: Get.textTheme.bodyMedium!.copyWith(
+                color: Palettes.black,
+                fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
+              ),
+            ),
+          );
+        }).toList(),
+        icon: const Icon(Icons.arrow_drop_down_sharp),
+        style: const TextStyle(color: Colors.deepPurple),
+        underline: Container(),
+        onChanged: onChanged,
+      );
+    } else {
+      return DropdownButton<String>(
+        focusNode: focusNode,
+        key: Key('$name'),
+        hint: Text(
+          "Select ${name!}",
+          style: Get.textTheme.bodyMedium!.copyWith(
+            color: Palettes.primary.withOpacity(0.8),
+            fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
+          ),
+        ),
+        isExpanded: true,
+        isDense: true,
+        // value: null,
+        items: [''].map<DropdownMenuItem<String>>((String value) {
+          return const DropdownMenuItem<String>(
+            // value: value,
+            child: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        }).toList(),
+        icon: const Icon(Icons.arrow_drop_down_sharp),
+        style: const TextStyle(color: Colors.deepPurple),
+        underline: Container(),
+        onChanged: (value) {},
+      );
+    }
   }
 }

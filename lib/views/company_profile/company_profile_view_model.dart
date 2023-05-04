@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:neeleez_flutter_app/config/pref_constant.dart';
 import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/models/company/provinces.dart';
+import 'package:neeleez_flutter_app/models/company/region_Info.dart';
 import 'package:neeleez_flutter_app/models/company/timing.dart';
 import 'package:neeleez_flutter_app/models/package/package_info.dart';
 import 'package:neeleez_flutter_app/models/user_data.dart';
@@ -32,6 +33,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   String? countryId = SharedPreferenceHelper.getString(Preferences.countryId);
   GeneralInformation? genInfo;
   cm.CompanyProfile? cp;
+  RegionInformation? regionInfo;
   PackageInformation? pInfo;
 
   List<Countries>? countries;
@@ -253,6 +255,11 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   void loadLocationData() async {
     setBusy(true);
     countryList ??= await getCountries() ?? [];
+    regionInfo ??= await regionInformation(companyId!);
+    if (regionInfo != null) {
+      googleAddressController.text = regionInfo?.googleAddress! ?? "";
+      additionalAddressController.text = regionInfo?.address ?? "";
+    }
     setBusy(false);
     notifyListeners();
   }
@@ -269,7 +276,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   void packagesData() async {
     setBusy(true);
     cp ??= await getRegionInformation(companyId!);
-    // pInfo ??= await packageInformation(companyId!);
+
     setBusy(false);
     notifyListeners();
   }

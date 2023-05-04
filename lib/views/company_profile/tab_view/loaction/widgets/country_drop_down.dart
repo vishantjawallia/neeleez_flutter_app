@@ -5,14 +5,13 @@ import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
 import 'package:neeleez_flutter_app/models/company/companies.dart';
 import 'package:neeleez_flutter_app/widgets/url_image.dart';
-import 'package:provider/provider.dart';
 
 import '../../../components/drop_down.dart';
-import '../loaction_provider.dart';
 
 class CountryDropDown extends StatelessWidget {
   final List<Countries>? list;
   final String? name;
+  final String? value;
   final String? prefixIconPath;
   final String? urlImage;
 
@@ -24,11 +23,12 @@ class CountryDropDown extends StatelessWidget {
     this.onChanged,
     required this.list,
     this.urlImage,
+    required this.value,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final loaction = Provider.of<LocationProvider>(context);
+    // final loaction = Provider.of<LocationProvider>(context);
     return Container(
       key: Key('$name'),
       height: 50,
@@ -50,35 +50,58 @@ class CountryDropDown extends StatelessWidget {
   DropDownTextField _dropDown() {
     return DropDownTextField(
       textFieldDecoration: InputDecoration(
-          contentPadding: const EdgeInsets.symmetric(vertical: 14.5),
-          isDense: true,
-          border: InputBorder.none,
-          prefixIcon: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 11.4, vertical: 10.5),
-            margin: const EdgeInsets.only(right: 12),
-            decoration: BoxDecoration(
-              color: Palettes.greyPrimary,
-              borderRadius: Helper.isRtl()
-                  ? const BorderRadius.only(
-                      topLeft: Radius.circular(8),
-                      bottomLeft: Radius.circular(8),
-                    )
-                  : const BorderRadius.only(
-                      topRight: Radius.circular(8),
-                      bottomRight: Radius.circular(8),
-                    ),
-            ),
-            child: UrlImage(
-              url: '$urlImage',
-              height: 32,
-              width: 32,
-            ),
+        contentPadding: const EdgeInsets.symmetric(vertical: 14.5),
+        isDense: true,
+        border: InputBorder.none,
+        prefixIcon: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 11.4, vertical: 10.5),
+          margin: const EdgeInsets.only(right: 12),
+          decoration: BoxDecoration(
+            color: Palettes.greyPrimary,
+            borderRadius: Helper.isRtl()
+                ? const BorderRadius.only(
+                    topLeft: Radius.circular(8),
+                    bottomLeft: Radius.circular(8),
+                  )
+                : const BorderRadius.only(
+                    topRight: Radius.circular(8),
+                    bottomRight: Radius.circular(8),
+                  ),
           ),
-          hintText: 'Select Country',
-          hintStyle: Get.textTheme.bodyMedium!.copyWith(
-            color: Palettes.primary,
-            fontWeight: FontWeight.w500,
-          )),
+          child: UrlImage(
+            url: '$urlImage',
+            height: 32,
+            width: 32,
+          ),
+        ),
+        // suffixIcon: Container(
+        //   padding: const EdgeInsets.symmetric(horizontal: 11.4, vertical: 10.5),
+        //   margin: const EdgeInsets.only(right: 12),
+        //   decoration: BoxDecoration(
+        //     color: Palettes.greyPrimary,
+        //     borderRadius: Helper.isRtl()
+        //         ? const BorderRadius.only(
+        //             topLeft: Radius.circular(8),
+        //             bottomLeft: Radius.circular(8),
+        //           )
+        //         : const BorderRadius.only(
+        //             topRight: Radius.circular(8),
+        //             bottomRight: Radius.circular(8),
+        //           ),
+        //   ),
+        //   child: UrlImage(
+        //     url: '$urlImage',
+        //     height: 32,
+        //     width: 32,
+        //   ),
+        // ),
+        // suffixIcon: const Icon(Icons.arrow_drop_down_sharp, color: Palettes.black),
+        hintText: 'Select Country',
+        hintStyle: Get.textTheme.bodyMedium!.copyWith(
+          color: Palettes.primary,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
       validator: (value) {
         if (value == null) {
           return "Required field";
@@ -93,19 +116,15 @@ class CountryDropDown extends StatelessWidget {
         color: Palettes.primary,
         fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
       ),
+      clearIconProperty: IconProperty(size: 0),
       dropDownList: [
-        ...list!.map((e) {
-          return DropDownValueModel(
-            name: e.nameEn!,
-            value: e.id,
-          );
-        }).toList(),
         ...list!
             .asMap()
             .map(
               (k, Countries value) => MapEntry(
                 k,
                 DropDownValueModel(
+                  // toolTipMsg: '',
                   name: value.nameEn!,
                   value: value.id,
                 ),
@@ -114,9 +133,17 @@ class CountryDropDown extends StatelessWidget {
             .values
             .toList()
       ],
+      controller: SingleValueDropDownController(
+        data: DropDownValueModel(
+          name: value ?? '',
+          value: value ?? '',
+        ),
+      ),
       onChanged: (value) {
-        DropDownValueModel jj = value;
-        return onChanged!(jj.value, list);
+        if (list!.isNotEmpty) {
+          DropDownValueModel jj = value;
+          return onChanged!(jj.value, list);
+        }
       },
     );
   }

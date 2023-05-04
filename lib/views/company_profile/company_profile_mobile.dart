@@ -36,7 +36,7 @@ class _CompanyProfileMobile extends StatelessWidget {
                         businessCategoryList: viewModel.businessCategoryList!.map((e) => e.service!).toList(),
                         busCatValue: viewModel.busCatValue,
                         busCatOnChange: viewModel.busCatOnChange,
-                        busCatOnFocus:viewModel.busMyFocusNode,
+                        busCatOnFocus: viewModel.busMyFocusNode,
                         businessSubCategoryList: viewModel.businessSubCategoryList,
                         businessSubCategorySelectedList: viewModel.businessSubCategorySelectedList,
                         busSubCatSelectedOnChange: viewModel.busSubCatSelectedOnChange,
@@ -63,6 +63,7 @@ class _CompanyProfileMobile extends StatelessWidget {
                       ),
                       Location(
                         countryList: viewModel.countryList,
+                        regionInfo: viewModel.regionInfo,
                         // countryOnChange: viewModel.countryOnChange,
                         // countrySelected: viewModel.countrySelected,
                         // //
@@ -74,8 +75,8 @@ class _CompanyProfileMobile extends StatelessWidget {
                         // cityOnChange: viewModel.cityOnChange,
                         // citySelected: viewModel.citySelected,
                         // //
-                        // googleAddressController: viewModel.googleAddressController,
-                        // additionalAddressController: viewModel.additionalAddressController,
+                        googleAddressController: viewModel.googleAddressController,
+                        additionalAddressController: viewModel.additionalAddressController,
                       ),
                       ContactPersonInfo(
                         fullNameController: viewModel.fullNameController,
