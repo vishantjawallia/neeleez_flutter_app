@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, unused_local_variable
+
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -25,50 +27,29 @@ class BusinessHoursProvider extends ChangeNotifier {
     }
   }
 
-  void way2AddList(int companyTimingsIndex, int companyDayDetailViewModelsIndex, int companyTimesIndex, CompanyTimes obj) async {
-    List<CompanyTimings> ctL = [];
-    CompanyTimings ct = timings[companyTimingsIndex];
-    List<CompanyDayDetailViewModels> cdL = timings[companyTimingsIndex].companyDayDetailViewModels!;
-    CompanyDayDetailViewModels cd = timings[companyTimingsIndex].companyDayDetailViewModels![companyDayDetailViewModelsIndex];
-    List<CompanyTimes> cL = timings[companyTimingsIndex].companyDayDetailViewModels![companyDayDetailViewModelsIndex].companyTimes!;
-    CompanyTimes cc = timings[companyTimingsIndex].companyDayDetailViewModels![companyDayDetailViewModelsIndex].companyTimes![companyTimesIndex];
+  void way2AddList(int i, int j, int k, CompanyTimes obj) async {
+    CompanyTimings ct = timings[i];
+    List<CompanyDayDetailViewModels> cdL = ct.companyDayDetailViewModels!;
+    CompanyDayDetailViewModels cd = cdL[j];
+    List<CompanyTimes> cL = cd.companyTimes!;
+    var id = DateTime.now().millisecondsSinceEpoch;
     if (!(cL.length >= 3)) {
       cL.add(
-        obj.copyWith(id: 0),
+        obj.copyWith(id: id),
       );
       cd.companyTimes != cL;
+      cdL.replaceRange(j, j + 1, [cd]);
       ct.companyDayDetailViewModels != cdL;
-
-      timings.replaceRange(companyTimingsIndex, companyTimingsIndex + 1, [ct]);
-      notifyListeners();
-    }
-  }
-
-  void addStartingTime(int companyTimingsIndex, int companyDayDetailViewModelsIndex, int companyTimesIndex, CompanyTimes obj) async {
-    List<CompanyTimings> ctL = [];
-    CompanyTimings ct = timings[companyTimingsIndex];
-    List<CompanyDayDetailViewModels> cdL = timings[companyTimingsIndex].companyDayDetailViewModels!;
-    CompanyDayDetailViewModels cd = timings[companyTimingsIndex].companyDayDetailViewModels![companyDayDetailViewModelsIndex];
-    List<CompanyTimes> cL = timings[companyTimingsIndex].companyDayDetailViewModels![companyDayDetailViewModelsIndex].companyTimes!;
-    CompanyTimes cc = obj;
-    if (!(cL.length >= 3)) {
-      cL.replaceRange(companyTimesIndex, companyTimesIndex + 1, [obj]);
-      // cd.companyTimes != cL;
-      // ct.companyDayDetailViewModels!.replaceRange(companyDayDetailViewModelsIndex, companyDayDetailViewModelsIndex + 1, [cd]);
-      ct.companyDayDetailViewModels != cdL;
-
-      timings.replaceRange(companyTimingsIndex, companyTimingsIndex + 1, [ct]);
+      timings.replaceRange(i, i + 1, [ct]);
       notifyListeners();
     }
   }
 
   void way2RemoveList(int iX, int iY, int iZ) {
-    List<CompanyTimings> ctL = [];
     CompanyTimings ct = timings[iX];
     List<CompanyDayDetailViewModels> cdL = ct.companyDayDetailViewModels!;
     CompanyDayDetailViewModels cd = ct.companyDayDetailViewModels![iY];
     List<CompanyTimes> cL = cd.companyTimes!;
-    CompanyTimes cc = cd.companyTimes![iZ];
     if (!(cL.length <= 1)) {
       log(iZ.toString());
       cL.removeAt(iZ);
@@ -79,7 +60,7 @@ class BusinessHoursProvider extends ChangeNotifier {
     }
   }
 
-  void onStartTimingTap(_, CompanyTimes companyTimes, i, j, k) async {
+  void onStartTimingTap(_, CompanyTimes companyTimes, int i, int j, int k) async {
     final TimeOfDay? picked = await showTimePicker(
       context: _,
       initialTime: TimeOfDay.now(),
@@ -92,12 +73,37 @@ class BusinessHoursProvider extends ChangeNotifier {
       },
     );
     if (picked != null) {
-      CompanyTimes ct = companyTimes.copyWith(
-        startHour: picked.hour,
-        startMinute: picked.minute,
-      );
-      addStartingTime(i, j, k, ct);
-      // log(picked.toString());
+      TimeOfDay t = picked;
+      TimeOfDay t2 = TimeOfDay(hour: companyTimes.endHour!, minute: companyTimes.endMinute!);
+      bool compare = compareTime(t, t2);
+      int h = picked.hour;
+      int m = picked.minute;
+      CompanyTimes cc = companyTimes;
+      if (compare) {
+        cc = companyTimes.copyWith(
+          startHour: h,
+          startMinute: m,
+        );
+      } else {
+        cc = companyTimes.copyWith(
+          startHour: h,
+          startMinute: m,
+          endHour: h,
+          endMinute: m,
+        );
+      }
+      List<CompanyTimings> ctL = timings;
+      CompanyTimings ct = ctL[i];
+      List<CompanyDayDetailViewModels> cdL = ct.companyDayDetailViewModels!;
+      CompanyDayDetailViewModels cd = ct.companyDayDetailViewModels![j];
+      List<CompanyTimes> cL = ct.companyDayDetailViewModels![j].companyTimes!;
+      cL.replaceRange(k, k + 1, [cc]);
+      cd.companyTimes != cL;
+      cdL.replaceRange(j, j + 1, [cd]);
+      ct.companyDayDetailViewModels != cdL;
+      ctL.replaceRange(i, i + 1, [ct]);
+      timings = ctL;
+      notifyListeners();
     }
   }
 
@@ -114,30 +120,49 @@ class BusinessHoursProvider extends ChangeNotifier {
       },
     );
     if (picked != null) {
-      CompanyTimes ct = companyTimes.copyWith(
-        endHour: picked.hour,
-        endMinute: picked.minute,
-      );
-      addStartingTime(i, j, k, ct);
-      // log(picked.toString());
+      TimeOfDay t = picked;
+      TimeOfDay t2 = TimeOfDay(hour: companyTimes.endHour!, minute: companyTimes.endMinute!);
+      bool compare = compareTime(t, t2);
+      int h = picked.hour;
+      int m = picked.minute;
+      CompanyTimes cc = companyTimes;
+      if (compare) {
+        cc = companyTimes.copyWith(
+          endHour: h,
+          endMinute: m,
+        );
+      } else {
+        cc = companyTimes.copyWith(
+          startHour: h,
+          startMinute: m,
+          endHour: h,
+          endMinute: m,
+        );
+      }
+      List<CompanyTimings> ctL = timings;
+      CompanyTimings ct = ctL[i];
+      List<CompanyDayDetailViewModels> cdL = ct.companyDayDetailViewModels!;
+      CompanyDayDetailViewModels cd = ct.companyDayDetailViewModels![j];
+      List<CompanyTimes> cL = ct.companyDayDetailViewModels![j].companyTimes!;
+      cL.replaceRange(k, k + 1, [cc]);
+      cd.companyTimes != cL;
+      cdL.replaceRange(j, j + 1, [cd]);
+      ct.companyDayDetailViewModels != cdL;
+      ctL.replaceRange(i, i + 1, [ct]);
+      timings = ctL;
+      notifyListeners();
     }
   }
 
   void onSwitchChange(bool? value, int i, int j) {
-    List<CompanyTimings> ctL = [];
     CompanyTimings ct = timings[i];
-    List<CompanyDayDetailViewModels> cdL = ct.companyDayDetailViewModels!;
     CompanyDayDetailViewModels cd = ct.companyDayDetailViewModels![j];
-    // List<CompanyTimes> cL = cd.companyTimes!;
-    // if (cd.isHoliday!) {
     CompanyDayDetailViewModels cddv = cd.copyWith(
       isHoliday: !cd.isHoliday!,
     );
-    // cd.companyTimes != cL;
     ct.companyDayDetailViewModels!.replaceRange(j, j + 1, [cddv]);
     timings.replaceRange(i, i + 1, [ct]);
     notifyListeners();
-    // }
   }
 
   void addSingleEntryInAll(int i, CompanyTimings companyTimes) {
@@ -153,7 +178,6 @@ class BusinessHoursProvider extends ChangeNotifier {
         isHoliday: companyTimes.defaultIsHoliday,
         companyTimes: [
           const CompanyTimes(
-            //  companyId: ,
             endHour: 20,
             endMinute: 0,
             startMinute: 0,
@@ -165,4 +189,18 @@ class BusinessHoursProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
+}
+
+bool compareTime(TimeOfDay startTime, TimeOfDay endTime) {
+  bool result = false;
+  int startTimeInt = (startTime.hour * 60 + startTime.minute) * 60;
+  int endTimeInt = (endTime.hour * 60 + endTime.minute) * 60;
+  int dif = endTimeInt - startTimeInt;
+
+  if (endTimeInt > startTimeInt) {
+    result = true;
+  } else {
+    result = false;
+  }
+  return result;
 }

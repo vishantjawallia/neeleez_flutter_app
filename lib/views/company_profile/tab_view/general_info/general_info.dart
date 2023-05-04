@@ -83,9 +83,6 @@ class GeneralInfo extends StatelessWidget {
     required this.amentiasOnChange,
   }) : super(key: key);
 
-
-  
-
   @override
   Widget build(BuildContext context) {
     final general = Provider.of<GeneralInfoProvider>(context);
@@ -340,7 +337,7 @@ class GeneralInfo extends StatelessWidget {
             name: 'Company Name',
             prefixIconPath: MyIcon.officeBuilding,
           ),
-          const SizedBox(height: 14),
+          const InputTextRtl(),
           Text(
             'Tagline',
             style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
@@ -349,9 +346,9 @@ class GeneralInfo extends StatelessWidget {
           CustomTextField(
             controller: taglineController,
             name: 'Tagline',
-            prefixIconPath: MyIcon.officeBuilding,
+            prefixIconPath: MyIcon.imgTag,
           ),
-          const InputTextRtl(),
+          const SizedBox(height: 14),
           Text(
             'Company Establishment Year',
             style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),

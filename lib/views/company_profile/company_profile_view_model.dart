@@ -69,8 +69,8 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   List<String>? stateList = [];
   List<Provinces>? states = [];
   List<String>? cityList = [];
-// Gender
-  // Amenities
+  // Gender
+
   List<String>? amentiasSelectedList = [];
 
   Countries? countrySelected;
@@ -304,7 +304,8 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
         packagesData();
         break;
       case 6:
-        spaceFilesData();
+        packagesData();
+        // spaceFilesData();
         break;
       default:
     }

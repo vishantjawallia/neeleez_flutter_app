@@ -8,6 +8,7 @@ class TimingBox extends StatelessWidget {
   final String? text;
   final bool? switchValue;
   final int index;
+  final int? companyTimingsIndex;
 
   // final void Function()? onAddTap;
   // final void Function()? onCloseTap;
@@ -19,6 +20,7 @@ class TimingBox extends StatelessWidget {
     required this.switchValue,
     required this.text,
     required this.index,
+    required this.companyTimingsIndex,
   }) : super(key: key);
 
   @override
@@ -65,12 +67,15 @@ class TimingBoxItem extends StatelessWidget {
   final String? startTiming;
   final String? endTiming;
   final int? index;
+
+  final int? companyTimingsIndex;
+  final int? companyDayDetailViewModelsIndex;
   final bool icon;
   final bool isHoliday;
-  final void Function()? onStartTimingTap;
-  final void Function()? onEndTimingTap;
-  final void Function(int? index)? onCloseTap;
-  final void Function(int? index)? onAddTap;
+  final Future Function(int? i, int? j, int? k)? onStartTimingTap;
+  final Future Function(int? i, int? j, int? k)? onEndTimingTap;
+  final Future Function(int? i, int? j, int? k)? onCloseTap;
+  final Future Function(int? i, int? j, int? k)? onAddTap;
   const TimingBoxItem({
     super.key,
     required this.onStartTimingTap,
@@ -81,6 +86,8 @@ class TimingBoxItem extends StatelessWidget {
     required this.onAddTap,
     required this.icon,
     required this.index,
+    required this.companyTimingsIndex,
+    required this.companyDayDetailViewModelsIndex,
     required this.isHoliday,
   });
 
@@ -116,7 +123,7 @@ class TimingBoxItem extends StatelessWidget {
                   width: 10,
                 ),
                 InkWell(
-                  onTap: onStartTimingTap,
+                  onTap: () => onStartTimingTap!(companyTimingsIndex!, companyDayDetailViewModelsIndex!, index!),
                   child: Container(
                     padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 13),
                     decoration: BoxDecoration(
@@ -137,7 +144,7 @@ class TimingBoxItem extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 InkWell(
-                  onTap: onEndTimingTap,
+                  onTap: () => onEndTimingTap!(companyTimingsIndex!, companyDayDetailViewModelsIndex!, index!),
                   child: Container(
                     padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 13),
                     decoration: BoxDecoration(
@@ -159,7 +166,7 @@ class TimingBoxItem extends StatelessWidget {
                 const SizedBox(width: 5),
                 !icon
                     ? GestureDetector(
-                        onTap: () => onCloseTap!(index),
+                        onTap: () => onCloseTap!(companyTimingsIndex!, companyDayDetailViewModelsIndex!, index!),
                         child: const RotatedBox(
                           quarterTurns: 90,
                           child: CircleAvatar(
@@ -174,7 +181,7 @@ class TimingBoxItem extends StatelessWidget {
                         ),
                       )
                     : GestureDetector(
-                        onTap: () => onAddTap!(index),
+                        onTap: () => onAddTap!(companyTimingsIndex!, companyDayDetailViewModelsIndex!, index),
                         child: const CircleAvatar(
                           radius: 10,
                           backgroundColor: Colors.green,
