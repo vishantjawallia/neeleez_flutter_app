@@ -36,7 +36,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
 
   List<Countries>? countries;
   List<CompanyTimings>? timings;
-  List<Countries>? countryList = [];
+  List<Countries>? countryList;
   // List<CompanyTimings>? newTimg = [];
   // List<CompanyTimings>? timings;
   FocusNode busMyFocusNode = FocusNode();

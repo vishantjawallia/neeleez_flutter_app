@@ -5,29 +5,27 @@ import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
-import 'package:neeleez_flutter_app/models/company/companies.dart';
 import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down.dart';
 
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 import 'package:provider/provider.dart';
 
-import '../../components/country_drop_down.dart';
+// import '../../components/country_drop_down.dart';
+import '../../../../models/company/companies.dart';
 import 'loaction_provider.dart';
+import 'widgets/country_drop_down.dart';
 
-class Location extends StatefulWidget {
+class Location extends StatelessWidget {
   final List<Countries>? countryList;
-  const Location({
-    Key? key,
+  Location({
+    super.key,
     required this.countryList,
-  }) : super(key: key);
+  });
 
-  @override
-  State<Location> createState() => _LocationState();
-}
-
-class _LocationState extends State<Location> {
   TextEditingController _google = TextEditingController();
+
   TextEditingController _addr = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final loaction = Provider.of<LocationProvider>(context);
@@ -71,8 +69,9 @@ class _LocationState extends State<Location> {
               textAlign: TextAlign.right,
             ),
             CountryDropDown(
-              list: widget.countryList,
-              value: null,
+              urlImage: loaction.obj?.iconImage2 ?? "",
+              onChanged: loaction.onCountryChange,
+              list: countryList,
               name: 'Country',
               prefixIconPath: MyIcon.place,
             ),
@@ -138,7 +137,6 @@ class _LocationState extends State<Location> {
     );
   }
 }
-
 
 // CustomDropDown(
             //   value: '',

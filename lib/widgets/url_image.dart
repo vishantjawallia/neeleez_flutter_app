@@ -53,9 +53,11 @@ class UrlImage extends StatelessWidget {
           borderRadius: BorderRadius.circular(90),
           child: CachedNetworkImage(
             imageUrl: url!,
-            fit: BoxFit.fill,
+            fit: BoxFit.fitHeight,
             progressIndicatorBuilder: (context, url, progress) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
             },
           ),
         ),

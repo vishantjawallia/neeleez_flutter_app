@@ -28,6 +28,7 @@ class CustomTextField extends StatelessWidget {
   final bool? enabled;
   final void Function(String? value)? onChanged;
   final void Function()? onTap;
+  final bool? isCustomRtl;
   const CustomTextField({
     Key? key,
     this.controller,
@@ -51,6 +52,7 @@ class CustomTextField extends StatelessWidget {
     this.enabled = true,
     this.suffixIconWidget,
     this.checkedSuffixIcon = false,
+    this.isCustomRtl = false,
   }) : super(key: key);
 
   @override
@@ -77,18 +79,26 @@ class CustomTextField extends StatelessWidget {
             children: [
               Container(
                 padding: prefixPadding ?? const EdgeInsets.symmetric(horizontal: 14, vertical: 10.5),
-                decoration: BoxDecoration(
-                  color: Palettes.greyPrimary,
-                  borderRadius: Helper.isRtl()
-                      ? const BorderRadius.only(
-                          topLeft: Radius.circular(8),
-                          bottomLeft: Radius.circular(8),
-                        )
-                      : const BorderRadius.only(
+                decoration: isCustomRtl!
+                    ? const BoxDecoration(
+                        color: Palettes.greyPrimary,
+                        borderRadius: BorderRadius.only(
                           topRight: Radius.circular(8),
                           bottomRight: Radius.circular(8),
                         ),
-                ),
+                      )
+                    : BoxDecoration(
+                        color: Palettes.greyPrimary,
+                        borderRadius: Helper.isRtl()
+                            ? const BorderRadius.only(
+                                topLeft: Radius.circular(8),
+                                bottomLeft: Radius.circular(8),
+                              )
+                            : const BorderRadius.only(
+                                topRight: Radius.circular(8),
+                                bottomRight: Radius.circular(8),
+                              ),
+                      ),
                 child: Image.asset(
                   prefixIconPath!,
                   filterQuality: FilterQuality.high,
@@ -102,7 +112,6 @@ class CustomTextField extends StatelessWidget {
                 child: GestureDetector(
                   onTap: onTap,
                   child: TextField(
-                    // onTap: onTap,
                     style: Get.textTheme.bodyMedium!.copyWith(
                       color: Palettes.primary,
                       fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
@@ -127,21 +136,6 @@ class CustomTextField extends StatelessWidget {
                   ),
                 ),
               ),
-              // obscureText ?? false
-              //     ? Container(
-              //         padding: const EdgeInsets.only(bottom: 7),
-              //         child: Padding(
-              //           padding: Helper.isRtl() ? const EdgeInsets.only(right: 10, top: 6) : const EdgeInsets.only(left: 10, top: 6),
-              //           child: Image.asset(
-              //             '',
-              //             height: 26,
-              //             width: 26,
-              //             filterQuality: FilterQuality.high,
-              //             isAntiAlias: true,
-              //           ),
-              //         ),
-              //       )
-              //     : const SizedBox(),
               suffixIconPath!.isNotEmpty
                   ? Container(
                       padding: const EdgeInsets.only(bottom: 7),
