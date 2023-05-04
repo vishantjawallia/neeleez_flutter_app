@@ -3,8 +3,10 @@ import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
+import 'package:neeleez_flutter_app/views/company_profile/tab_view/contact_person_info/contact_person_info_provider.dart';
 
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
+import 'package:provider/provider.dart';
 
 class ContactPersonInfo extends StatefulWidget {
   final TextEditingController? fullNameController;
@@ -26,12 +28,13 @@ class ContactPersonInfo extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _SocialMediaState createState() => _SocialMediaState();
+  _ContactPersonInfoState createState() => _ContactPersonInfoState();
 }
 
-class _SocialMediaState extends State<ContactPersonInfo> {
+class _ContactPersonInfoState extends State<ContactPersonInfo> {
   @override
   Widget build(BuildContext context) {
+    final social = Provider.of<ContactPersonInfoProvider>(context);
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       physics: const BouncingScrollPhysics(),

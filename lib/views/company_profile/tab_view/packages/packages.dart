@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
+import 'package:neeleez_flutter_app/views/company_profile/tab_view/packages/packages_provider.dart';
 import 'package:neeleez_flutter_app/widgets/custom_button.dart';
+import 'package:provider/provider.dart';
 
-import '../../../models/company/company_profile.dart';
+import '../../../../models/company/company_profile.dart';
 
 class Packages extends StatelessWidget {
   final CompanyPackage? companyPackage;
@@ -15,6 +17,7 @@ class Packages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final package = Provider.of<PackagesProvider>(context);
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       physics: const BouncingScrollPhysics(),

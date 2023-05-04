@@ -9,34 +9,16 @@ import 'package:neeleez_flutter_app/models/company/companies.dart';
 import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down.dart';
 
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
+import 'package:provider/provider.dart';
 
-import '../components/country_drop_down.dart';
+import '../../components/country_drop_down.dart';
+import 'loaction_provider.dart';
 
 class Location extends StatefulWidget {
   final List<Countries>? countryList;
-  final void Function(Countries value) countryOnChange;
-  final List<String>? stateList;
-  final void Function(String? value) stateOnChange;
-  final List<String>? cityList;
-  final void Function(String? value) cityOnChange;
-  final Countries? countrySelected;
-  final String? stateSelected;
-  final String? citySelected;
-  final TextEditingController? googleAddressController;
-  final TextEditingController? additionalAddressController;
   const Location({
     Key? key,
     required this.countryList,
-    required this.stateList,
-    required this.cityList,
-    required this.countrySelected,
-    required this.stateSelected,
-    required this.citySelected,
-    required this.googleAddressController,
-    required this.additionalAddressController,
-    required this.countryOnChange,
-    required this.stateOnChange,
-    required this.cityOnChange,
   }) : super(key: key);
 
   @override
@@ -44,8 +26,11 @@ class Location extends StatefulWidget {
 }
 
 class _LocationState extends State<Location> {
+  TextEditingController _google = TextEditingController();
+  TextEditingController _addr = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final loaction = Provider.of<LocationProvider>(context);
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       physics: const BouncingScrollPhysics(),
@@ -91,17 +76,6 @@ class _LocationState extends State<Location> {
               name: 'Country',
               prefixIconPath: MyIcon.place,
             ),
-            // CustomDropDown(
-            //   value: '',
-            //   list: widget.countryList,
-            //   name: 'Country',
-            //   prefixIconPath: MyIcon.place,
-            //   prefixIconColor: Palettes.primary,
-            // ),
-            // const CountryDropDown(
-            //   list: coun,
-            //   value: '',
-            // ),
             const SizedBox(height: 14),
             Text(
               'State/Province',
@@ -113,7 +87,7 @@ class _LocationState extends State<Location> {
               list: const [],
               name: 'State/Province',
               prefixIconPath: MyIcon.imgLocationState,
-              onChanged: widget.stateOnChange,
+              onChanged: (value) {},
             ),
             const SizedBox(height: 14),
             Text(
@@ -126,7 +100,7 @@ class _LocationState extends State<Location> {
               value: '',
               name: 'City',
               prefixIconPath: MyIcon.imgLocationCity,
-              onChanged: widget.cityOnChange,
+              onChanged: (value) {},
             ),
             const SizedBox(height: 14),
             Text(
@@ -135,7 +109,7 @@ class _LocationState extends State<Location> {
               textAlign: TextAlign.right,
             ),
             CustomTextField(
-              controller: widget.googleAddressController,
+              controller: _google,
               name: 'Google Address',
               prefixIconPath: MyIcon.place,
             ),
@@ -146,7 +120,7 @@ class _LocationState extends State<Location> {
               textAlign: TextAlign.right,
             ),
             CustomTextField(
-              controller: widget.additionalAddressController,
+              controller: _addr,
               name: 'Additional Address',
               prefixIconPath: MyIcon.place,
             ),
@@ -164,3 +138,41 @@ class _LocationState extends State<Location> {
     );
   }
 }
+
+
+// CustomDropDown(
+            //   value: '',
+            //   list: widget.countryList,
+            //   name: 'Country',
+            //   prefixIconPath: MyIcon.place,
+            //   prefixIconColor: Palettes.primary,
+            // ),
+            // const CountryDropDown(
+            //   list: coun,
+            //   value: '',
+            // ),
+            // DropDownTextField(
+            //   textFieldDecoration: const InputDecoration(
+            //     border: InputBorder.none,
+            //   ),
+            //   validator: (value) {
+            //     if (value == null) {
+            //       return "Required field";
+            //     } else {
+            //       return null;
+            //     }
+            //   },
+            //   dropDownItemCount: 6,
+            //   dropdownRadius: 0,
+            //   dropDownList: const [
+            //     DropDownValueModel(name: 'name1', value: "value1"),
+            //     DropDownValueModel(name: 'name2', value: "value2", toolTipMsg: "DropDownButton is a widget that we can use to select one unique value from a set of values"),
+            //     DropDownValueModel(name: 'name3', value: "value3"),
+            //     DropDownValueModel(name: 'name4', value: "value4", toolTipMsg: "DropDownButton is a widget that we can use to select one unique value from a set of values"),
+            //     DropDownValueModel(name: 'name5', value: "value5"),
+            //     DropDownValueModel(name: 'name6', value: "value6"),
+            //     DropDownValueModel(name: 'name7', value: "value7"),
+            //     DropDownValueModel(name: 'name8', value: "value8"),
+            //   ],
+            // onChanged: (val) {},
+            // ),

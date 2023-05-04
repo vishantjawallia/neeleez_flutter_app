@@ -3,9 +3,11 @@ import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
+import 'package:neeleez_flutter_app/views/company_profile/tab_view/social_media/social_media_provider.dart';
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
+import 'package:provider/provider.dart';
 
-import '../../../widgets/custom_button.dart';
+import '../../../../widgets/custom_button.dart';
 
 class SocialMedia extends StatelessWidget {
   final TextEditingController? facebookController;
@@ -24,6 +26,7 @@ class SocialMedia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final social = Provider.of<SocialMediaProvider>(context);
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       physics: const BouncingScrollPhysics(),

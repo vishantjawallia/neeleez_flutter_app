@@ -72,19 +72,19 @@ class _CompanyProfileMobile extends StatelessWidget {
                       ),
                       Location(
                         countryList: viewModel.countryList,
-                        countryOnChange: viewModel.countryOnChange,
-                        countrySelected: viewModel.countrySelected,
-                        //
-                        stateList: viewModel.stateList,
-                        stateOnChange: viewModel.stateOnChange,
-                        stateSelected: viewModel.stateSelected,
-                        //
-                        cityList: viewModel.cityList,
-                        cityOnChange: viewModel.cityOnChange,
-                        citySelected: viewModel.citySelected,
-                        //
-                        googleAddressController: viewModel.googleAddressController,
-                        additionalAddressController: viewModel.additionalAddressController,
+                        // countryOnChange: viewModel.countryOnChange,
+                        // countrySelected: viewModel.countrySelected,
+                        // //
+                        // stateList: viewModel.stateList,
+                        // stateOnChange: viewModel.stateOnChange,
+                        // stateSelected: viewModel.stateSelected,
+                        // //
+                        // cityList: viewModel.cityList,
+                        // cityOnChange: viewModel.cityOnChange,
+                        // citySelected: viewModel.citySelected,
+                        // //
+                        // googleAddressController: viewModel.googleAddressController,
+                        // additionalAddressController: viewModel.additionalAddressController,
                       ),
                       ContactPersonInfo(
                         fullNameController: viewModel.fullNameController,
@@ -97,16 +97,16 @@ class _CompanyProfileMobile extends StatelessWidget {
                       ),
                       BusinessHours(
                         timings: viewModel.timings,
-                        onBusinessHoursSave: viewModel.onBusinessHoursSave,
-                        closedTimingList: viewModel.closedTimingList,
-                        onCloseTap: viewModel.onCloseTap,
-                        onEndTimingTap: viewModel.onEndTimingTap,
-                        onStartTimingTap: viewModel.onStartTimingTap,
-                        onOpenTap: viewModel.onOpenTap,
-                        onIconTap: viewModel.onIconTap,
+                        // onBusinessHoursSave: viewModel.onBusinessHoursSave,
+                        // closedTimingList: viewModel.closedTimingList,
+                        // onCloseTap: viewModel.onCloseTap,
+                        // onEndTimingTap: viewModel.onEndTimingTap,
+                        // onStartTimingTap: viewModel.onStartTimingTap,
+                        // onOpenTap: viewModel.onOpenTap,
+                        // onIconTap: viewModel.onIconTap,
                       ),
                       Packages(
-                        companyPackage: viewModel.cp?.companyPackage ?? null,
+                        companyPackage: viewModel.cp?.companyPackage,
                       ),
                       FileSection(
                         onUploadMedia: viewModel.onUploadMedia,

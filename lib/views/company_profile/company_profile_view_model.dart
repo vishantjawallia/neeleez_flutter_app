@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, avoid_function_literals_in_foreach_calls
 
 import 'dart:core';
 import 'dart:developer';
@@ -30,6 +30,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
 
   List<Countries>? countries;
   List<CompanyTimings>? timings;
+  List<CompanyTimings>? newTimg = [];
   // List<CompanyTimings>? timings;
 
   TextEditingController companyNameController = TextEditingController();
@@ -107,7 +108,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     mobileNoController.addListener(() => notifyListeners());
     countryCodeController.addListener(() => notifyListeners());
     // onTabChanged(tabIndex);
-    // loadItems();
+    loadItems();
   }
 
   // Add ViewModel specific code here
@@ -171,31 +172,49 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     String taxNumber = "";
     int businessServiceId = 0;
     int genderId = 0;
-    // int genderId = serviceForId ?? 0;
     List companyBusinessTypes = [];
     List companyAmenity = [];
     bool isFreeLancer = isFreelancer ?? false;
-    await putGeneralInformation(
-      companyId!,
-      email,
-      genderId,
-      mobile,
-      nameEn,
-      logo,
-      isFreeLancer,
-      businessServiceId,
-      nameAr,
-      tagLine,
-      edate,
-      whatsapp,
-      tel1,
-      url,
-      tel2,
-      aboutUs,
-      taxNumber,
-      companyBusinessTypes,
-      companyAmenity,
-    );
+    log("email =>$email");
+    log("mobile =>$mobile");
+    log("nameEn =>$nameEn");
+    log("logo =>$logo");
+    log("nameAr =>$nameAr");
+    log("tagLine =>$tagLine");
+    log("edate =>$edate");
+    log("whatsapp =>$whatsapp");
+    log("url =>$url");
+    log("tel1 =>$tel1");
+    log("tel2 =>$tel2");
+    log("aboutUs =>$aboutUs");
+    log("taxNumber =>$taxNumber");
+    log("businessServiceId =>$businessServiceId");
+    log("genderId =>$genderId");
+    log("companyBusinessTypes =>$companyBusinessTypes");
+    log("companyAmenity =>$companyAmenity");
+    log("isFreeLancer =>$isFreeLancer");
+
+    // await putGeneralInformation(
+    //   companyId!,
+    //   email,
+    //   genderId,
+    //   mobile,
+    //   nameEn,
+    //   logo,
+    //   isFreeLancer,
+    //   businessServiceId,
+    //   nameAr,
+    //   tagLine,
+    //   edate,
+    //   whatsapp,
+    //   tel1,
+    //   url,
+    //   tel2,
+    //   aboutUs,
+    //   taxNumber,
+    //   companyBusinessTypes,
+    //   companyAmenity,
+    // );
   }
 
   /* ------------------------------ on-social-save ------------------------------ */
@@ -382,15 +401,52 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
 
   void onOpenTap() {}
 
-  void onIconTap(CompanyTimes value) {
-    for (var i = 0; i < timings!.length; i++) {
-      for (var j = 0; j < timings![i].companyDayDetailViewModels!.length; j++) {
-        // if()
-      }
+  Future onIconTap(CompanyTimes value) async {
+    List<CompanyTimings> t1 = [];
+    for (var i = 0; i < t1.length; i++) {
+      CompanyTimings j = await newMethod(t1[i], value);
+      t1.add(j);
     }
-// List<CompanyDayDetailViewModels> tim = ...timings!.map((e) => e.companyDayDetailViewModels!).t;
-    // final tim2 = tim.firstWhere((e) => e.first.)
+    // timings!.forEach((x) async {
+    //   CompanyTimings j = await newMethod(x, value);
+    //   // log(j.toString());
+    //   t1.add(j);
+    // });
+    // for (var x in t1) {
+    //   List<CompanyDayDetailViewModels> t2 = [];
+    //   t1.add(x);
+    //   for (var y in t2) {
+    //     List<CompanyTimes> t3 = [];
+    //     t2.add(y);
+    //     for (var z in t3) {
+    //       t3.add(z);
+    //     }
+    //   }
+    // }
+    // timings!.clear();
+    timings!.addAll(t1);
+    notifyListeners();
 
-    // if (value.length == 3) return;
+    log(t1.length.toString());
+  }
+
+  newMethod(CompanyTimings x, CompanyTimes value) async {
+    List<CompanyDayDetailViewModels> t2 = [];
+    // for (var y in x.companyDayDetailViewModels!) {
+    //   CompanyDayDetailViewModels c =await  y.copyWith(
+    //     companyTimes: [value, ...y.companyTimes!],
+    //   );
+    //   t2.add(c);
+    // }
+    // x.companyDayDetailViewModels!.forEach((y) async {});
+    for (var i = 0; i < x.companyDayDetailViewModels!.length; i++) {
+      CompanyDayDetailViewModels c = x.companyDayDetailViewModels![i].copyWith(
+        companyTimes: value.companyId == x.companyDayDetailViewModels![i].id ? [value, ...x.companyDayDetailViewModels![i].companyTimes!] : [...x.companyDayDetailViewModels![i].companyTimes!],
+      );
+      t2.add(c);
+    }
+    CompanyTimings j = x.copyWith(companyDayDetailViewModels: t2);
+    // print(t2.length.toString());
+    return j;
   }
 }

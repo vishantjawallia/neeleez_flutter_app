@@ -6,8 +6,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
+import 'package:provider/provider.dart';
 
-import '../../../models/company/company_profile.dart';
+import '../../../../models/company/company_profile.dart';
+import '../../../../widgets/custom_button.dart';
+import 'file_section_provider.dart';
 
 class FileSection extends StatefulWidget {
   final void Function(File? file) onUploadMedia;
@@ -19,12 +22,13 @@ class FileSection extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _SocialMediaState createState() => _SocialMediaState();
+  _FileSectionState createState() => _FileSectionState();
 }
 
-class _SocialMediaState extends State<FileSection> {
+class _FileSectionState extends State<FileSection> {
   @override
   Widget build(BuildContext context) {
+    final social = Provider.of<FileSectionProvider>(context);
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       physics: const BouncingScrollPhysics(),
@@ -91,6 +95,20 @@ class _SocialMediaState extends State<FileSection> {
                     },
                   )
                 : const SizedBox(),
+            Align(
+              alignment: Alignment.center,
+              child: CustomButton(
+                textColor: Palettes.white,
+                width: 300,
+                text: 'Upload File',
+                backgroundColor: Palettes.primary,
+                borderColor: Palettes.primary,
+                onTap: () {
+                  // return widget.onBusinessHoursSave!();
+                },
+              ),
+            ),
+            const SizedBox(height: 80),
           ],
         ),
       ),
