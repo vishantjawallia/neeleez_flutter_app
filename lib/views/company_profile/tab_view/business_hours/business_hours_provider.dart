@@ -132,7 +132,7 @@ class BusinessHoursProvider extends ChangeNotifier {
       int h = picked.hour;
       int m = picked.minute;
       CompanyTimes cc = companyTimes;
-      if (compare) {
+      if (!compare) {
         cc = companyTimes.copyWith(
           endHour: h,
           endMinute: m,

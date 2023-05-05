@@ -123,6 +123,7 @@ class BusinessHours extends StatelessWidget {
                     ],
                   ),
                 ),
+                const SizedBox(height: 15),
                 ...buss.timings
                     .asMap()
                     .map(

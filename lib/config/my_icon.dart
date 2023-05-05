@@ -76,4 +76,7 @@ class MyIcon {
   static const String staffDesignation = "$icons/staff_designation@3x.png";
   static const String imgLocationCity = "$icons/img_location_city.png";
   static const String imgLocationState = "$icons/img_location_state.png";
+  //05--5-2023
+  static const String iconAdd = "$icons/icon_add.png";
+  static const String iconIncorrect = "$icons/icon_incorrect.png";
 }

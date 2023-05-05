@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 
 class TimingBox extends StatelessWidget {
@@ -30,20 +31,23 @@ class TimingBox extends StatelessWidget {
     // log("====>${obj!.companyTimes!.length}");
     return Container(
       key: Key('$index'),
-      padding: const EdgeInsets.only(top: 9, bottom: 4),
+      padding: const EdgeInsets.only(top: 0, bottom: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
             width: 100,
-            child: Text(
-              text ?? 'Monday',
-              style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.grey3),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 5.5),
+              child: Text(
+                text ?? 'Monday',
+                style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.grey3),
+              ),
             ),
           ),
           SizedBox(
-            width: 186,
+            width: 190,
             child: Column(
               children: items!,
             ),
@@ -118,7 +122,6 @@ class TimingBoxItem extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 6),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              // crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 const SizedBox(
                   width: 10,
@@ -126,19 +129,19 @@ class TimingBoxItem extends StatelessWidget {
                 InkWell(
                   onTap: () => onStartTimingTap!(companyTimingsIndex!, companyDayDetailViewModelsIndex!, index!),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+                    padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 16),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6),
+                      borderRadius: BorderRadius.circular(10),
                       border: Border.all(color: Palettes.primary),
                     ),
                     child: SizedBox(
-                      width: 36,
+                      width: 38,
                       child: Text(
                         toTime(startTiming?.hour, startTiming?.minute),
                         style: Get.textTheme.bodyMedium!.copyWith(
                           color: Palettes.black,
                         ),
-                        textAlign: TextAlign.left,
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
@@ -147,49 +150,47 @@ class TimingBoxItem extends StatelessWidget {
                 InkWell(
                   onTap: () => onEndTimingTap!(companyTimingsIndex!, companyDayDetailViewModelsIndex!, index!),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 13),
+                    padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 16),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6),
+                      borderRadius: BorderRadius.circular(10),
                       border: Border.all(color: Palettes.primary),
                     ),
                     child: SizedBox(
-                      width: 35,
+                      width: 38,
                       child: Text(
                         toTime(endTiming?.hour, endTiming?.minute),
                         style: Get.textTheme.bodyMedium!.copyWith(
                           color: Palettes.black,
                         ),
-                        textAlign: TextAlign.left,
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
                 ),
                 const SizedBox(width: 5),
                 !icon
-                    ? GestureDetector(
-                        onTap: () => onCloseTap!(companyTimingsIndex!, companyDayDetailViewModelsIndex!, index!),
-                        child: const RotatedBox(
-                          quarterTurns: 90,
-                          child: CircleAvatar(
-                            radius: 10,
-                            backgroundColor: Palettes.red,
-                            child: Icon(
-                              Icons.cancel,
-                              color: Colors.white,
-                              size: 15,
+                    ? RotatedBox(
+                        quarterTurns: 1,
+                        child: GestureDetector(
+                          onTap: () => onCloseTap!(companyTimingsIndex!, companyDayDetailViewModelsIndex!, index!),
+                          child: SizedBox(
+                            height: 24,
+                            width: 24,
+                            child: Image.asset(
+                              MyIcon.iconIncorrect,
+                              fit: BoxFit.fill,
                             ),
                           ),
                         ),
                       )
                     : GestureDetector(
                         onTap: () => onAddTap!(companyTimingsIndex!, companyDayDetailViewModelsIndex!, index),
-                        child: const CircleAvatar(
-                          radius: 10,
-                          backgroundColor: Colors.green,
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.white,
-                            size: 15,
+                        child: SizedBox(
+                          height: 24,
+                          width: 24,
+                          child: Image.asset(
+                            MyIcon.iconAdd,
+                            fit: BoxFit.fill,
                           ),
                         ),
                       ),
