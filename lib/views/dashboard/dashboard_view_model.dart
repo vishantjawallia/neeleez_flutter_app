@@ -1,10 +1,13 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/components/dailogs/logout_popup.dart';
 import 'package:neeleez_flutter_app/config/pref_constant.dart';
 import 'package:neeleez_flutter_app/config/preference.dart';
+import 'package:neeleez_flutter_app/helpers/helper.dart';
 import 'package:neeleez_flutter_app/models/user_data.dart';
 import 'package:neeleez_flutter_app/views/company_profile/company_profile_view.dart';
 import 'package:neeleez_flutter_app/views/company_profile/services/company_profile_service.dart';
@@ -37,6 +40,8 @@ class DashboardViewModel extends BaseViewModel with DashboardService, CompanyPro
   // Add ViewModel specific code here
   Future<void> loadItems() async {
     setBusy(true);
+    final loaction = await Helper.getLocationPermission();
+
     // userData = await getUserData();
     company = await getCompanyDashBoard();
     companyAllData = await getCompanyAllData();
@@ -45,6 +50,17 @@ class DashboardViewModel extends BaseViewModel with DashboardService, CompanyPro
     // languageObj ??= await getLanguage();
     setBusy(false);
     notifyListeners();
+    if (loaction) {
+      // Position position = await Geolocator.getCurrentPosition();
+      Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high,
+        timeLimit: const Duration(seconds: 5),
+      );
+      double latitude = position.latitude;
+      double longitude = position.longitude;
+      log(latitude.toString());
+      log(longitude.toString());
+    }
   }
 
   void setUserData(UserData? user) {
