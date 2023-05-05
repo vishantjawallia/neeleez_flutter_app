@@ -35,7 +35,13 @@ class BusinessHoursProvider extends ChangeNotifier {
     var id = DateTime.now().millisecondsSinceEpoch;
     if (!(cL.length >= 3)) {
       cL.add(
-        obj.copyWith(id: id),
+        obj.copyWith(
+          id: id,
+          endHour: 20,
+          endMinute: 0,
+          startMinute: 0,
+          startHour: 9,
+        ),
       );
       cd.companyTimes != cL;
       cdL.replaceRange(j, j + 1, [cd]);

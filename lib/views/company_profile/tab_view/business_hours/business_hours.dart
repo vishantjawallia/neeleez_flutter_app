@@ -168,9 +168,9 @@ class BusinessHours extends StatelessWidget {
                                                           buss.onEndTimingTap(context, companyTimes, ii!, jj!, kk!);
                                                         },
                                                         icon: companyDayDetailViewModels.companyTimes!.first.id == companyTimes.id,
-                                                        startTiming: "${companyTimes.startHour}:${companyTimes.startMinute}",
+                                                        startTiming: TimeOfDay(hour: companyTimes.startHour ?? 0, minute: companyTimes.startMinute ?? 0),
+                                                        endTiming: TimeOfDay(hour: companyTimes.endHour ?? 0, minute: companyTimes.endMinute ?? 0),
                                                         isHoliday: companyDayDetailViewModels.isHoliday!,
-                                                        endTiming: "${companyTimes.endHour}:${companyTimes.endMinute}",
                                                         onAddTap: (ii, jj, kk) async {
                                                           buss.way2AddList(ii!, jj!, kk!, companyTimes);
                                                         },

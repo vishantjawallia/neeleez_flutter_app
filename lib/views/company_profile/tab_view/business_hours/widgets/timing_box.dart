@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 
 class TimingBox extends StatelessWidget {
@@ -64,8 +65,8 @@ class TimingBox extends StatelessWidget {
 }
 
 class TimingBoxItem extends StatelessWidget {
-  final String? startTiming;
-  final String? endTiming;
+  final TimeOfDay? startTiming;
+  final TimeOfDay? endTiming;
   final int? index;
 
   final int? companyTimingsIndex;
@@ -125,15 +126,15 @@ class TimingBoxItem extends StatelessWidget {
                 InkWell(
                   onTap: () => onStartTimingTap!(companyTimingsIndex!, companyDayDetailViewModelsIndex!, index!),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 13),
+                    padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(6),
                       border: Border.all(color: Palettes.primary),
                     ),
                     child: SizedBox(
-                      width: 35,
+                      width: 36,
                       child: Text(
-                        startTiming ?? '09:00'.tr,
+                        toTime(startTiming?.hour, startTiming?.minute),
                         style: Get.textTheme.bodyMedium!.copyWith(
                           color: Palettes.black,
                         ),
@@ -142,7 +143,7 @@ class TimingBoxItem extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 6),
                 InkWell(
                   onTap: () => onEndTimingTap!(companyTimingsIndex!, companyDayDetailViewModelsIndex!, index!),
                   child: Container(
@@ -154,7 +155,7 @@ class TimingBoxItem extends StatelessWidget {
                     child: SizedBox(
                       width: 35,
                       child: Text(
-                        endTiming ?? '16:00'.tr,
+                        toTime(endTiming?.hour, endTiming?.minute),
                         style: Get.textTheme.bodyMedium!.copyWith(
                           color: Palettes.black,
                         ),
@@ -195,5 +196,17 @@ class TimingBoxItem extends StatelessWidget {
               ],
             ),
           );
+  }
+
+  toTime(hour, minute) {
+    if (hour != null) {
+      var now = DateTime.now();
+      var dateTime = DateTime(now.year, now.month, now.day, hour, minute);
+
+      var timeFormat = DateFormat('HH:mm');
+      var formattedTime = timeFormat.format(dateTime);
+      return formattedTime.toString();
+    }
+    return "";
   }
 }

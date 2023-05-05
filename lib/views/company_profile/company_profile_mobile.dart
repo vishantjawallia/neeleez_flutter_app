@@ -30,6 +30,7 @@ class _CompanyProfileMobile extends StatelessWidget {
                         isFreelancer: viewModel.isFreelancer,
                         onFreelancerChange: viewModel.onFreelancerChange,
                         companyNameController: viewModel.companyNameController,
+                        companyNameController2: viewModel.companyNameController2,
                         taglineController: viewModel.taglineController,
                         companyEstablishmentYearController: viewModel.companyEstablishmentYearController,
                         additionalInfoController: viewModel.additionalInfoController,
@@ -64,17 +65,11 @@ class _CompanyProfileMobile extends StatelessWidget {
                       Location(
                         countryList: viewModel.countryList,
                         regionInfo: viewModel.regionInfo,
-                        // countryOnChange: viewModel.countryOnChange,
-                        // countrySelected: viewModel.countrySelected,
-                        // //
-                        // stateList: viewModel.stateList,
-                        // stateOnChange: viewModel.stateOnChange,
-                        // stateSelected: viewModel.stateSelected,
-                        // //
-                        // cityList: viewModel.cityList,
-                        // cityOnChange: viewModel.cityOnChange,
-                        // citySelected: viewModel.citySelected,
-                        // //
+                        cities: viewModel.cities,
+                        provinces: viewModel.provinces,
+                        country: viewModel.country,
+                        city: viewModel.city,
+                        province: viewModel.province,
                         googleAddressController: viewModel.googleAddressController,
                         additionalAddressController: viewModel.additionalAddressController,
                       ),

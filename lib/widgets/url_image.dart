@@ -8,11 +8,13 @@ class UrlImage extends StatelessWidget {
   final String? url;
   final double? width;
   final double? height;
+  final BoxBorder? border;
   const UrlImage({
     Key? key,
     this.width,
     this.height,
     this.url,
+    this.border,
   }) : super(key: key);
 
   @override
@@ -47,7 +49,7 @@ class UrlImage extends StatelessWidget {
         height: height,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          border: Border.all(color: Palettes.white),
+          border: border ?? Border.all(color: Palettes.white),
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(90),

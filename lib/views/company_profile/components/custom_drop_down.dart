@@ -140,7 +140,7 @@ class CustomDropDown extends StatelessWidget {
   }
 
   DropdownButton<String> _dropDown() {
-    if (!loading!) {
+    if (!loading! && list!.isNotEmpty) {
       return DropdownButton<String>(
         focusNode: focusNode,
         key: Key('$name'),
@@ -170,6 +170,37 @@ class CustomDropDown extends StatelessWidget {
         style: const TextStyle(color: Colors.deepPurple),
         underline: Container(),
         onChanged: onChanged,
+      );
+    } else if (value != null) {
+      return DropdownButton<String>(
+        focusNode: focusNode,
+        key: Key('$name'),
+        hint: Text(
+          "Select ${name!}",
+          style: Get.textTheme.bodyMedium!.copyWith(
+            color: Palettes.primary.withOpacity(0.8),
+            fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
+          ),
+        ),
+        isExpanded: true,
+        isDense: true,
+        value: value,
+        items: ['$value'].map<DropdownMenuItem<String>>((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(
+              value,
+              style: Get.textTheme.bodyMedium!.copyWith(
+                color: Palettes.black,
+                fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
+              ),
+            ),
+          );
+        }).toList(),
+        icon: const Icon(Icons.arrow_drop_down_sharp),
+        style: const TextStyle(color: Colors.deepPurple),
+        underline: Container(),
+        onChanged: (value) {},
       );
     } else {
       return DropdownButton<String>(

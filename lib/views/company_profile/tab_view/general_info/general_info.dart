@@ -23,6 +23,7 @@ class GeneralInfo extends StatelessWidget {
   final VoidCallback? onFreelancerChange;
   //
   final TextEditingController? companyNameController;
+  final TextEditingController? companyNameController2;
   final TextEditingController? taglineController;
   final TextEditingController? companyEstablishmentYearController;
   final TextEditingController? whatsAppNoController;
@@ -57,6 +58,7 @@ class GeneralInfo extends StatelessWidget {
     Key? key,
     required this.isFreelancer,
     required this.companyNameController,
+    required this.companyNameController2,
     required this.taglineController,
     required this.companyEstablishmentYearController,
     required this.businessCategoryList,
@@ -89,6 +91,7 @@ class GeneralInfo extends StatelessWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       physics: const BouncingScrollPhysics(),
+      controller: general.scrollController,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 22),
         child: Column(
@@ -337,7 +340,9 @@ class GeneralInfo extends StatelessWidget {
             name: 'Company Name',
             prefixIconPath: MyIcon.officeBuilding,
           ),
-          const InputTextRtl(),
+          InputTextRtl(
+            controller: companyNameController2,
+          ),
           Text(
             'Tagline',
             style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),

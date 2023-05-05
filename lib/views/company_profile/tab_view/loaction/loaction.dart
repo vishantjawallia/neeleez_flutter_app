@@ -5,28 +5,40 @@ import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
+import 'package:neeleez_flutter_app/models/company/cities.dart';
+import 'package:neeleez_flutter_app/models/company/provinces.dart';
 import 'package:neeleez_flutter_app/models/company/region_Info.dart';
-import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down.dart';
 
-import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 import 'package:provider/provider.dart';
 
 // import '../../components/country_drop_down.dart';
 import '../../../../models/company/companies.dart';
+import '../../../../widgets/custom_text_field.dart';
+import '../../components/custom_drop_down.dart';
 import 'loaction_provider.dart';
 import 'widgets/country_drop_down.dart';
 
 class Location extends StatelessWidget {
-  final List<Countries>? countryList;
   final RegionInformation? regionInfo;
+  final List<Countries>? countryList;
+  final List<Provinces>? provinces;
+  final List<Cities>? cities;
+  final Countries? country;
+  final Provinces? province;
+  final Cities? city;
   final TextEditingController? googleAddressController;
   final TextEditingController? additionalAddressController;
   const Location({
     super.key,
-    required this.countryList,
-    this.regionInfo,
-    this.googleAddressController,
-    this.additionalAddressController,
+    this.countryList,
+    required this.regionInfo,
+    required this.googleAddressController,
+    required this.additionalAddressController,
+    this.province,
+    this.provinces,
+    this.cities,
+    this.city,
+    this.country,
   });
 
   @override
@@ -60,7 +72,6 @@ class Location extends StatelessWidget {
                     decoration: const BoxDecoration(
                       color: Palettes.red,
                     ),
-                    // child: ,
                   )
                 ],
               ),
@@ -71,42 +82,70 @@ class Location extends StatelessWidget {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            CountryDropDown(
-              value: loaction.country?.nameEn,
-              urlImage: loaction.country?.iconImage2 ?? "",
-              list: countryList ?? [],
-              name: 'Country',
-              prefixIconPath: MyIcon.place,
-              onChanged: loaction.onCountryChange,
-            ),
+            if (country != null && loaction.country == null)
+              CountryDropDown(
+                value: country?.nameEn,
+                urlImage: country!.iconImage2 ?? "",
+                list: countryList ?? [],
+                name: 'Country',
+                prefixIconPath: MyIcon.place,
+                onChanged: loaction.onCountryChange,
+              )
+            else
+              CountryDropDown(
+                value: loaction.country?.nameEn,
+                urlImage: loaction.country?.iconImage2 ?? "",
+                list: countryList ?? [],
+                name: 'Country',
+                prefixIconPath: MyIcon.place,
+                onChanged: loaction.onCountryChange,
+              ),
             const SizedBox(height: 14),
             Text(
               'State/Province',
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            CustomDropDown(
-              loading: loaction.loadingC,
-              value: loaction.province?.provinceNameEn ?? null,
-              list: (loaction.provinces ?? []).map((e) => e.provinceNameEn!).toList(),
-              name: 'State/Province',
-              prefixIconPath: MyIcon.imgLocationState,
-              onChanged: loaction.onStateChanged,
-            ),
+            if (province != null && loaction.provinces!.isEmpty && !loaction.loadingC!)
+              CustomDropDown(
+                value: province?.provinceNameEn ?? null,
+                list: const [],
+                name: 'State/Province',
+                prefixIconPath: MyIcon.imgLocationState,
+                onChanged: loaction.onStateChanged,
+              )
+            else
+              CustomDropDown(
+                loading: loaction.loadingC,
+                value: loaction.province?.provinceNameEn,
+                list: loaction.provinces?.map((e) => e.provinceNameEn!).toList() ?? [],
+                name: 'State/Province',
+                prefixIconPath: MyIcon.imgLocationState,
+                onChanged: loaction.onStateChanged,
+              ),
             const SizedBox(height: 14),
             Text(
               'City',
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            CustomDropDown(
-              loading: loaction.loadingP,
-              value: loaction.city?.cityNameEn ?? null,
-              list: (loaction.cities ?? []).map((e) => e.cityNameEn!).toList(),
-              name: 'City',
-              prefixIconPath: MyIcon.imgLocationCity,
-              onChanged: loaction.onCityChanged,
-            ),
+            if (city != null && loaction.cities!.isEmpty && !loaction.loadingP!)
+              CustomDropDown(
+                value: city?.cityNameEn,
+                list: const [],
+                name: 'City',
+                prefixIconPath: MyIcon.imgLocationCity,
+                onChanged: loaction.onCityChanged,
+              )
+            else
+              CustomDropDown(
+                loading: loaction.loadingP,
+                value: loaction.city?.cityNameEn ?? null,
+                list: (loaction.cities ?? []).map((e) => e.cityNameEn!).toList(),
+                name: 'City',
+                prefixIconPath: MyIcon.imgLocationCity,
+                onChanged: loaction.onCityChanged,
+              ),
             const SizedBox(height: 14),
             Text(
               'Google Address',
@@ -145,40 +184,3 @@ class Location extends StatelessWidget {
     );
   }
 }
-
-// CustomDropDown(
-            //   value: '',
-            //   list: widget.countryList,
-            //   name: 'Country',
-            //   prefixIconPath: MyIcon.place,
-            //   prefixIconColor: Palettes.primary,
-            // ),
-            // const CountryDropDown(
-            //   list: coun,
-            //   value: '',
-            // ),
-            // DropDownTextField(
-            //   textFieldDecoration: const InputDecoration(
-            //     border: InputBorder.none,
-            //   ),
-            //   validator: (value) {
-            //     if (value == null) {
-            //       return "Required field";
-            //     } else {
-            //       return null;
-            //     }
-            //   },
-            //   dropDownItemCount: 6,
-            //   dropdownRadius: 0,
-            //   dropDownList: const [
-            //     DropDownValueModel(name: 'name1', value: "value1"),
-            //     DropDownValueModel(name: 'name2', value: "value2", toolTipMsg: "DropDownButton is a widget that we can use to select one unique value from a set of values"),
-            //     DropDownValueModel(name: 'name3', value: "value3"),
-            //     DropDownValueModel(name: 'name4', value: "value4", toolTipMsg: "DropDownButton is a widget that we can use to select one unique value from a set of values"),
-            //     DropDownValueModel(name: 'name5', value: "value5"),
-            //     DropDownValueModel(name: 'name6', value: "value6"),
-            //     DropDownValueModel(name: 'name7', value: "value7"),
-            //     DropDownValueModel(name: 'name8', value: "value8"),
-            //   ],
-            // onChanged: (val) {},
-            // ),

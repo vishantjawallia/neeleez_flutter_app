@@ -21,11 +21,14 @@ class LocationProvider extends ChangeNotifier with CompanyProfileService {
   void loadItems() {}
 
   void onCountryChange(int? value, List<Countries>? countries) async {
+    notifyListeners();
     country = countries?.firstWhere((element) => element.id == value);
     loadingC = true;
     notifyListeners();
     provinces = await getProvinces("${country!.id!}");
+    cities = [];
     province = null;
+    city = null;
     loadingC = false;
     notifyListeners();
   }
@@ -42,6 +45,18 @@ class LocationProvider extends ChangeNotifier with CompanyProfileService {
 
   void onCityChanged(String? value) {
     city = cities?.firstWhere((element) => element.cityNameEn == value);
+    notifyListeners();
+  }
+
+  clearAll() {
+    country = null;
+    province == null;
+    city == null;
+    loadingC = false;
+    loadingP = false;
+    countries = [];
+    provinces = [];
+    cities = [];
     notifyListeners();
   }
 }

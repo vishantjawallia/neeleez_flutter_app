@@ -18,6 +18,7 @@ import 'package:stacked/stacked.dart';
 import '../../models/amenities/amenities.dart';
 import '../../models/business_types/business_services_by_country.dart';
 import '../../models/business_types/business_types.dart';
+import '../../models/company/cities.dart';
 import '../../models/company/companies.dart';
 import '../../models/company/company_profile.dart' as cm;
 import '../../models/gender/gender.dart';
@@ -43,6 +44,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   // List<CompanyTimings>? timings;
   FocusNode busMyFocusNode = FocusNode();
   TextEditingController companyNameController = TextEditingController();
+  TextEditingController companyNameController2 = TextEditingController();
   TextEditingController taglineController = TextEditingController();
   TextEditingController companyEstablishmentYearController = TextEditingController();
   TextEditingController whatsAppNoController = TextEditingController();
@@ -88,6 +90,13 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
 
   FocusNode? businessCategoryFocus;
 
+  //location
+  List<Cities>? cities;
+  List<Provinces>? provinces;
+  Countries? country;
+  Cities? city;
+  Provinces? province;
+
   CompanyProfileViewModel({
     this.user,
     this.serviceForList,
@@ -95,6 +104,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     this.businessCategoryList,
   }) {
     companyNameController.addListener(() => notifyListeners());
+    companyNameController2.addListener(() => notifyListeners());
     taglineController.addListener(() => notifyListeners());
     // companyEstablishmentYearController.addListener(() => notifyListeners());
     whatsAppNoController.addListener(() => notifyListeners());
@@ -230,7 +240,8 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     genInfo ??= await generalInformationWithCompanyId(companyId!);
     if (genInfo != null) {
       isFreelancer = genInfo!.isFreeLancer ?? false;
-      companyNameController.text = genInfo!.companyNumber ?? "";
+      companyNameController.text = genInfo!.nameEn ?? "";
+      companyNameController2.text = genInfo!.nameAr ?? "";
       taglineController.text = genInfo!.tagLine ?? "";
       companyEstablishmentYearController.text = genInfo!.edate ?? "";
       websiteController.text = genInfo!.url ?? "";
@@ -255,10 +266,20 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   void loadLocationData() async {
     setBusy(true);
     countryList ??= await getCountries() ?? [];
+
     regionInfo ??= await regionInformation(companyId!);
     if (regionInfo != null) {
       googleAddressController.text = regionInfo?.googleAddress! ?? "";
       additionalAddressController.text = regionInfo?.address ?? "";
+      country = countryList!.firstWhere((e) => e.id == (regionInfo?.countryId ?? 0));
+      province = Provinces(
+        provinceId: regionInfo?.provinceId,
+        provinceNameEn: regionInfo?.provinceNameEn,
+      );
+      city = Cities(
+        cityId: regionInfo?.cityId,
+        cityNameEn: regionInfo?.cityNameEn,
+      );
     }
     setBusy(false);
     notifyListeners();

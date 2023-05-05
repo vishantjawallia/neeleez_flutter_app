@@ -19,15 +19,16 @@ class InputTextRtl extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 14),
+          const SizedBox(height: 12.5),
           Text(
-            'Company Name',
-            style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
+            'اسم الشركة',
+            style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black, fontSize: Get.textTheme.bodyLarge!.fontSize! + 2),
             textAlign: TextAlign.right,
           ),
+          // منتال
           CustomTextField(
             controller: controller,
-            name: 'Company Name',
+            name: 'اسم الشرك',
             prefixIconPath: MyIcon.officeBuilding,
             isCustomRtl: true,
           ),

@@ -70,8 +70,8 @@ class CountryDropDown extends StatelessWidget {
           ),
           child: UrlImage(
             url: '$urlImage',
-            height: 32,
-            width: 32,
+            width: 31.2,
+            border: Border.all(width: 0),
           ),
         ),
         // suffixIcon: Container(
