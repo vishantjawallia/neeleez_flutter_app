@@ -18,7 +18,7 @@ import '../../components/custom_drop_down.dart';
 import 'loaction_provider.dart';
 import 'widgets/country_drop_down.dart';
 
-class Location extends StatelessWidget {
+class Location extends StatefulWidget {
   final RegionInformation? regionInfo;
   final List<Countries>? countryList;
   final List<Provinces>? provinces;
@@ -40,6 +40,22 @@ class Location extends StatelessWidget {
     this.city,
     this.country,
   });
+
+  @override
+  State<Location> createState() => _LocationState();
+}
+
+class _LocationState extends State<Location> {
+  @override
+  void initState() {
+    super.initState();
+    final loaction = Provider.of<LocationProvider>(context, listen: false);
+    Future.delayed(const Duration(milliseconds: 100), () {
+      loaction.clearAll();
+      // setState(() {
+    });
+    // });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,11 +98,11 @@ class Location extends StatelessWidget {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            if (country != null && loaction.country == null)
+            if (widget.country != null && loaction.country == null)
               CountryDropDown(
-                value: country?.nameEn,
-                urlImage: country!.iconImage2 ?? "",
-                list: countryList ?? [],
+                value: widget.country?.nameEn,
+                urlImage: widget.country!.iconImage2 ?? "",
+                list: widget.countryList ?? [],
                 name: 'Country',
                 prefixIconPath: MyIcon.place,
                 onChanged: loaction.onCountryChange,
@@ -95,7 +111,7 @@ class Location extends StatelessWidget {
               CountryDropDown(
                 value: loaction.country?.nameEn,
                 urlImage: loaction.country?.iconImage2 ?? "",
-                list: countryList ?? [],
+                list: widget.countryList ?? [],
                 name: 'Country',
                 prefixIconPath: MyIcon.place,
                 onChanged: loaction.onCountryChange,
@@ -106,9 +122,9 @@ class Location extends StatelessWidget {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            if (province != null && loaction.provinces!.isEmpty && !loaction.loadingC!)
+            if (widget.province != null && loaction.provinces!.isEmpty && !loaction.loadingC!)
               CustomDropDown(
-                value: province?.provinceNameEn ?? null,
+                value: widget.province?.provinceNameEn ?? null,
                 list: const [],
                 name: 'State/Province',
                 prefixIconPath: MyIcon.imgLocationState,
@@ -129,9 +145,9 @@ class Location extends StatelessWidget {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            if (city != null && loaction.cities!.isEmpty && !loaction.loadingP!)
+            if (widget.city != null && loaction.cities!.isEmpty && !loaction.loadingP!)
               CustomDropDown(
-                value: city?.cityNameEn,
+                value: widget.city?.cityNameEn,
                 list: const [],
                 name: 'City',
                 prefixIconPath: MyIcon.imgLocationCity,
@@ -154,7 +170,7 @@ class Location extends StatelessWidget {
             ),
             CustomTextField(
               enabled: false,
-              controller: googleAddressController,
+              controller: widget.googleAddressController,
               name: 'Google Address',
               prefixIconPath: MyIcon.place,
             ),
@@ -165,7 +181,7 @@ class Location extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
             CustomTextField(
-              controller: additionalAddressController,
+              controller: widget.additionalAddressController,
               enabled: false,
               name: 'Additional Address',
               prefixIconPath: MyIcon.place,

@@ -6,8 +6,8 @@ import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
-import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down.dart';
-import 'package:neeleez_flutter_app/views/company_profile/components/custom_multi_drop_down.dart';
+// import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down.dart';
+// import 'package:neeleez_flutter_app/views/company_profile/components/custom_multi_drop_down.dart';
 
 import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
@@ -16,6 +16,8 @@ import 'package:provider/provider.dart';
 
 import '../../components/freelancer_switch.dart';
 import 'general_info_provider.dart';
+import 'widgets/custom_drop_down.dart';
+import 'widgets/custom_multi_drop_down.dart';
 import 'widgets/input_text_rtl.dart';
 
 class GeneralInfo extends StatelessWidget {
@@ -39,12 +41,12 @@ class GeneralInfo extends StatelessWidget {
   final FocusNode? busCatOnFocus;
   //
   final String? serviceForValue;
-  final List<String>? serviceForList;
-  final void Function(String? value)? serviceForOnChange;
+  // final List<String>? serviceForList;
+  // final void Function(String? value)? serviceForOnChange;
   //
-  final List<String>? businessSubCategoryList;
+  // final List<String>? businessSubCategoryList;
   final List<String>? businessSubCategorySelectedList;
-  final void Function(List? value)? busSubCatSelectedOnChange;
+  // final void Function(List? value)? busSubCatSelectedOnChange;
   //
   final List<String>? amentiasList;
   final List<String>? amentiasSelectedList;
@@ -63,8 +65,8 @@ class GeneralInfo extends StatelessWidget {
     required this.companyEstablishmentYearController,
     required this.businessCategoryList,
     required this.businessSubCategorySelectedList,
-    required this.businessSubCategoryList,
-    required this.serviceForList,
+    // required this.businessSubCategoryList,
+    // required this.serviceForList,
     required this.whatsAppNoController,
     required this.telephoneController,
     required this.emailController,
@@ -76,10 +78,10 @@ class GeneralInfo extends StatelessWidget {
     required this.additionalInfoController,
     required this.onFreelancerChange,
     required this.companyEstablishmentYearDate,
-    required this.serviceForOnChange,
+    // required this.serviceForOnChange,
     required this.busCatOnChange,
     required this.busCatOnFocus,
-    required this.busSubCatSelectedOnChange,
+    // required this.busSubCatSelectedOnChange,
     required this.busCatValue,
     required this.serviceForValue,
     required this.amentiasOnChange,
@@ -373,9 +375,10 @@ class GeneralInfo extends StatelessWidget {
             textAlign: TextAlign.right,
           ),
           CustomDropDown(
+            value: "Helo",
             focusNode: busCatOnFocus,
             name: 'Business Category',
-            value: busCatValue,
+            // value: busCatValue,
             prefixIconPath: MyIcon.portfolio,
             list: businessCategoryList,
             onChanged: busCatOnChange,
@@ -389,9 +392,10 @@ class GeneralInfo extends StatelessWidget {
           CustomMultiDropDown(
             name: 'Business Sub-Category',
             prefixIconPath: MyIcon.portfolio,
-            list: businessSubCategoryList,
+            list: const [],
             selectedList: businessSubCategorySelectedList,
-            onChanged: busSubCatSelectedOnChange,
+            // selectedList: const ['Hello',"Goe"],
+            onChanged: (value) {},
           ),
           const SizedBox(height: 14),
           Text(
@@ -403,8 +407,10 @@ class GeneralInfo extends StatelessWidget {
             name: 'Services For',
             prefixIconPath: MyIcon.sex,
             value: serviceForValue,
-            list: serviceForList,
-            onChanged: serviceForOnChange,
+            list: const [],
+            onChanged: (value) {},
+            // list: serviceForList,
+            // onChanged: serviceForOnChange,
           ),
         ],
       ),

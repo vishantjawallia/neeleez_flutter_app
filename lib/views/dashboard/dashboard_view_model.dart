@@ -40,7 +40,6 @@ class DashboardViewModel extends BaseViewModel with DashboardService, CompanyPro
   // Add ViewModel specific code here
   Future<void> loadItems() async {
     setBusy(true);
-    final loaction = await Helper.getLocationPermission();
 
     // userData = await getUserData();
     company = await getCompanyDashBoard();
@@ -50,6 +49,7 @@ class DashboardViewModel extends BaseViewModel with DashboardService, CompanyPro
     // languageObj ??= await getLanguage();
     setBusy(false);
     notifyListeners();
+    final loaction = await Helper.getLocationPermission();
     if (loaction) {
       // Position position = await Geolocator.getCurrentPosition();
       Position position = await Geolocator.getCurrentPosition(
