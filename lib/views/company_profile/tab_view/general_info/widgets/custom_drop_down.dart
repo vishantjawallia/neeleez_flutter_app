@@ -27,8 +27,6 @@ class CustomDropDown extends StatelessWidget {
   final Widget? suffixIconWidget;
   final String? value;
   final FocusNode? focusNode;
-  // final bool? obscureText;
-  // final bool? autofocus;
   final bool? enabled;
   final bool? loading;
   final void Function(String? value)? onChanged;
@@ -112,7 +110,7 @@ class CustomDropDown extends StatelessWidget {
               Flexible(
                 fit: FlexFit.tight,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.only(left: 10),
                   child: _dropDown(),
                 ),
               ),
@@ -139,7 +137,7 @@ class CustomDropDown extends StatelessWidget {
     );
   }
 
-  DropdownButton<String> _dropDown() {
+  _dropDown() {
     if (value == null) {
       return DropdownButton<String>(
         focusNode: focusNode,
@@ -171,8 +169,8 @@ class CustomDropDown extends StatelessWidget {
         underline: Container(),
         onChanged: onChanged,
       );
-    } else if (value != null) {
-      return DropdownButton<String>(
+    } else if (value != null && list != null) {
+      return DropdownButton(
         focusNode: focusNode,
         key: Key('$name'),
         hint: Text(
@@ -185,20 +183,20 @@ class CustomDropDown extends StatelessWidget {
         isExpanded: true,
         isDense: true,
         value: value,
-        items: ['$value'].map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
+        items: ['$value', ...list ?? []].map<DropdownMenuItem>((value) {
+          return DropdownMenuItem(
             value: value,
-            child: Text(
-              value,
-              style: Get.textTheme.bodyMedium!.copyWith(
-                color: Palettes.black,
-                fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
-              ),
+            child: SizedBox(
+              // width: 200,
+              child: Text(value),
             ),
           );
         }).toList(),
         icon: const Icon(Icons.arrow_drop_down_sharp),
-        style: const TextStyle(color: Colors.deepPurple),
+        style: Get.textTheme.bodyMedium!.copyWith(
+          color: Palettes.black,
+          fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
+        ),
         underline: Container(),
         onChanged: (value) {},
       );

@@ -7,17 +7,21 @@ import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../models/company/company_profile.dart';
+import '../../company_profile_view_model.dart';
 
 class Packages extends StatelessWidget {
-  final CompanyPackage? companyPackage;
+  // final CompanyPackage? companyPackage;
+  final CompanyProfileViewModel viewModel;
   const Packages({
     Key? key,
-    required this.companyPackage,
+    // required this.companyPackage,
+    required this.viewModel,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final package = Provider.of<PackagesProvider>(context);
+    CompanyPackage? companyPackage = viewModel.cp?.companyPackage;
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       physics: const BouncingScrollPhysics(),
@@ -51,14 +55,14 @@ class Packages extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            companyPackage != null ? _activePackage() : const SizedBox(),
+            companyPackage != null ? _activePackage(companyPackage) : const SizedBox(),
           ],
         ),
       ),
     );
   }
 
-  Container _activePackage() {
+  Container _activePackage(CompanyPackage companyPackage) {
     return Container(
       height: 230,
       width: double.infinity,
@@ -80,19 +84,19 @@ class Packages extends StatelessWidget {
             color: Palettes.white,
             alignment: Alignment.center,
             child: Text(
-              companyPackage!.packageNameEn!,
+              companyPackage.packageNameEn!,
               // 'Entry Package'.tr,
               style: Get.textTheme.displayLarge!.copyWith(fontWeight: FontWeight.w500, color: Palettes.red),
             ),
           ),
           const SizedBox(height: 5),
           Text(
-            'Expiry Date: ${companyPackage!.expiryDateTime!}'.tr,
+            'Expiry Date: ${companyPackage.expiryDateTime!}'.tr,
             style: Get.textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w600, color: Palettes.white),
           ),
           const SizedBox(height: 1),
           Text(
-            companyPackage!.remarkEn!,
+            companyPackage.remarkEn!,
             style: Get.textTheme.titleLarge!.copyWith(color: Palettes.white),
             textAlign: TextAlign.center,
           ),

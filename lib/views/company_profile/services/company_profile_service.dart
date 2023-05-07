@@ -95,7 +95,7 @@ mixin CompanyProfileService {
     return null;
   }
 
-  Future<List<BusinessTypes>> businessServiceIdWithCountryId(
+  Future<List<BusinessTypes>?> businessServiceIdWithCountryId(
     String businessServiceId,
     String countryId,
   ) async {
@@ -109,7 +109,7 @@ mixin CompanyProfileService {
       log(e.toString());
       log("businessServiceIdWithCountryId========>$e");
     }
-    return null!;
+    return null;
   }
 
   Future<List<Designation>?> getDesignation() async {
@@ -334,25 +334,25 @@ mixin CompanyProfileService {
   }
 
   Future<void> putGeneralInformation(
-    String companyId,
-    String email,
-    int genderId,
-    String mobile,
-    String nameEn,
-    String logo,
-    bool isFreeLancer,
-    int businessServiceId,
-    String nameAr,
-    String tagLine,
-    String edate,
-    String whatsapp,
-    String tel1,
-    String url,
-    String tel2,
-    String aboutUs,
-    String taxNumber,
-    List companyBusinessTypes,
-    List companyAmenity,
+    String? companyId,
+    String? email,
+    int? genderId,
+    String? mobile,
+    String? nameEn,
+    String? logo,
+    bool? isFreeLancer,
+    int? businessServiceId,
+    String? nameAr,
+    String? tagLine,
+    String? edate,
+    String? whatsapp,
+    String? tel1,
+    String? url,
+    String? tel2,
+    String? aboutUs,
+    String? taxNumber,
+    List? companyBusinessTypes,
+    List? companyAmenity,
   ) async {
     Map<String, dynamic> data = {
       "email": email,

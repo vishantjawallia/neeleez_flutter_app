@@ -3,26 +3,36 @@ import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
+import 'package:neeleez_flutter_app/views/company_profile/company_profile_view_model.dart';
 import 'package:neeleez_flutter_app/views/company_profile/tab_view/social_media/social_media_provider.dart';
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../widgets/custom_button.dart';
 
-class SocialMedia extends StatelessWidget {
-  final TextEditingController? facebookController;
-  final TextEditingController? twitterController;
-  final TextEditingController? instagramController;
-  final TextEditingController? linkedInController;
-  final void Function()? onSocialSave;
+class SocialMedia extends StatefulWidget {
+  // final void Function()? onSocialSave;
+  final CompanyProfileViewModel viewModel;
   const SocialMedia({
     Key? key,
-    required this.facebookController,
-    required this.twitterController,
-    required this.instagramController,
-    required this.linkedInController,
-    required this.onSocialSave,
+    // required this.onSocialSave,
+    required this.viewModel,
   }) : super(key: key);
+
+  @override
+  State<SocialMedia> createState() => _SocialMediaState();
+}
+
+class _SocialMediaState extends State<SocialMedia> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    final general = Provider.of<SocialMediaProvider>(context, listen: false);
+    Future.delayed(const Duration(milliseconds: 100), () {
+      general.loadItem(widget.viewModel.genInfo);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,16 +78,16 @@ class SocialMedia extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
             CustomTextField(
-              controller: facebookController,
+              controller: social.facebook,
               name: 'Facebook',
               prefixIconPath: MyIcon.socialFacebook,
               prefixIconColor: const Color.fromRGBO(10, 28, 83, 1),
-              suffixIconPath: facebookController!.text.isEmpty ? '' : MyIcon.checked1,
+              suffixIconPath: social.facebook.text.isEmpty ? '' : MyIcon.checked1,
             ),
-            facebookController!.text.isEmpty
+            social.facebook.text.isEmpty
                 ? const SizedBox()
                 : Text(
-                    'https://www.facebook.com/${facebookController!.text}',
+                    'https://www.facebook.com/${social.facebook.text}',
                     style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
                     textAlign: TextAlign.right,
                   ),
@@ -89,16 +99,16 @@ class SocialMedia extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
             CustomTextField(
-              controller: twitterController,
+              controller: social.twitter,
               name: 'Twitter',
               prefixIconPath: MyIcon.socialTwitter,
               prefixIconColor: Palettes.primary,
-              suffixIconPath: facebookController!.text.isEmpty ? '' : MyIcon.checked1,
+              suffixIconPath: social.twitter.text.isEmpty ? '' : MyIcon.checked1,
             ),
-            twitterController!.text.isEmpty
+            social.twitter.text.isEmpty
                 ? const SizedBox()
                 : Text(
-                    'https://www.twitter.com/${twitterController!.text}',
+                    'https://www.twitter.com/${social.twitter.text}',
                     style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
                     textAlign: TextAlign.right,
                   ),
@@ -109,16 +119,16 @@ class SocialMedia extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
             CustomTextField(
-              controller: instagramController,
+              controller: social.instagram,
               name: 'Instagram',
               prefixIconPath: MyIcon.socialInstagram,
-              suffixIconPath: instagramController!.text.isEmpty ? '' : MyIcon.checked1,
+              suffixIconPath: social.instagram.text.isEmpty ? '' : MyIcon.checked1,
               prefixIconColor: Palettes.primary,
             ),
-            instagramController!.text.isEmpty
+            social.instagram.text.isEmpty
                 ? const SizedBox()
                 : Text(
-                    'https://www.instagram.com/${instagramController!.text}',
+                    'https://www.instagram.com/${social.instagram.text}',
                     style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
                     textAlign: TextAlign.right,
                   ),
@@ -129,16 +139,16 @@ class SocialMedia extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
             CustomTextField(
-              controller: linkedInController,
+              controller: social.linkedIn,
               name: 'Linked In',
               prefixIconPath: MyIcon.socialLinkedin,
               prefixIconColor: Palettes.primary,
-              suffixIconPath: linkedInController!.text.isEmpty ? '' : MyIcon.checked1,
+              suffixIconPath: social.linkedIn.text.isEmpty ? '' : MyIcon.checked1,
             ),
-            linkedInController!.text.isEmpty
+            social.linkedIn.text.isEmpty
                 ? const SizedBox()
                 : Text(
-                    'https://www.instagram.com/${linkedInController!.text}',
+                    'https://www.instagram.com/${social.linkedIn.text}',
                     style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
                     textAlign: TextAlign.right,
                   ),
@@ -157,8 +167,8 @@ class SocialMedia extends StatelessWidget {
                 width: 300,
                 text: 'Save',
                 backgroundColor: Palettes.primary,
-                borderColor: Palettes.primary,
-                onTap: onSocialSave,
+                borderColor: Palettes.primary, onTap: () {},
+                // onTap: onSocialSave,
               ),
             ),
             const SizedBox(height: 34),

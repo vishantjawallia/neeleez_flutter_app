@@ -11,7 +11,7 @@ import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
 import 'package:neeleez_flutter_app/widgets/global_widget.dart';
 
-class CustomMultiDropDown extends StatefulWidget {
+class CustomMultiDropDown extends StatelessWidget {
   final TextEditingController? controller;
   final List<String>? list;
   final List<String>? selectedList;
@@ -33,9 +33,11 @@ class CustomMultiDropDown extends StatefulWidget {
   final bool? obscureText;
   final bool? autofocus;
   final bool? enabled;
-  final void Function(List<String>? value)? onChanged;
+  final FocusNode? focusNode;
+  final void Function(String? value)? onChanged;
+  final void Function(String? value)? onRemove;
   final void Function()? onTap;
-  const CustomMultiDropDown({
+  CustomMultiDropDown({
     Key? key,
     this.controller,
     this.name,
@@ -45,6 +47,7 @@ class CustomMultiDropDown extends StatefulWidget {
     this.prefixIconPath = "",
     this.suffixIconPath = "",
     required this.onChanged,
+    required this.onRemove,
     this.prefixIconColor = Palettes.primary,
     this.prefixIconSize,
     this.maxLength,
@@ -60,29 +63,23 @@ class CustomMultiDropDown extends StatefulWidget {
     this.checkedSuffixIcon = false,
     required this.list,
     this.selectedList,
+    this.focusNode,
   }) : super(key: key);
 
-  @override
-  State<CustomMultiDropDown> createState() => _CustomMultiDropDownState(selectItem: selectedList);
-}
-
-class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
-  List<String>? list;
-  List<String>? selectItem = [];
-  _CustomMultiDropDownState({this.selectItem});
-  String? dropdownValue;
+  // List<String>? list;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  final GlobalKey<PopupMenuButtonState> _menuKey = GlobalKey<PopupMenuButtonState>();
-  final ScrollController _scrollController = ScrollController();
 
+  final GlobalKey<PopupMenuButtonState> _menuKey = GlobalKey<PopupMenuButtonState>();
+
+  // final ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     final button = _showPopupMenu();
     return Container(
       key: _scaffoldKey,
       // key: Key('${widget.name}'),
-      height: widget.height ?? 50,
-      margin: widget.widgetMargin ?? EdgeInsets.zero,
+      height: height ?? 50,
+      margin: widgetMargin ?? EdgeInsets.zero,
       decoration: BoxDecoration(
         color: Palettes.white,
         borderRadius: BorderRadius.circular(10),
@@ -100,7 +97,7 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                padding: widget.prefixPadding ?? const EdgeInsets.symmetric(horizontal: 14, vertical: 10.5),
+                padding: prefixPadding ?? const EdgeInsets.symmetric(horizontal: 14, vertical: 10.5),
                 decoration: BoxDecoration(
                   color: Palettes.greyPrimary,
                   borderRadius: Helper.isRtl()
@@ -114,10 +111,10 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
                         ),
                 ),
                 child: Image.asset(
-                  widget.prefixIconPath!,
+                  prefixIconPath!,
                   filterQuality: FilterQuality.high,
                   isAntiAlias: true,
-                  color: widget.prefixIconColor,
+                  color: prefixIconColor,
                   height: 26,
                   width: 26,
                 ),
@@ -128,8 +125,8 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
                   padding: const EdgeInsets.only(right: 10),
                   child: GestureDetector(
                     onTap: () {
-                      if (widget.list!.isEmpty) {
-                        GlobalWidgets.toast('Select business category first.');
+                      if (list!.isEmpty) {
+                        GlobalWidgets.toast('Empty $name');
                         return;
                       }
                       try {
@@ -154,11 +151,11 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    selectItem!.isNotEmpty
+                                    selectedList!.isNotEmpty
                                         ? Flexible(
                                             child: ListView.builder(
-                                              controller: _scrollController,
-                                              itemCount: selectItem!.length,
+                                              // controller: _scrollController,
+                                              itemCount: selectedList!.length,
                                               shrinkWrap: true,
                                               scrollDirection: Axis.horizontal,
                                               itemBuilder: (context, index) {
@@ -174,7 +171,7 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
                                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                       children: [
                                                         Text(
-                                                          selectItem?[index] ?? 'Account',
+                                                          selectedList?[index] ?? 'Account',
                                                           style: Get.textTheme.bodyMedium!.copyWith(
                                                             color: Palettes.black,
                                                             fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
@@ -183,12 +180,7 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
                                                         const SizedBox(width: 4),
                                                         GestureDetector(
                                                           onTap: () async {
-                                                            setState(() {
-                                                              if (selectItem!.contains(selectItem![index])) {
-                                                                selectItem!.remove(selectItem![index]);
-                                                              }
-                                                            });
-                                                            return widget.onChanged!(selectItem!.toSet().toList());
+                                                            return onRemove!(selectedList![index]);
                                                           },
                                                           child: const Icon(
                                                             Icons.cancel,
@@ -207,7 +199,7 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
                                             alignment: Alignment.centerLeft,
                                             child: SizedBox(
                                               child: Text(
-                                                '${widget.name}',
+                                                '$name',
                                                 style: Get.textTheme.bodyMedium!.copyWith(
                                                   color: Palettes.primary.withOpacity(0.8),
                                                   fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
@@ -241,15 +233,10 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
         minWidth: 78.w,
       ),
       offset: const Offset(15, 0),
-      itemBuilder: (context) => widget.list!
+      itemBuilder: (context) => list!
           .map((e) => PopupMenuItem(
                 onTap: () {
-                  setState(() {
-                    if (!selectItem!.contains(e)) {
-                      selectItem!.add(e);
-                    }
-                  });
-                  widget.onChanged!(selectItem);
+                  onChanged!(e);
                 },
                 child: Text(
                   e,
@@ -262,12 +249,5 @@ class _CustomMultiDropDownState extends State<CustomMultiDropDown> {
           .toList(),
       onSelected: (_) {},
     );
-  }
-
-  setValue() {
-    setState(() {
-      _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
-    });
-    return;
   }
 }

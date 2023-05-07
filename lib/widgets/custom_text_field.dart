@@ -117,6 +117,7 @@ class CustomTextField extends StatelessWidget {
                       fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
                     ),
                     controller: controller,
+                    
                     maxLength: maxLength,
                     maxLines: maxLines ?? 1,
                     minLines: minLines,

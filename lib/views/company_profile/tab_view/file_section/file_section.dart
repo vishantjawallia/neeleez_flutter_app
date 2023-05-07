@@ -1,24 +1,24 @@
 // ignore_for_file: library_private_types_in_public_api, unused_local_variable
 
-import 'dart:io';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../models/company/company_profile.dart';
 import '../../../../widgets/custom_button.dart';
+import '../../company_profile_view_model.dart';
 import 'file_section_provider.dart';
 
 class FileSection extends StatefulWidget {
-  final void Function(File? file) onUploadMedia;
-  final List<CompanyImages>? companyImages;
+  // final void Function(File? file) onUploadMedia;
+  // final List<CompanyImages>? companyImages;
+  final CompanyProfileViewModel viewModel;
   const FileSection({
     Key? key,
-    required this.onUploadMedia,
-    this.companyImages,
+    // required this.onUploadMedia,
+    // this.companyImages,
+    required this.viewModel,
   }) : super(key: key);
 
   @override
@@ -43,9 +43,9 @@ class _FileSectionState extends State<FileSection> {
           ),
           Flexible(
             fit: FlexFit.loose,
-            child: widget.companyImages != null
+            child: widget.viewModel.cp!.companyImages != null
                 ? ListView.builder(
-                    itemCount: widget.companyImages!.length,
+                    itemCount: widget.viewModel.cp!.companyImages!.length,
                     shrinkWrap: true,
                     // physics: const NeverScrollableScrollPhysics(),
                     padding: const EdgeInsets.only(top: 4, bottom: 20),
@@ -62,7 +62,7 @@ class _FileSectionState extends State<FileSection> {
                             ),
                             width: double.infinity,
                             child: CachedNetworkImage(
-                              imageUrl: '${widget.companyImages![index].image}',
+                              imageUrl: '${widget.viewModel.cp!.companyImages![index].image}',
                               fit: BoxFit.fill,
                               progressIndicatorBuilder: (context, url, progress) {
                                 return const Center(child: CircularProgressIndicator());

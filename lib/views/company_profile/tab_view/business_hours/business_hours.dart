@@ -10,23 +10,26 @@ import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../models/company/timing.dart';
+import '../../company_profile_view_model.dart';
 import 'widgets/timing_box.dart';
 // import 'widgets/timing_box.dart';
 // import '../../widgets/timing_box.dart';
 
 class BusinessHours extends StatelessWidget {
-  final void Function(dynamic body)? onBusinessHoursSave;
-  List<CompanyTimings>? timings;
-  BusinessHours({
+  // final void Function(dynamic body)? onBusinessHoursSave;
+  // List<CompanyTimings>? timings;
+  final CompanyProfileViewModel viewModel;
+  const BusinessHours({
     Key? key,
-    required this.timings,
-    required this.onBusinessHoursSave,
+    // required this.timings,
+    // required this.onBusinessHoursSave,
+    required this.viewModel,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final buss = Provider.of<BusinessHoursProvider>(context);
-    if (timings != null) {
-      buss.setTimings(timings!);
+    if (viewModel.timings != null) {
+      buss.setTimings(viewModel.timings!);
     }
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,

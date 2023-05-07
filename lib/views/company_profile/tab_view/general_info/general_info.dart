@@ -1,5 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
+// import 'dart:devloper';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -14,78 +16,35 @@ import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 import 'package:neeleez_flutter_app/widgets/url_image.dart';
 import 'package:provider/provider.dart';
 
+import '../../company_profile_view_model.dart';
 import '../../components/freelancer_switch.dart';
 import 'general_info_provider.dart';
-import 'widgets/custom_drop_down.dart';
+import 'widgets/custom_drop_down1.dart';
 import 'widgets/custom_multi_drop_down.dart';
 import 'widgets/input_text_rtl.dart';
 
-class GeneralInfo extends StatelessWidget {
-  final bool? isFreelancer;
-  final VoidCallback? onFreelancerChange;
-  //
-  final TextEditingController? companyNameController;
-  final TextEditingController? companyNameController2;
-  final TextEditingController? taglineController;
-  final TextEditingController? companyEstablishmentYearController;
-  final TextEditingController? whatsAppNoController;
-  final TextEditingController? telephoneController;
-  final TextEditingController? emailController;
-  final TextEditingController? websiteController;
-  //
-  final DateTime? companyEstablishmentYearDate;
-  //
-  final String? busCatValue;
-  final List<String>? businessCategoryList;
-  final void Function(String? value)? busCatOnChange;
-  final FocusNode? busCatOnFocus;
-  //
-  final String? serviceForValue;
-  // final List<String>? serviceForList;
-  // final void Function(String? value)? serviceForOnChange;
-  //
-  // final List<String>? businessSubCategoryList;
-  final List<String>? businessSubCategorySelectedList;
-  // final void Function(List? value)? busSubCatSelectedOnChange;
-  //
-  final List<String>? amentiasList;
-  final List<String>? amentiasSelectedList;
-  final void Function(List<String>? value)? amentiasOnChange;
-  //
-  final TextEditingController? additionalInfoController;
-  final void Function(BuildContext? context)? copEstabYearOnTap;
-  final VoidCallback? onSave;
+class GeneralInfo extends StatefulWidget {
+  final CompanyProfileViewModel viewModel;
 
   const GeneralInfo({
     Key? key,
-    required this.isFreelancer,
-    required this.companyNameController,
-    required this.companyNameController2,
-    required this.taglineController,
-    required this.companyEstablishmentYearController,
-    required this.businessCategoryList,
-    required this.businessSubCategorySelectedList,
-    // required this.businessSubCategoryList,
-    // required this.serviceForList,
-    required this.whatsAppNoController,
-    required this.telephoneController,
-    required this.emailController,
-    required this.websiteController,
-    required this.amentiasList,
-    required this.amentiasSelectedList,
-    required this.onSave,
-    required this.copEstabYearOnTap,
-    required this.additionalInfoController,
-    required this.onFreelancerChange,
-    required this.companyEstablishmentYearDate,
-    // required this.serviceForOnChange,
-    required this.busCatOnChange,
-    required this.busCatOnFocus,
-    // required this.busSubCatSelectedOnChange,
-    required this.busCatValue,
-    required this.serviceForValue,
-    required this.amentiasOnChange,
+    required this.viewModel,
   }) : super(key: key);
+
+  @override
+  State<GeneralInfo> createState() => _GeneralInfoState();
+}
+
+class _GeneralInfoState extends State<GeneralInfo> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    final general = Provider.of<GeneralInfoProvider>(context, listen: false);
+    Future.delayed(const Duration(milliseconds: 100), () {
+      general.loadItem(widget.viewModel.genInfo);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,9 +57,9 @@ class GeneralInfo extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 22),
         child: Column(
           children: [
-            _generalInfoBox(context),
-            _contactInfoBox(),
-            _aboutBusinessBox(),
+            _generalInfoBox(context, general),
+            _contactInfoBox(general),
+            _aboutBusinessBox(general),
             Align(
               alignment: Alignment.center,
               child: CustomButton(
@@ -109,7 +68,23 @@ class GeneralInfo extends StatelessWidget {
                 text: 'Save',
                 backgroundColor: Palettes.primary,
                 borderColor: Palettes.primary,
-                onTap: onSave,
+                onTap: () {
+                  int? bC = int.tryParse(widget.viewModel.businessCategoryId ?? "");
+                  widget.viewModel.onGeneralSave(
+                    aboutUs: general.additionalInfo.text,
+                    email: general.email.text,
+                    tel1: general.telephone.text,
+                    nameEn: general.companyName.text,
+                    nameAr: general.companyName2.text,
+                    isFreeLancer: general.isFreelancer,
+                    tagLine: general.tagline.text,
+                    whatsapp: general.whatsAppNo.text,
+                    url: general.website.text,
+                    genderId: int.tryParse(widget.viewModel.serviceForId!),
+                    businessServiceId: bC,
+                  );
+                },
+                // onTap: widget.onSave,
               ),
             ),
             const SizedBox(height: 70),
@@ -119,7 +94,7 @@ class GeneralInfo extends StatelessWidget {
     );
   }
 
-  _aboutBusinessBox() {
+  _aboutBusinessBox(GeneralInfoProvider general) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -145,7 +120,6 @@ class GeneralInfo extends StatelessWidget {
                 decoration: const BoxDecoration(
                   color: Palettes.red,
                 ),
-                // child: ,
               )
             ],
           ),
@@ -157,12 +131,14 @@ class GeneralInfo extends StatelessWidget {
           textAlign: TextAlign.right,
         ),
         CustomMultiDropDown(
-          list: amentiasList,
-          selectedList: amentiasSelectedList,
+          focusNode: widget.viewModel.amenitiesFocusNode,
+          list: widget.viewModel.amentiasStringList,
+          selectedList: widget.viewModel.amentiasSelectedList,
           name: 'Amenities',
           prefixIconPath: MyIcon.imgAmenities,
           prefixIconColor: Palettes.primary,
-          onChanged: amentiasOnChange,
+          onChanged: widget.viewModel.amenitiesOnChanged,
+          onRemove: widget.viewModel.amenitiesOnRemove,
         ),
         const SizedBox(height: 14),
         Text(
@@ -171,7 +147,7 @@ class GeneralInfo extends StatelessWidget {
           textAlign: TextAlign.right,
         ),
         CustomTextField(
-          controller: additionalInfoController,
+          controller: general.additionalInfo,
           name: 'Additional Information',
           prefixIconPath: MyIcon.information,
           prefixIconColor: Palettes.primary,
@@ -185,7 +161,7 @@ class GeneralInfo extends StatelessWidget {
     );
   }
 
-  _contactInfoBox() {
+  _contactInfoBox(GeneralInfoProvider general) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: Column(
@@ -224,7 +200,7 @@ class GeneralInfo extends StatelessWidget {
             textAlign: TextAlign.right,
           ),
           CustomTextField(
-            controller: whatsAppNoController,
+            controller: general.whatsAppNo,
             name: 'Whatsapp No',
             prefixIconPath: MyIcon.whatsapp,
             prefixIconColor: Palettes.primary,
@@ -236,7 +212,7 @@ class GeneralInfo extends StatelessWidget {
             textAlign: TextAlign.right,
           ),
           CustomTextField(
-            controller: telephoneController,
+            controller: general.telephone,
             name: 'Telephone',
             prefixIconPath: MyIcon.telephone,
             prefixIconColor: Palettes.primary,
@@ -248,7 +224,7 @@ class GeneralInfo extends StatelessWidget {
             textAlign: TextAlign.right,
           ),
           CustomTextField(
-            controller: emailController,
+            controller: general.email,
             name: 'Email',
             prefixIconPath: MyIcon.mail,
             prefixIconColor: Palettes.primary,
@@ -260,7 +236,7 @@ class GeneralInfo extends StatelessWidget {
             textAlign: TextAlign.right,
           ),
           CustomTextField(
-            controller: websiteController,
+            controller: general.website,
             name: 'Website',
             prefixIconPath: MyIcon.imgWebsite,
             prefixIconColor: Palettes.primary,
@@ -270,7 +246,7 @@ class GeneralInfo extends StatelessWidget {
     );
   }
 
-  _generalInfoBox(_) {
+  _generalInfoBox(_, GeneralInfoProvider general) {
     return Padding(
       padding: const EdgeInsets.only(top: 12, bottom: 20),
       child: Column(
@@ -328,8 +304,8 @@ class GeneralInfo extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           FreelancerSwitch(
-            initialValue: isFreelancer,
-            onChange: onFreelancerChange,
+            initialValue: general.isFreelancer,
+            onChange: general.setFreelancer,
           ),
           const SizedBox(height: 14),
           Text(
@@ -338,12 +314,12 @@ class GeneralInfo extends StatelessWidget {
             textAlign: TextAlign.right,
           ),
           CustomTextField(
-            controller: companyNameController,
+            controller: general.companyName,
             name: 'Company Name',
             prefixIconPath: MyIcon.officeBuilding,
           ),
           InputTextRtl(
-            controller: companyNameController2,
+            controller: general.companyName2,
           ),
           Text(
             'Tagline',
@@ -351,7 +327,7 @@ class GeneralInfo extends StatelessWidget {
             textAlign: TextAlign.right,
           ),
           CustomTextField(
-            controller: taglineController,
+            controller: general.tagline,
             name: 'Tagline',
             prefixIconPath: MyIcon.imgTag,
           ),
@@ -363,10 +339,10 @@ class GeneralInfo extends StatelessWidget {
           ),
           CustomTextField(
             enabled: false,
-            controller: companyEstablishmentYearController,
+            controller: general.companyEsb,
             name: 'Company Establishment Year',
             prefixIconPath: MyIcon.serviceStart3x,
-            onTap: () => copEstabYearOnTap!(_),
+            onTap: () => general.copEstabYearOnTap(_),
           ),
           const SizedBox(height: 14),
           Text(
@@ -374,14 +350,24 @@ class GeneralInfo extends StatelessWidget {
             style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
             textAlign: TextAlign.right,
           ),
-          CustomDropDown(
-            value: "Helo",
-            focusNode: busCatOnFocus,
+          CustomDropDown1(
+            focusNode: widget.viewModel.businessCategoryFocusNode,
             name: 'Business Category',
-            // value: busCatValue,
             prefixIconPath: MyIcon.portfolio,
-            list: businessCategoryList,
-            onChanged: busCatOnChange,
+            onChanged: widget.viewModel.businessCategoryOnChanged,
+            value: widget.viewModel.businessCategoryValue,
+            items: widget.viewModel.businessCategoryList!.map((e) => e.service!).map((String e) {
+              return DropdownMenuItem<String>(
+                value: e,
+                child: Text(
+                  e,
+                  style: Get.textTheme.bodyMedium!.copyWith(
+                    color: Palettes.black,
+                    fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
+                  ),
+                ),
+              );
+            }).toList(),
           ),
           const SizedBox(height: 14),
           Text(
@@ -390,12 +376,13 @@ class GeneralInfo extends StatelessWidget {
             textAlign: TextAlign.right,
           ),
           CustomMultiDropDown(
+            focusNode: widget.viewModel.businessSubCategoryFocusNode,
             name: 'Business Sub-Category',
             prefixIconPath: MyIcon.portfolio,
-            list: const [],
-            selectedList: businessSubCategorySelectedList,
-            // selectedList: const ['Hello',"Goe"],
-            onChanged: (value) {},
+            list: widget.viewModel.businessSubCategoryList?.map((e) => e.businessTypeNameEn!).toList() ?? [],
+            selectedList: widget.viewModel.businessSubCategorySelectedList,
+            onChanged: widget.viewModel.businessSubCategoryChanged,
+            onRemove: widget.viewModel.businessSubCategoryRemove,
           ),
           const SizedBox(height: 14),
           Text(
@@ -403,14 +390,24 @@ class GeneralInfo extends StatelessWidget {
             style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
             textAlign: TextAlign.right,
           ),
-          CustomDropDown(
+          CustomDropDown1(
+            focusNode: widget.viewModel.servicesForFocusNode,
+            value: widget.viewModel.serviceForValue,
             name: 'Services For',
             prefixIconPath: MyIcon.sex,
-            value: serviceForValue,
-            list: const [],
-            onChanged: (value) {},
-            // list: serviceForList,
-            // onChanged: serviceForOnChange,
+            onChanged: widget.viewModel.servicesForOnChanged,
+            items: widget.viewModel.serviceList.map((String e) {
+              return DropdownMenuItem<String>(
+                value: e,
+                child: Text(
+                  e,
+                  style: Get.textTheme.bodyMedium!.copyWith(
+                    color: Palettes.black,
+                    fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
+                  ),
+                ),
+              );
+            }).toList(),
           ),
         ],
       ),

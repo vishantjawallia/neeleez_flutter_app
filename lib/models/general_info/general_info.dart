@@ -21,7 +21,7 @@ class GeneralInformation {
   final bool? isPromoAvailable;
   final bool? isFreeLancer;
   final SocialMediaInfo? socialMediaInfo;
-  final List<dynamic>? businessTypesViewModel;
+  final List<BusinessTypesViewModel>? businessTypesViewModel;
   final List<AmenitiesViewModels>? amenitiesViewModels;
   const GeneralInformation(
       {this.logo,
@@ -71,7 +71,7 @@ class GeneralInformation {
       bool? isPromoAvailable,
       bool? isFreeLancer,
       SocialMediaInfo? socialMediaInfo,
-      List<dynamic>? businessTypesViewModel,
+      List<BusinessTypesViewModel>? businessTypesViewModel,
       List<AmenitiesViewModels>? amenitiesViewModels}) {
     return GeneralInformation(
         logo: logo ?? this.logo,
@@ -124,38 +124,41 @@ class GeneralInformation {
       'isPromoAvailable': isPromoAvailable,
       'isFreeLancer': isFreeLancer,
       'socialMediaInfo': socialMediaInfo?.toJson(),
-      'businessTypesViewModel': businessTypesViewModel,
-      'amenitiesViewModels': amenitiesViewModels?.map<Map<String, dynamic>>((data) => data.toJson()).toList()
+      'businessTypesViewModel': businessTypesViewModel?.map<Map<String, dynamic>>((data) => data.toJson()).toList(),
+      'amenitiesViewModels': amenitiesViewModels?.map<Map<String, dynamic>>((data) => data.toJson()).toList(),
     };
   }
 
   static GeneralInformation fromJson(Map<String, Object?> json) {
     return GeneralInformation(
-        logo: json['logo'] == null ? null : json['logo'] as String,
-        companyNumber: json['companyNumber'] == null ? null : json['companyNumber'] as String,
-        nameEn: json['nameEn'] == null ? null : json['nameEn'] as String,
-        nameAr: json['nameAr'] == null ? null : json['nameAr'] as String,
-        nameFr: json['nameFr'] as dynamic,
-        tagLine: json['tagLine'] == null ? null : json['tagLine'] as String,
-        edate: json['edate'] == null ? null : json['edate'] as String,
-        genderId: json['genderId'] == null ? null : json['genderId'] as int,
-        gender: json['gender'] as dynamic,
-        mobile: json['mobile'] == null ? null : json['mobile'] as String,
-        whatsapp: json['whatsapp'] == null ? null : json['whatsapp'] as String,
-        tel1: json['tel1'] == null ? null : json['tel1'] as String,
-        email: json['email'] == null ? null : json['email'] as String,
-        url: json['url'] == null ? null : json['url'] as String,
-        aboutUs: json['aboutUs'] == null ? null : json['aboutUs'] as String,
-        taxNumber: json['taxNumber'] == null ? null : json['taxNumber'] as String,
-        isEmailVerified: json['isEmailVerified'] == null ? null : json['isEmailVerified'] as bool,
-        appMobileVerified: json['appMobileVerified'] == null ? null : json['appMobileVerified'] as bool,
-        webMobileVerified: json['webMobileVerified'] == null ? null : json['webMobileVerified'] as bool,
-        isPromoAvailable: json['isPromoAvailable'] == null ? null : json['isPromoAvailable'] as bool,
-        isFreeLancer: json['isFreeLancer'] == null ? null : json['isFreeLancer'] as bool,
-        socialMediaInfo: json['socialMediaInfo'] == null ? null : SocialMediaInfo.fromJson(json['socialMediaInfo'] as Map<String, Object?>),
-        businessTypesViewModel: json['businessTypesViewModel'] == null ? null : json['businessTypesViewModel'] as List<dynamic>,
-        amenitiesViewModels:
-            json['amenitiesViewModels'] == null ? null : (json['amenitiesViewModels'] as List).map<AmenitiesViewModels>((data) => AmenitiesViewModels.fromJson(data as Map<String, Object?>)).toList());
+      logo: json['logo'] == null ? null : json['logo'] as String,
+      companyNumber: json['companyNumber'] == null ? null : json['companyNumber'] as String,
+      nameEn: json['nameEn'] == null ? null : json['nameEn'] as String,
+      nameAr: json['nameAr'] == null ? null : json['nameAr'] as String,
+      nameFr: json['nameFr'] as dynamic,
+      tagLine: json['tagLine'] == null ? null : json['tagLine'] as String,
+      edate: json['edate'] == null ? null : json['edate'] as String,
+      genderId: json['genderId'] == null ? null : json['genderId'] as int,
+      gender: json['gender'] as dynamic,
+      mobile: json['mobile'] == null ? null : json['mobile'] as String,
+      whatsapp: json['whatsapp'] == null ? null : json['whatsapp'] as String,
+      tel1: json['tel1'] == null ? null : json['tel1'] as String,
+      email: json['email'] == null ? null : json['email'] as String,
+      url: json['url'] == null ? null : json['url'] as String,
+      aboutUs: json['aboutUs'] == null ? null : json['aboutUs'] as String,
+      taxNumber: json['taxNumber'] == null ? null : json['taxNumber'] as String,
+      isEmailVerified: json['isEmailVerified'] == null ? null : json['isEmailVerified'] as bool,
+      appMobileVerified: json['appMobileVerified'] == null ? null : json['appMobileVerified'] as bool,
+      webMobileVerified: json['webMobileVerified'] == null ? null : json['webMobileVerified'] as bool,
+      isPromoAvailable: json['isPromoAvailable'] == null ? null : json['isPromoAvailable'] as bool,
+      isFreeLancer: json['isFreeLancer'] == null ? null : json['isFreeLancer'] as bool,
+      socialMediaInfo: json['socialMediaInfo'] == null ? null : SocialMediaInfo.fromJson(json['socialMediaInfo'] as Map<String, Object?>),
+      businessTypesViewModel: json['businessTypesViewModel'] == null
+          ? null
+          : (json['businessTypesViewModel'] as List).map<BusinessTypesViewModel>((data) => BusinessTypesViewModel.fromJson(data as Map<String, Object?>)).toList(),
+      amenitiesViewModels:
+          json['amenitiesViewModels'] == null ? null : (json['amenitiesViewModels'] as List).map<AmenitiesViewModels>((data) => AmenitiesViewModels.fromJson(data as Map<String, Object?>)).toList(),
+    );
   }
 
   @override
@@ -346,5 +349,126 @@ linkedIn:$linkedIn
   @override
   int get hashCode {
     return Object.hash(runtimeType, facebook, instagram, twitter, linkedIn);
+  }
+}
+
+class BusinessTypesViewModel {
+  final int? id;
+  final int? countryId;
+  final int? businessServiceId;
+  final String? businessTypeNameEn;
+  final String? businessTypeNameAr;
+  final String? businessTypeNameFr;
+  final String? businessService;
+  final String? businessServiceAr;
+  final dynamic iconImage;
+  final dynamic isActive;
+  final int? userId;
+  const BusinessTypesViewModel(
+      {this.id,
+      this.countryId,
+      this.businessServiceId,
+      this.businessTypeNameEn,
+      this.businessTypeNameAr,
+      this.businessTypeNameFr,
+      this.businessService,
+      this.businessServiceAr,
+      this.iconImage,
+      this.isActive,
+      this.userId});
+  BusinessTypesViewModel copyWith(
+      {int? id,
+      int? countryId,
+      int? businessServiceId,
+      String? businessTypeNameEn,
+      String? businessTypeNameAr,
+      String? businessTypeNameFr,
+      String? businessService,
+      String? businessServiceAr,
+      dynamic? iconImage,
+      dynamic? isActive,
+      int? userId}) {
+    return BusinessTypesViewModel(
+        id: id ?? this.id,
+        countryId: countryId ?? this.countryId,
+        businessServiceId: businessServiceId ?? this.businessServiceId,
+        businessTypeNameEn: businessTypeNameEn ?? this.businessTypeNameEn,
+        businessTypeNameAr: businessTypeNameAr ?? this.businessTypeNameAr,
+        businessTypeNameFr: businessTypeNameFr ?? this.businessTypeNameFr,
+        businessService: businessService ?? this.businessService,
+        businessServiceAr: businessServiceAr ?? this.businessServiceAr,
+        iconImage: iconImage ?? this.iconImage,
+        isActive: isActive ?? this.isActive,
+        userId: userId ?? this.userId);
+  }
+
+  Map<String, Object?> toJson() {
+    return {
+      'id': id,
+      'countryId': countryId,
+      'businessServiceId': businessServiceId,
+      'businessTypeNameEn': businessTypeNameEn,
+      'businessTypeNameAr': businessTypeNameAr,
+      'businessTypeNameFr': businessTypeNameFr,
+      'businessService': businessService,
+      'businessServiceAr': businessServiceAr,
+      'iconImage': iconImage,
+      'isActive': isActive,
+      'userId': userId
+    };
+  }
+
+  static BusinessTypesViewModel fromJson(Map<String, Object?> json) {
+    return BusinessTypesViewModel(
+        id: json['id'] == null ? null : json['id'] as int,
+        countryId: json['countryId'] == null ? null : json['countryId'] as int,
+        businessServiceId: json['businessServiceId'] == null ? null : json['businessServiceId'] as int,
+        businessTypeNameEn: json['businessTypeNameEn'] == null ? null : json['businessTypeNameEn'] as String,
+        businessTypeNameAr: json['businessTypeNameAr'] == null ? null : json['businessTypeNameAr'] as String,
+        businessTypeNameFr: json['businessTypeNameFr'] == null ? null : json['businessTypeNameFr'] as String,
+        businessService: json['businessService'] == null ? null : json['businessService'] as String,
+        businessServiceAr: json['businessServiceAr'] == null ? null : json['businessServiceAr'] as String,
+        iconImage: json['iconImage'] as dynamic,
+        isActive: json['isActive'] as dynamic,
+        userId: json['userId'] == null ? null : json['userId'] as int);
+  }
+
+  @override
+  String toString() {
+    return '''BusinessTypesViewModel(
+                id:$id,
+countryId:$countryId,
+businessServiceId:$businessServiceId,
+businessTypeNameEn:$businessTypeNameEn,
+businessTypeNameAr:$businessTypeNameAr,
+businessTypeNameFr:$businessTypeNameFr,
+businessService:$businessService,
+businessServiceAr:$businessServiceAr,
+iconImage:$iconImage,
+isActive:$isActive,
+userId:$userId
+    ) ''';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is BusinessTypesViewModel &&
+        other.runtimeType == runtimeType &&
+        other.id == id &&
+        other.countryId == countryId &&
+        other.businessServiceId == businessServiceId &&
+        other.businessTypeNameEn == businessTypeNameEn &&
+        other.businessTypeNameAr == businessTypeNameAr &&
+        other.businessTypeNameFr == businessTypeNameFr &&
+        other.businessService == businessService &&
+        other.businessServiceAr == businessServiceAr &&
+        other.iconImage == iconImage &&
+        other.isActive == isActive &&
+        other.userId == userId;
+  }
+
+  @override
+  int get hashCode {
+    return Object.hash(runtimeType, id, countryId, businessServiceId, businessTypeNameEn, businessTypeNameAr, businessTypeNameFr, businessService, businessServiceAr, iconImage, isActive, userId);
   }
 }

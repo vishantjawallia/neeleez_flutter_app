@@ -14,6 +14,7 @@ import 'package:provider/provider.dart';
 // import '../../components/country_drop_down.dart';
 import '../../../../models/company/companies.dart';
 import '../../../../widgets/custom_text_field.dart';
+import '../../company_profile_view_model.dart';
 import '../../components/custom_drop_down.dart';
 import 'loaction_provider.dart';
 import 'widgets/country_drop_down.dart';
@@ -26,19 +27,21 @@ class Location extends StatefulWidget {
   final Countries? country;
   final Provinces? province;
   final Cities? city;
-  final TextEditingController? googleAddressController;
-  final TextEditingController? additionalAddressController;
+  // final TextEditingController? googleAddressController;
+  // final TextEditingController? additionalAddressController;
+  final CompanyProfileViewModel viewModel;
   const Location({
     super.key,
     this.countryList,
     required this.regionInfo,
-    required this.googleAddressController,
-    required this.additionalAddressController,
+    // required this.googleAddressController,
+    // required this.additionalAddressController,
     this.province,
     this.provinces,
     this.cities,
     this.city,
     this.country,
+    required this.viewModel,
   });
 
   @override
@@ -168,9 +171,9 @@ class _LocationState extends State<Location> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            CustomTextField(
+            const CustomTextField(
               enabled: false,
-              controller: widget.googleAddressController,
+              // controller: widget.googleAddressController,
               name: 'Google Address',
               prefixIconPath: MyIcon.place,
             ),
@@ -180,8 +183,8 @@ class _LocationState extends State<Location> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            CustomTextField(
-              controller: widget.additionalAddressController,
+            const CustomTextField(
+              // controller: widget.additionalAddressController,
               enabled: false,
               name: 'Additional Address',
               prefixIconPath: MyIcon.place,
