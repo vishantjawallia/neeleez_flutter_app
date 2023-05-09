@@ -5,42 +5,15 @@ import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
-import 'package:neeleez_flutter_app/models/company/cities.dart';
-import 'package:neeleez_flutter_app/models/company/provinces.dart';
-import 'package:neeleez_flutter_app/models/company/region_Info.dart';
-
 import 'package:provider/provider.dart';
-
-// import '../../components/country_drop_down.dart';
-import '../../../../models/company/companies.dart';
 import '../../../../widgets/custom_text_field.dart';
 import '../../company_profile_view_model.dart';
-import '../../components/custom_drop_down.dart';
 import 'loaction_provider.dart';
-import 'widgets/country_drop_down.dart';
 
 class Location extends StatefulWidget {
-  final RegionInformation? regionInfo;
-  final List<Countries>? countryList;
-  final List<Provinces>? provinces;
-  final List<Cities>? cities;
-  final Countries? country;
-  final Provinces? province;
-  final Cities? city;
-  // final TextEditingController? googleAddressController;
-  // final TextEditingController? additionalAddressController;
   final CompanyProfileViewModel viewModel;
   const Location({
     super.key,
-    this.countryList,
-    required this.regionInfo,
-    // required this.googleAddressController,
-    // required this.additionalAddressController,
-    this.province,
-    this.provinces,
-    this.cities,
-    this.city,
-    this.country,
     required this.viewModel,
   });
 
@@ -54,10 +27,8 @@ class _LocationState extends State<Location> {
     super.initState();
     final loaction = Provider.of<LocationProvider>(context, listen: false);
     Future.delayed(const Duration(milliseconds: 100), () {
-      loaction.clearAll();
-      // setState(() {
+      loaction.loadItems(widget.viewModel.regionInfo, widget.viewModel.countryList);
     });
-    // });
   }
 
   @override
@@ -101,81 +72,52 @@ class _LocationState extends State<Location> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            if (widget.country != null && loaction.country == null)
-              CountryDropDown(
-                value: widget.country?.nameEn,
-                urlImage: widget.country!.iconImage2 ?? "",
-                list: widget.countryList ?? [],
-                name: 'Country',
-                prefixIconPath: MyIcon.place,
-                onChanged: loaction.onCountryChange,
-              )
-            else
-              CountryDropDown(
-                value: loaction.country?.nameEn,
-                urlImage: loaction.country?.iconImage2 ?? "",
-                list: widget.countryList ?? [],
-                name: 'Country',
-                prefixIconPath: MyIcon.place,
-                onChanged: loaction.onCountryChange,
-              ),
+            CustomTextField(
+              prefixUrlImage: loaction.countryImage,
+              controller: loaction.country,
+              name: 'Country',
+              // prefixIconPath: MyIcon.place,
+              enabled: false,
+              outlineBorder: true,
+            ),
             const SizedBox(height: 14),
             Text(
               'State/Province',
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            if (widget.province != null && loaction.provinces!.isEmpty && !loaction.loadingC!)
-              CustomDropDown(
-                value: widget.province?.provinceNameEn ?? null,
-                list: const [],
-                name: 'State/Province',
-                prefixIconPath: MyIcon.imgLocationState,
-                onChanged: loaction.onStateChanged,
-              )
-            else
-              CustomDropDown(
-                loading: loaction.loadingC,
-                value: loaction.province?.provinceNameEn,
-                list: loaction.provinces?.map((e) => e.provinceNameEn!).toList() ?? [],
-                name: 'State/Province',
-                prefixIconPath: MyIcon.imgLocationState,
-                onChanged: loaction.onStateChanged,
-              ),
+            CustomTextField(
+              controller: loaction.state,
+              name: 'State/Province',
+              prefixIconPath: MyIcon.imgLocationState,
+              enabled: false,
+              outlineBorder: true,
+            ),
             const SizedBox(height: 14),
             Text(
               'City',
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            if (widget.city != null && loaction.cities!.isEmpty && !loaction.loadingP!)
-              CustomDropDown(
-                value: widget.city?.cityNameEn,
-                list: const [],
-                name: 'City',
-                prefixIconPath: MyIcon.imgLocationCity,
-                onChanged: loaction.onCityChanged,
-              )
-            else
-              CustomDropDown(
-                loading: loaction.loadingP,
-                value: loaction.city?.cityNameEn ?? null,
-                list: (loaction.cities ?? []).map((e) => e.cityNameEn!).toList(),
-                name: 'City',
-                prefixIconPath: MyIcon.imgLocationCity,
-                onChanged: loaction.onCityChanged,
-              ),
+            CustomTextField(
+              controller: loaction.city,
+              name: 'State/Province',
+              prefixIconPath: MyIcon.imgLocationCity,
+              enabled: false,
+              outlineBorder: true,
+            ),
             const SizedBox(height: 14),
             Text(
               'Google Address',
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
+            CustomTextField(
+              controller: loaction.address,
               enabled: false,
-              // controller: widget.googleAddressController,
               name: 'Google Address',
               prefixIconPath: MyIcon.place,
+              outlineBorder: true,
             ),
             const SizedBox(height: 14),
             Text(
@@ -183,11 +125,12 @@ class _LocationState extends State<Location> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            const CustomTextField(
-              // controller: widget.additionalAddressController,
+            CustomTextField(
+              controller: loaction.additionalAddress,
               enabled: false,
               name: 'Additional Address',
               prefixIconPath: MyIcon.place,
+              outlineBorder: true,
             ),
             const SizedBox(height: 14),
             Text(

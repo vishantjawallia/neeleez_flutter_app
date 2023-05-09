@@ -48,11 +48,11 @@ Future<Future<Object?>> selectFilePopup(
                             ListTile(
                               focusColor: Palettes.black,
                               title: const Text('Image'),
-                              onTap: () {},
+                              onTap: onImageSelect,
                             ),
                             ListTile(
                               focusColor: Palettes.black,
-                              onTap: () {},
+                              onTap: onVideoSelect,
                               title: const Text('Video'),
                             ),
                             TextButton(
@@ -61,7 +61,6 @@ Future<Future<Object?>> selectFilePopup(
                                 'CANCEL',
                               ),
                             )
-
                           ],
                         ),
                       ),

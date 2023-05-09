@@ -12,6 +12,7 @@ class CustomDropDown1 extends StatelessWidget {
   final Color? prefixIconColor;
   final String? value;
   final FocusNode? focusNode;
+  final bool? outlineBorder;
   final void Function(String? value)? onChanged;
   const CustomDropDown1({
     Key? key,
@@ -22,6 +23,7 @@ class CustomDropDown1 extends StatelessWidget {
     this.value,
     this.hint,
     this.focusNode,
+    this.outlineBorder = false,
     this.onChanged,
   }) : super(key: key);
 
@@ -34,10 +36,19 @@ class CustomDropDown1 extends StatelessWidget {
       decoration: BoxDecoration(
         color: Palettes.white,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(
-          color: Palettes.white,
-          width: 1.5,
-        ),
+        border: outlineBorder!
+            ? Border.all(
+                color: Palettes.black,
+                width: 0.7,
+              )
+            : Border.all(
+                color: Palettes.white,
+                width: 1.5,
+              ),
+        // border: Border.all(
+        //   color: Palettes.white,
+        //   width: 1.5,
+        // ),
         boxShadow: const [
           BoxShadow(blurRadius: 0.4, color: Palettes.greyPrimary, spreadRadius: 0.2),
         ],
@@ -48,17 +59,19 @@ class CustomDropDown1 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10.5),
+                height: 48.5,
+                padding: EdgeInsets.symmetric(horizontal: 14, vertical: outlineBorder! ? 13 : 10.5),
+                // padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10.5),
                 decoration: BoxDecoration(
                   color: Palettes.greyPrimary,
                   borderRadius: Helper.isRtl()
                       ? const BorderRadius.only(
-                          topLeft: Radius.circular(8),
-                          bottomLeft: Radius.circular(8),
+                          topLeft: Radius.circular(9),
+                          bottomLeft: Radius.circular(9),
                         )
                       : const BorderRadius.only(
-                          topRight: Radius.circular(8),
-                          bottomRight: Radius.circular(8),
+                          topRight: Radius.circular(9),
+                          bottomRight: Radius.circular(9),
                         ),
                 ),
                 child: Image.asset(

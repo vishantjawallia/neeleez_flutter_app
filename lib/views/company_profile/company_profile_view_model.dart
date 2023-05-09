@@ -12,6 +12,7 @@ import 'package:neeleez_flutter_app/models/company/region_Info.dart';
 import 'package:neeleez_flutter_app/models/company/timing.dart';
 import 'package:neeleez_flutter_app/models/package/package_info.dart';
 import 'package:neeleez_flutter_app/models/user_data.dart';
+import 'package:neeleez_flutter_app/views/company_profile/components/verify_email_or_mobile.dart';
 import 'package:neeleez_flutter_app/views/company_profile/services/company_profile_service.dart';
 import 'package:neeleez_flutter_app/widgets/global_widget.dart';
 import 'package:stacked/stacked.dart';
@@ -47,9 +48,9 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   // businessSubCategoryList
   // List<BusinessTypes>? businessSubCategoryList = [];
 
-  List<String>? stateList = [];
-  List<Provinces>? states = [];
-  List<String>? cityList = [];
+  // List<String>? stateList = [];
+  // List<Provinces>? states = [];
+  // List<String>? cityList = [];
   // Gender
 
   Countries? countrySelected;
@@ -64,13 +65,6 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   List<BusinessTypes>? businessSubCategoryList;
 
   FocusNode? businessCategoryFocus;
-
-  //location
-  List<Cities>? cities;
-  List<Provinces>? provinces;
-  Countries? country;
-  Cities? city;
-  Provinces? province;
 
   //general info
   String? serviceForId;
@@ -90,6 +84,12 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   FocusNode businessSubCategoryFocusNode = FocusNode();
   FocusNode servicesForFocusNode = FocusNode();
   FocusNode amenitiesFocusNode = FocusNode();
+
+  List<Cities>? citiesList;
+  List<Provinces> provinceList = [];
+  // Countries? countryObj;
+  // Provinces? provinceObj;
+  // Cities? cityObj;
 
   CompanyProfileViewModel({
     this.user,
@@ -114,20 +114,20 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   void onGeneralSave({
     String? email,
     int? genderId,
-    String? mobile = "",
+    String? mobile = "string",
     String? nameEn,
-    String? logo = "",
+    String? logo = "string",
     bool? isFreeLancer,
     int? businessServiceId,
-    String? nameAr,
-    String? tagLine,
+    String? nameAr = "string",
+    String? tagLine = "string",
     String? edate,
-    String? whatsapp,
-    String? tel1,
-    String? url,
-    String? tel2 = "",
-    String? aboutUs,
-    String? taxNumber = "",
+    String? whatsapp = "string",
+    String? tel1 = "string",
+    String? url = "string",
+    String? tel2 = "string",
+    String? aboutUs = "string",
+    String? taxNumber = "string",
     // List? companyBusinessTypes,
     // List? companyAmenity,
   }) async {
@@ -135,14 +135,14 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     // List<int> companyBusinessTypes = [];
 
     // List<int> companyAmenity = [];
-    List businessSubCategoryIds = [];
-    List amentiasIds = [];
+    List<Map<String, dynamic>> businessSubCategoryIds = [];
+    List<Map<String, dynamic>> amentiasIds = [];
     for (int element in businessSubCategorySelectedListID) {
       businessSubCategoryIds.add({
         "btypeId": element,
       });
     }
-    for (int element in amentiasIds) {
+    for (int element in amentiasSelectedListID) {
       amentiasIds.add({
         "amenityId": element,
       });
@@ -162,8 +162,8 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     log("taxNumber =>$taxNumber");
     log("businessServiceId =>$businessServiceId");
     log("genderId =>$genderId");
-    log("companyBusinessTypes =>$businessSubCategorySelectedListID");
-    log("companyAmenity =>$amentiasSelectedListID");
+    log("companyBusinessTypes =>$businessSubCategoryIds");
+    log("companyAmenity =>$amentiasIds");
     log("isFreeLancer =>$isFreeLancer");
 
     await putGeneralInformation(
@@ -354,42 +354,6 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     }
   }
 
-  // void amentiasOnChange(List<String>? value) {
-  //   amentiasSelectedList = value;
-  //   notifyListeners();
-  // }
-
-  // void busCatOnChange(BusinessServicesByCountry? value) async {
-  //   // setBusy(true);
-  //   // busCatValue = value;
-  //   // BusinessServicesByCountry obj = businessCategoryList!.firstWhere((e) => e.service == value);
-  //   // businessSubCategory = await businessServiceIdWithCountryId("${obj.businessServiceId!}", countryId!);
-  //   // businessSubCategoryList = businessSubCategory.map<String>((e) => e.businessTypeNameEn!).toList();
-  //   // setBusy(false);
-  //   // notifyListeners();
-  //   // busMyFocusNode.requestFocus();
-  //   // busMyFocusNode.nextFocus();
-  // }
-
-  // void busSubCatSelectedOnChange(List? value) {
-  //   log(value.toString());
-  // }
-
-  // void serviceForOnChange(String? value) {
-  //   serviceForValue = value;
-  //   notifyListeners();
-  // }
-
-  // void cityOnChange(String? value) {}
-
-  // void stateOnChange(String? value) async {}
-
-  // void countryOnChange(value) {
-  //   log(value);
-  // }
-
-  // void businessSubCategoryOnChange(List<BusinessTypes>? value) {}
-
   void businessCategoryOnChanged(String? value) async {
     setBusy(true);
     businessCategoryValue = value;
@@ -448,5 +412,13 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     serviceForId = serviceForList!.firstWhere((e) => e.genderEn == value).genderId.toString();
     serviceForValue = value;
     notifyListeners();
+  }
+
+  void verifyMobileHandler(_, value) {
+    verifyEmailOrMobile(_);
+  }
+
+  void verifyEmailHandler(_, value) {
+    verifyEmailOrMobile(_);
   }
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:neeleez_flutter_app/config/my_Image.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
 import 'package:neeleez_flutter_app/views/company_profile/tab_view/packages/packages_provider.dart';
+import 'package:neeleez_flutter_app/views/package_subscriptions/package_subscriptions_view.dart';
 import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 import 'package:provider/provider.dart';
 
@@ -55,10 +57,46 @@ class Packages extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            companyPackage != null ? _activePackage(companyPackage) : const SizedBox(),
+            companyPackage != null ? _activePackage(companyPackage) : _noItem(),
           ],
         ),
       ),
+    );
+  }
+
+  _noItem() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const SizedBox(height: 54),
+        Image.asset(
+          MyImage.imgEmptyData3x,
+          height: 120,
+          fit: BoxFit.fill,
+        ),
+        const SizedBox(height: 32),
+        Text(
+          'Package not subscribed for Currently Selected Country',
+          style: Get.textTheme.titleLarge!.copyWith(fontWeight: FontWeight.w600, color: Palettes.black),
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 44),
+        Align(
+          alignment: Alignment.center,
+          child: CustomButton(
+            textColor: Palettes.white,
+            width: 300,
+            text: 'Select Package',
+            backgroundColor: Palettes.primary,
+            borderColor: Palettes.primary,
+            onTap: () {
+              Get.to(() => PackageSubscriptionsView());
+            },
+          ),
+        ),
+        const SizedBox(height: 34),
+      ],
     );
   }
 

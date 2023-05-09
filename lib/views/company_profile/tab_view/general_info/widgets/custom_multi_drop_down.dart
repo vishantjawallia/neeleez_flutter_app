@@ -33,6 +33,7 @@ class CustomMultiDropDown extends StatelessWidget {
   final bool? obscureText;
   final bool? autofocus;
   final bool? enabled;
+  final bool? outlineBorder;
   final FocusNode? focusNode;
   final void Function(String? value)? onChanged;
   final void Function(String? value)? onRemove;
@@ -59,6 +60,7 @@ class CustomMultiDropDown extends StatelessWidget {
     this.prefixPadding,
     this.onTap,
     this.enabled = true,
+    this.outlineBorder = false,
     this.suffixIconWidget,
     this.checkedSuffixIcon = false,
     required this.list,
@@ -83,10 +85,19 @@ class CustomMultiDropDown extends StatelessWidget {
       decoration: BoxDecoration(
         color: Palettes.white,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(
-          color: Palettes.white,
-          width: 1.5,
-        ),
+        border: outlineBorder!
+            ? Border.all(
+                color: Palettes.black,
+                width: 0.7,
+              )
+            : Border.all(
+                color: Palettes.white,
+                width: 1.5,
+              ),
+        // border: Border.all(
+        //   color: Palettes.white,
+        //   width: 1.5,
+        // ),
         boxShadow: const [
           BoxShadow(blurRadius: 0.4, color: Palettes.greyPrimary, spreadRadius: 0.2),
         ],
@@ -97,17 +108,19 @@ class CustomMultiDropDown extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                padding: prefixPadding ?? const EdgeInsets.symmetric(horizontal: 14, vertical: 10.5),
+                height: 48.5,
+                padding: prefixPadding ?? EdgeInsets.symmetric(horizontal: 14, vertical: outlineBorder! ? 13 : 10.5),
+                // padding: prefixPadding ?? const EdgeInsets.symmetric(horizontal: 14, vertical: 10.5),
                 decoration: BoxDecoration(
                   color: Palettes.greyPrimary,
                   borderRadius: Helper.isRtl()
                       ? const BorderRadius.only(
-                          topLeft: Radius.circular(8),
-                          bottomLeft: Radius.circular(8),
+                          topLeft: Radius.circular(9),
+                          bottomLeft: Radius.circular(9),
                         )
                       : const BorderRadius.only(
-                          topRight: Radius.circular(8),
-                          bottomRight: Radius.circular(8),
+                          topRight: Radius.circular(9),
+                          bottomRight: Radius.circular(9),
                         ),
                 ),
                 child: Image.asset(
@@ -158,13 +171,14 @@ class CustomMultiDropDown extends StatelessWidget {
                                               itemCount: selectedList!.length,
                                               shrinkWrap: true,
                                               scrollDirection: Axis.horizontal,
+                                              padding: const EdgeInsets.only(right: 40),
                                               itemBuilder: (context, index) {
                                                 return Padding(
                                                   padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
                                                   child: Container(
                                                     decoration: BoxDecoration(
                                                       borderRadius: BorderRadius.circular(16),
-                                                      color: Palettes.greyPrimary,
+                                                      color: Palettes.greyPrimary.withOpacity(0.6),
                                                     ),
                                                     padding: const EdgeInsets.symmetric(horizontal: 14),
                                                     child: Row(

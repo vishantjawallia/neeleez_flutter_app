@@ -83,13 +83,17 @@ class _SocialMediaState extends State<SocialMedia> {
               prefixIconPath: MyIcon.socialFacebook,
               prefixIconColor: const Color.fromRGBO(10, 28, 83, 1),
               suffixIconPath: social.facebook.text.isEmpty ? '' : MyIcon.checked1,
+              outlineBorder: true,
             ),
             social.facebook.text.isEmpty
                 ? const SizedBox()
-                : Text(
-                    'https://www.facebook.com/${social.facebook.text}',
-                    style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
-                    textAlign: TextAlign.right,
+                : Padding(
+                    padding: const EdgeInsets.only(top: 4),
+                    child: Text(
+                      'https://www.facebook.com/${social.facebook.text}',
+                      style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
+                      textAlign: TextAlign.right,
+                    ),
                   ),
             const SizedBox(height: 14),
             //
@@ -104,13 +108,17 @@ class _SocialMediaState extends State<SocialMedia> {
               prefixIconPath: MyIcon.socialTwitter,
               prefixIconColor: Palettes.primary,
               suffixIconPath: social.twitter.text.isEmpty ? '' : MyIcon.checked1,
+              outlineBorder: true,
             ),
             social.twitter.text.isEmpty
                 ? const SizedBox()
-                : Text(
-                    'https://www.twitter.com/${social.twitter.text}',
-                    style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
-                    textAlign: TextAlign.right,
+                : Padding(
+                    padding: const EdgeInsets.only(top: 4),
+                    child: Text(
+                      'https://www.twitter.com/${social.twitter.text}',
+                      style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
+                      textAlign: TextAlign.right,
+                    ),
                   ),
             const SizedBox(height: 14),
             Text(
@@ -124,13 +132,17 @@ class _SocialMediaState extends State<SocialMedia> {
               prefixIconPath: MyIcon.socialInstagram,
               suffixIconPath: social.instagram.text.isEmpty ? '' : MyIcon.checked1,
               prefixIconColor: Palettes.primary,
+              outlineBorder: true,
             ),
             social.instagram.text.isEmpty
                 ? const SizedBox()
-                : Text(
-                    'https://www.instagram.com/${social.instagram.text}',
-                    style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
-                    textAlign: TextAlign.right,
+                : Padding(
+                    padding: const EdgeInsets.only(top: 4),
+                    child: Text(
+                      'https://www.instagram.com/${social.instagram.text}',
+                      style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
+                      textAlign: TextAlign.right,
+                    ),
                   ),
             const SizedBox(height: 20),
             Text(
@@ -144,13 +156,17 @@ class _SocialMediaState extends State<SocialMedia> {
               prefixIconPath: MyIcon.socialLinkedin,
               prefixIconColor: Palettes.primary,
               suffixIconPath: social.linkedIn.text.isEmpty ? '' : MyIcon.checked1,
+              outlineBorder: true,
             ),
             social.linkedIn.text.isEmpty
                 ? const SizedBox()
-                : Text(
-                    'https://www.instagram.com/${social.linkedIn.text}',
-                    style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
-                    textAlign: TextAlign.right,
+                : Padding(
+                    padding: const EdgeInsets.only(top: 4),
+                    child: Text(
+                      'https://www.instagram.com/${social.linkedIn.text}',
+                      style: Get.textTheme.bodySmall!.copyWith(color: Palettes.black),
+                      textAlign: TextAlign.right,
+                    ),
                   ),
             const SizedBox(height: 14),
             Text(

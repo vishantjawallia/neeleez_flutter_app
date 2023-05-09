@@ -139,7 +139,7 @@ class apiRepository {
         },
       );
       if (response.statusCode == 200) {
-        return json.decode(response.body.toString());
+        return json.decode(response.body);
       } else {
         log(response.statusCode.toString());
         log(response.body.toString());
@@ -188,7 +188,9 @@ class apiRepository {
       final response = await http.put(
         Uri.parse(url),
         headers: {
-          'Content-Type': "application/json",
+          // 'Content-Type': "application/json",
+          "Content-type": "multipart/form-data"
+          // "accept": "*/*",
         },
         body: jsonEncode(body),
       );
@@ -197,7 +199,11 @@ class apiRepository {
       } else {
         log(response.statusCode.toString());
         log(response.body.toString());
-        throw "api-error";
+        log(response.headers.toString());
+        log(response.reasonPhrase.toString());
+        log(response.request.toString());
+        log(response.reasonPhrase.toString());
+        // throw "api-error";
       }
     } on SocketException catch (e) {
       log('$e');
@@ -259,3 +265,25 @@ class apiRepository {
     }
   }
 }
+
+
+//  {
+//  "email" : "vishant@gmail.com",
+//  "genderId" : 2,
+//  "mobile" : "string",
+//  "nameEn" : "vishant",
+//  "nameAr" : "string",
+//  "logo" : "string",
+//  "isFreeLancer" : "false",
+//  "businessServiceId" : 4,
+//  "tagLine" : "vishant jawalliia",
+//  "edate" : "01/01/2021",
+//  "whatsapp" : "918054738366",
+//  "tel1" : "8054738366",
+//  "url" : "www.vishant.com",
+//  "tel2" : "string",
+//  "aboutUs" : "hello",
+//  "taxNumber" : "string",
+//  "companyBusinessTypes" : [{btypeId: 13}, {btypeId: 14}],
+//  "companyAmenity" : [{amenityId: 85}, {amenityId: 81}, {amenityId: 3}]
+//  }

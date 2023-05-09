@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:neeleez_flutter_app/models/general_info/general_info.dart';
 
 class GeneralInfoProvider extends ChangeNotifier {
@@ -13,6 +14,7 @@ class GeneralInfoProvider extends ChangeNotifier {
   TextEditingController telephone = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController website = TextEditingController();
+  DateTime? copEstabYear;
   bool? isFreelancer = false;
 
   List<String> businessSubCategorySelectedList = [];
@@ -37,9 +39,21 @@ class GeneralInfoProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void copEstabYearOnTap(_) {
-    isFreelancer = !isFreelancer!;
-    notifyListeners();
+  void copEstabYearOnTap(_) async {
+    final DateTime? picked = await showDatePicker(
+      context: _,
+      initialDate: copEstabYear!,
+      firstDate: DateTime(1960, 8),
+      lastDate: DateTime.now(),
+    );
+    if (picked != null && picked != copEstabYear) {
+      copEstabYear = picked;
+      String formattedDate = DateFormat('dd/MM/yyyy').format(picked);
+      companyEsb.text = formattedDate;
+      notifyListeners();
+    }
+    // isFreelancer = !isFreelancer!;
+    // notifyListeners();
   }
 
   void loadItem(GeneralInformation? generalInformation) {
@@ -51,6 +65,8 @@ class GeneralInfoProvider extends ChangeNotifier {
       companyName2.text = data!.nameAr ?? "";
       tagline.text = data!.tagLine ?? "";
       companyEsb.text = data!.edate ?? "";
+      DateFormat dateFormat = DateFormat("dd/MM/yyyy");
+      copEstabYear = dateFormat.parse(companyEsb.text);
       website.text = data!.url ?? "";
       telephone.text = data!.tel1 ?? "";
       email.text = data!.email ?? "";
@@ -59,4 +75,6 @@ class GeneralInfoProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+
 }

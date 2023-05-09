@@ -14,8 +14,9 @@ class CountryDropDown extends StatelessWidget {
   final String? value;
   final String? prefixIconPath;
   final String? urlImage;
+  final bool? enabled;
 
-  final void Function(int value, List<Countries>? values)? onChanged;
+  final void Function(int value)? onChanged;
   const CountryDropDown({
     Key? key,
     this.name,
@@ -23,6 +24,7 @@ class CountryDropDown extends StatelessWidget {
     this.onChanged,
     required this.list,
     this.urlImage,
+    this.enabled,
     required this.value,
   }) : super(key: key);
 
@@ -50,6 +52,7 @@ class CountryDropDown extends StatelessWidget {
   DropDownTextField _dropDown() {
     return DropDownTextField(
       textFieldDecoration: InputDecoration(
+        enabled: enabled!,
         contentPadding: const EdgeInsets.symmetric(vertical: 14.5),
         isDense: true,
         border: InputBorder.none,
@@ -142,7 +145,7 @@ class CountryDropDown extends StatelessWidget {
       onChanged: (value) {
         if (list!.isNotEmpty) {
           DropDownValueModel jj = value;
-          return onChanged!(jj.value, list);
+          return onChanged!(jj.value);
         }
       },
     );

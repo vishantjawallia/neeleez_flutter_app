@@ -17,5 +17,10 @@ class SocialMediaProvider extends ChangeNotifier {
 
   void loadItem(GeneralInformation? genInfo) {
     data = genInfo;
+    facebook.text = genInfo?.socialMediaInfo?.facebook ?? "";
+    instagram.text = genInfo?.socialMediaInfo?.instagram ?? "";
+    linkedIn.text = genInfo?.socialMediaInfo?.linkedIn ?? "";
+    twitter.text = genInfo?.socialMediaInfo?.twitter ?? "";
+    notifyListeners();
   }
 }

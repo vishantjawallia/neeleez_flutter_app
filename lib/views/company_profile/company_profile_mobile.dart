@@ -34,13 +34,6 @@ class _CompanyProfileMobile extends StatelessWidget {
                       ),
                       Location(
                         viewModel: viewModel,
-                        countryList: viewModel.countryList,
-                        regionInfo: viewModel.regionInfo,
-                        cities: viewModel.cities,
-                        provinces: viewModel.provinces,
-                        country: viewModel.country,
-                        city: viewModel.city,
-                        province: viewModel.province,
                         // googleAddressController: viewModel.googleAddressController,
                         // additionalAddressController: viewModel.additionalAddressController,
                       ),

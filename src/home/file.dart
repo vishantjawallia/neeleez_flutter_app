@@ -143,10 +143,10 @@
 //         public static string paymentInit = "/api/Companies/GetPaymentURL/";
 //         public static string urlCompanyPackagePayment = "/api/CompanyPackagePayment/";
 
-//         //public static string paymentPaymeeSandbox = "https://sandbox.paymee.tn/";
-//         //public static string paymentPaymeeLive = "https://app.paymee.tn/";
-//         //public static string paymentPaymeeInit = "api/v1/payments/create";
-//         //public static string paymentPaymeeWebview = "gateway/";
+        //public static string paymentPaymeeSandbox = "https://sandbox.paymee.tn/";
+        //public static string paymentPaymeeLive = "https://app.paymee.tn/";
+        //public static string paymentPaymeeInit = "api/v1/payments/create";
+        //public static string paymentPaymeeWebview = "gateway/";
 //         public static string paymentPaymeeWebview2 = "gateway/loader?payment_token=";
 //         //public static string paymentPaymeeCheck = "api/v1/payments/";
 //         public static string paymentPaymeeServerInit = "/api/Companies/InitiatePaymeePayment";

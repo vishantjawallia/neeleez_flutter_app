@@ -19,6 +19,7 @@ import 'package:provider/provider.dart';
 import '../../company_profile_view_model.dart';
 import '../../components/freelancer_switch.dart';
 import 'general_info_provider.dart';
+import 'widgets/additionl_info_text_field.dart';
 import 'widgets/custom_drop_down1.dart';
 import 'widgets/custom_multi_drop_down.dart';
 import 'widgets/input_text_rtl.dart';
@@ -139,6 +140,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
           prefixIconColor: Palettes.primary,
           onChanged: widget.viewModel.amenitiesOnChanged,
           onRemove: widget.viewModel.amenitiesOnRemove,
+          outlineBorder: true,
         ),
         const SizedBox(height: 14),
         Text(
@@ -146,7 +148,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
           style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
           textAlign: TextAlign.right,
         ),
-        CustomTextField(
+        AdditionalInfoTextField(
           controller: general.additionalInfo,
           name: 'Additional Information',
           prefixIconPath: MyIcon.information,
@@ -155,6 +157,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
           widgetMargin: const EdgeInsets.symmetric(vertical: 5),
           prefixPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 30),
           height: 90,
+          outlineBorder: true,
         ),
         const SizedBox(height: 20),
       ],
@@ -204,8 +207,22 @@ class _GeneralInfoState extends State<GeneralInfo> {
             name: 'Whatsapp No',
             prefixIconPath: MyIcon.whatsapp,
             prefixIconColor: Palettes.primary,
+            suffixIconPath: !(general.data?.webMobileVerified ?? false) ? MyIcon.crossed : "",
+            outlineBorder: true,
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 4),
+          Align(
+            alignment: Alignment.centerRight,
+            child: GestureDetector(
+              onTap: () => widget.viewModel.verifyMobileHandler(context, general.whatsAppNo.text),
+              child: Text(
+                'Verify Mobile',
+                style: Get.textTheme.bodyMedium!.copyWith(color: Palettes.black, decoration: TextDecoration.underline, fontWeight: FontWeight.w500),
+                textAlign: TextAlign.end,
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
           Text(
             'Telephone',
             style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
@@ -216,6 +233,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
             name: 'Telephone',
             prefixIconPath: MyIcon.telephone,
             prefixIconColor: Palettes.primary,
+            outlineBorder: true,
           ),
           const SizedBox(height: 14),
           Text(
@@ -228,8 +246,22 @@ class _GeneralInfoState extends State<GeneralInfo> {
             name: 'Email',
             prefixIconPath: MyIcon.mail,
             prefixIconColor: Palettes.primary,
+            outlineBorder: true,
+            suffixIconPath: !(general.data?.isEmailVerified ?? false) ? MyIcon.crossed : "",
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 4),
+          Align(
+            alignment: Alignment.centerRight,
+            child: GestureDetector(
+              onTap: () => widget.viewModel.verifyEmailHandler(context, general.email.text),
+              child: Text(
+                'Verify Email',
+                style: Get.textTheme.bodyMedium!.copyWith(color: Palettes.black, decoration: TextDecoration.underline, fontWeight: FontWeight.w500),
+                textAlign: TextAlign.end,
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
           Text(
             'Website',
             style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
@@ -240,6 +272,8 @@ class _GeneralInfoState extends State<GeneralInfo> {
             name: 'Website',
             prefixIconPath: MyIcon.imgWebsite,
             prefixIconColor: Palettes.primary,
+            suffixIconPath: general.website.text.isNotEmpty ? MyIcon.checked1 : "",
+            outlineBorder: true,
           ),
         ],
       ),
@@ -317,6 +351,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
             controller: general.companyName,
             name: 'Company Name',
             prefixIconPath: MyIcon.officeBuilding,
+            outlineBorder: true,
           ),
           InputTextRtl(
             controller: general.companyName2,
@@ -330,6 +365,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
             controller: general.tagline,
             name: 'Tagline',
             prefixIconPath: MyIcon.imgTag,
+            outlineBorder: true,
           ),
           const SizedBox(height: 14),
           Text(
@@ -343,6 +379,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
             name: 'Company Establishment Year',
             prefixIconPath: MyIcon.serviceStart3x,
             onTap: () => general.copEstabYearOnTap(_),
+            outlineBorder: true,
           ),
           const SizedBox(height: 14),
           Text(
@@ -368,6 +405,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
                 ),
               );
             }).toList(),
+            outlineBorder: true,
           ),
           const SizedBox(height: 14),
           Text(
@@ -383,6 +421,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
             selectedList: widget.viewModel.businessSubCategorySelectedList,
             onChanged: widget.viewModel.businessSubCategoryChanged,
             onRemove: widget.viewModel.businessSubCategoryRemove,
+            outlineBorder: true,
           ),
           const SizedBox(height: 14),
           Text(
@@ -408,6 +447,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
                 ),
               );
             }).toList(),
+            outlineBorder: true,
           ),
         ],
       ),

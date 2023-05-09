@@ -174,8 +174,8 @@ class TimingBoxItem extends StatelessWidget {
                         child: GestureDetector(
                           onTap: () => onCloseTap!(companyTimingsIndex!, companyDayDetailViewModelsIndex!, index!),
                           child: SizedBox(
-                            height: 24,
-                            width: 24,
+                            height: 22,
+                            width: 22,
                             child: Image.asset(
                               MyIcon.iconIncorrect,
                               fit: BoxFit.fill,
@@ -186,8 +186,8 @@ class TimingBoxItem extends StatelessWidget {
                     : GestureDetector(
                         onTap: () => onAddTap!(companyTimingsIndex!, companyDayDetailViewModelsIndex!, index),
                         child: SizedBox(
-                          height: 24,
-                          width: 24,
+                          height: 22,
+                          width: 22,
                           child: Image.asset(
                             MyIcon.iconAdd,
                             fit: BoxFit.fill,

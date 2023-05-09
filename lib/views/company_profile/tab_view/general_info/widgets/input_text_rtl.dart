@@ -31,7 +31,9 @@ class InputTextRtl extends StatelessWidget {
             name: 'اسم الشرك',
             prefixIconPath: MyIcon.officeBuilding,
             isCustomRtl: true,
+            outlineBorder: true,
           ),
+
           const SizedBox(height: 14),
         ],
       ),

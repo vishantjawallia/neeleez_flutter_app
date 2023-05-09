@@ -7,7 +7,7 @@ import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
 import 'package:neeleez_flutter_app/widgets/url_image.dart';
 
-class CustomTextField extends StatelessWidget {
+class AdditionalInfoTextField extends StatelessWidget {
   final TextEditingController? controller;
   final String? name;
   final String? prefixIconPath;
@@ -32,8 +32,7 @@ class CustomTextField extends StatelessWidget {
   final void Function()? onTap;
   final bool? isCustomRtl;
   final bool outlineBorder;
-
-  const CustomTextField({
+  const AdditionalInfoTextField({
     Key? key,
     this.controller,
     this.name,
@@ -91,7 +90,7 @@ class CustomTextField extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                height: 48.5,
+                height: 88.5,
                 padding: prefixPadding ?? EdgeInsets.symmetric(horizontal: 14, vertical: outlineBorder ? 13 : 10.5),
                 decoration: isCustomRtl!
                     ? const BoxDecoration(
@@ -135,14 +134,16 @@ class CustomTextField extends StatelessWidget {
                 child: GestureDetector(
                   onTap: onTap,
                   child: TextField(
+                    textAlign: TextAlign.start,
+                    textAlignVertical: TextAlignVertical.top,
                     style: Get.textTheme.bodyMedium!.copyWith(
                       color: Palettes.primary,
                       fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
                     ),
                     controller: controller,
                     maxLength: maxLength,
-                    maxLines: maxLines ?? 1,
-                    minLines: minLines,
+                    maxLines: 5,
+                    minLines: 4,
                     maxLengthEnforcement: maxLengthEnforcement ?? MaxLengthEnforcement.none,
                     enabled: enabled,
                     obscureText: obscureText ?? false,
@@ -150,10 +151,10 @@ class CustomTextField extends StatelessWidget {
                       contentPadding: const EdgeInsets.symmetric(horizontal: 14),
                       border: InputBorder.none,
                       hintText: name ?? 'Username / Email :',
-                      hintStyle: Get.textTheme.bodyMedium!.copyWith(
-                        color: Palettes.primary.withOpacity(0.8),
-                        fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
-                      ),
+                      hintMaxLines: 5,
+                      helperMaxLines: 5,
+                      floatingLabelAlignment: FloatingLabelAlignment.start,
+                      hintStyle: Get.textTheme.bodyMedium!.copyWith(color: Palettes.primary.withOpacity(0.8), fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755)),
                       isDense: true,
                     ),
                   ),

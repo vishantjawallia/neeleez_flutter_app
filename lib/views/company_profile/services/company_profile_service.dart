@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:neeleez_flutter_app/api/apiRepository.dart';
@@ -351,8 +352,8 @@ mixin CompanyProfileService {
     String? tel2,
     String? aboutUs,
     String? taxNumber,
-    List? companyBusinessTypes,
-    List? companyAmenity,
+    List<Map<String, dynamic>>? companyBusinessTypes,
+    List<Map<String, dynamic>>? companyAmenity,
   ) async {
     Map<String, dynamic> data = {
       "email": email,
@@ -371,8 +372,8 @@ mixin CompanyProfileService {
       "tel2": tel2,
       "aboutUs": aboutUs,
       "taxNumber": taxNumber,
-      "companyBusinessTypes": companyBusinessTypes,
-      "companyAmenity": companyAmenity,
+      "companyBusinessTypes": jsonEncode(companyBusinessTypes),
+      "companyAmenity": jsonEncode(companyAmenity)
     };
     try {
       final res = await apiRepository.apiPut("$baseUrl/api/Companies/UpdateGeneralInformation/$companyId", data);

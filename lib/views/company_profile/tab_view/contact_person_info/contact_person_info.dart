@@ -9,6 +9,7 @@ import 'package:neeleez_flutter_app/views/company_profile/tab_view/contact_perso
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../widgets/custom_button.dart';
 import 'widgets/department_input_field.dart';
 
 class ContactPersonInfo extends StatefulWidget {
@@ -26,8 +27,17 @@ class ContactPersonInfo extends StatefulWidget {
 
 class _ContactPersonInfoState extends State<ContactPersonInfo> {
   @override
+  void initState() {
+    super.initState();
+    final loaction = Provider.of<ContactPersonInfoProvider>(context, listen: false);
+    Future.delayed(const Duration(milliseconds: 100), () {
+      loaction.loadItems();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final social = Provider.of<ContactPersonInfoProvider>(context);
+    final contact = Provider.of<ContactPersonInfoProvider>(context);
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       physics: const BouncingScrollPhysics(),
@@ -70,9 +80,10 @@ class _ContactPersonInfoState extends State<ContactPersonInfo> {
             ),
             CustomTextField(
               name: 'Full Name',
-              controller: social.fullName,
+              controller: contact.fullName,
               prefixIconPath: MyIcon.user,
               prefixIconColor: Palettes.primary,
+              outlineBorder: true,
             ),
             const SizedBox(height: 14),
             //
@@ -82,10 +93,11 @@ class _ContactPersonInfoState extends State<ContactPersonInfo> {
               textAlign: TextAlign.right,
             ),
             CustomTextField(
-              controller: social.mobileNo,
+              controller: contact.mobileNo,
               name: 'Mobile No',
               prefixIconPath: MyIcon.mobileAnalytics,
               prefixIconColor: Palettes.primary,
+              outlineBorder: true,
             ),
             const SizedBox(height: 14),
             Text(
@@ -94,10 +106,11 @@ class _ContactPersonInfoState extends State<ContactPersonInfo> {
               textAlign: TextAlign.right,
             ),
             CustomTextField(
-              controller: social.email,
+              controller: contact.email,
               name: 'Email',
               prefixIconPath: MyIcon.mail,
               prefixIconColor: Palettes.primary,
+              outlineBorder: true,
             ),
             const SizedBox(height: 14),
             Text(
@@ -106,13 +119,14 @@ class _ContactPersonInfoState extends State<ContactPersonInfo> {
               textAlign: TextAlign.right,
             ),
             DepartmentInputField(
-              value: '',
-              list: const [],
-              // list: ['Hello', 'Go'],
+              controller: contact.departmentController,
               name: 'Department',
               prefixIconPath: MyIcon.staffDepartment,
               prefixIconColor: Palettes.primary,
+              enabled: contact.departmentEnabled,
+              onAddTap: contact.departmentOnTap,
               onChanged: (value) {},
+              outlineBorder: true,
             ),
             const SizedBox(height: 14),
             Text(
@@ -121,18 +135,26 @@ class _ContactPersonInfoState extends State<ContactPersonInfo> {
               textAlign: TextAlign.right,
             ),
             DepartmentInputField(
-              value: '',
-              list: const ['Hello', 'Go'],
+              controller: contact.designationController,
+              enabled: contact.designationEnabled,
               name: 'Designation',
               prefixIconPath: MyIcon.staffDesignation,
               prefixIconColor: Palettes.primary,
+              onAddTap: contact.designationOnTap,
               onChanged: (value) {},
+              outlineBorder: true,
             ),
-            const SizedBox(height: 14),
-            Text(
-              'To update the location, please contact our Support team',
-              style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
-              textAlign: TextAlign.center,
+            const SizedBox(height: 30),
+            Align(
+              alignment: Alignment.center,
+              child: CustomButton(
+                textColor: Palettes.white,
+                width: 300,
+                text: 'Save',
+                backgroundColor: Palettes.primary,
+                borderColor: Palettes.primary,
+                onTap: () {},
+              ),
             ),
             const SizedBox(height: 14),
             const SizedBox(height: 24),
