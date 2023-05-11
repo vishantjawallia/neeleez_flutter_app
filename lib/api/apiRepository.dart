@@ -188,25 +188,37 @@ class apiRepository {
       final response = await http.put(
         Uri.parse(url),
         headers: {
-          // 'Content-Type': "application/json",
-          "Content-type": "multipart/form-data"
-          // "accept": "*/*",
+          'content-type': "application/json",
+          'accept': "application/json",
         },
         body: jsonEncode(body),
       );
+      log(response.statusCode.toString());
+      log(response.bodyBytes.toString());
+      log(response.contentLength.toString());
+      log(response.headers.toString());
+      log(response.isRedirect.toString());
+      log(response.persistentConnection.toString());
+      log(response.reasonPhrase.toString());
+      log(response.request.toString());
+      log(response.runtimeType.toString());
+      log(response.body.toString());
+      // log(response.persistentConnection.toString());
       if (response.statusCode == 200) {
         return json.decode(response.body.toString());
-      } else {
-        log(response.statusCode.toString());
-        log(response.body.toString());
-        log(response.headers.toString());
-        log(response.reasonPhrase.toString());
-        log(response.request.toString());
-        log(response.reasonPhrase.toString());
-        // throw "api-error";
       }
+      // } else {
+      //   log(response.statusCode.toString());
+      //   log(response.body.toString());
+      //   log(response.headers.toString());
+      //   log(response.reasonPhrase.toString());
+      //   log(response.request.toString());
+      //   log(response.reasonPhrase.toString());
+      //   // throw "api-error";
+      // }
     } on SocketException catch (e) {
       log('$e');
+      log(e.runtimeType.toString());
       throw "no-internet";
     }
   }

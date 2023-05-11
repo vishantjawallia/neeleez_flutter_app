@@ -57,24 +57,42 @@ class GeneralInfoProvider extends ChangeNotifier {
   }
 
   void loadItem(GeneralInformation? generalInformation) {
-    data = generalInformation;
-    notifyListeners();
-    if (data != null) {
-      isFreelancer = data!.isFreeLancer ?? false;
-      companyName.text = data!.nameEn ?? "";
-      companyName2.text = data!.nameAr ?? "";
-      tagline.text = data!.tagLine ?? "";
-      companyEsb.text = data!.edate ?? "";
-      DateFormat dateFormat = DateFormat("dd/MM/yyyy");
-      copEstabYear = dateFormat.parse(companyEsb.text);
-      website.text = data!.url ?? "";
-      telephone.text = data!.tel1 ?? "";
-      email.text = data!.email ?? "";
-      whatsAppNo.text = data?.whatsapp ?? "";
-      additionalInfo.text = data!.aboutUs ?? "";
+    Future.delayed(const Duration(milliseconds: 100), () {
+      data = generalInformation;
       notifyListeners();
-    }
+      if (data != null) {
+        isFreelancer = data!.isFreeLancer ?? false;
+        companyName.text = data!.nameEn ?? "";
+        companyName2.text = data!.nameAr ?? "";
+        tagline.text = data!.tagLine ?? "";
+        companyEsb.text = data!.edate ?? "";
+        DateFormat dateFormat = DateFormat("dd/MM/yyyy");
+        copEstabYear = dateFormat.parse(companyEsb.text);
+        website.text = data!.url ?? "";
+        telephone.text = data!.tel1 ?? "";
+        email.text = data!.email ?? "";
+        whatsAppNo.text = data?.whatsapp ?? "";
+        additionalInfo.text = data!.aboutUs ?? "";
+        notifyListeners();
+      }
+    });
   }
 
-
+   clearAll() {
+    data = null;
+    scrollController = ScrollController();
+    companyName.text = "";
+    companyName2.text = "";
+    tagline.text = "";
+    companyEsb.text = "";
+    additionalInfo.text = "";
+    whatsAppNo.text = "";
+    telephone.text = "";
+    email.text = "";
+    website.text = "";
+    copEstabYear = null;
+    isFreelancer = false;
+    businessSubCategorySelectedList = [];
+    notifyListeners();
+  }
 }

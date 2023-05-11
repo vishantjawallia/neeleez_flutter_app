@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:neeleez_flutter_app/api/apiRepository.dart';
@@ -372,8 +371,8 @@ mixin CompanyProfileService {
       "tel2": tel2,
       "aboutUs": aboutUs,
       "taxNumber": taxNumber,
-      "companyBusinessTypes": jsonEncode(companyBusinessTypes),
-      "companyAmenity": jsonEncode(companyAmenity)
+      "companyBusinessTypes": companyBusinessTypes,
+      "companyAmenity": companyAmenity,
     };
     try {
       final res = await apiRepository.apiPut("$baseUrl/api/Companies/UpdateGeneralInformation/$companyId", data);

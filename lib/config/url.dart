@@ -9,5 +9,5 @@ class Url {
   static const String CustomerSignIn = "$baseUrl/api/Companies/CompanySignInNew";
   // static const String customerById = "$baseUrl/api/Customer/GetCustomer";
   static const String Genders = "$baseUrl/api/Genders";
-  static const String Amenities = "$baseUrl//api/Amenities";
+  static const String Amenities = "$baseUrl/api/Amenities";
 }

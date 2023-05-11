@@ -3,7 +3,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:neeleez_flutter_app/views/company_profile/tab_view/business_hours/widgets/warning_popup.dart';
 
 import '../../../../models/company/timing.dart';
 // import '../../widgets/timing_box.dart';
@@ -70,7 +69,7 @@ class BusinessHoursProvider extends ChangeNotifier {
   void onStartTimingTap(_, CompanyTimes companyTimes, List<CompanyTimes> companyTimesList, int i, int j, int k) async {
     final TimeOfDay? picked = await showTimePicker(
       context: _,
-      initialTime: TimeOfDay.now(),
+      initialTime: const TimeOfDay(hour: 0, minute: 0),
       initialEntryMode: TimePickerEntryMode.dial,
       builder: (context, child) {
         return MediaQuery(
@@ -87,13 +86,13 @@ class BusinessHoursProvider extends ChangeNotifier {
       bool compare = compareTime(t, t2);
       int h = picked.hour;
       int m = picked.minute;
-      final companyTimesLastObj = companyTimesList.last;
-      if (companyTimesList.length > 1) {
-        if (companyTimesLastObj.endHour! > h) {
-          warningPopup(_, btn: "Ok", head: "Warning");
-          return;
-        }
-      }
+      // final companyTimesLastObj = companyTimesList.last;
+      // if (companyTimesList.length > 1) {
+      //   if (companyTimesLastObj.endHour! > h) {
+      //     warningPopup(_, btn: "Ok", head: "Warning");
+      //     return;
+      //   }
+      // }
       CompanyTimes cc = companyTimes;
       if (compare) {
         cc = companyTimes.copyWith(
@@ -123,14 +122,14 @@ class BusinessHoursProvider extends ChangeNotifier {
     }
   }
 
-  onEndTimingTap(_, CompanyTimes companyTimes, i, j, k) async {
+  onEndTimingTap(_, CompanyTimes companyTimes, List<CompanyTimes> companyTimesList, i, j, k) async {
     final TimeOfDay? picked = await showTimePicker(
       context: _,
-      initialTime: TimeOfDay.now(),
+      initialTime: const TimeOfDay(hour: 0, minute: 0),
       initialEntryMode: TimePickerEntryMode.dial,
       builder: (context, child) {
         return MediaQuery(
-          data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
+          data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
           child: child!,
         );
       },
@@ -142,6 +141,13 @@ class BusinessHoursProvider extends ChangeNotifier {
       int h = picked.hour;
       int m = picked.minute;
       CompanyTimes cc = companyTimes;
+      // final companyTimesLastObj = companyTimesList.last;
+      // if (companyTimesList.length > 1) {
+      //   if (companyTimesLastObj.endHour! > h) {
+      //     warningPopup(_, btn: "Ok", head: "Warning");
+      //     return;
+      //   }
+      // }
       if (!compare) {
         cc = companyTimes.copyWith(
           endHour: h,

@@ -39,17 +39,26 @@ class GeneralInfo extends StatefulWidget {
 class _GeneralInfoState extends State<GeneralInfo> {
   @override
   void initState() {
-    // TODO: implement initState
+    final gen = Provider.of<GeneralInfoProvider>(context, listen: false);
+    if (gen.data == null) {
+      gen.loadItem(widget.viewModel.genInfo);
+    }
     super.initState();
-    final general = Provider.of<GeneralInfoProvider>(context, listen: false);
-    Future.delayed(const Duration(milliseconds: 100), () {
-      general.loadItem(widget.viewModel.genInfo);
-    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    // final gen = Provider.of<GeneralInfoProvider>(context, listen: false);
+    // if (gen.data == null) {
+    //   gen.clearAll();
+    // }
   }
 
   @override
   Widget build(BuildContext context) {
     final general = Provider.of<GeneralInfoProvider>(context);
+
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       physics: const BouncingScrollPhysics(),
@@ -59,7 +68,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
         child: Column(
           children: [
             _generalInfoBox(context, general),
-            _contactInfoBox(general),
+            _contactInfoBox(context, general),
             _aboutBusinessBox(general),
             Align(
               alignment: Alignment.center,
@@ -69,13 +78,14 @@ class _GeneralInfoState extends State<GeneralInfo> {
                 text: 'Save',
                 backgroundColor: Palettes.primary,
                 borderColor: Palettes.primary,
-                onTap: () {
+                onTap: () async {
+                  await general.clearAll();
                   int? bC = int.tryParse(widget.viewModel.businessCategoryId ?? "");
                   widget.viewModel.onGeneralSave(
                     aboutUs: general.additionalInfo.text,
-                    email: general.email.text,
+                    email: "vishant.jawallia@gmail",
                     tel1: general.telephone.text,
-                    nameEn: general.companyName.text,
+                    nameEn: "vishant",
                     nameAr: general.companyName2.text,
                     isFreeLancer: general.isFreelancer,
                     tagLine: general.tagline.text,
@@ -164,7 +174,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
     );
   }
 
-  _contactInfoBox(GeneralInfoProvider general) {
+  _contactInfoBox(context, GeneralInfoProvider general) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: Column(

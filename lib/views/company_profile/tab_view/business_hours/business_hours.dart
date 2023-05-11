@@ -169,7 +169,7 @@ class BusinessHours extends StatelessWidget {
                                                           log(ii.toString());
                                                           log(jj.toString());
                                                           log(kk.toString());
-                                                          buss.onEndTimingTap(context, companyTimes, ii!, jj!, kk!);
+                                                          buss.onEndTimingTap(context, companyTimes, companyDayDetailViewModels.companyTimes!, ii!, jj!, kk!);
                                                         },
                                                         icon: companyDayDetailViewModels.companyTimes!.first.id == companyTimes.id,
                                                         startTiming: TimeOfDay(hour: companyTimes.startHour ?? 0, minute: companyTimes.startMinute ?? 0),
