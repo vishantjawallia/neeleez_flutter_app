@@ -2,12 +2,15 @@
 
 // import 'dart:devloper';
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
+import 'package:neeleez_flutter_app/views/company_profile/tab_view/general_info/widgets/select_country_dialog.dart';
 // import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down.dart';
 // import 'package:neeleez_flutter_app/views/company_profile/components/custom_multi_drop_down.dart';
 
@@ -23,13 +26,14 @@ import 'widgets/additionl_info_text_field.dart';
 import 'widgets/custom_drop_down1.dart';
 import 'widgets/custom_multi_drop_down.dart';
 import 'widgets/input_text_rtl.dart';
+import 'widgets/whats_app_input_field.dart';
 
 class GeneralInfo extends StatefulWidget {
   final CompanyProfileViewModel viewModel;
 
-  const GeneralInfo({
+  const GeneralInfo(
+    this.viewModel, {
     Key? key,
-    required this.viewModel,
   }) : super(key: key);
 
   @override
@@ -39,26 +43,17 @@ class GeneralInfo extends StatefulWidget {
 class _GeneralInfoState extends State<GeneralInfo> {
   @override
   void initState() {
-    final gen = Provider.of<GeneralInfoProvider>(context, listen: false);
-    if (gen.data == null) {
-      gen.loadItem(widget.viewModel.genInfo);
+    if (widget.viewModel.genInfo == null && !widget.viewModel.isBusy) {
+      Future.delayed(const Duration(seconds: 1), () {
+        widget.viewModel.loadGeneralData(context);
+      });
     }
     super.initState();
   }
 
   @override
-  void dispose() {
-    super.dispose();
-    // final gen = Provider.of<GeneralInfoProvider>(context, listen: false);
-    // if (gen.data == null) {
-    //   gen.clearAll();
-    // }
-  }
-
-  @override
   Widget build(BuildContext context) {
     final general = Provider.of<GeneralInfoProvider>(context);
-
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       physics: const BouncingScrollPhysics(),
@@ -79,13 +74,14 @@ class _GeneralInfoState extends State<GeneralInfo> {
                 backgroundColor: Palettes.primary,
                 borderColor: Palettes.primary,
                 onTap: () async {
-                  await general.clearAll();
                   int? bC = int.tryParse(widget.viewModel.businessCategoryId ?? "");
+                  log("======>${general.companyName.text}");
+                  log("======>${general.email.text}");
                   widget.viewModel.onGeneralSave(
                     aboutUs: general.additionalInfo.text,
-                    email: "vishant.jawallia@gmail",
+                    email: general.email.text,
                     tel1: general.telephone.text,
-                    nameEn: "vishant",
+                    nameEn: general.companyName.text,
                     nameAr: general.companyName2.text,
                     isFreeLancer: general.isFreelancer,
                     tagLine: general.tagline.text,
@@ -95,7 +91,6 @@ class _GeneralInfoState extends State<GeneralInfo> {
                     businessServiceId: bC,
                   );
                 },
-                // onTap: widget.onSave,
               ),
             ),
             const SizedBox(height: 70),
@@ -212,13 +207,20 @@ class _GeneralInfoState extends State<GeneralInfo> {
             style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
             textAlign: TextAlign.right,
           ),
-          CustomTextField(
+          WhatsAppInputField(
             controller: general.whatsAppNo,
             name: 'Whatsapp No',
             prefixIconPath: MyIcon.whatsapp,
             prefixIconColor: Palettes.primary,
             suffixIconPath: !(general.data?.webMobileVerified ?? false) ? MyIcon.crossed : "",
             outlineBorder: true,
+            onCountryCodeTap: () {
+              log(widget.viewModel.countryList.toString());
+              countrySelectDialog(
+                context,
+                list: widget.viewModel.countryList,
+              );
+            },
           ),
           const SizedBox(height: 4),
           Align(

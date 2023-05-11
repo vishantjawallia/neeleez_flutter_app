@@ -87,8 +87,9 @@ class DashboardViewModel extends BaseViewModel with DashboardService, CompanyPro
                 businessCategoryList: businessCategory,
                 serviceForList: genders,
               ));
+        } else {
+          Get.to(() => hh);
         }
-        // Get.to(() => hh);
       }
     }
   }

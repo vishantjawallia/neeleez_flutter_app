@@ -12,9 +12,9 @@ import 'loaction_provider.dart';
 
 class Location extends StatefulWidget {
   final CompanyProfileViewModel viewModel;
-  const Location({
+  const Location(
+    this.viewModel, {
     super.key,
-    required this.viewModel,
   });
 
   @override

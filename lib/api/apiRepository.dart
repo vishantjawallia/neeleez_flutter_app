@@ -124,6 +124,38 @@ class apiRepository {
       throw "no-internet";
     }
   }
+  /* -------------------------------- Api Post With Dynamic Body------------------------------- */
+  static Future apiPutWithDynamic(
+    String? url,
+    dynamic body, {
+    bool? auth,
+  }) async {
+    try {
+      final response = await http.put(
+        Uri.parse(url!),
+        headers: {
+          'Content-Type': "application/json",
+        },
+        body: json.encode(body!),
+      );
+      log(body.toString());
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return json.decode(response.body);
+      } else if (response.statusCode == 401) {
+        log(response.statusCode.toString());
+        log(url.toString());
+        final obj = json.decode(response.body);
+        throw obj['detail'];
+      } else {
+        log(response.statusCode.toString());
+        log(url.toString());
+        throw "Exception-Occurred";
+      }
+    } on SocketException catch (e) {
+      log('$e');
+      throw "no-internet";
+    }
+  }
 
   /* -------------------------------- Api Get ------------------------------- */
   static Future apiGet(
@@ -253,29 +285,113 @@ class apiRepository {
   }
 
   /* -------------------------------- Api File Upload  ------------------------------- */
-  static Future<String> apiUploadFile(
+  static Future apiUploadFile(
     String? url, {
-    bool? auth,
     File? file,
   }) async {
-    log(url.toString());
-    final bytes = await file!.readAsBytes();
     try {
-      final response = await http.post(
+      var request = http.MultipartRequest(
+        'POST',
         Uri.parse(url!),
-        headers: {'Content-Type': "application/json"},
-        body: bytes,
       );
+      // request.files.add(
+      //   await http.MultipartFile.fromPath('image', file!.path),
+      // );
+      var imagePart = http.MultipartFile(
+        'LogoFile',
+        file!.readAsBytes().asStream(),
+        file.lengthSync(),
+        filename: file.path.split('/').last,
+      );
+      request.files.add(imagePart);
+
+      var response = await request.send();
+      if (request.persistentConnection) {
+        log(response.stream.toString());
+      }
+      response.stream.bytesToString().asStream().asBroadcastStream(
+          onListen: (subscription) {
+            subscription.onData((data) {
+              log(data.toString());
+            });
+          },
+        );
       if (response.statusCode == 200) {
-        return "'File uploaded successfully";
+        // response.stream.bytesToString().then((value) => log(value.toString()));
+        // response.stream.bytesToString().asStream().asBroadcastStream(
+        // response.stream.bytesToString().then((value) => log(value.toString()));
+        //   onListen: (subscription) {
+        //     subscription.onData((data) {
+        //       log(data.toString());
+        //     });
+        //   },
+        // );
+        log(response.stream.toString());
+        log('Image uploaded successfully');
       } else {
-        throw Exception('Failed to upload file');
+        // response.stream.bytesToString().then((value) => log(value.toString()));
+        // response.stream.bytesToString().asStream().asBroadcastStream(
+        //   onListen: (subscription) {
+        //     subscription.onData((data) {
+        //       log(data.toString());
+        //     });
+        //   },
+        // );
+        log(response.contentLength.toString());
+        log(response.headers.toString());
+        log(response.persistentConnection.toString());
+        log(response.isRedirect.toString());
+        log(response.stream.toString());
+        // log(response..toString());
+        log('Image upload failed with status code ${response.statusCode}');
       }
     } on SocketException catch (e) {
       log('$e');
       throw "no-internet";
     }
   }
+
+  // /* -------------------------------- Api File Upload  ------------------------------- */
+  // static Future<String> apiUploadFile(
+  //   String? url, {
+  //   File? file,
+  // }) async {
+  //   log(url.toString());
+  //   final bytes = await file!.readAsBytes();
+  //   try {
+  //     final response = await http.post(
+  //       Uri.parse(url!),
+  //       headers: {
+  //         'Content-Type': "multipart/form-data",
+  //         'Accept': '*/*',
+  //       },
+  //       body: bytes,
+  //     );
+  //     if (response.persistentConnection) {
+  //       log(response.body.toString());
+  //       log(response.bodyBytes.toString());
+  //     }
+  //     if (response.statusCode == 200) {
+  //       log(response.body.toString());
+  //       return "'File uploaded successfully";
+  //     } else {
+  //       log(response.bodyBytes.toString());
+  //       log(response.body.toString());
+  //       log(response.statusCode.toString());
+  //       log(response.headers.toString());
+  //       log(response.isRedirect.toString());
+  //       log(response.persistentConnection.toString());
+  //       log(response.persistentConnection.toString());
+  //       log(response.reasonPhrase.toString());
+  //       log(response.request.toString());
+
+  //       throw Exception('Failed to upload file');
+  //     }
+  //   } on SocketException catch (e) {
+  //     log('$e');
+  //     throw "no-internet";
+  //   }
+  // }
 }
 
 

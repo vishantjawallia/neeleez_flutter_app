@@ -14,10 +14,10 @@ import '../../company_profile_view_model.dart';
 class Packages extends StatelessWidget {
   // final CompanyPackage? companyPackage;
   final CompanyProfileViewModel viewModel;
-  const Packages({
+  const Packages(this.viewModel,{
     Key? key,
     // required this.companyPackage,
-    required this.viewModel,
+
   }) : super(key: key);
 
   @override

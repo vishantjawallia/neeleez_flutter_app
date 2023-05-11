@@ -15,11 +15,11 @@ class FileSection extends StatefulWidget {
   // final void Function(File? file) onUploadMedia;
   // final List<CompanyImages>? companyImages;
   final CompanyProfileViewModel viewModel;
-  const FileSection({
+  const FileSection(
+    this.viewModel, {
     Key? key,
     // required this.onUploadMedia,
     // this.companyImages,
-    required this.viewModel,
   }) : super(key: key);
 
   @override
@@ -31,10 +31,10 @@ class _FileSectionState extends State<FileSection> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(const Duration(milliseconds: 100), () {
+
       final fileSection = Provider.of<FileSectionProvider>(context, listen: false);
-      fileSection.loadItem(widget.viewModel.cp!.companyImages!);
-    });
+      fileSection.loadItem(widget.viewModel.cp?.companyImages);
+
   }
 
   @override

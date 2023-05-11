@@ -11,13 +11,8 @@ import 'package:provider/provider.dart';
 import '../../../../widgets/custom_button.dart';
 
 class SocialMedia extends StatefulWidget {
-  // final void Function()? onSocialSave;
   final CompanyProfileViewModel viewModel;
-  const SocialMedia({
-    Key? key,
-    // required this.onSocialSave,
-    required this.viewModel,
-  }) : super(key: key);
+  const SocialMedia(this.viewModel, {super.key});
 
   @override
   State<SocialMedia> createState() => _SocialMediaState();
@@ -26,12 +21,9 @@ class SocialMedia extends StatefulWidget {
 class _SocialMediaState extends State<SocialMedia> {
   @override
   void initState() {
-    // TODO: implement initState
+    final social = Provider.of<SocialMediaProvider>(context, listen: false);
+    social.loadItem(widget.viewModel.genInfo);
     super.initState();
-    final general = Provider.of<SocialMediaProvider>(context, listen: false);
-    Future.delayed(const Duration(milliseconds: 100), () {
-      general.loadItem(widget.viewModel.genInfo);
-    });
   }
 
   @override
@@ -170,7 +162,7 @@ class _SocialMediaState extends State<SocialMedia> {
                   ),
             const SizedBox(height: 14),
             Text(
-              'Only Enter Username/Userld of your social media account',
+              'Only Enter Username/User Id of your social media account',
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.center,
             ),
@@ -183,8 +175,13 @@ class _SocialMediaState extends State<SocialMedia> {
                 width: 300,
                 text: 'Save',
                 backgroundColor: Palettes.primary,
-                borderColor: Palettes.primary, onTap: () {},
-                // onTap: onSocialSave,
+                borderColor: Palettes.primary,
+                onTap: () => widget.viewModel.onSocialSave(
+                  facebook: social.facebook.text,
+                  linkedIn: social.linkedIn.text,
+                  instagram: social.instagram.text,
+                  twitter: social.twitter.text,
+                ),
               ),
             ),
             const SizedBox(height: 34),

@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:neeleez_flutter_app/api/apiRepository.dart';
+import 'package:neeleez_flutter_app/config/config.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/models/company/company_profile.dart';
 
@@ -15,9 +17,10 @@ class FileSectionProvider extends ChangeNotifier {
 
   int? totalSize = 0;
 
-  void loadItem(List<CompanyImages> list) {
-    imagesList = list;
-    totalSize = list.map((e) => e.size!).toList().reduce((value, element) => value + element);
+  void loadItem(List<CompanyImages>? list) async {
+    await Future.delayed(const Duration(milliseconds: 100));
+    imagesList = list ?? [];
+    totalSize = list?.map((e) => e.size!).toList().reduce((value, element) => value + element) ?? 0;
     notifyListeners();
   }
 
@@ -34,6 +37,11 @@ class FileSectionProvider extends ChangeNotifier {
           );
           if (result != null) {
             PlatformFile file = result.files.first;
+            String IsProfileChange = "";
+            String CompanyId = "73426";
+            await apiRepository.apiUploadFile("$baseUrl/api/Companies/CompanyLogo/$CompanyId/$IsProfileChange", file: File(file.path!)).then((value) {
+              log(value.toString());
+            });
 
             log(file.name);
             // log(file.bytes);
@@ -57,6 +65,16 @@ class FileSectionProvider extends ChangeNotifier {
           if (result != null) {
             PlatformFile file = result.files.first;
             log(file.name);
+            String IsProfileChange = "false";
+            String CompanyId = "73426";
+            await apiRepository
+                .apiUploadFile("$baseUrl/api/Companies/CompanyLogo/$CompanyId/$IsProfileChange",
+                    file: File(
+                      file.path!,
+                    ))
+                .then((value) {
+              log(value.toString());
+            });
             // log(file.bytes.toString());
             // log(file.size.t);
             // log(file.extension);

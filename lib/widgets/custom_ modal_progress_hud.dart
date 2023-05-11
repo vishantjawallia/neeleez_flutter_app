@@ -11,21 +11,18 @@ class ModalProgressHUD extends StatelessWidget {
   final Widget? child;
 
   const ModalProgressHUD({
-    Key? key,
+    super.key,
     required this.load,
     this.opacity = 0.3,
-    // this.opacity = 0.3,
     this.color = Colors.grey,
-    // this.color = Palettes.grey1,
     this.progressIndicator = const CircularProgressIndicator(),
     this.offset,
     this.dismissible = false,
     required this.child,
   });
-
   @override
   Widget build(BuildContext context) {
-    if (!load!) return child!;
+    // if (!load!) return child!;
 
     Widget layOutProgressIndicator;
     if (offset == null) {
@@ -43,14 +40,21 @@ class ModalProgressHUD extends StatelessWidget {
     return Stack(
       children: [
         child!,
-        Opacity(
-          opacity: opacity!,
-          child: ModalBarrier(
-            dismissible: dismissible!,
-            color: color,
+        Visibility(
+          visible: load!,
+          child: Stack(
+            children: [
+              Opacity(
+                opacity: opacity!,
+                child: ModalBarrier(
+                  dismissible: dismissible!,
+                  color: color,
+                ),
+              ),
+              layOutProgressIndicator,
+            ],
           ),
         ),
-        layOutProgressIndicator,
       ],
     );
   }
@@ -67,5 +71,29 @@ Widget loader() {
       strokeWidth: 3,
       color: Palettes.primary,
     ),
+  );
+}
+
+Future<Future<Object?>> loadingBar(
+  _,
+) async {
+  return showGeneralDialog(
+    context: _,
+    barrierDismissible: false,
+    barrierColor: Palettes.black.withOpacity(0.55),
+    pageBuilder: (ctx, a1, a2) => Container(),
+    transitionBuilder: (ctx, a1, a2, child) {
+      var curve = Curves.easeOutBack.transform(a1.value);
+      return Transform.scale(
+        scale: curve,
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Center(
+            child: loader(),
+          ),
+        ),
+      );
+    },
+    transitionDuration: const Duration(milliseconds: 350),
   );
 }

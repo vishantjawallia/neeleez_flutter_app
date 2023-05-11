@@ -19,11 +19,11 @@ class BusinessHours extends StatelessWidget {
   // final void Function(dynamic body)? onBusinessHoursSave;
   // List<CompanyTimings>? timings;
   final CompanyProfileViewModel viewModel;
-  const BusinessHours({
+  const BusinessHours(
+    this.viewModel, {
     Key? key,
     // required this.timings,
     // required this.onBusinessHoursSave,
-    required this.viewModel,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -220,6 +220,7 @@ class BusinessHours extends StatelessWidget {
                   }
                   // var mm = (kk);
                   log(jsonEncode(kk));
+                  viewModel.onTimingSave(ct: kk);
                   // return onBusinessHoursSave!(kk);
 
                   // buss.timings.map((e) {

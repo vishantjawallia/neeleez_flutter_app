@@ -15,12 +15,24 @@ class SocialMediaProvider extends ChangeNotifier {
     twitter.addListener(() => notifyListeners());
   }
 
-  void loadItem(GeneralInformation? genInfo) {
-    data = genInfo;
-    facebook.text = genInfo?.socialMediaInfo?.facebook ?? "";
-    instagram.text = genInfo?.socialMediaInfo?.instagram ?? "";
-    linkedIn.text = genInfo?.socialMediaInfo?.linkedIn ?? "";
-    twitter.text = genInfo?.socialMediaInfo?.twitter ?? "";
+  void loadItem(GeneralInformation? genInfo) async {
+    await Future.delayed(const Duration(milliseconds: 100));
+    if (genInfo != null) {
+      data = genInfo;
+      facebook.text = genInfo.socialMediaInfo?.facebook ?? "";
+      instagram.text = genInfo.socialMediaInfo?.instagram ?? "";
+      linkedIn.text = genInfo.socialMediaInfo?.linkedIn ?? "";
+      twitter.text = genInfo.socialMediaInfo?.twitter ?? "";
+    }
+    notifyListeners();
+  }
+
+  void clearAll() {
+    data = null;
+    facebook.text = "";
+    instagram.text = "";
+    linkedIn.text = "";
+    twitter.text = "";
     notifyListeners();
   }
 }

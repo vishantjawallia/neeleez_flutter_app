@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 
+import '../../../../../models/company/companies.dart';
+
 Future<Future<Object?>> countrySelectDialog(
   _, {
-  List? list,
+  List<Countries>? list,
   Function(dynamic value)? onSubmit,
 }) async {
   return showGeneralDialog(
@@ -55,13 +57,16 @@ Future<Future<Object?>> countrySelectDialog(
                           onSelectedItemChanged: (int selectedItem) {
                             log(selectedItem.toString());
                           },
-                          children: List<Widget>.generate(_fruitNames.length, (int index) {
-                            return Center(
-                              child: Text(
-                                _fruitNames[index],
-                              ),
-                            );
-                          }),
+                          children: List<Widget>.generate(
+                            list?.length ?? 0,
+                            (int index) {
+                              return Center(
+                                child: Text(
+                                  list![index].nameEn ?? "",
+                                ),
+                              );
+                            },
+                          ),
                         ),
                       ),
                     ),
@@ -122,20 +127,24 @@ const List<String> _fruitNames = <String>[
 
 // void main() => runApp(const CupertinoPickerApp());
 
-class CupertinoPickerApp extends StatelessWidget {
-  const CupertinoPickerApp({super.key});
+// class CupertinoPickerApp extends StatelessWidget {
+//   const CupertinoPickerApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const CupertinoApp(
-      theme: CupertinoThemeData(brightness: Brightness.light),
-      home: CupertinoPickerExample(),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return const CupertinoApp(
+//       theme: CupertinoThemeData(brightness: Brightness.light),
+//       home: CupertinoPickerExample(
+
+//       ),
+//     );
+//   }
+// }
 
 class CupertinoPickerExample extends StatefulWidget {
-  const CupertinoPickerExample({super.key});
+  const CupertinoPickerExample({
+    super.key,
+  });
 
   @override
   State<CupertinoPickerExample> createState() => _CupertinoPickerExampleState();
@@ -190,13 +199,16 @@ class _CupertinoPickerExampleState extends State<CupertinoPickerExample> {
                             _selectedFruit = selectedItem;
                           });
                         },
-                        children: List<Widget>.generate(_fruitNames.length, (int index) {
-                          return Center(
-                            child: Text(
-                              _fruitNames[index],
-                            ),
-                          );
-                        }),
+                        children: List<Widget>.generate(
+                          _fruitNames.length,
+                          (int index) {
+                            return Center(
+                              child: Text(
+                                _fruitNames[index],
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),

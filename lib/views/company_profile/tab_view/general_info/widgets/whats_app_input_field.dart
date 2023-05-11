@@ -1,16 +1,15 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
-import 'package:neeleez_flutter_app/helpers/helper.dart';
-import 'package:neeleez_flutter_app/widgets/url_image.dart';
 
-class CustomTextField extends StatelessWidget {
+import '../../../../../helpers/helper.dart';
+
+class WhatsAppInputField extends StatelessWidget {
   final TextEditingController? controller;
-  final String? name;
   final String? prefixIconPath;
+  final String? name;
+  final String? countryCode;
   final Color? prefixIconColor;
   final double? prefixIconSize;
   final double? height;
@@ -22,43 +21,43 @@ class CustomTextField extends StatelessWidget {
   final EdgeInsetsGeometry? inputFieldPadding;
   final EdgeInsetsGeometry? prefixPadding;
   final EdgeInsetsGeometry? widgetMargin;
-  final MaxLengthEnforcement? maxLengthEnforcement;
   final Widget? suffixIconWidget;
   final bool? obscureText;
   final bool? autofocus;
   final bool? enabled;
   final String? prefixUrlImage;
   final void Function(String? value)? onChanged;
+  final void Function()? onCountryCodeTap;
   final void Function()? onTap;
   final bool? isCustomRtl;
   final bool outlineBorder;
-
-  const CustomTextField({
+  const WhatsAppInputField({
     Key? key,
     this.controller,
     this.name,
-    this.inputFieldPadding,
-    this.widgetMargin,
-    this.obscureText,
-    this.prefixIconPath = "",
-    this.suffixIconPath = "",
-    this.onChanged,
-    this.prefixIconColor = Palettes.primary,
+    this.prefixIconPath,
+    this.prefixIconColor,
     this.prefixIconSize,
+    this.height,
     this.maxLength,
     this.maxLines,
     this.minLines,
-    this.maxLengthEnforcement,
-    this.autofocus,
-    this.height,
+    this.suffixIconPath,
+    this.checkedSuffixIcon,
+    this.inputFieldPadding,
     this.prefixPadding,
-    this.onTap,
-    this.enabled = true,
+    this.widgetMargin,
     this.suffixIconWidget,
-    this.checkedSuffixIcon = false,
-    this.isCustomRtl = false,
+    this.obscureText,
+    this.autofocus,
+    this.enabled,
     this.prefixUrlImage,
-    this.outlineBorder = false,
+    this.onChanged,
+    this.onTap,
+    this.isCustomRtl = false,
+    required this.outlineBorder,
+    this.countryCode,
+    this.onCountryCodeTap,
   }) : super(key: key);
 
   @override
@@ -91,8 +90,8 @@ class CustomTextField extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                height: outlineBorder ? 48.5 : 47,
-                padding: prefixPadding ?? EdgeInsets.symmetric(horizontal: 14, vertical: outlineBorder ? 13 : 11.5),
+                height: 48.5,
+                padding: prefixPadding ?? EdgeInsets.symmetric(horizontal: 14, vertical: outlineBorder ? 13 : 10.5),
                 decoration: isCustomRtl!
                     ? const BoxDecoration(
                         color: Palettes.greyPrimary,
@@ -116,38 +115,66 @@ class CustomTextField extends StatelessWidget {
                 child: SizedBox(
                   height: 26,
                   width: 26,
-                  child: prefixUrlImage == null
-                      ? Image.asset(
-                          prefixIconPath!,
-                          filterQuality: FilterQuality.high,
-                          isAntiAlias: true,
-                          color: prefixIconColor,
-                          // height: 26,
-                          // width: 26,
-                        )
-                      : UrlImage(
-                          url: prefixUrlImage,
-                          border: Border.all(width: 0),
+                  child: Image.asset(
+                    prefixIconPath!,
+                    filterQuality: FilterQuality.high,
+                    isAntiAlias: true,
+                    color: prefixIconColor,
+                  ),
+                ),
+              ),
+              Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  onTap: onCountryCodeTap,
+                  child: SizedBox(
+                    child: Container(
+                      width: 65,
+                      padding: const EdgeInsets.symmetric(horizontal: 7),
+                      margin: const EdgeInsets.symmetric(vertical: 14.5),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          right: BorderSide(
+                            color: Palettes.grey3,
+                            width: 0.7,
+                          ),
                         ),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(
+                            "+" "${countryCode ?? '91'}",
+                            style: Get.textTheme.bodyMedium!.copyWith(
+                              color: Palettes.black,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 14,
+                            child: Image.asset(
+                              MyIcon.upArrow,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
               ),
               Flexible(
                 child: GestureDetector(
                   onTap: onTap,
                   child: TextField(
+                    controller: controller,
                     style: Get.textTheme.bodyMedium!.copyWith(
                       color: Palettes.primary,
                       fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
                     ),
-                    controller: controller,
-                    maxLength: maxLength,
-                    maxLines: maxLines ?? 1,
-                    minLines: minLines,
-                    maxLengthEnforcement: maxLengthEnforcement ?? MaxLengthEnforcement.none,
                     enabled: enabled,
                     obscureText: obscureText ?? false,
                     decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 14),
+                      contentPadding: const EdgeInsets.only(left: 8, right: 14),
                       border: InputBorder.none,
                       hintText: name ?? 'Username / Email :',
                       hintStyle: Get.textTheme.bodyMedium!.copyWith(

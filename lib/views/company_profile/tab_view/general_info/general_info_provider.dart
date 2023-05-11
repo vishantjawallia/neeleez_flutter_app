@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:neeleez_flutter_app/models/general_info/general_info.dart';
@@ -42,7 +44,7 @@ class GeneralInfoProvider extends ChangeNotifier {
   void copEstabYearOnTap(_) async {
     final DateTime? picked = await showDatePicker(
       context: _,
-      initialDate: copEstabYear!,
+      initialDate: copEstabYear ?? DateTime.now(),
       firstDate: DateTime(1960, 8),
       lastDate: DateTime.now(),
     );
@@ -52,33 +54,30 @@ class GeneralInfoProvider extends ChangeNotifier {
       companyEsb.text = formattedDate;
       notifyListeners();
     }
-    // isFreelancer = !isFreelancer!;
-    // notifyListeners();
   }
 
-  void loadItem(GeneralInformation? generalInformation) {
-    Future.delayed(const Duration(milliseconds: 100), () {
+  void loadItem(GeneralInformation? generalInformation) async {
+    await Future.delayed(const Duration(milliseconds: 100));
+    log(generalInformation.toString());
+    if (generalInformation != null) {
       data = generalInformation;
+      isFreelancer = generalInformation.isFreeLancer ?? false;
+      companyName.text = generalInformation.nameEn ?? "";
+      companyName2.text = generalInformation.nameAr ?? "";
+      tagline.text = generalInformation.tagLine ?? "";
+      companyEsb.text = generalInformation.edate ?? "";
+      DateFormat dateFormat = DateFormat("dd/MM/yyyy");
+      copEstabYear = dateFormat.parse(companyEsb.text);
+      website.text = generalInformation.url ?? "";
+      telephone.text = generalInformation.tel1 ?? "";
+      email.text = generalInformation.email ?? "";
+      whatsAppNo.text = generalInformation.whatsapp ?? "";
+      additionalInfo.text = generalInformation.aboutUs ?? "";
       notifyListeners();
-      if (data != null) {
-        isFreelancer = data!.isFreeLancer ?? false;
-        companyName.text = data!.nameEn ?? "";
-        companyName2.text = data!.nameAr ?? "";
-        tagline.text = data!.tagLine ?? "";
-        companyEsb.text = data!.edate ?? "";
-        DateFormat dateFormat = DateFormat("dd/MM/yyyy");
-        copEstabYear = dateFormat.parse(companyEsb.text);
-        website.text = data!.url ?? "";
-        telephone.text = data!.tel1 ?? "";
-        email.text = data!.email ?? "";
-        whatsAppNo.text = data?.whatsapp ?? "";
-        additionalInfo.text = data!.aboutUs ?? "";
-        notifyListeners();
-      }
-    });
+    }
   }
 
-   clearAll() {
+  clearAll() {
     data = null;
     scrollController = ScrollController();
     companyName.text = "";

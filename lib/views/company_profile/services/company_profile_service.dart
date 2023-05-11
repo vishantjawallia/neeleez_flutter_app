@@ -11,6 +11,7 @@ import 'package:neeleez_flutter_app/models/company/region_Info.dart';
 import 'package:neeleez_flutter_app/models/gender/gender.dart';
 import 'package:neeleez_flutter_app/models/general_info/general_info.dart';
 import 'package:neeleez_flutter_app/models/package/package_info.dart';
+import 'package:neeleez_flutter_app/views/company_profile/tab_view/business_hours/model/put_timing.dart';
 // /api/CompanyProfile/GeneralInformation/{CompanyId}
 // /api/CompanyProfile/RegionInformation/{CompanyId}/api/CompanyProfile/ContactPersonInfo/{CompanyId}
 import '../../../models/business_types/business_types.dart';
@@ -389,11 +390,11 @@ mixin CompanyProfileService {
   }
 
   Future<void> putUpdateSocialMedia(
-    String companyId,
-    String facebook,
-    String instagram,
-    String linkedIn,
-    String twitter,
+    String? companyId,
+    String? facebook,
+    String? instagram,
+    String? linkedIn,
+    String? twitter,
   ) async {
     Map<String, dynamic> data = {
       "facebook": facebook,
@@ -401,6 +402,7 @@ mixin CompanyProfileService {
       "linkedIn": linkedIn,
       "twitter": twitter,
     };
+
     try {
       final res = await apiRepository.apiPut("$baseUrl/api/Companies/UpdateSocialMedia/$companyId", data);
       log(res.toString());
@@ -410,24 +412,56 @@ mixin CompanyProfileService {
       }
     } catch (e) {
       log(e.toString());
-      log("putGeneralInformation========>$e");
+      log("putUpdateSocialMedia========>$e");
+    }
+    return;
+  }
+
+  Future<void> putBusinessTiming(
+    String? companyId,
+    List<PutTiming>? data,
+  ) async {
+    //   Map<String, dynamic> data = {
+    //     "facebook": facebook,
+    //     "instagram": instagram,
+    //     "linkedIn": linkedIn,
+    //     "twitter": twitter,
+    //      {
+    //   // "id": 0,
+    //   // "dowId": 0,
+    //   // "startTime": "string",
+    //   // "endTime": "string",
+    //   // "isHoliday": true
+    // }
+    //   };
+
+    try {
+      final res = await apiRepository.apiPutWithDynamic("$baseUrl/api/Companies/UpdateSocialMedia/$companyId", data);
+      log(res.toString());
+      if (res != null) {
+        log(res.toString());
+        return;
+      }
+    } catch (e) {
+      log(e.toString());
+      log("putBusinessTiming========>$e");
     }
     return;
   }
 
   Future<void> putUpdateContactPerson(
-    String companyId,
-    int id,
-    String nameEn,
-    String nameAr,
-    String email,
-    String mobile,
-    String whatsApp,
-    String tel,
-    String designation,
-    String department,
-    int designationId,
-    int departmentId,
+    String? companyId,
+    int? id,
+    String? nameEn,
+    String? nameAr,
+    String? email,
+    String? mobile,
+    String? whatsApp,
+    String? tel,
+    String? designation,
+    String? department,
+    int? designationId,
+    int? departmentId,
   ) async {
     Map<String, dynamic> data = {
       "id": id,
