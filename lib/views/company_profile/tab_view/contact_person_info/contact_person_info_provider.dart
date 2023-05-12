@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:neeleez_flutter_app/views/company_profile/company_profile_view_model.dart';
 
-class ContactPersonInfoProvider extends ChangeNotifier {
+class ContactPersonInfoProvider<E> extends ChangeNotifier{
   TextEditingController mobileNo = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController fullName = TextEditingController();
@@ -30,5 +31,12 @@ class ContactPersonInfoProvider extends ChangeNotifier {
   void departmentOnTap() {
     departmentEnabled = !departmentEnabled;
     notifyListeners();
+  }
+
+  void kk() async {
+    CompanyProfileViewModel kk = CompanyProfileViewModel();
+    kk.setBusy(true);
+    await Future.delayed(const Duration(seconds: 3));
+    kk.setBusy(false);
   }
 }

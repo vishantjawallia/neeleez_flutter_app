@@ -28,7 +28,7 @@ import 'widgets/custom_multi_drop_down.dart';
 import 'widgets/input_text_rtl.dart';
 import 'widgets/whats_app_input_field.dart';
 
-class GeneralInfo extends StatefulWidget {
+class GeneralInfo extends StatelessWidget {
   final CompanyProfileViewModel viewModel;
 
   const GeneralInfo(
@@ -37,27 +37,12 @@ class GeneralInfo extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<GeneralInfo> createState() => _GeneralInfoState();
-}
-
-class _GeneralInfoState extends State<GeneralInfo> {
-  @override
-  void initState() {
-    if (widget.viewModel.genInfo == null && !widget.viewModel.isBusy) {
-      Future.delayed(const Duration(seconds: 1), () {
-        widget.viewModel.loadGeneralData(context);
-      });
-    }
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final general = Provider.of<GeneralInfoProvider>(context);
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       physics: const BouncingScrollPhysics(),
-      controller: general.scrollController,
+      // controller: general.scrollController,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 22),
         child: Column(
@@ -74,10 +59,11 @@ class _GeneralInfoState extends State<GeneralInfo> {
                 backgroundColor: Palettes.primary,
                 borderColor: Palettes.primary,
                 onTap: () async {
-                  int? bC = int.tryParse(widget.viewModel.businessCategoryId ?? "");
+                  int? bC = int.tryParse(viewModel.businessCategoryId ?? "");
                   log("======>${general.companyName.text}");
                   log("======>${general.email.text}");
-                  widget.viewModel.onGeneralSave(
+                  viewModel.onGeneralSave(
+                    context,
                     aboutUs: general.additionalInfo.text,
                     email: general.email.text,
                     tel1: general.telephone.text,
@@ -87,7 +73,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
                     tagLine: general.tagline.text,
                     whatsapp: general.whatsAppNo.text,
                     url: general.website.text,
-                    genderId: int.tryParse(widget.viewModel.serviceForId!),
+                    genderId: int.tryParse(viewModel.serviceForId!),
                     businessServiceId: bC,
                   );
                 },
@@ -100,7 +86,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
     );
   }
 
-  _aboutBusinessBox(GeneralInfoProvider general) {
+  _aboutBusinessBox(general) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -137,14 +123,15 @@ class _GeneralInfoState extends State<GeneralInfo> {
           textAlign: TextAlign.right,
         ),
         CustomMultiDropDown(
-          focusNode: widget.viewModel.amenitiesFocusNode,
-          list: widget.viewModel.amentiasStringList,
-          selectedList: widget.viewModel.amentiasSelectedList,
+          scrollController: viewModel.amenitiesScrollController,
+          focusNode: viewModel.amenitiesFocusNode,
+          list: viewModel.amentiasStringList,
+          selectedList: viewModel.amentiasSelectedList,
           name: 'Amenities',
           prefixIconPath: MyIcon.imgAmenities,
           prefixIconColor: Palettes.primary,
-          onChanged: widget.viewModel.amenitiesOnChanged,
-          onRemove: widget.viewModel.amenitiesOnRemove,
+          onChanged: viewModel.amenitiesOnChanged,
+          onRemove: viewModel.amenitiesOnRemove,
           outlineBorder: true,
         ),
         const SizedBox(height: 14),
@@ -169,7 +156,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
     );
   }
 
-  _contactInfoBox(context, GeneralInfoProvider general) {
+  _contactInfoBox(context, general) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: Column(
@@ -215,10 +202,10 @@ class _GeneralInfoState extends State<GeneralInfo> {
             suffixIconPath: !(general.data?.webMobileVerified ?? false) ? MyIcon.crossed : "",
             outlineBorder: true,
             onCountryCodeTap: () {
-              log(widget.viewModel.countryList.toString());
+              log(viewModel.countryList.toString());
               countrySelectDialog(
                 context,
-                list: widget.viewModel.countryList,
+                list: viewModel.countryList,
               );
             },
           ),
@@ -226,7 +213,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
           Align(
             alignment: Alignment.centerRight,
             child: GestureDetector(
-              onTap: () => widget.viewModel.verifyMobileHandler(context, general.whatsAppNo.text),
+              onTap: () => viewModel.verifyMobileHandler(context, general.whatsAppNo.text),
               child: Text(
                 'Verify Mobile',
                 style: Get.textTheme.bodyMedium!.copyWith(color: Palettes.black, decoration: TextDecoration.underline, fontWeight: FontWeight.w500),
@@ -265,7 +252,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
           Align(
             alignment: Alignment.centerRight,
             child: GestureDetector(
-              onTap: () => widget.viewModel.verifyEmailHandler(context, general.email.text),
+              onTap: () => viewModel.verifyEmailHandler(context, general.email.text),
               child: Text(
                 'Verify Email',
                 style: Get.textTheme.bodyMedium!.copyWith(color: Palettes.black, decoration: TextDecoration.underline, fontWeight: FontWeight.w500),
@@ -292,7 +279,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
     );
   }
 
-  _generalInfoBox(_, GeneralInfoProvider general) {
+  Widget _generalInfoBox(context, general) {
     return Padding(
       padding: const EdgeInsets.only(top: 12, bottom: 20),
       child: Column(
@@ -390,7 +377,7 @@ class _GeneralInfoState extends State<GeneralInfo> {
             controller: general.companyEsb,
             name: 'Company Establishment Year',
             prefixIconPath: MyIcon.serviceStart3x,
-            onTap: () => general.copEstabYearOnTap(_),
+            onTap: () => general.copEstabYearOnTap(context),
             outlineBorder: true,
           ),
           const SizedBox(height: 14),
@@ -400,12 +387,12 @@ class _GeneralInfoState extends State<GeneralInfo> {
             textAlign: TextAlign.right,
           ),
           CustomDropDown1(
-            focusNode: widget.viewModel.businessCategoryFocusNode,
+            focusNode: viewModel.businessCategoryFocusNode,
             name: 'Business Category',
             prefixIconPath: MyIcon.portfolio,
-            onChanged: widget.viewModel.businessCategoryOnChanged,
-            value: widget.viewModel.businessCategoryValue,
-            items: widget.viewModel.businessCategoryList!.map((e) => e.service!).map((String e) {
+            onChanged: viewModel.businessCategoryOnChanged,
+            value: viewModel.businessCategoryValue,
+            items: viewModel.businessCategoryList!.map((e) => e.service!).map((String e) {
               return DropdownMenuItem<String>(
                 value: e,
                 child: Text(
@@ -426,13 +413,14 @@ class _GeneralInfoState extends State<GeneralInfo> {
             textAlign: TextAlign.right,
           ),
           CustomMultiDropDown(
-            focusNode: widget.viewModel.businessSubCategoryFocusNode,
+            scrollController: viewModel.businessSubCategoryScrollController,
+            focusNode: viewModel.businessSubCategoryFocusNode,
             name: 'Business Sub-Category',
             prefixIconPath: MyIcon.portfolio,
-            list: widget.viewModel.businessSubCategoryList?.map((e) => e.businessTypeNameEn!).toList() ?? [],
-            selectedList: widget.viewModel.businessSubCategorySelectedList,
-            onChanged: widget.viewModel.businessSubCategoryChanged,
-            onRemove: widget.viewModel.businessSubCategoryRemove,
+            list: viewModel.businessSubCategoryList?.map((e) => e.businessTypeNameEn!).toList() ?? [],
+            selectedList: viewModel.businessSubCategorySelectedList,
+            onChanged: viewModel.businessSubCategoryChanged,
+            onRemove: viewModel.businessSubCategoryRemove,
             outlineBorder: true,
           ),
           const SizedBox(height: 14),
@@ -442,12 +430,12 @@ class _GeneralInfoState extends State<GeneralInfo> {
             textAlign: TextAlign.right,
           ),
           CustomDropDown1(
-            focusNode: widget.viewModel.servicesForFocusNode,
-            value: widget.viewModel.serviceForValue,
+            focusNode: viewModel.servicesForFocusNode,
+            value: viewModel.serviceForValue,
             name: 'Services For',
             prefixIconPath: MyIcon.sex,
-            onChanged: widget.viewModel.servicesForOnChanged,
-            items: widget.viewModel.serviceList.map((String e) {
+            onChanged: viewModel.servicesForOnChanged,
+            items: viewModel.serviceList.map((String e) {
               return DropdownMenuItem<String>(
                 value: e,
                 child: Text(

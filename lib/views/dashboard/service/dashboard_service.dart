@@ -15,7 +15,7 @@ mixin DashboardService {
   Future<Map?> getLanguage() async {
     String? language = SharedPreferenceHelper.getString(Preferences.languageSelected);
     if (language != 'N/A') {
-      Map obj = await json.decode(language!);
+      Map obj = await jsonDecode(language!);
       obj['local'] = Locale("${obj['language_code']}", "${obj['country_code']}");
       return obj;
     }

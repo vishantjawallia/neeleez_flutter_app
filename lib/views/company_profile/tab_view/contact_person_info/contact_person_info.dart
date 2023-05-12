@@ -15,10 +15,10 @@ import 'widgets/department_input_field.dart';
 class ContactPersonInfo extends StatefulWidget {
   final void Function()? onContactSave;
   final CompanyProfileViewModel viewModel;
-  const ContactPersonInfo(this.viewModel,{
+  const ContactPersonInfo(
+    this.viewModel, {
     Key? key,
     this.onContactSave,
-
   }) : super(key: key);
 
   @override
@@ -154,6 +154,7 @@ class _ContactPersonInfoState extends State<ContactPersonInfo> {
                 backgroundColor: Palettes.primary,
                 borderColor: Palettes.primary,
                 onTap: () {
+                  contact.kk();
                   // widget.viewModel.onContactSave(
                   //   department: "",
                   //   departmentId: 0,

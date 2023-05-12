@@ -22,7 +22,7 @@ class GeneralInfoProvider extends ChangeNotifier {
   List<String> businessSubCategorySelectedList = [];
 
   GeneralInfoProvider() {
-    scrollController.addListener(() => notifyListeners());
+    // scrollController.addListener(() => notifyListeners());
     companyName.addListener(() => notifyListeners());
     companyName2.addListener(() => notifyListeners());
     tagline.addListener(() => notifyListeners());

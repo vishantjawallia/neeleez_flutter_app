@@ -17,6 +17,7 @@ class LocationProvider extends ChangeNotifier with CompanyProfileService {
   }
 
   void loadItems(RegionInformation? regionInfo, List<Countries>? countryList) async {
+    await Future.delayed(const Duration(milliseconds: 100));
     countryImage = countryList?.firstWhere((e) => e.id == regionInfo?.countryId).iconImage2;
     data = regionInfo;
     state.text = regionInfo?.provinceNameEn ?? "";

@@ -40,21 +40,23 @@ class ModalProgressHUD extends StatelessWidget {
     return Stack(
       children: [
         child!,
-        Visibility(
-          visible: load!,
-          child: Stack(
-            children: [
-              Opacity(
-                opacity: opacity!,
-                child: ModalBarrier(
-                  dismissible: dismissible!,
-                  color: color,
+        load!
+            ? Visibility(
+                visible: load!,
+                child: Stack(
+                  children: [
+                    Opacity(
+                      opacity: opacity!,
+                      child: ModalBarrier(
+                        dismissible: dismissible!,
+                        color: color,
+                      ),
+                    ),
+                    layOutProgressIndicator,
+                  ],
                 ),
-              ),
-              layOutProgressIndicator,
-            ],
-          ),
-        ),
+              )
+            : const SizedBox(),
       ],
     );
   }

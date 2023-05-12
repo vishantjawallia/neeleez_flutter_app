@@ -15,6 +15,7 @@ import 'package:neeleez_flutter_app/views/company_profile/tab_view/loaction/loac
 import 'package:neeleez_flutter_app/views/company_profile/tab_view/packages/packages.dart';
 
 import 'package:neeleez_flutter_app/views/company_profile/tab_view/social_media/social_media.dart';
+import 'package:path/path.dart';
 // import 'package:neeleez_flutter_app/tab_view/custom_%20modal_progress_hud.dart';
 // import 'package:neeleez_flutter_app/tab_view/default_layout.dart';
 import 'package:stacked/stacked.dart';
@@ -52,21 +53,20 @@ class CompanyProfileView extends StatefulWidget {
   State<CompanyProfileView> createState() => _CompanyProfileViewState();
 }
 
-class _CompanyProfileViewState extends State<CompanyProfileView> with TickerProviderStateMixin {
+class _CompanyProfileViewState extends State<CompanyProfileView> {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<CompanyProfileViewModel>.reactive(
       viewModelBuilder: () {
         return CompanyProfileViewModel(
-        user: widget.user,
-        amentiasList: widget.amentiasList,
-        serviceForList: widget.serviceForList,
-        businessCategoryList: widget.businessCategoryList,
-      );
+          user: widget.user,
+          amentiasList: widget.amentiasList,
+          serviceForList: widget.serviceForList,
+          businessCategoryList: widget.businessCategoryList,
+        );
       },
       onViewModelReady: (viewModel) {
-        viewModel.tabController = TabController(initialIndex: 0, length: 7, vsync: this);
-        viewModel.loadTabBar(context);
+        viewModel.onTabChanged(context, 0);
       },
       builder: (context, viewModel, child) {
         return ScreenTypeLayout.builder(

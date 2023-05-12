@@ -10,21 +10,9 @@ import 'package:provider/provider.dart';
 
 import '../../../../widgets/custom_button.dart';
 
-class SocialMedia extends StatefulWidget {
+class SocialMedia extends StatelessWidget {
   final CompanyProfileViewModel viewModel;
   const SocialMedia(this.viewModel, {super.key});
-
-  @override
-  State<SocialMedia> createState() => _SocialMediaState();
-}
-
-class _SocialMediaState extends State<SocialMedia> {
-  @override
-  void initState() {
-    final social = Provider.of<SocialMediaProvider>(context, listen: false);
-    social.loadItem(widget.viewModel.genInfo);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -176,7 +164,7 @@ class _SocialMediaState extends State<SocialMedia> {
                 text: 'Save',
                 backgroundColor: Palettes.primary,
                 borderColor: Palettes.primary,
-                onTap: () => widget.viewModel.onSocialSave(
+                onTap: () => viewModel.onSocialSave(
                   facebook: social.facebook.text,
                   linkedIn: social.linkedIn.text,
                   instagram: social.instagram.text,

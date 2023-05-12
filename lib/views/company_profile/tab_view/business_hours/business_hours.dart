@@ -16,21 +16,15 @@ import 'widgets/timing_box.dart';
 // import '../../widgets/timing_box.dart';
 
 class BusinessHours extends StatelessWidget {
-  // final void Function(dynamic body)? onBusinessHoursSave;
-  // List<CompanyTimings>? timings;
   final CompanyProfileViewModel viewModel;
   const BusinessHours(
     this.viewModel, {
     Key? key,
-    // required this.timings,
-    // required this.onBusinessHoursSave,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final buss = Provider.of<BusinessHoursProvider>(context);
-    if (viewModel.timings != null) {
-      buss.setTimings(viewModel.timings!);
-    }
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       physics: const BouncingScrollPhysics(),
@@ -218,62 +212,8 @@ class BusinessHours extends StatelessWidget {
                       kk.add(c.companyDayDetailViewModels![j]);
                     }
                   }
-                  // var mm = (kk);
                   log(jsonEncode(kk));
-                  viewModel.onTimingSave(ct: kk);
-                  // return onBusinessHoursSave!(kk);
-
-                  // buss.timings.map((e) {
-                  // List<CompanyDayDetailViewModels> kk = [];
-                  //   e.companyDayDetailViewModels!.map((d) {
-                  //     kk.add(d);
-                  //   });
-                  // });
-                  // buss.timings.map(
-                  //   (e) => e.companyDayDetailViewModels!.map((d) {
-                  //     kk.add(d);
-                  //     // log(d.)
-                  //   }),
-                  // );
-                  // log(kk.length.toString());
-                  // log(kk.toString());
-                  // log(message)
-                  // kk.map((e) {
-                  //   log(e.toJson().toString());
-                  // });
-                  // log(jsonEncode(kk));
-
-                  // log(hh.asMap().);
-
-                  // hh.mapMany((item) {
-                  //   log(item.toString());
-                  //   return null;
-                  // });
-                  // log(hh.asMap().toString());
-                  // var timing = [
-                  //   {
-                  //     "id": 0,
-                  //     "companyId": 0,
-                  //     "dowId": 0,
-                  //     "dowShort": "string",
-                  //     "dow": "string",
-                  //     "isHoliday": true,
-                  //     "isOpen24Hours": true,
-                  //     "companyTimes": [
-                  //       {
-                  //         "id": 0,
-                  //         "companyTimingId": 0,
-                  //         "companyId": 0,
-                  //         "startHour": 0,
-                  //         "startMinute": 0,
-                  //         "endHour": 0,
-                  //         "endMinute": 0,
-                  //       }
-                  //     ]
-                  //   }
-                  // ];
-                  // log(timing.toString());
-                  // return widget.onBusinessHoursSave!();
+                  return buss.onSaveHandler(viewModel);
                 },
               ),
             ),

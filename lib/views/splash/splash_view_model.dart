@@ -32,7 +32,7 @@ class SplashViewModel extends BaseViewModel {
         bool isLogged = SharedPreferenceHelper.getBoolean(Preferences.isLogged);
         String? languageSelected = SharedPreferenceHelper.getString(Preferences.languageSelected);
         if (languageSelected != "N/A") {
-          Map dd = await json.decode(languageSelected!);
+          Map dd = await jsonDecode(languageSelected!);
           Locale? local = Locale("${dd["language_code"]}", "${dd["country_code"]}");
           Get.updateLocale(local);
         } else {

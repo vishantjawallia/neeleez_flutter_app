@@ -1,13 +1,11 @@
-// ignore_for_file: unused_local_variable, avoid_function_literals_in_foreach_calls, unrelated_type_equality_checks
+// ignore_for_file: unused_local_variable, avoid_function_literals_in_foreach_calls, unrelated_type_equality_checks, use_build_context_synchronously
 
 import 'dart:core';
 import 'dart:developer';
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:neeleez_flutter_app/config/pref_constant.dart';
 import 'package:neeleez_flutter_app/config/preference.dart';
-import 'package:neeleez_flutter_app/helpers/helper.dart';
 import 'package:neeleez_flutter_app/models/company/provinces.dart';
 import 'package:neeleez_flutter_app/models/company/region_Info.dart';
 import 'package:neeleez_flutter_app/models/company/timing.dart';
@@ -15,8 +13,11 @@ import 'package:neeleez_flutter_app/models/package/package_info.dart';
 import 'package:neeleez_flutter_app/models/user_data.dart';
 import 'package:neeleez_flutter_app/views/company_profile/components/verify_email_or_mobile.dart';
 import 'package:neeleez_flutter_app/views/company_profile/services/company_profile_service.dart';
-import 'package:neeleez_flutter_app/views/company_profile/tab_view/business_hours/model/put_timing.dart';
+import 'package:neeleez_flutter_app/views/company_profile/tab_view/business_hours/business_hours_provider.dart';
+import 'package:neeleez_flutter_app/views/company_profile/tab_view/file_section/file_section_provider.dart';
 import 'package:neeleez_flutter_app/views/company_profile/tab_view/general_info/general_info_provider.dart';
+import 'package:neeleez_flutter_app/views/company_profile/tab_view/loaction/loaction_provider.dart';
+import 'package:neeleez_flutter_app/views/company_profile/tab_view/social_media/social_media_provider.dart';
 import 'package:neeleez_flutter_app/widgets/global_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
@@ -31,7 +32,6 @@ import '../../models/gender/gender.dart';
 import '../../models/general_info/general_info.dart';
 
 class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
-  late TabController tabController;
   final UserData? user;
   final List<BusinessServicesByCountry>? businessCategoryList;
   final List<Gender>? serviceForList;
@@ -44,19 +44,9 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   RegionInformation? regionInfo;
   PackageInformation? pInfo;
 
-  // List<Countries>? countries;
   List<CompanyTimings>? timings;
   List<Countries>? countryList;
   DateTime? companyEstablishmentYearDate = DateTime.now();
-  // String? busCatSelectedObj;
-
-  // businessSubCategoryList
-  // List<BusinessTypes>? businessSubCategoryList = [];
-
-  // List<String>? stateList = [];
-  // List<Provinces>? states = [];
-  // List<String>? cityList = [];
-  // Gender
 
   Countries? countrySelected;
   String? stateSelected;
@@ -92,9 +82,9 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
 
   List<Cities>? citiesList;
   List<Provinces> provinceList = [];
-  // Countries? countryObj;
-  // Provinces? provinceObj;
-  // Cities? cityObj;
+
+  ScrollController businessSubCategoryScrollController = ScrollController();
+  ScrollController amenitiesScrollController = ScrollController();
 
   CompanyProfileViewModel({
     this.user,
@@ -106,16 +96,32 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     businessSubCategoryFocusNode.addListener(() => notifyListeners());
     amenitiesFocusNode.addListener(() => notifyListeners());
     servicesForFocusNode.addListener(() => notifyListeners());
-    // loadTabBar();
+    businessSubCategoryScrollController.addListener(() => notifyListeners());
+    amenitiesScrollController.addListener(() => notifyListeners());
   }
 
-  loadTabBar(_) async {
-    await Future.delayed(const Duration(milliseconds: 300));
-    tabController.addListener(() async {
-      tabIndex = tabController.index;
-      notifyListeners();
-      onTabChanged(_, tabIndex);
-    });
+  /* ------------------------------ onTabChanged------------------------------ */
+  void onTabChanged(BuildContext _, int value) async {
+    tabIndex = value;
+    notifyListeners();
+    switch (value) {
+      case 0:
+        loadGeneralData(_);
+        break;
+      case 2:
+        loadLocationData(_);
+        break;
+      case 4:
+        businessHoursData(_);
+        break;
+      case 5:
+        packagesData(_);
+        break;
+      case 6:
+        packagesData(_);
+        break;
+      default:
+    }
   }
 
   void onFreelancerChange() {
@@ -125,7 +131,8 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
   }
 
   /* ------------------------------ general-info-save ------------------------------ */
-  void onGeneralSave({
+  void onGeneralSave(
+    _, {
     String? email,
     int? genderId,
     String? mobile = "918054738366",
@@ -142,25 +149,9 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     String? tel2 = "",
     String? aboutUs = "",
     String? taxNumber = "",
-    // List? companyBusinessTypes,
-    // List? companyAmenity,
   }) async {
-    setBusy(true);
-    // List<int> companyBusinessTypes = [];
-
-    // List<int> companyAmenity = [];
-    List<Map<String, dynamic>> businessSubCategoryIds = [];
-    List<Map<String, dynamic>> amentiasIds = [];
-    for (int element in businessSubCategorySelectedListID) {
-      businessSubCategoryIds.add({
-        "btypeId": element,
-      });
-    }
-    for (int element in amentiasSelectedListID) {
-      amentiasIds.add({
-        "amenityId": element,
-      });
-    }
+    List<Map<String, dynamic>> businessSubCategoryIds = businessSubCategorySelectedListID.map((e) => {"btypeId": e}).toList();
+    List<Map<String, dynamic>> amentiasIds = businessSubCategorySelectedListID.map((e) => {"amenityId": e}).toList();
     log("email =>$email");
     log("mobile =>$mobile");
     log("nameEn =>$nameEn");
@@ -180,6 +171,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     log("companyAmenity =>$amentiasIds");
     log("isFreeLancer =>$isFreeLancer");
 
+    setBusy(true);
     await putGeneralInformation(
       companyId,
       email,
@@ -201,7 +193,34 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
       businessSubCategoryIds,
       amentiasIds,
     );
-    loadGeneralData(null);
+    genInfo = await generalInformationWithCompanyId(companyId!);
+    notifyListeners();
+    if (genInfo != null) {
+      // businessSubCategory
+      businessSubCategorySelectedList = genInfo!.businessTypesViewModel!.isNotEmpty ? genInfo!.businessTypesViewModel!.map((e) => e.businessTypeNameEn!).toList() : [];
+      businessSubCategorySelectedListID = genInfo!.businessTypesViewModel!.isNotEmpty ? genInfo!.businessTypesViewModel!.map((e) => e.id!).toList() : [];
+      if (genInfo!.businessTypesViewModel!.isNotEmpty) {
+        String name = genInfo!.businessTypesViewModel!.first.businessService ?? "";
+        BusinessServicesByCountry obj = businessCategoryList!.firstWhere((e) => e.service == name);
+        if (obj.businessServiceId != null) {
+          businessSubCategoryList = await businessServiceIdWithCountryId("${obj.businessServiceId!}", countryId!);
+          businessCategoryId = obj.businessServiceId.toString();
+          businessCategoryValue = obj.service!;
+        }
+      }
+      // serviceFor
+      serviceForId = genInfo!.genderId.toString();
+      serviceForValue = serviceForList!.firstWhere((e) => e.genderId == (genInfo?.genderId ?? 0)).genderEn;
+      serviceList = serviceForList!.map((e) => e.genderEn!).toList();
+      // amentias
+      amentiasStringList = amentiasList!.map((e) => e.amenityNameEn!).toList();
+      amentiasSelectedList = genInfo!.amenitiesViewModels!.isNotEmpty ? genInfo!.amenitiesViewModels!.map((e) => e.amenityNameEn!).toList() : [];
+      amentiasSelectedListID = genInfo!.amenitiesViewModels!.isNotEmpty ? genInfo!.amenitiesViewModels!.map((e) => e.id!).toList() : [];
+    }
+    setBusy(false);
+    notifyListeners();
+    final gen = Provider.of<GeneralInfoProvider>(_, listen: false);
+    gen.loadItem(genInfo);
   }
 
   /* ------------------------------ on-social-save ------------------------------ */
@@ -216,22 +235,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     loadGeneralData(null);
   }
 
-  /* ------------------------------ on-social-save ------------------------------ */
-  void onTimingSave({
-    List<CompanyDayDetailViewModels>? ct,
-  }) async {
-    ct!
-        .map((e) => Helper.mapLoop(
-              e.toJson(),
-            ))
-        .toList();
-
-    List<PutTiming> pT = [const PutTiming()];
-
-    // await putBusinessTiming(companyId, pT);
-  }
-
-  /* ------------------------------ on-contact-save------------------------------ */
+  /* ------------------------------ onContactSave------------------------------ */
   void onContactSave({
     int? id,
     String? nameEn,
@@ -261,32 +265,14 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     );
   }
 
-  /* ------------------------------ on-contact-save------------------------------ */
-  void onBusinessHoursSave(body) async {
-    final List<CompanyDayDetailViewModels>? cd = await postCompanyTimings("$companyId", body);
-    if (cd != null) {
-      log("message");
-    } else {
-      log("null");
-    }
-  }
-
-  /* ------------------------------ on-file-media-save------------------------------ */
-  void onUploadMedia(File? file) {}
-
+  /* ------------------------------ loadGeneralData------------------------------ */
   void loadGeneralData(_) async {
     setBusy(true);
-    genInfo = await generalInformationWithCompanyId(companyId!);
+    genInfo ??= await generalInformationWithCompanyId(companyId!);
+    countryList ??= await getCountries() ?? [];
     notifyListeners();
-    if (_ != null) {
-      final gen = Provider.of<GeneralInfoProvider>(_, listen: false);
-      gen.loadItem(genInfo);
-    }
     if (genInfo != null) {
-      serviceForId = genInfo!.genderId.toString();
-      serviceForValue = serviceForList!.firstWhere((e) => e.genderId == (genInfo?.genderId ?? 0)).genderEn;
-      serviceList = serviceForList!.map((e) => e.genderEn!).toList();
-      //
+      // businessSubCategory
       businessSubCategorySelectedList = genInfo!.businessTypesViewModel!.isNotEmpty ? genInfo!.businessTypesViewModel!.map((e) => e.businessTypeNameEn!).toList() : [];
       businessSubCategorySelectedListID = genInfo!.businessTypesViewModel!.isNotEmpty ? genInfo!.businessTypesViewModel!.map((e) => e.id!).toList() : [];
       if (genInfo!.businessTypesViewModel!.isNotEmpty) {
@@ -298,87 +284,45 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
           businessCategoryValue = obj.service!;
         }
       }
-      //
+      // serviceFor
+      serviceForId = genInfo!.genderId.toString();
+      serviceForValue = serviceForList!.firstWhere((e) => e.genderId == (genInfo?.genderId ?? 0)).genderEn;
+      serviceList = serviceForList!.map((e) => e.genderEn!).toList();
+      // amentias
       amentiasStringList = amentiasList!.map((e) => e.amenityNameEn!).toList();
       amentiasSelectedList = genInfo!.amenitiesViewModels!.isNotEmpty ? genInfo!.amenitiesViewModels!.map((e) => e.amenityNameEn!).toList() : [];
       amentiasSelectedListID = genInfo!.amenitiesViewModels!.isNotEmpty ? genInfo!.amenitiesViewModels!.map((e) => e.id!).toList() : [];
     }
     setBusy(false);
     notifyListeners();
+    Provider.of<GeneralInfoProvider>(_, listen: false).loadItem(genInfo);
+    Provider.of<SocialMediaProvider>(_, listen: false).loadItem(genInfo);
   }
 
-  void loadSocialMediaData() {}
-
-  void loadLocationData() async {
+  void loadLocationData(BuildContext _) async {
     setBusy(true);
     countryList ??= await getCountries() ?? [];
     regionInfo ??= await regionInformation(companyId!);
     setBusy(false);
     notifyListeners();
+    Provider.of<LocationProvider>(_, listen: false).loadItems(regionInfo, countryList);
   }
 
-  void contactPersonInfoData() {}
-
-  void businessHoursData() async {
+  void businessHoursData(_) async {
     setBusy(true);
     timings ??= await getCompanyTimings(companyId!);
     setBusy(false);
     notifyListeners();
+    Provider.of<BusinessHoursProvider>(_, listen: false).loadItems(timings!);
   }
 
-  void packagesData() async {
+  void packagesData(_) async {
     setBusy(true);
     cp ??= await getRegionInformation(companyId!);
     setBusy(false);
     notifyListeners();
-  }
 
-  void spaceFilesData() {}
-
-  void onTabChanged(_, int value) async {
-    switch (value) {
-      case 0:
-        loadGeneralData(null);
-        break;
-      case 1:
-        loadSocialMediaData();
-        break;
-      case 2:
-        loadLocationData();
-        break;
-      case 3:
-        contactPersonInfoData();
-        break;
-      case 4:
-        businessHoursData();
-        break;
-      case 5:
-        packagesData();
-        break;
-      case 6:
-        packagesData();
-        // spaceFilesData();
-        break;
-      default:
-    }
-    setBusy(true);
-    countryList ??= await getCountries() ?? [];
-    setBusy(false);
-    notifyListeners();
-  }
-
-  void copEstabYearOnTap(_) async {
-    final DateTime? picked = await showDatePicker(
-      context: _,
-      initialDate: companyEstablishmentYearDate!,
-      firstDate: DateTime(2015, 8),
-      lastDate: DateTime(2101),
-    );
-    if (picked != null && picked != companyEstablishmentYearDate) {
-      companyEstablishmentYearDate = picked;
-      // companyEstablishmentYearController.text = companyEstablishmentYearDate.toString();
-      notifyListeners();
-    }
+    Provider.of<FileSectionProvider>(_, listen: false).loadItem(cp?.companyImages);
   }
 
   void businessCategoryOnChanged(String? value) async {
@@ -386,7 +330,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     businessCategoryId = obj.businessServiceId.toString();
     businessCategoryValue = value;
     notifyListeners();
-    //
+    // businessSubCategoryList
     setBusy(true);
     businessSubCategoryList = await businessServiceIdWithCountryId("${obj.businessServiceId!}", countryId!);
     businessSubCategorySelectedList = [];
@@ -405,13 +349,17 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     if (!businessSubCategorySelectedList.contains(obj.businessTypeNameEn)) {
       businessSubCategorySelectedList.add(obj.businessTypeNameEn!);
       businessSubCategorySelectedListID.add(obj.businessTypeId!);
+      businessSubCategoryScrollController.animateTo(
+        businessSubCategoryScrollController.position.maxScrollExtent,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+      );
       notifyListeners();
     }
   }
 
   void businessSubCategoryRemove(String? value) {
     BusinessTypes obj = businessSubCategoryList!.firstWhere((e) => e.businessTypeNameEn == value);
-
     if (businessSubCategorySelectedList.contains(obj.businessTypeNameEn)) {
       businessSubCategorySelectedList.remove(obj.businessTypeNameEn!);
       businessSubCategorySelectedListID.remove(obj.businessTypeId!);
@@ -424,6 +372,11 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     if (!amentiasSelectedList.contains(obj.amenityNameEn)) {
       amentiasSelectedList.add(obj.amenityNameEn!);
       amentiasSelectedListID.add(obj.id!);
+      amenitiesScrollController.animateTo(
+        amenitiesScrollController.position.maxScrollExtent,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+      );
       notifyListeners();
     }
   }

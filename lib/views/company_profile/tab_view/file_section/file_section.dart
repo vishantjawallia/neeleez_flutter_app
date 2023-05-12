@@ -11,31 +11,12 @@ import '../../../../widgets/custom_button.dart';
 import '../../company_profile_view_model.dart';
 import 'file_section_provider.dart';
 
-class FileSection extends StatefulWidget {
-  // final void Function(File? file) onUploadMedia;
-  // final List<CompanyImages>? companyImages;
+class FileSection extends StatelessWidget {
   final CompanyProfileViewModel viewModel;
   const FileSection(
     this.viewModel, {
     Key? key,
-    // required this.onUploadMedia,
-    // this.companyImages,
   }) : super(key: key);
-
-  @override
-  _FileSectionState createState() => _FileSectionState();
-}
-
-class _FileSectionState extends State<FileSection> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-      final fileSection = Provider.of<FileSectionProvider>(context, listen: false);
-      fileSection.loadItem(widget.viewModel.cp?.companyImages);
-
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +24,6 @@ class _FileSectionState extends State<FileSection> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: Column(
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _storageBox(fileSection),
@@ -52,10 +32,10 @@ class _FileSectionState extends State<FileSection> {
             style: Get.textTheme.titleLarge!.copyWith(fontWeight: FontWeight.w500, color: Palettes.black),
             textAlign: TextAlign.center,
           ),
-          if (widget.viewModel.cp != null)
+          if (viewModel.cp != null)
             Flexible(
               fit: FlexFit.loose,
-              child: widget.viewModel.cp!.companyImages!.isNotEmpty ? _fileListing(fileSection) : _noItem(),
+              child: viewModel.cp!.companyImages!.isNotEmpty ? _fileListing(fileSection) : _noItem(),
             ),
           const SizedBox(height: 20),
           CustomButton(
@@ -103,7 +83,7 @@ class _FileSectionState extends State<FileSection> {
 
   ListView _fileListing(FileSectionProvider file) {
     return ListView.builder(
-      itemCount: widget.viewModel.cp!.companyImages!.length,
+      itemCount: viewModel.cp!.companyImages!.length,
       shrinkWrap: true,
       padding: const EdgeInsets.only(top: 4, bottom: 20),
       itemBuilder: (context, index) {
@@ -118,7 +98,7 @@ class _FileSectionState extends State<FileSection> {
               ),
               width: double.infinity,
               child: CachedNetworkImage(
-                imageUrl: '${widget.viewModel.cp!.companyImages![index].image}',
+                imageUrl: '${viewModel.cp!.companyImages![index].image}',
                 fit: BoxFit.fill,
                 progressIndicatorBuilder: (context, url, progress) {
                   return const Center(child: CircularProgressIndicator());
@@ -132,7 +112,7 @@ class _FileSectionState extends State<FileSection> {
               top: 4,
               right: 4,
               child: GestureDetector(
-                onTap: () => file.fileDeleteHandler(context, widget.viewModel.cp!.companyImages![index].imageId!),
+                onTap: () => file.fileDeleteHandler(context, viewModel.cp!.companyImages![index].imageId!),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(100),
                   child: Container(

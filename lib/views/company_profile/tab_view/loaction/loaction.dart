@@ -10,26 +10,12 @@ import '../../../../widgets/custom_text_field.dart';
 import '../../company_profile_view_model.dart';
 import 'loaction_provider.dart';
 
-class Location extends StatefulWidget {
+class Location extends StatelessWidget {
   final CompanyProfileViewModel viewModel;
   const Location(
     this.viewModel, {
     super.key,
   });
-
-  @override
-  State<Location> createState() => _LocationState();
-}
-
-class _LocationState extends State<Location> {
-  @override
-  void initState() {
-    super.initState();
-    final loaction = Provider.of<LocationProvider>(context, listen: false);
-    Future.delayed(const Duration(milliseconds: 100), () {
-      loaction.loadItems(widget.viewModel.regionInfo, widget.viewModel.countryList);
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +62,6 @@ class _LocationState extends State<Location> {
               prefixUrlImage: loaction.countryImage,
               controller: loaction.country,
               name: 'Country',
-              // prefixIconPath: MyIcon.place,
               enabled: false,
               outlineBorder: true,
             ),

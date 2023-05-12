@@ -3,6 +3,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:neeleez_flutter_app/views/company_profile/company_profile_view_model.dart';
 
 import '../../../../models/company/timing.dart';
 // import '../../widgets/timing_box.dart';
@@ -18,14 +20,13 @@ class BusinessHoursProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  setTimings(List<CompanyTimings> value) async {
-    if (timings.length != value.length) {
-      Future.delayed(const Duration(milliseconds: 100), () {
-        timings = value;
-        notifyListeners();
-      });
-    }
-  }
+  // setTimings(List<CompanyTimings> value) async {
+  //   if (timings.length != value.length) {
+  //     await Future.delayed(const Duration(milliseconds: 100));
+  //     timings = value;
+  //     notifyListeners();
+  //   }
+  // }
 
   void way2AddList(int i, int j, int k, CompanyTimes obj) async {
     CompanyTimings ct = timings[i];
@@ -210,6 +211,20 @@ class BusinessHoursProvider extends ChangeNotifier {
       cdL.add(ccc);
       notifyListeners();
     }
+  }
+
+  void loadItems(List<CompanyTimings> list) async {
+    if (timings.length != list.length) {
+      await Future.delayed(const Duration(milliseconds: 100));
+      timings = list;
+      notifyListeners();
+    }
+  }
+
+  void onSaveHandler(CompanyProfileViewModel viewModel) async {
+    viewModel.setBusy(true);
+    await Future.delayed(const Duration(seconds: 3));
+    viewModel.setBusy(false);
   }
 }
 

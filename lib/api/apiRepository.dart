@@ -16,7 +16,7 @@ class apiRepository {
   //       body: jsonEncode(data),
   //     );
   //     if (response.statusCode == 200) {
-  //       return json.decode(response.body);
+  //       return jsonDecode(response.body);
   //     } else {
   //       log(response.statusCode.toString());
   //       log(url.toString());
@@ -40,7 +40,7 @@ class apiRepository {
   //       },
   //     );
   //     if (response.statusCode == 200) {
-  //       return json.decode(response.body.toString());
+  //       return jsonDecode(response.body.toString());
   //     } else {
   //       log(response.statusCode.toString());
   //       log(response.body.toString());
@@ -71,15 +71,15 @@ class apiRepository {
         headers: {
           'Content-Type': "application/json",
         },
-        body: json.encode(body!),
+        body: jsonEncode(body!),
       );
       log(body.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
-        return json.decode(response.body);
+        return jsonDecode(response.body);
       } else if (response.statusCode == 401) {
         log(response.statusCode.toString());
         log(url.toString());
-        final obj = json.decode(response.body);
+        final obj = jsonDecode(response.body);
         throw obj['detail'];
       } else {
         log(response.statusCode.toString());
@@ -104,15 +104,15 @@ class apiRepository {
         headers: {
           'Content-Type': "application/json",
         },
-        body: json.encode(body!),
+        body: jsonEncode(body!),
       );
       log(body.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
-        return json.decode(response.body);
+        return jsonDecode(response.body);
       } else if (response.statusCode == 401) {
         log(response.statusCode.toString());
         log(url.toString());
-        final obj = json.decode(response.body);
+        final obj = jsonDecode(response.body);
         throw obj['detail'];
       } else {
         log(response.statusCode.toString());
@@ -124,6 +124,7 @@ class apiRepository {
       throw "no-internet";
     }
   }
+
   /* -------------------------------- Api Post With Dynamic Body------------------------------- */
   static Future apiPutWithDynamic(
     String? url,
@@ -136,15 +137,15 @@ class apiRepository {
         headers: {
           'Content-Type': "application/json",
         },
-        body: json.encode(body!),
+        body: jsonEncode(body!),
       );
       log(body.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
-        return json.decode(response.body);
+        return jsonDecode(response.body);
       } else if (response.statusCode == 401) {
         log(response.statusCode.toString());
         log(url.toString());
-        final obj = json.decode(response.body);
+        final obj = jsonDecode(response.body);
         throw obj['detail'];
       } else {
         log(response.statusCode.toString());
@@ -171,7 +172,7 @@ class apiRepository {
         },
       );
       if (response.statusCode == 200) {
-        return json.decode(response.body);
+        return jsonDecode(response.body);
       } else {
         log(response.statusCode.toString());
         log(response.body.toString());
@@ -196,7 +197,7 @@ class apiRepository {
         headers: {
           'Content-Type': "application/json",
         },
-        body: json.encode(body ?? {}),
+        body: jsonEncode(body ?? {}),
       );
       if (response.statusCode == 204) {
         return true;
@@ -237,7 +238,7 @@ class apiRepository {
       log(response.body.toString());
       // log(response.persistentConnection.toString());
       if (response.statusCode == 200) {
-        return json.decode(response.body.toString());
+        return jsonDecode(response.body.toString());
       }
       // } else {
       //   log(response.statusCode.toString());
@@ -268,10 +269,10 @@ class apiRepository {
         headers: {
           'Content-Type': "application/json",
         },
-        body: json.encode(body ?? {}),
+        body: jsonEncode(body ?? {}),
       );
       if (response.statusCode == 200) {
-        return json.decode(response.body.toString());
+        return jsonDecode(response.body.toString());
       } else {
         log(response.statusCode.toString());
         log(response.body.toString());
@@ -310,12 +311,12 @@ class apiRepository {
         log(response.stream.toString());
       }
       response.stream.bytesToString().asStream().asBroadcastStream(
-          onListen: (subscription) {
-            subscription.onData((data) {
-              log(data.toString());
-            });
-          },
-        );
+        onListen: (subscription) {
+          subscription.onData((data) {
+            log(data.toString());
+          });
+        },
+      );
       if (response.statusCode == 200) {
         // response.stream.bytesToString().then((value) => log(value.toString()));
         // response.stream.bytesToString().asStream().asBroadcastStream(
@@ -352,48 +353,97 @@ class apiRepository {
   }
 
   // /* -------------------------------- Api File Upload  ------------------------------- */
-  // static Future<String> apiUploadFile(
-  //   String? url, {
-  //   File? file,
-  // }) async {
-  //   log(url.toString());
-  //   final bytes = await file!.readAsBytes();
-  //   try {
-  //     final response = await http.post(
-  //       Uri.parse(url!),
-  //       headers: {
-  //         'Content-Type': "multipart/form-data",
-  //         'Accept': '*/*',
-  //       },
-  //       body: bytes,
-  //     );
-  //     if (response.persistentConnection) {
-  //       log(response.body.toString());
-  //       log(response.bodyBytes.toString());
-  //     }
-  //     if (response.statusCode == 200) {
-  //       log(response.body.toString());
-  //       return "'File uploaded successfully";
-  //     } else {
-  //       log(response.bodyBytes.toString());
-  //       log(response.body.toString());
-  //       log(response.statusCode.toString());
-  //       log(response.headers.toString());
-  //       log(response.isRedirect.toString());
-  //       log(response.persistentConnection.toString());
-  //       log(response.persistentConnection.toString());
-  //       log(response.reasonPhrase.toString());
-  //       log(response.request.toString());
+  static Future apiPostUploadFile(
+    String? url,
+    File? file, {
+    required Map<String, String>? body,
+  }) async {
+    try {
+      // Map<String, String> requestBody = {
+      //   "CompanyId": "73426",
+      //   "ImageCategoryId": "4",
+      //   "Title": file!.path.split('/').last,
+      //   "IsMainImage": "false",
+      //   "Priority": "0",
+      //   "UserId": "0",
+      //   "TeamUserId": "0",
+      // };
+      log(body.toString());
+      Map<String, String> headers = <String, String>{
+        "Content-Type": "multipart/form-data",
+      };
+      log(file!.path.split('/').last);
+      var request = http.MultipartRequest(
+        'POST',
+        Uri.parse(url!),
+      )
+        ..headers.addAll(headers)
+        ..files.add(
+          http.MultipartFile.fromBytes(
+            'ImageFileName',
+            file.readAsBytesSync(),
+            filename: file.path.split('/').last,
+          ),
+        )
+        ..fields.addAll(body!);
+      var response = await request.send();
+      final respStr = await response.stream.bytesToString();
+      if (response.statusCode == 200) {
+        return respStr;
+      } else {
+        log(respStr.toString());
+        log(body.toString());
+        log(response.statusCode.toString());
+        log(response.contentLength.toString());
+        log(response.headers.toString());
+        log(response.persistentConnection.toString());
+        log(response.isRedirect.toString());
+      }
+    } on SocketException catch (e) {
+      log('$e');
+      throw "no-internet";
+    }
+    // static Future<String> apiUploadFile(
+    //   String? url, {
+    //   File? file,
+    // }) async {
+    //   log(url.toString());
+    //   final bytes = await file!.readAsBytes();
+    //   try {
+    //     final response = await http.post(
+    //       Uri.parse(url!),
+    //       headers: {
+    //         'Content-Type': "multipart/form-data",
+    //         'Accept': '*/*',
+    //       },
+    //       body: bytes,
+    //     );
+    //     if (response.persistentConnection) {
+    //       log(response.body.toString());
+    //       log(response.bodyBytes.toString());
+    //     }
+    //     if (response.statusCode == 200) {
+    //       log(response.body.toString());
+    //       return "'File uploaded successfully";
+    //     } else {
+    //       log(response.bodyBytes.toString());
+    //       log(response.body.toString());
+    //       log(response.statusCode.toString());
+    //       log(response.headers.toString());
+    //       log(response.isRedirect.toString());
+    //       log(response.persistentConnection.toString());
+    //       log(response.persistentConnection.toString());
+    //       log(response.reasonPhrase.toString());
+    //       log(response.request.toString());
 
-  //       throw Exception('Failed to upload file');
-  //     }
-  //   } on SocketException catch (e) {
-  //     log('$e');
-  //     throw "no-internet";
-  //   }
-  // }
-}
-
+    //       throw Exception('Failed to upload file');
+    //     }
+    //   } on SocketException catch (e) {
+    //     log('$e');
+    //     throw "no-internet";
+    //   }
+    // }
+  }
 
 //  {
 //  "email" : "vishant@gmail.com",
@@ -414,4 +464,4 @@ class apiRepository {
 //  "taxNumber" : "string",
 //  "companyBusinessTypes" : [{btypeId: 13}, {btypeId: 14}],
 //  "companyAmenity" : [{amenityId: 85}, {amenityId: 81}, {amenityId: 3}]
-//  }
+}

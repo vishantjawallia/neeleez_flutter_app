@@ -5,7 +5,6 @@ class _CompanyProfileMobile extends StatelessWidget {
 
   const _CompanyProfileMobile(this.viewModel);
 
-  // List<Widget> _data = [
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,15 +13,13 @@ class _CompanyProfileMobile extends StatelessWidget {
         child: DefaultLayout(
           height: 155,
           child: DefaultTabController(
-            length: viewModel.tabController.length,
-            initialIndex: viewModel.tabController.index,
+            length: 7,
             child: Column(
               children: [
-                _appBar(),
+                _appBar(context),
                 Flexible(
                   child: TabBarView(
-                    controller: viewModel.tabController,
-                    dragStartBehavior: DragStartBehavior.start,
+                    // dragStartBehavior: DragStartBehavior.start,
                     children: [
                       GeneralInfo(viewModel),
                       SocialMedia(viewModel),
@@ -42,7 +39,7 @@ class _CompanyProfileMobile extends StatelessWidget {
     );
   }
 
-  Padding _appBar() {
+  Padding _appBar(context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: Column(
@@ -107,8 +104,7 @@ class _CompanyProfileMobile extends StatelessWidget {
               child: TabBar(
                 indicatorWeight: 5,
                 indicatorColor: Palettes.red,
-                controller: viewModel.tabController,
-                // onTap: viewModel.onTabChanged,
+                onTap: (value) => viewModel.onTabChanged(context, value),
                 tabs: [
                   Tab(icon: Image.asset(MyIcon.profileGeneralInfo)),
                   Tab(icon: Image.asset(MyIcon.profileSocialMedia)),

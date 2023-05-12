@@ -13,6 +13,7 @@ import 'package:neeleez_flutter_app/widgets/global_widget.dart';
 
 class CustomMultiDropDown extends StatelessWidget {
   final TextEditingController? controller;
+  final ScrollController? scrollController;
   final List<String>? list;
   final List<String>? selectedList;
   final String? name;
@@ -34,13 +35,15 @@ class CustomMultiDropDown extends StatelessWidget {
   final bool? autofocus;
   final bool? enabled;
   final bool? outlineBorder;
+
   final FocusNode? focusNode;
   final void Function(String? value)? onChanged;
   final void Function(String? value)? onRemove;
   final void Function()? onTap;
   CustomMultiDropDown({
-    Key? key,
+    super.key,
     this.controller,
+    this.scrollController,
     this.name,
     this.inputFieldPadding,
     this.widgetMargin,
@@ -66,14 +69,13 @@ class CustomMultiDropDown extends StatelessWidget {
     required this.list,
     this.selectedList,
     this.focusNode,
-  }) : super(key: key);
+  });
 
   // List<String>? list;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   final GlobalKey<PopupMenuButtonState> _menuKey = GlobalKey<PopupMenuButtonState>();
 
-  // final ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     final button = _showPopupMenu();
@@ -167,7 +169,7 @@ class CustomMultiDropDown extends StatelessWidget {
                                     selectedList!.isNotEmpty
                                         ? Flexible(
                                             child: ListView.builder(
-                                              // controller: _scrollController,
+                                              controller: scrollController,
                                               itemCount: selectedList!.length,
                                               shrinkWrap: true,
                                               scrollDirection: Axis.horizontal,
@@ -250,7 +252,7 @@ class CustomMultiDropDown extends StatelessWidget {
       itemBuilder: (context) => list!
           .map((e) => PopupMenuItem(
                 onTap: () {
-                  onChanged!(e);
+                  return onChanged!(e);
                 },
                 child: Text(
                   e,
