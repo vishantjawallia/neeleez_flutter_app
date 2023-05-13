@@ -1,7 +1,5 @@
 // ignore_for_file: library_private_types_in_public_api
 
-// import 'dart:devloper';
-
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -10,9 +8,6 @@ import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
-import 'package:neeleez_flutter_app/views/company_profile/tab_view/general_info/widgets/select_country_dialog.dart';
-// import 'package:neeleez_flutter_app/views/company_profile/components/custom_drop_down.dart';
-// import 'package:neeleez_flutter_app/views/company_profile/components/custom_multi_drop_down.dart';
 
 import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
@@ -123,7 +118,7 @@ class GeneralInfo extends StatelessWidget {
           textAlign: TextAlign.right,
         ),
         CustomMultiDropDown(
-          scrollController: viewModel.amenitiesScrollController,
+          // scrollController: viewModel.amenitiesScrollController,
           focusNode: viewModel.amenitiesFocusNode,
           list: viewModel.amentiasStringList,
           selectedList: viewModel.amentiasSelectedList,
@@ -156,7 +151,7 @@ class GeneralInfo extends StatelessWidget {
     );
   }
 
-  _contactInfoBox(context, general) {
+  _contactInfoBox(context, GeneralInfoProvider general) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: Column(
@@ -196,18 +191,24 @@ class GeneralInfo extends StatelessWidget {
           ),
           WhatsAppInputField(
             controller: general.whatsAppNo,
+            countryCode: general.code,
             name: 'Whatsapp No',
             prefixIconPath: MyIcon.whatsapp,
             prefixIconColor: Palettes.primary,
             suffixIconPath: !(general.data?.webMobileVerified ?? false) ? MyIcon.crossed : "",
             outlineBorder: true,
-            onCountryCodeTap: () {
-              log(viewModel.countryList.toString());
-              countrySelectDialog(
-                context,
-                list: viewModel.countryList,
-              );
-            },
+            onCountryCodeTap: () => general.onCountryCodeTap(context, viewModel.countryList),
+            // () {
+            //   log(viewModel.countryList.toString());
+            //   countrySelectDialog(
+            //     context,
+            //     list: viewModel.countryList,
+            //     onSubmit: (value) {
+            //       Get.back();
+            //       log(value.toString());
+            //     },
+            //   );
+            // },
           ),
           const SizedBox(height: 4),
           Align(
@@ -413,7 +414,7 @@ class GeneralInfo extends StatelessWidget {
             textAlign: TextAlign.right,
           ),
           CustomMultiDropDown(
-            scrollController: viewModel.businessSubCategoryScrollController,
+            // scrollController: viewModel.businessSubCategoryScrollController,
             focusNode: viewModel.businessSubCategoryFocusNode,
             name: 'Business Sub-Category',
             prefixIconPath: MyIcon.portfolio,

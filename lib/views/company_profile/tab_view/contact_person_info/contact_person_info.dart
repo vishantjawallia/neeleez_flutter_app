@@ -5,6 +5,7 @@ import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
 import 'package:neeleez_flutter_app/views/company_profile/company_profile_view_model.dart';
 import 'package:neeleez_flutter_app/views/company_profile/tab_view/contact_person_info/contact_person_info_provider.dart';
+import 'package:neeleez_flutter_app/views/company_profile/tab_view/general_info/widgets/whats_app_input_field.dart';
 
 import 'package:neeleez_flutter_app/widgets/custom_text_field.dart';
 import 'package:provider/provider.dart';
@@ -12,7 +13,7 @@ import 'package:provider/provider.dart';
 import '../../../../widgets/custom_button.dart';
 import 'widgets/department_input_field.dart';
 
-class ContactPersonInfo extends StatefulWidget {
+class ContactPersonInfo extends StatelessWidget {
   final void Function()? onContactSave;
   final CompanyProfileViewModel viewModel;
   const ContactPersonInfo(
@@ -20,20 +21,6 @@ class ContactPersonInfo extends StatefulWidget {
     Key? key,
     this.onContactSave,
   }) : super(key: key);
-
-  @override
-  _ContactPersonInfoState createState() => _ContactPersonInfoState();
-}
-
-class _ContactPersonInfoState extends State<ContactPersonInfo> {
-  @override
-  void initState() {
-    super.initState();
-    final loaction = Provider.of<ContactPersonInfoProvider>(context, listen: false);
-    Future.delayed(const Duration(milliseconds: 100), () {
-      loaction.loadItems();
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,12 +79,22 @@ class _ContactPersonInfoState extends State<ContactPersonInfo> {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            CustomTextField(
+            // CustomTextField(
+            //   controller: contact.mobileNo,
+            //   name: 'Mobile No',
+            //   prefixIconPath: MyIcon.mobileAnalytics,
+            //   prefixIconColor: Palettes.primary,
+            //   outlineBorder: true,
+            // ),
+            WhatsAppInputField(
               controller: contact.mobileNo,
+              countryCode: contact.code,
               name: 'Mobile No',
               prefixIconPath: MyIcon.mobileAnalytics,
               prefixIconColor: Palettes.primary,
+              suffixIconPath: "",
               outlineBorder: true,
+              onCountryCodeTap: () => contact.onCountryCodeTapHandler(context, viewModel.countryList),
             ),
             const SizedBox(height: 14),
             Text(
@@ -153,22 +150,7 @@ class _ContactPersonInfoState extends State<ContactPersonInfo> {
                 text: 'Save',
                 backgroundColor: Palettes.primary,
                 borderColor: Palettes.primary,
-                onTap: () {
-                  contact.kk();
-                  // widget.viewModel.onContactSave(
-                  //   department: "",
-                  //   departmentId: 0,
-                  //   designation: "",
-                  //   email: contact.email.text,
-                  //   designationId: 0,
-                  //   id: 0,
-                  //   mobile: contact.mobileNo.text,
-                  //   nameAr: "",
-                  //   nameEn: contact.fullName.text,
-                  //   whatsApp: "",
-                  //   tel: contact.mobileNo.text,
-                  // );
-                },
+                onTap: () => contact.onSaveHandler(context, viewModel),
               ),
             ),
             const SizedBox(height: 14),

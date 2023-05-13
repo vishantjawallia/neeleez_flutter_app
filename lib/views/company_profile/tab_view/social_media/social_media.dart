@@ -165,6 +165,7 @@ class SocialMedia extends StatelessWidget {
                 backgroundColor: Palettes.primary,
                 borderColor: Palettes.primary,
                 onTap: () => viewModel.onSocialSave(
+                  context,
                   facebook: social.facebook.text,
                   linkedIn: social.linkedIn.text,
                   instagram: social.instagram.text,

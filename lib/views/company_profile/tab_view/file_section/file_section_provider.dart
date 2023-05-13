@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
@@ -6,9 +8,11 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/api/apiRepository.dart';
+import 'package:neeleez_flutter_app/components/dailogs/warning_popup.dart';
 import 'package:neeleez_flutter_app/config/config.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/models/company/company_profile.dart';
+import 'package:neeleez_flutter_app/views/company_profile/company_profile_view_model.dart';
 
 import 'widgets/select_file_poup.dart';
 import 'widgets/warning_popup.dart';
@@ -26,7 +30,7 @@ class FileSectionProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void uploadFileHandler(_) {
+  void uploadFileHandler(_, CompanyProfileViewModel viewModel) {
     selectFilePopup(
       _,
       onVideoSelect: () async {
@@ -34,14 +38,13 @@ class FileSectionProvider extends ChangeNotifier {
         try {
           FilePickerResult? result = await FilePicker.platform.pickFiles(
             type: FileType.custom,
-            allowedExtensions: [
-              'mp4',
-            ],
+            allowedExtensions: ['mp4'],
           );
           if (result != null) {
+            viewModel.setBusy(true);
             PlatformFile file = result.files.first;
             Map<String, String> body = {
-              "CompanyId": "73426",
+              "CompanyId": viewModel.companyId!,
               "ImageCategoryId": "4",
               "Title": file.path!.split('/').last,
               "IsMainImage": "false",
@@ -50,12 +53,17 @@ class FileSectionProvider extends ChangeNotifier {
               "TeamUserId": "0",
             };
             await apiRepository.apiPostUploadFile("$baseUrl/api/CompanyImages", File(file.path!), body: body).then((value) {
-              log(value.toString());
+              if (value == "file-error") {
+                viewModel.setBusy(false);
+                warningPopup(
+                  _,
+                  head: "Alert",
+                  dsc: "File Size is more then 500 KB.",
+                );
+              } else {
+                viewModel.packagesData(_, reload: true);
+              }
             });
-
-            log(file.name);
-          } else {
-            // User canceled the picker
           }
         } catch (e) {
           log(e.toString());
@@ -68,11 +76,11 @@ class FileSectionProvider extends ChangeNotifier {
             type: FileType.custom,
             allowedExtensions: ['jpg', 'png'],
           );
-
           if (result != null) {
+            viewModel.setBusy(true);
             PlatformFile file = result.files.first;
             Map<String, String> body = {
-              "CompanyId": "73426",
+              "CompanyId": viewModel.companyId!,
               "ImageCategoryId": "4",
               "Title": file.path!.split('/').last,
               "IsMainImage": "false",
@@ -81,10 +89,17 @@ class FileSectionProvider extends ChangeNotifier {
               "TeamUserId": "0",
             };
             await apiRepository.apiPostUploadFile("$baseUrl/api/CompanyImages", File(file.path!), body: body).then((value) {
-              log(value.toString());
+              if (value == "file-error") {
+                viewModel.setBusy(false);
+                warningPopup(
+                  _,
+                  head: "Alert",
+                  dsc: "File Size is more then 500 KB.",
+                );
+              } else {
+                viewModel.packagesData(_, reload: true);
+              }
             });
-          } else {
-            // User canceled the picker
           }
         } catch (e) {
           log(e.toString());
@@ -93,13 +108,19 @@ class FileSectionProvider extends ChangeNotifier {
     );
   }
 
-  void fileDeleteHandler(BuildContext _, int id) {
+  void fileDeleteHandler(BuildContext _, int id, CompanyProfileViewModel viewModel) {
     deleteAlert(
       _,
       text: 'Do you really want to delete it?.',
       iconPath: MyIcon.popD,
-      onYesTap: () {
-        // Get.back();
+      onYesTap: () async {
+        Get.back();
+        viewModel.setBusy(true);
+        bool isDelete = await apiRepository.apiDelete("$baseUrl/api/CompanyImages/$id");
+        if (isDelete) {
+          // viewModel.setBusy(false);
+          viewModel.packagesData(_, reload: true);
+        }
       },
     );
   }

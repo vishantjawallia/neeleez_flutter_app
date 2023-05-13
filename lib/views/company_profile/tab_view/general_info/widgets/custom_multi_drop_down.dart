@@ -13,7 +13,7 @@ import 'package:neeleez_flutter_app/widgets/global_widget.dart';
 
 class CustomMultiDropDown extends StatelessWidget {
   final TextEditingController? controller;
-  final ScrollController? scrollController;
+  // final ScrollController? scrollController;
   final List<String>? list;
   final List<String>? selectedList;
   final String? name;
@@ -43,7 +43,7 @@ class CustomMultiDropDown extends StatelessWidget {
   CustomMultiDropDown({
     super.key,
     this.controller,
-    this.scrollController,
+    // this.scrollController,
     this.name,
     this.inputFieldPadding,
     this.widgetMargin,
@@ -169,7 +169,8 @@ class CustomMultiDropDown extends StatelessWidget {
                                     selectedList!.isNotEmpty
                                         ? Flexible(
                                             child: ListView.builder(
-                                              controller: scrollController,
+                                              // physics: const BouncingScrollPhysics(),
+                                              // controller: scrollController,
                                               itemCount: selectedList!.length,
                                               shrinkWrap: true,
                                               scrollDirection: Axis.horizontal,
@@ -251,9 +252,7 @@ class CustomMultiDropDown extends StatelessWidget {
       offset: const Offset(15, 0),
       itemBuilder: (context) => list!
           .map((e) => PopupMenuItem(
-                onTap: () {
-                  return onChanged!(e);
-                },
+                onTap: () => onChanged!(e),
                 child: Text(
                   e,
                   style: Get.textTheme.bodyMedium!.copyWith(

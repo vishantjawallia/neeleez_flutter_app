@@ -45,7 +45,7 @@ class FileSection extends StatelessWidget {
             backgroundColor: Palettes.primary,
             borderColor: Palettes.primary,
             onTap: () {
-              fileSection.uploadFileHandler(context);
+              fileSection.uploadFileHandler(context,viewModel);
               // return widget.onBusinessHoursSave!();
             },
           ),
@@ -112,7 +112,7 @@ class FileSection extends StatelessWidget {
               top: 4,
               right: 4,
               child: GestureDetector(
-                onTap: () => file.fileDeleteHandler(context, viewModel.cp!.companyImages![index].imageId!),
+                onTap: () => file.fileDeleteHandler(context, viewModel.cp!.companyImages![index].imageId!, viewModel),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(100),
                   child: Container(

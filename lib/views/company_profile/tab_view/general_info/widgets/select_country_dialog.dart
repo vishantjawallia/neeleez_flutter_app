@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,8 +7,9 @@ import '../../../../../models/company/companies.dart';
 
 Future<Future<Object?>> countrySelectDialog(
   _, {
-  List<Countries>? list,
-  Function(dynamic value)? onSubmit,
+  required List<Countries>? list,
+  required Function(Countries? value)? onSubmit,
+  // required Function(Countries value)? onCountryChange,
 }) async {
   return showGeneralDialog(
     context: _,
@@ -19,100 +18,128 @@ Future<Future<Object?>> countrySelectDialog(
     pageBuilder: (ctx, a1, a2) => Container(),
     transitionBuilder: (ctx, a1, a2, child) {
       var curve = Curves.easeOutBack.transform(a1.value);
-      return GestureDetector(
-        onTap: () => Get.back(),
-        child: Transform.scale(
-          scale: curve,
-          child: Scaffold(
-            backgroundColor: Colors.transparent,
-            body: Center(
-              child: Container(
-                height: 516,
-                width: 300,
-                color: Palettes.white,
-                child: Column(
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                          border: Border(
-                        bottom: BorderSide(color: Palettes.grey1, width: 0.5),
-                      )),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-                        child: Text(
-                          'Select Country',
-                          style: Get.textTheme.headlineMedium!.copyWith(color: Palettes.black),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    Flexible(
-                      child: SizedBox(
-                        child: CupertinoPicker(
-                          magnification: 1.22,
-                          squeeze: 1.2,
-                          useMagnifier: true,
-                          itemExtent: _kItemExtent,
-                          onSelectedItemChanged: (int selectedItem) {
-                            log(selectedItem.toString());
-                          },
-                          children: List<Widget>.generate(
-                            list?.length ?? 0,
-                            (int index) {
-                              return Center(
-                                child: Text(
-                                  list![index].nameEn ?? "",
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        border: Border(
-                          top: BorderSide(color: Palettes.grey1, width: 0.5),
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            TextButton(
-                              onPressed: () => Get.back(),
-                              child: Text(
-                                'CANCEL ',
-                                style: Get.textTheme.titleLarge!.copyWith(color: Palettes.black),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                            const SizedBox(width: 6),
-                            TextButton(
-                              onPressed: () => onSubmit!(null),
-                              child: Text(
-                                'OK',
-                                style: Get.textTheme.titleLarge!.copyWith(color: Palettes.black),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+      return Transform.scale(
+        scale: curve,
+        child: SelectCountry(
+          // onCountryChange: onCountryChange,
+          list: list,
+          onSubmit: onSubmit,
         ),
       );
     },
     transitionDuration: const Duration(milliseconds: 350),
   );
+}
+
+class SelectCountry extends StatefulWidget {
+  // final void Function(Countries value)? onCountryChange;
+  final List<Countries>? list;
+  final void Function(Countries value)? onSubmit;
+  const SelectCountry({
+    super.key,
+    // required this.onCountryChange,
+    required this.list,
+    required this.onSubmit,
+  });
+
+  @override
+  State<SelectCountry> createState() => _SelectCountryState();
+}
+
+class _SelectCountryState extends State<SelectCountry> {
+  Countries? selectedObj;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Center(
+        child: Container(
+          height: 516,
+          width: 300,
+          color: Palettes.white,
+          child: Column(
+            children: [
+              Container(
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                    border: Border(
+                  bottom: BorderSide(color: Palettes.grey1, width: 0.5),
+                )),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                  child: Text(
+                    'Select Country',
+                    style: Get.textTheme.headlineMedium!.copyWith(color: Palettes.black),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+              Flexible(
+                child: SizedBox(
+                  child: CupertinoPicker(
+                    magnification: 1.22,
+                    squeeze: 1.2,
+                    useMagnifier: true,
+                    itemExtent: _kItemExtent,
+                    onSelectedItemChanged: (int selectedItem) {
+                      setState(() {
+                        selectedObj = widget.list!.elementAt(selectedItem);
+                      });
+                      // widget.onCountryChange!(obj);
+                      // log(selectedItem.toString());
+                    },
+                    children: List<Widget>.generate(
+                      widget.list?.length ?? 0,
+                      (int index) {
+                        return Center(
+                          child: Text(
+                            widget.list![index].nameEn ?? "",
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  border: Border(
+                    top: BorderSide(color: Palettes.grey1, width: 0.5),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: () => Get.back(),
+                        child: Text(
+                          'CANCEL ',
+                          style: Get.textTheme.titleLarge!.copyWith(color: Palettes.black),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      TextButton(
+                        onPressed: () => widget.onSubmit!(selectedObj!),
+                        child: Text(
+                          'OK',
+                          style: Get.textTheme.titleLarge!.copyWith(color: Palettes.black),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 const double _kItemExtent = 32.0;
@@ -270,7 +297,8 @@ class _CupertinoPickerExampleState extends State<CupertinoPickerExample> {
                 CupertinoButton(
                   padding: EdgeInsets.zero,
                   // Display a CupertinoPicker with list of fruits.
-                  onPressed: () => countrySelectDialog(context),
+                  onPressed: () {},
+                  // onPressed: () => countrySelectDialog(context),
                   // This displays the selected fruit name.
                   child: Text(
                     _fruitNames[_selectedFruit],

@@ -19,7 +19,6 @@ class _CompanyProfileMobile extends StatelessWidget {
                 _appBar(context),
                 Flexible(
                   child: TabBarView(
-                    // dragStartBehavior: DragStartBehavior.start,
                     children: [
                       GeneralInfo(viewModel),
                       SocialMedia(viewModel),
@@ -60,26 +59,29 @@ class _CompanyProfileMobile extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  width: 94,
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: Palettes.white),
-                    borderRadius: BorderRadius.circular(18),
-                  ),
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Icon(
-                        Icons.cancel_outlined,
-                        color: Palettes.white,
-                        size: 16,
-                      ),
-                      Text(
-                        'Account',
-                        style: Get.textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600),
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () => viewModel.accountDeleteTapHandler(context),
+                  child: Container(
+                    width: 94,
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: Palettes.white),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Icon(
+                          Icons.cancel_outlined,
+                          color: Palettes.white,
+                          size: 16,
+                        ),
+                        Text(
+                          'Account',
+                          style: Get.textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
                   ),
                 )
               ],

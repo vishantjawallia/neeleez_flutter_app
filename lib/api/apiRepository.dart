@@ -185,7 +185,7 @@ class apiRepository {
   }
 
   /* -------------------------------- Api Delete ------------------------------- */
-  static Future<bool?> apiDelete(
+  static Future<bool> apiDelete(
     String? url, {
     Map<String, dynamic>? body,
     bool? auth,
@@ -197,16 +197,16 @@ class apiRepository {
         headers: {
           'Content-Type': "application/json",
         },
-        body: jsonEncode(body ?? {}),
+        // body: jsonEncode(body ?? {}),
       );
-      if (response.statusCode == 204) {
+      if (response.statusCode == 204 || response.statusCode == 200) {
         return true;
       }
     } on SocketException catch (e) {
       log('$e');
       throw "no-internet";
     }
-    return null;
+    return false;
   }
 
   /* -------------------------------- Api Put ------------------------------- */
@@ -390,6 +390,10 @@ class apiRepository {
       final respStr = await response.stream.bytesToString();
       if (response.statusCode == 200) {
         return respStr;
+      } else if (response.statusCode == 404) {
+        if (respStr == "File Not Found or filesize is more then 500 KB.") {
+          return "file-error";
+        }
       } else {
         log(respStr.toString());
         log(body.toString());

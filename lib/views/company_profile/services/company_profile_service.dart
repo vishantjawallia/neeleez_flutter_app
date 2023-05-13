@@ -221,35 +221,22 @@ mixin CompanyProfileService {
     return null;
   }
 
-  Future<void> getContactPersonInfo(
-    String companyId,
-  ) async {
-    //     {
-    //     "id": 3240,
-    //     "nameEn": "Raheel Lodhi",
-    //     "nameAr": "",
-    //     "email": "raheel@ymail.com",
-    //     "mobile": "212700313000",
-    //     "whatsApp": "",
-    //     "tel": "",
-    //     "designation": "",
-    //     "department": "",
-    //     "designationId": 0,
-    //     "departmentId": 0
-    // }
-    try {
-      final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/ContactPersonInfo/$companyId");
-      log(res.toString());
-      if (res != null) {
-        return;
-        // return RegionInformation.fromJson(res);
-      }
-    } catch (e) {
-      log(e.toString());
-      log("regionInformation========>$e");
-    }
-    return;
-  }
+  // Future<void> getContactPersonInfo(
+  //   String companyId,
+  // ) async {
+  //   try {
+  //     final res = await apiRepository.apiGet("$baseUrl/api/CompanyProfile/ContactPersonInfo/$companyId");
+  //     log(res.toString());
+  //     if (res != null) {
+  //       return;
+  //       return RegionInformation.fromJson(res);
+  //     }
+  //   } catch (e) {
+  //     log(e.toString());
+  //     log("regionInformation========>$e");
+  //   }
+  //   return;
+  // }
 
   Future<void> getTimingInformation(
     String companyId,
@@ -286,14 +273,19 @@ mixin CompanyProfileService {
 
   Future<List<CompanyDayDetailViewModels>?> postCompanyTimings(
     String companyId,
-    dynamic companyDayDetailViewModels,
+    List companyDayDetailViewModels,
   ) async {
     try {
-      final res = await apiRepository.apiPostWithDynamic("$baseUrl/api/CompanyTimings/$companyId", companyDayDetailViewModels);
-      log(res.toString());
-      if (res != null) {
-        return CompanyDayDetailViewModels.fromJsonList(res);
+      for (var element in companyDayDetailViewModels) {
+        log(element);
       }
+      // log(companyDayDetailViewModels.toString());
+
+      // final res = await apiRepository.apiPostWithDynamic("$baseUrl/api/CompanyTimings/$companyId", companyDayDetailViewModels);
+      // log(res.toString());
+      // if (res != null) {
+      //   return CompanyDayDetailViewModels.fromJsonList(res);
+      // }
     } catch (e) {
       log(e.toString());
       log("postCompanyTimings========>$e");

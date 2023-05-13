@@ -4,7 +4,15 @@ import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 
-Future<Future<Object?>> deleteAlert(_, {String? text, String? iconPath, void Function()? onYesTap, void Function()? onNoTap}) async {
+Future<Future<Object?>> deleteAlert(
+  _, {
+  String? text,
+  String? iconPath,
+  String? onYesText,
+  String? onNoText,
+  void Function()? onYesTap,
+  void Function()? onNoTap,
+}) async {
   return showGeneralDialog(
     context: _,
     barrierDismissible: false,
@@ -19,6 +27,8 @@ Future<Future<Object?>> deleteAlert(_, {String? text, String? iconPath, void Fun
           iconPath: iconPath,
           onNoTap: onNoTap,
           onYesTap: onYesTap,
+          onNoText: onNoText,
+          onYesText: onYesText,
         ),
       );
     },
@@ -29,6 +39,8 @@ Future<Future<Object?>> deleteAlert(_, {String? text, String? iconPath, void Fun
 class LogoutPopup extends StatelessWidget {
   final String? text;
   final String? iconPath;
+  final String? onYesText;
+  final String? onNoText;
   final void Function()? onYesTap;
   final void Function()? onNoTap;
   const LogoutPopup({
@@ -37,6 +49,8 @@ class LogoutPopup extends StatelessWidget {
     this.iconPath,
     this.onYesTap,
     this.onNoTap,
+    this.onYesText,
+    this.onNoText,
   }) : super(key: key);
 
   @override
@@ -114,7 +128,7 @@ class LogoutPopup extends StatelessWidget {
                                 CustomButton(
                                   width: 130,
                                   backgroundColor: Palettes.white,
-                                  text: 'No',
+                                  text: onNoText ?? 'No',
                                   rippleColor: Palettes.grey1.withOpacity(0.1),
                                   borderColor: Palettes.primary,
                                   textColor: Palettes.primary,
@@ -127,15 +141,15 @@ class LogoutPopup extends StatelessWidget {
                                   backgroundColor: Palettes.primary,
                                   textColor: Palettes.white,
                                   borderColor: Palettes.primary,
-                                  text: 'Yes',
-                                  onTap: () async {
-                                    onYesTap;
-                                    // Get.back();
-                                    // await SharedPreferenceHelper.setString(Preferences.companyId, 'N/A');
-                                    // await SharedPreferenceHelper.setString(Preferences.countryInfo, 'N/A');
-                                    // await SharedPreferenceHelper.setBoolean(Preferences.isLogged, false);
-                                    // Get.offAll(() => const LoginView());
-                                  },
+                                  text: onYesText ?? 'Yes',
+                                  onTap: onYesTap,
+                                  //   onYesTap;
+                                  //   // Get.back();
+                                  //   // await SharedPreferenceHelper.setString(Preferences.companyId, 'N/A');
+                                  //   // await SharedPreferenceHelper.setString(Preferences.countryInfo, 'N/A');
+                                  //   // await SharedPreferenceHelper.setBoolean(Preferences.isLogged, false);
+                                  //   // Get.offAll(() => const LoginView());
+                                  // },
                                 ),
                               ],
                             ),

@@ -144,7 +144,7 @@ class WhatsAppInputField extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(
-                            "+" "${countryCode ?? '91'}",
+                            countryCode!,
                             style: Get.textTheme.bodyMedium!.copyWith(
                               color: Palettes.black,
                               fontWeight: FontWeight.w600,

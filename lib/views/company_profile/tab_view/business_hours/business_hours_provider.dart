@@ -3,10 +3,11 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:intl/intl.dart';
 import 'package:neeleez_flutter_app/views/company_profile/company_profile_view_model.dart';
 
 import '../../../../models/company/timing.dart';
+import 'model/put_timing.dart';
 // import '../../widgets/timing_box.dart';
 
 class BusinessHoursProvider extends ChangeNotifier {
@@ -222,9 +223,45 @@ class BusinessHoursProvider extends ChangeNotifier {
   }
 
   void onSaveHandler(CompanyProfileViewModel viewModel) async {
+    List<PutTiming> timing2 = [];
+
+    for (var x = 0; x < timings.length; x++) {
+      CompanyTimings xx = timings[x];
+      for (var y = 0; y < xx.companyDayDetailViewModels!.length; y++) {
+        CompanyDayDetailViewModels yy = xx.companyDayDetailViewModels![y];
+        for (var z = 0; z < yy.companyTimes!.length; z++) {
+          CompanyTimes zz = yy.companyTimes![z];
+          PutTiming obj = PutTiming(
+            dowId: yy.dowId,
+            id: zz.id,
+            isHoliday: yy.isHoliday,
+            startTime: intToTiming(zz.startHour!, zz.startMinute!),
+            endTime: intToTiming(zz.endHour!, zz.endHour!),
+          );
+          timing2.add(obj);
+        }
+      }
+    }
+
+    for (var element in timing2) {
+      log(element.toJson().toString());
+    }
+    // log(timing2.toString());
+
+    // Map<String, dynamic> obj = {
+    //   "id": 0,
+    //   "dowId": 0,
+    //   "startTime": "string",
+    //   "endTime": "string",
+    //   "isHoliday": true,
+    // };
+
     viewModel.setBusy(true);
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 2));
+    await viewModel.postCompanyTimings(viewModel.companyId!, []);
     viewModel.setBusy(false);
+    // await Future.delayed(const Duration(seconds: 3));
+    // viewModel.setBusy(false);
   }
 }
 
@@ -240,4 +277,17 @@ bool compareTime(TimeOfDay startTime, TimeOfDay endTime) {
     result = false;
   }
   return result;
+}
+
+String intToTiming(int hour, int min) {
+  // DateTime dateTime = DateTime.now(); // Replace this with your desired DateTime
+  DateTime dateTime = DateTime(0, 1, 1, hour, min, 0, 0, 0);
+
+  // Create a DateFormat object for the desired time format
+  DateFormat timeFormat = DateFormat("HH:mm:ss.S");
+
+  // Format the DateTime object using the timeFormat
+  String formattedTime = timeFormat.format(dateTime);
+  log(formattedTime);
+  return formattedTime;
 }

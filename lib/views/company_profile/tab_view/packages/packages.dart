@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:neeleez_flutter_app/config/my_Image.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
@@ -14,10 +15,10 @@ import '../../company_profile_view_model.dart';
 class Packages extends StatelessWidget {
   // final CompanyPackage? companyPackage;
   final CompanyProfileViewModel viewModel;
-  const Packages(this.viewModel,{
+  const Packages(
+    this.viewModel, {
     Key? key,
     // required this.companyPackage,
-
   }) : super(key: key);
 
   @override
@@ -101,18 +102,27 @@ class Packages extends StatelessWidget {
   }
 
   Container _activePackage(CompanyPackage companyPackage) {
+    DateTime? date = DateTime.tryParse(companyPackage.expiryDateTime!);
+    String formattedDate = DateFormat('MM-dd-yyyy').format(date!);
+
+    companyPackage.expiryDateTime!;
     return Container(
-      height: 230,
+      height: 225,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Palettes.red,
+        // color: Colors.green,
+        gradient: LinearGradient(
+          colors: [Colors.green.shade200, Colors.green.shade600], // Replace with your desired colors
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
         borderRadius: BorderRadius.circular(12),
         boxShadow: const [
           BoxShadow(blurRadius: 20, spreadRadius: 0.5, color: Palettes.grey1),
         ],
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(height: 14),
@@ -124,15 +134,15 @@ class Packages extends StatelessWidget {
             child: Text(
               companyPackage.packageNameEn!,
               // 'Entry Package'.tr,
-              style: Get.textTheme.displayLarge!.copyWith(fontWeight: FontWeight.w500, color: Palettes.red),
+              style: Get.textTheme.displayLarge!.copyWith(fontWeight: FontWeight.w500, color: Colors.green.shade600),
             ),
           ),
           const SizedBox(height: 5),
           Text(
-            'Expiry Date: ${companyPackage.expiryDateTime!}'.tr,
+            'Expiry Date: $formattedDate'.tr,
             style: Get.textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w600, color: Palettes.white),
           ),
-          const SizedBox(height: 1),
+          // const SizedBox(height: 1),
           Text(
             companyPackage.remarkEn!,
             style: Get.textTheme.titleLarge!.copyWith(color: Palettes.white),
@@ -144,6 +154,8 @@ class Packages extends StatelessWidget {
             text: 'Upgrade',
             backgroundColor: Palettes.white,
             borderColor: Palettes.primary,
+            textColor: Colors.green.shade600,
+            rippleColor: Colors.green.shade100,
           )
         ],
       ),

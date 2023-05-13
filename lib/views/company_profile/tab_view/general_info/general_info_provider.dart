@@ -1,8 +1,12 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:neeleez_flutter_app/models/company/companies.dart';
 import 'package:neeleez_flutter_app/models/general_info/general_info.dart';
+
+import 'widgets/select_country_dialog.dart';
 
 class GeneralInfoProvider extends ChangeNotifier {
   GeneralInformation? data;
@@ -18,6 +22,7 @@ class GeneralInfoProvider extends ChangeNotifier {
   TextEditingController website = TextEditingController();
   DateTime? copEstabYear;
   bool? isFreelancer = false;
+  String? code = "";
 
   List<String> businessSubCategorySelectedList = [];
 
@@ -93,5 +98,17 @@ class GeneralInfoProvider extends ChangeNotifier {
     isFreelancer = false;
     businessSubCategorySelectedList = [];
     notifyListeners();
+  }
+
+  onCountryCodeTap(context, List<Countries>? countryList) {
+    countrySelectDialog(
+      context,
+      list: countryList,
+      onSubmit: (value) {
+        Get.back();
+        code = value!.countryCode;
+        notifyListeners();
+      },
+    );
   }
 }
