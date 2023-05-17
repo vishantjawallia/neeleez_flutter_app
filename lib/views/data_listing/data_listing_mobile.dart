@@ -57,12 +57,14 @@ class _DataListingMobile extends StatelessWidget {
                         text: 'Department',
                         imagePathBackground: Palettes.yellow,
                         imagePath: MyImage.contolDepartment2x,
+                        onTap: viewModel.departmentOnTap,
                       ),
 
                       CustomListTile(
                         text: 'Designation',
                         imagePathBackground: Colors.red,
                         imagePath: MyImage.contolDesignation,
+                        onTap: viewModel.designationOnTap,
                       ),
                       const SizedBox(height: 10),
                       Align(
@@ -95,31 +97,37 @@ class _DataListingMobile extends StatelessWidget {
                         text: 'Group',
                         imagePathBackground: Colors.purple,
                         imagePath: MyImage.contolGrouper,
+                        onTap: viewModel.groupOnTap,
                       ),
                       CustomListTile(
                         text: 'Format',
                         imagePathBackground: Colors.blue,
                         imagePath: MyImage.contolFormat,
+                        onTap: viewModel.formatOnTap,
                       ),
                       CustomListTile(
                         text: 'Service',
                         imagePathBackground: Colors.orange,
                         imagePath: MyImage.contolService,
+                        onTap: viewModel.serviceOnTap,
                       ),
                       CustomListTile(
                         text: 'Service Format',
                         imagePathBackground: Colors.green,
                         imagePath: MyImage.contolServiceFormat,
+                        onTap: viewModel.serviceFormatOnTap,
                       ),
                       CustomListTile(
                         text: 'Service Composition',
                         imagePathBackground: Colors.pink,
                         imagePath: MyImage.contolServicePrice,
+                        onTap: viewModel.serviceCompositionOnTap,
                       ),
                       CustomListTile(
                         text: 'Service Offer',
                         imagePathBackground: Color.fromARGB(255, 45, 194, 159),
                         imagePath: MyImage.contolOffers,
+                        onTap: () => viewModel.serviceOfferOnTap(context),
                       ),
 
                       // Material(

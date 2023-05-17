@@ -6,7 +6,8 @@ class DefaultLayout extends StatelessWidget {
   final double? height;
   const DefaultLayout({
     Key? key,
-    this.child, this.height,
+    this.child,
+    this.height,
   }) : super(key: key);
 
   @override
@@ -29,6 +30,7 @@ class DefaultLayout extends StatelessWidget {
           ),
         ),
         Container(
+          // height: 100.h,
           padding: const EdgeInsets.only(top: 40),
           child: child!,
         ),

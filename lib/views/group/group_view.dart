@@ -1,8 +1,13 @@
 library group_view;
 
+import 'package:get/get.dart';
 import 'package:stacked/stacked.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';
+import '../../config/palettes.dart';
+import '../../widgets/default_layout.dart';
+import 'components/add_item.dart';
+import 'components/view_listing.dart';
 import 'group_view_model.dart';
 
 part 'group_mobile.dart';

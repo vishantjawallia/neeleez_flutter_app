@@ -7,11 +7,13 @@ class CustomListTile extends StatelessWidget {
   final String? text;
   final String? imagePath;
   final Color? imagePathBackground;
+  final void Function()? onTap;
   const CustomListTile({
     super.key,
     this.text,
     this.imagePath,
     this.imagePathBackground,
+    this.onTap,
   });
 
   @override
@@ -23,7 +25,7 @@ class CustomListTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         child: InkWell(
           borderRadius: BorderRadius.circular(8),
-          onTap: () {},
+          onTap: onTap,
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),

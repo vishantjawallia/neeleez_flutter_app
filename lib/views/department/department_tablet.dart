@@ -4,11 +4,11 @@ part of department_view;
 class _DepartmentTablet extends StatelessWidget {
   final DepartmentViewModel viewModel;
 
-  _DepartmentTablet(this.viewModel);
+  const _DepartmentTablet(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(child: Text('DepartmentTablet')),
     );
   }

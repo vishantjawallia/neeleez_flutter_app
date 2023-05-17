@@ -12,4 +12,5 @@ class Palettes {
   static const Color black = Colors.black;
   static const Color yellow = Color(0xffF7B93D); //#DB8A00
   static const Color yellowDark = Color(0xffDB8A00); //#DB8A00
+  static final Color green700 = Colors.green.shade700;
 }

@@ -4,11 +4,11 @@ part of designation_view;
 class _DesignationDesktop extends StatelessWidget {
   final DesignationViewModel viewModel;
 
-  _DesignationDesktop(this.viewModel);
+  const _DesignationDesktop(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(child: Text('DesignationDesktop')),
     );
   }
