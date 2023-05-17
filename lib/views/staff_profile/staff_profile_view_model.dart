@@ -1,7 +1,7 @@
 import 'package:stacked/stacked.dart';
 
-class ServiceProvidersViewModel extends BaseViewModel {
-  ServiceProvidersViewModel(){
+class StaffProfileViewModel extends BaseViewModel {
+  StaffProfileViewModel(){
     loadItems();
   }
   

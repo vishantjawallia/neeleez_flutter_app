@@ -55,10 +55,13 @@ class _ServiceProvidersMobile extends StatelessWidget {
                 'Staff Management (0/3)',
                 style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w600),
               ),
-              const Icon(
-                Icons.add_circle_outline_sharp,
-                color: Palettes.white,
-                size: 50,
+              GestureDetector(
+                onTap: () => Get.to(() => StaffProfileView()),
+                child: const Icon(
+                  Icons.add_circle_outline_sharp,
+                  color: Palettes.white,
+                  size: 50,
+                ),
               ),
             ],
           ),
