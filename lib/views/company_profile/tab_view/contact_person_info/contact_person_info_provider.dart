@@ -11,7 +11,9 @@ class ContactPersonInfoProvider<E> extends ChangeNotifier {
   TextEditingController email = TextEditingController();
   TextEditingController fullName = TextEditingController();
   CompanyContact? data;
+
   String? code = "";
+  int? codeId;
 
   bool departmentEnabled = false;
   bool designationEnabled = false;
@@ -24,6 +26,8 @@ class ContactPersonInfoProvider<E> extends ChangeNotifier {
 
   String? selectedDesignation;
 
+  FocusNode mobileNoFocusNode = FocusNode();
+
   ContactPersonInfoProvider() {
     mobileNo.addListener(() => notifyListeners());
     // countryCode.addListener(() => notifyListeners());
@@ -33,12 +37,17 @@ class ContactPersonInfoProvider<E> extends ChangeNotifier {
     departmentController.addListener(() => notifyListeners());
   }
 
-  void loadItems(CompanyContact? value) {
-    if (value != null) {
-      data = value;
-      mobileNo.text = value.mobile ?? "";
-      email.text = value.email ?? "";
-      fullName.text = value.nameEn ?? "";
+  void loadItems(CompanyProfile? cp, List<Countries>? countryList) {
+    if (cp != null) {
+      data = cp.companyContact;
+      mobileNo.text = cp.companyContact?.mobile ?? "";
+      email.text = cp.companyContact?.email ?? "";
+      fullName.text = cp.companyContact?.nameEn ?? "";
+      code = countryList?.firstWhere((e) => e.id == cp.companyAddress?.countryId).countryCode.toString();
+      codeId = countryList?.firstWhere((e) => e.id == cp.companyAddress?.countryId).id;
+      //focus Node
+      mobileNoFocusNode.addListener(() => notifyListeners());
+      notifyListeners();
     }
   }
 
@@ -73,9 +82,11 @@ class ContactPersonInfoProvider<E> extends ChangeNotifier {
   }
 
   onCountryCodeTapHandler(BuildContext context, List<Countries>? list) {
+    mobileNoFocusNode.unfocus();
     countrySelectDialog(
       context,
       list: list,
+      intialValue: list?.firstWhere((e) => e.id == codeId),
       onSubmit: (value) {
         Get.back();
         code = value!.countryCode!;

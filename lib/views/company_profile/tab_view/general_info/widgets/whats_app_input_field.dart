@@ -7,6 +7,7 @@ import '../../../../../helpers/helper.dart';
 
 class WhatsAppInputField extends StatelessWidget {
   final TextEditingController? controller;
+  final FocusNode? focusNode;
   final String? prefixIconPath;
   final String? name;
   final String? countryCode;
@@ -57,7 +58,7 @@ class WhatsAppInputField extends StatelessWidget {
     this.isCustomRtl = false,
     required this.outlineBorder,
     this.countryCode,
-    this.onCountryCodeTap,
+    this.onCountryCodeTap, this.focusNode,
   }) : super(key: key);
 
   @override
@@ -167,6 +168,7 @@ class WhatsAppInputField extends StatelessWidget {
                   onTap: onTap,
                   child: TextField(
                     controller: controller,
+                    focusNode: focusNode,
                     style: Get.textTheme.bodyMedium!.copyWith(
                       color: Palettes.primary,
                       fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),

@@ -8,6 +8,7 @@ import '../../../../../models/company/companies.dart';
 Future<Future<Object?>> countrySelectDialog(
   _, {
   required List<Countries>? list,
+  Countries? intialValue,
   required Function(Countries? value)? onSubmit,
   // required Function(Countries value)? onCountryChange,
 }) async {
@@ -21,6 +22,7 @@ Future<Future<Object?>> countrySelectDialog(
       return Transform.scale(
         scale: curve,
         child: SelectCountry(
+          intialValue: intialValue,
           // onCountryChange: onCountryChange,
           list: list,
           onSubmit: onSubmit,
@@ -32,14 +34,14 @@ Future<Future<Object?>> countrySelectDialog(
 }
 
 class SelectCountry extends StatefulWidget {
-  // final void Function(Countries value)? onCountryChange;
   final List<Countries>? list;
   final void Function(Countries value)? onSubmit;
+  final Countries? intialValue;
   const SelectCountry({
     super.key,
-    // required this.onCountryChange,
     required this.list,
     required this.onSubmit,
+    required this.intialValue,
   });
 
   @override
@@ -77,6 +79,7 @@ class _SelectCountryState extends State<SelectCountry> {
               Flexible(
                 child: SizedBox(
                   child: CupertinoPicker(
+                    scrollController: FixedExtentScrollController(initialItem: widget.list!.indexOf(widget.intialValue!)),
                     magnification: 1.22,
                     squeeze: 1.2,
                     useMagnifier: true,

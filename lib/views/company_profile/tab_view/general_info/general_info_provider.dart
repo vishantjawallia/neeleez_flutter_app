@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:neeleez_flutter_app/models/company/companies.dart';
+import 'package:neeleez_flutter_app/models/company/company_profile.dart';
 import 'package:neeleez_flutter_app/models/general_info/general_info.dart';
 
 import 'widgets/select_country_dialog.dart';
@@ -23,6 +24,7 @@ class GeneralInfoProvider extends ChangeNotifier {
   DateTime? copEstabYear;
   bool? isFreelancer = false;
   String? code = "";
+  int? codeId;
 
   List<String> businessSubCategorySelectedList = [];
 
@@ -61,7 +63,7 @@ class GeneralInfoProvider extends ChangeNotifier {
     }
   }
 
-  void loadItem(GeneralInformation? generalInformation) async {
+  void loadItem(GeneralInformation? generalInformation, CompanyProfile? cp, List<Countries>? countryList) async {
     await Future.delayed(const Duration(milliseconds: 100));
     log(generalInformation.toString());
     if (generalInformation != null) {
@@ -78,6 +80,8 @@ class GeneralInfoProvider extends ChangeNotifier {
       email.text = generalInformation.email ?? "";
       whatsAppNo.text = generalInformation.whatsapp ?? "";
       additionalInfo.text = generalInformation.aboutUs ?? "";
+      code = countryList?.firstWhere((e) => e.id == cp!.companyAddress?.countryId).countryCode.toString();
+      codeId = countryList?.firstWhere((e) => e.id == cp!.companyAddress?.countryId).id;
       notifyListeners();
     }
   }
@@ -104,6 +108,7 @@ class GeneralInfoProvider extends ChangeNotifier {
     countrySelectDialog(
       context,
       list: countryList,
+      intialValue: countryList?.firstWhere((e) => e.id == codeId),
       onSubmit: (value) {
         Get.back();
         code = value!.countryCode;

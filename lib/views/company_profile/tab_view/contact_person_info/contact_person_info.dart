@@ -79,15 +79,9 @@ class ContactPersonInfo extends StatelessWidget {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            // CustomTextField(
-            //   controller: contact.mobileNo,
-            //   name: 'Mobile No',
-            //   prefixIconPath: MyIcon.mobileAnalytics,
-            //   prefixIconColor: Palettes.primary,
-            //   outlineBorder: true,
-            // ),
             WhatsAppInputField(
               controller: contact.mobileNo,
+              focusNode: contact.mobileNoFocusNode,
               countryCode: contact.code,
               name: 'Mobile No',
               prefixIconPath: MyIcon.mobileAnalytics,

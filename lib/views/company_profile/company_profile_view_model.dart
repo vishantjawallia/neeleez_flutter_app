@@ -221,8 +221,10 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService, 
     setBusy(true);
     if (reload) {
       genInfo = await generalInformationWithCompanyId(companyId!);
+      cp = await getRegionInformation(companyId!);
     } else {
       genInfo ??= await generalInformationWithCompanyId(companyId!);
+      cp ??= await getRegionInformation(companyId!);
     }
     countryList ??= await getCountries();
     notifyListeners();
@@ -250,7 +252,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService, 
     }
     setBusy(false);
     notifyListeners();
-    Provider.of<GeneralInfoProvider>(_, listen: false).loadItem(genInfo);
+    Provider.of<GeneralInfoProvider>(_, listen: false).loadItem(genInfo, cp,countryList);
     Provider.of<SocialMediaProvider>(_, listen: false).loadItem(genInfo);
   }
 
@@ -292,7 +294,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService, 
     setBusy(false);
     notifyListeners();
     Provider.of<FileSectionProvider>(_, listen: false).loadItem(cp?.companyImages);
-    Provider.of<ContactPersonInfoProvider>(_, listen: false).loadItems(cp?.companyContact);
+    Provider.of<ContactPersonInfoProvider>(_, listen: false).loadItems(cp,countryList);
   }
 
   //State Change Staff
