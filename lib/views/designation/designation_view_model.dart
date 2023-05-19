@@ -3,10 +3,11 @@ import 'package:get/get.dart';
 import 'package:stacked/stacked.dart';
 
 import 'components/alert_popup.dart';
+import 'service/designation_service.dart';
 
 // import 'components/alert_popup.dart';
 
-class DesignationViewModel extends BaseViewModel {
+class DesignationViewModel extends BaseViewModel with DesignationService {
   bool isAddNew = false;
   TextEditingController searchController = TextEditingController();
   TextEditingController designation = TextEditingController();

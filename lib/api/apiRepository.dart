@@ -128,7 +128,7 @@ class apiRepository {
   /* -------------------------------- Api Post With Dynamic Body------------------------------- */
   static Future apiPutWithDynamic(
     String? url,
-    dynamic body, {
+    body, {
     bool? auth,
   }) async {
     try {
@@ -136,8 +136,9 @@ class apiRepository {
         Uri.parse(url!),
         headers: {
           'Content-Type': "application/json",
+          
         },
-        body: jsonEncode(body!),
+        body: body,
       );
       log(body.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {

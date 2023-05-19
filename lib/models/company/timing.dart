@@ -188,16 +188,36 @@ companyTimes:${companyTimes.toString()}
 
 class CompanyTimes {
   final int? id;
+  final bool? isNew;
   final int? companyTimingId;
   final int? companyId;
   final int? startHour;
   final int? startMinute;
   final int? endHour;
   final int? endMinute;
-  const CompanyTimes({this.id, this.companyTimingId, this.companyId, this.startHour, this.startMinute, this.endHour, this.endMinute});
-  CompanyTimes copyWith({int? id, int? companyTimingId, int? companyId, int? startHour, int? startMinute, int? endHour, int? endMinute}) {
+  const CompanyTimes({
+    this.id,
+    this.isNew,
+    this.companyTimingId,
+    this.companyId,
+    this.startHour,
+    this.startMinute,
+    this.endHour,
+    this.endMinute,
+  });
+  CompanyTimes copyWith({
+    int? id,
+    bool? isNew,
+    int? companyTimingId,
+    int? companyId,
+    int? startHour,
+    int? startMinute,
+    int? endHour,
+    int? endMinute,
+  }) {
     return CompanyTimes(
         id: id ?? this.id,
+        isNew: isNew ?? this.isNew,
         companyTimingId: companyTimingId ?? this.companyTimingId,
         companyId: companyId ?? this.companyId,
         startHour: startHour ?? this.startHour,
@@ -207,30 +227,42 @@ class CompanyTimes {
   }
 
   Map<String, Object?> toJson() {
-    return {'id': id, 'companyTimingId': companyTimingId, 'companyId': companyId, 'startHour': startHour, 'startMinute': startMinute, 'endHour': endHour, 'endMinute': endMinute};
+    return {
+      'id': id,
+      'isNew': isNew,
+      'companyTimingId': companyTimingId,
+      'companyId': companyId,
+      'startHour': startHour,
+      'startMinute': startMinute,
+      'endHour': endHour,
+      'endMinute': endMinute,
+    };
   }
 
   static CompanyTimes fromJson(Map<String, Object?> json) {
     return CompanyTimes(
-        id: json['id'] == null ? null : json['id'] as int,
-        companyTimingId: json['companyTimingId'] == null ? null : json['companyTimingId'] as int,
-        companyId: json['companyId'] == null ? null : json['companyId'] as int,
-        startHour: json['startHour'] == null ? null : json['startHour'] as int,
-        startMinute: json['startMinute'] == null ? null : json['startMinute'] as int,
-        endHour: json['endHour'] == null ? null : json['endHour'] as int,
-        endMinute: json['endMinute'] == null ? null : json['endMinute'] as int);
+      id: json['id'] == null ? null : json['id'] as int,
+      isNew: false,
+      companyTimingId: json['companyTimingId'] == null ? null : json['companyTimingId'] as int,
+      companyId: json['companyId'] == null ? null : json['companyId'] as int,
+      startHour: json['startHour'] == null ? null : json['startHour'] as int,
+      startMinute: json['startMinute'] == null ? null : json['startMinute'] as int,
+      endHour: json['endHour'] == null ? null : json['endHour'] as int,
+      endMinute: json['endMinute'] == null ? null : json['endMinute'] as int,
+    );
   }
 
   @override
   String toString() {
     return '''CompanyTimes(
                 id:$id,
-companyTimingId:$companyTimingId,
-companyId:$companyId,
-startHour:$startHour,
-startMinute:$startMinute,
-endHour:$endHour,
-endMinute:$endMinute
+                isNew:$isNew,
+            companyTimingId:$companyTimingId,
+            companyId:$companyId,
+            startHour:$startHour,
+            startMinute:$startMinute,
+            endHour:$endHour,
+            endMinute:$endMinute
     ) ''';
   }
 

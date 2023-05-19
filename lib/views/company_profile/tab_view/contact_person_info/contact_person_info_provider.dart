@@ -20,6 +20,10 @@ class ContactPersonInfoProvider<E> extends ChangeNotifier {
 
   TextEditingController departmentController = TextEditingController();
 
+  String? selectedDepartment;
+
+  String? selectedDesignation;
+
   ContactPersonInfoProvider() {
     mobileNo.addListener(() => notifyListeners());
     // countryCode.addListener(() => notifyListeners());
@@ -38,12 +42,12 @@ class ContactPersonInfoProvider<E> extends ChangeNotifier {
     }
   }
 
-  void designationOnTap() {
+  void designationOnTap(CompanyProfileViewModel viewModel) {
     designationEnabled = !designationEnabled;
     notifyListeners();
   }
 
-  void departmentOnTap() {
+  void departmentOnTap(CompanyProfileViewModel viewModel) {
     departmentEnabled = !departmentEnabled;
     notifyListeners();
   }
@@ -78,5 +82,15 @@ class ContactPersonInfoProvider<E> extends ChangeNotifier {
         notifyListeners();
       },
     );
+  }
+
+  void departmentOnChange(String? value) {
+    selectedDepartment = value;
+    notifyListeners();
+  }
+
+  void designationOnChange(String? value) {
+    selectedDesignation = value;
+    notifyListeners();
   }
 }

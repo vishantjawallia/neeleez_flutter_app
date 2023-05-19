@@ -51,7 +51,7 @@ class _DepartmentMobile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Control Panel',
+                'Department',
                 style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w600),
               ),
               !viewModel.isAddNew

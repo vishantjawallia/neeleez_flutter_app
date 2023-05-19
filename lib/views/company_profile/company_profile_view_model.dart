@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, unused_local_variable
+
 import 'dart:core';
 import 'dart:developer';
 
@@ -8,6 +10,8 @@ import 'package:neeleez_flutter_app/config/pref_constant.dart';
 import 'package:neeleez_flutter_app/config/preference.dart';
 import 'package:neeleez_flutter_app/models/company/region_Info.dart';
 import 'package:neeleez_flutter_app/models/company/timing.dart';
+import 'package:neeleez_flutter_app/models/department/department.dart';
+import 'package:neeleez_flutter_app/models/designation/designation.dart';
 import 'package:neeleez_flutter_app/models/package/package_info.dart';
 import 'package:neeleez_flutter_app/models/user_data.dart';
 import 'package:neeleez_flutter_app/views/company_profile/components/verify_email_or_mobile.dart';
@@ -18,6 +22,7 @@ import 'package:neeleez_flutter_app/views/company_profile/tab_view/file_section/
 import 'package:neeleez_flutter_app/views/company_profile/tab_view/general_info/general_info_provider.dart';
 import 'package:neeleez_flutter_app/views/company_profile/tab_view/loaction/loaction_provider.dart';
 import 'package:neeleez_flutter_app/views/company_profile/tab_view/social_media/social_media_provider.dart';
+import 'package:neeleez_flutter_app/views/designation/service/designation_service.dart';
 import 'package:neeleez_flutter_app/widgets/global_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
@@ -29,9 +34,10 @@ import '../../models/company/companies.dart';
 import '../../models/company/company_profile.dart' as cm;
 import '../../models/gender/gender.dart';
 import '../../models/general_info/general_info.dart';
+import '../department/service/department_service.dart';
 import 'tab_view/file_section/widgets/warning_popup.dart';
 
-class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
+class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService, DepartmentService, DesignationService {
   final UserData? user;
   final List<BusinessServicesByCountry>? businessCategoryList;
   final List<Gender>? serviceForList;
@@ -74,6 +80,10 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
 
   ScrollController businessSubCategoryScrollController = ScrollController();
   ScrollController amenitiesScrollController = ScrollController();
+
+  //
+  List<Department>? departmentList;
+  List<Designation>? designationList;
 
   CompanyProfileViewModel({
     this.user,
@@ -272,8 +282,12 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService {
     setBusy(true);
     if (reload) {
       cp = await getRegionInformation(companyId!);
+      departmentList = await getDepartment(companyId!) ?? [];
+      designationList = await getDesignationList(companyId!) ?? [];
     } else {
       cp ??= await getRegionInformation(companyId!);
+      departmentList ??= await getDepartment(companyId!) ?? [];
+      designationList ??= await getDesignationList(companyId!) ?? [];
     }
     setBusy(false);
     notifyListeners();

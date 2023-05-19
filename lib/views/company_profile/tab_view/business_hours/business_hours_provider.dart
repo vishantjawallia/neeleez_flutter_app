@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names, unused_local_variable
 
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -16,10 +17,10 @@ class BusinessHoursProvider extends ChangeNotifier {
 
   bool isClosed = false;
 
-  void clearNewCompanyTimes() {
-    timings = [];
-    notifyListeners();
-  }
+  // void clearNewCompanyTimes() {
+  //   timings = [];
+  //   notifyListeners();
+  // }
 
   // setTimings(List<CompanyTimings> value) async {
   //   if (timings.length != value.length) {
@@ -39,6 +40,7 @@ class BusinessHoursProvider extends ChangeNotifier {
       cL.add(
         obj.copyWith(
           id: id,
+          isNew: true,
           endHour: 0,
           endMinute: 0,
           startMinute: 0,
@@ -229,11 +231,13 @@ class BusinessHoursProvider extends ChangeNotifier {
       CompanyTimings xx = timings[x];
       for (var y = 0; y < xx.companyDayDetailViewModels!.length; y++) {
         CompanyDayDetailViewModels yy = xx.companyDayDetailViewModels![y];
+        log(jsonEncode(yy));
         for (var z = 0; z < yy.companyTimes!.length; z++) {
           CompanyTimes zz = yy.companyTimes![z];
           PutTiming obj = PutTiming(
             dowId: yy.dowId,
-            id: zz.id,
+            // id: zz.id,
+            id: zz.isNew! ? 0 : zz.id,
             isHoliday: yy.isHoliday,
             startTime: intToTiming(zz.startHour!, zz.startMinute!),
             endTime: intToTiming(zz.endHour!, zz.endHour!),
@@ -257,8 +261,8 @@ class BusinessHoursProvider extends ChangeNotifier {
     // };
 
     viewModel.setBusy(true);
-    await Future.delayed(const Duration(seconds: 2));
-    await viewModel.postCompanyTimings(viewModel.companyId!, []);
+    // await Future.delayed(const Duration(seconds: 2));
+    await viewModel.putCompanyTimings("76", jsonEncode(timing2));
     viewModel.setBusy(false);
     // await Future.delayed(const Duration(seconds: 3));
     // viewModel.setBusy(false);

@@ -19,6 +19,8 @@ class _CompanyProfileMobile extends StatelessWidget {
                 _appBar(context),
                 Flexible(
                   child: TabBarView(
+                    physics: NeverScrollableScrollPhysics(),
+                    // dragStartBehavior: DragStartBehavior.down,
                     children: [
                       GeneralInfo(viewModel),
                       SocialMedia(viewModel),
@@ -104,6 +106,7 @@ class _CompanyProfileMobile extends StatelessWidget {
               height: 45,
               color: Palettes.white,
               child: TabBar(
+                isScrollable: false,
                 indicatorWeight: 5,
                 indicatorColor: Palettes.red,
                 onTap: (value) => viewModel.onTabChanged(context, value),

@@ -4,11 +4,11 @@ part of data_listing_view;
 class _DataListingDesktop extends StatelessWidget {
   final DataListingViewModel viewModel;
 
-  _DataListingDesktop(this.viewModel);
+  const _DataListingDesktop(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(child: Text('DataListingDesktop')),
     );
   }

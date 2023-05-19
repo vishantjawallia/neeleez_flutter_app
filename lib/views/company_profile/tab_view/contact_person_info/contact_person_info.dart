@@ -115,15 +115,30 @@ class ContactPersonInfo extends StatelessWidget {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            DepartmentInputField(
-              controller: contact.departmentController,
+
+            CustomInputDropDown(
               name: 'Department',
-              prefixIconPath: MyIcon.staffDepartment,
-              prefixIconColor: Palettes.primary,
-              enabled: contact.departmentEnabled,
-              onAddTap: contact.departmentOnTap,
-              onChanged: (value) {},
+              //
+              controller: contact.departmentController,
+              value: contact.selectedDepartment,
+              onChanged: contact.departmentOnChange,
+              onAddTap: () => contact.departmentOnTap(viewModel),
+
+              prefixIconPath: MyIcon.portfolio,
+              items: viewModel.departmentList?.map((e) => e.name!).map((String e) {
+                return DropdownMenuItem<String>(
+                  value: e,
+                  child: Text(
+                    e,
+                    style: Get.textTheme.bodyMedium!.copyWith(
+                      color: Palettes.black,
+                      fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
+                    ),
+                  ),
+                );
+              }).toList(),
               outlineBorder: true,
+              enabled: contact.departmentEnabled,
             ),
             const SizedBox(height: 14),
             Text(
@@ -131,14 +146,26 @@ class ContactPersonInfo extends StatelessWidget {
               style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
               textAlign: TextAlign.right,
             ),
-            DepartmentInputField(
+            CustomInputDropDown(
               controller: contact.designationController,
-              enabled: contact.designationEnabled,
               name: 'Designation',
-              prefixIconPath: MyIcon.staffDesignation,
-              prefixIconColor: Palettes.primary,
-              onAddTap: contact.designationOnTap,
-              onChanged: (value) {},
+              prefixIconPath: MyIcon.portfolio,
+              items: viewModel.designationList?.map((e) => e.designationEn!).map((String e) {
+                return DropdownMenuItem<String>(
+                  value: e,
+                  child: Text(
+                    e,
+                    style: Get.textTheme.bodyMedium!.copyWith(
+                      color: Palettes.black,
+                      fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
+                    ),
+                  ),
+                );
+              }).toList(),
+              enabled: contact.designationEnabled,
+              onChanged: contact.designationOnChange,
+              value: contact.selectedDesignation,
+              onAddTap: () => contact.designationOnTap(viewModel),
               outlineBorder: true,
             ),
             const SizedBox(height: 30),

@@ -59,21 +59,16 @@ class BusinessHours extends StatelessWidget {
                       )
                     ],
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      buss.clearNewCompanyTimes();
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 6),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Palettes.primary),
-                      ),
-                      child: Text(
-                        'Apply All'.tr,
-                        style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black, fontSize: 15),
-                        textAlign: TextAlign.left,
-                      ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 6),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Palettes.primary),
+                    ),
+                    child: Text(
+                      'Apply All'.tr,
+                      style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black, fontSize: 15),
+                      textAlign: TextAlign.left,
                     ),
                   ),
                 ],

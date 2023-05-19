@@ -6,11 +6,12 @@ import 'package:neeleez_flutter_app/helpers/helper.dart';
 
 class CustomDropDown1 extends StatelessWidget {
   final List<DropdownMenuItem<String>>? items;
+  final String? value;
   final String? name;
   final String? hint;
   final String? prefixIconPath;
   final Color? prefixIconColor;
-  final String? value;
+  // final String? value;
   final FocusNode? focusNode;
   final bool? outlineBorder;
   final void Function(String? value)? onChanged;
@@ -45,10 +46,6 @@ class CustomDropDown1 extends StatelessWidget {
                 color: Palettes.white,
                 width: 1.5,
               ),
-        // border: Border.all(
-        //   color: Palettes.white,
-        //   width: 1.5,
-        // ),
         boxShadow: const [
           BoxShadow(blurRadius: 0.4, color: Palettes.greyPrimary, spreadRadius: 0.2),
         ],
@@ -61,7 +58,6 @@ class CustomDropDown1 extends StatelessWidget {
               Container(
                 height: 48.5,
                 padding: EdgeInsets.symmetric(horizontal: 14, vertical: outlineBorder! ? 13 : 10.5),
-                // padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10.5),
                 decoration: BoxDecoration(
                   color: Palettes.greyPrimary,
                   borderRadius: Helper.isRtl()
@@ -112,18 +108,6 @@ class CustomDropDown1 extends StatelessWidget {
       isDense: true,
       value: value,
       items: items,
-      //  list!.map<DropdownMenuItem<String>>((String value) {
-      //   return DropdownMenuItem<String>(
-      //     value: value,
-      //     child: Text(
-      //       value,
-      //       style: Get.textTheme.bodyMedium!.copyWith(
-      //         color: Palettes.black,
-      //         fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
-      //       ),
-      //     ),
-      //   );
-      // }).toList(),
       icon: const Icon(Icons.arrow_drop_down_sharp),
       style: const TextStyle(color: Colors.deepPurple),
       underline: Container(),
@@ -132,55 +116,55 @@ class CustomDropDown1 extends StatelessWidget {
   }
 }
 
-class DropDownModel {
-  final int? id;
-  final String? nameEn;
-  final String? nameAr;
-  final String? nameFr;
-  const DropDownModel({
-    this.id,
-    this.nameEn,
-    this.nameAr,
-    this.nameFr,
-  });
-  DropDownModel copyWith({int? id, String? nameEn, String? nameAr, String? nameFr}) {
-    return DropDownModel(
-      id: id ?? this.id,
-      nameEn: nameEn ?? this.nameEn,
-      nameAr: nameAr ?? this.nameAr,
-      nameFr: nameFr ?? this.nameFr,
-    );
-  }
+// class DropDownModel {
+//   final int? id;
+//   final String? nameEn;
+//   final String? nameAr;
+//   final String? nameFr;
+//   const DropDownModel({
+//     this.id,
+//     this.nameEn,
+//     this.nameAr,
+//     this.nameFr,
+//   });
+//   DropDownModel copyWith({int? id, String? nameEn, String? nameAr, String? nameFr}) {
+//     return DropDownModel(
+//       id: id ?? this.id,
+//       nameEn: nameEn ?? this.nameEn,
+//       nameAr: nameAr ?? this.nameAr,
+//       nameFr: nameFr ?? this.nameFr,
+//     );
+//   }
 
-  Map<String, Object?> toJson() {
-    return {'id': id, 'nameEn': nameEn, 'nameAr': nameAr, 'nameFr': nameFr};
-  }
+//   Map<String, Object?> toJson() {
+//     return {'id': id, 'nameEn': nameEn, 'nameAr': nameAr, 'nameFr': nameFr};
+//   }
 
-  static DropDownModel fromJson(Map<String, Object?> json) {
-    return DropDownModel(
-        id: json['id'] == null ? null : json['id'] as int,
-        nameEn: json['nameEn'] == null ? null : json['nameEn'] as String,
-        nameAr: json['nameAr'] == null ? null : json['nameAr'] as String,
-        nameFr: json['nameFr'] == null ? null : json['nameFr'] as String);
-  }
+//   static DropDownModel fromJson(Map<String, Object?> json) {
+//     return DropDownModel(
+//         id: json['id'] == null ? null : json['id'] as int,
+//         nameEn: json['nameEn'] == null ? null : json['nameEn'] as String,
+//         nameAr: json['nameAr'] == null ? null : json['nameAr'] as String,
+//         nameFr: json['nameFr'] == null ? null : json['nameFr'] as String);
+//   }
 
-  @override
-  String toString() {
-    return '''DropDownModel(
-                id:$id,
-nameEn:$nameEn,
-nameAr:$nameAr,
-nameFr:$nameFr
-    ) ''';
-  }
+//   @override
+//   String toString() {
+//     return '''DropDownModel(
+//                 id:$id,
+// nameEn:$nameEn,
+// nameAr:$nameAr,
+// nameFr:$nameFr
+//     ) ''';
+//   }
 
-  @override
-  bool operator ==(Object other) {
-    return other is DropDownModel && other.runtimeType == runtimeType && other.id == id && other.nameEn == nameEn && other.nameAr == nameAr && other.nameFr == nameFr;
-  }
+//   @override
+//   bool operator ==(Object other) {
+//     return other is DropDownModel && other.runtimeType == runtimeType && other.id == id && other.nameEn == nameEn && other.nameAr == nameAr && other.nameFr == nameFr;
+//   }
 
-  @override
-  int get hashCode {
-    return Object.hash(runtimeType, id, nameEn, nameAr, nameFr);
-  }
-}
+//   @override
+//   int get hashCode {
+//     return Object.hash(runtimeType, id, nameEn, nameAr, nameFr);
+//   }
+// }

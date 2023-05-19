@@ -271,26 +271,23 @@ mixin CompanyProfileService {
     return null;
   }
 
-  Future<List<CompanyDayDetailViewModels>?> postCompanyTimings(
+  Future<bool> putCompanyTimings(
     String companyId,
-    List companyDayDetailViewModels,
+    String list,
   ) async {
     try {
-      for (var element in companyDayDetailViewModels) {
-        log(element);
-      }
-      // log(companyDayDetailViewModels.toString());
-
-      // final res = await apiRepository.apiPostWithDynamic("$baseUrl/api/CompanyTimings/$companyId", companyDayDetailViewModels);
-      // log(res.toString());
-      // if (res != null) {
-      //   return CompanyDayDetailViewModels.fromJsonList(res);
+      // for (var element in list) {
+      //   log(element);
       // }
+      final res = await apiRepository.apiPutWithDynamic("$baseUrl/api/Companies/UpdateTiming/$companyId", list);
+      if (res != null) {
+        return true;
+      }
     } catch (e) {
       log(e.toString());
       log("postCompanyTimings========>$e");
     }
-    return null;
+    return false;
   }
 
   Future<List<CompanyProfileImage>?> companyProfileImage(

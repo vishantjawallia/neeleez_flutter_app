@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neeleez_flutter_app/widgets/new.dart';
 
 class CustomDropDown extends StatefulWidget {
   const CustomDropDown({Key? key}) : super(key: key);
@@ -21,6 +22,16 @@ class _CustomDropDownState extends State<CustomDropDown> {
             ),
             const SizedBox(height: 10),
             const SizedBox(height: 20),
+            SelectDropList(
+              value: 'Option 1',
+              items: const [
+                'Option 1',
+                'Option 2',
+                'Option 3',
+                'Option 4',
+              ],
+              onTap: (value) {},
+            ),
             Container(
               width: w,
               // height: 55,
@@ -30,7 +41,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
                 isExpanded: true,
                 // isDense: true,
                 menuMaxHeight: 200,
-                
+
                 // itemHeight: 200,
 
                 icon: const Icon(Icons.arrow_drop_down),

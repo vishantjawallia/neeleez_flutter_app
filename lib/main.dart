@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/config/config.dart';
 import 'package:neeleez_flutter_app/config/preference.dart';
-import 'package:neeleez_flutter_app/languages/language.dart';
 import 'package:neeleez_flutter_app/middleware/auth_middleware.dart';
 import 'package:neeleez_flutter_app/theme/theme.dart';
 import 'package:neeleez_flutter_app/views/login/login_view.dart';
@@ -28,7 +27,13 @@ void main() async {
   runApp(
     MultiProvider(
       providers: ProviderInjector.providers,
-      child: MyApp(),
+      child:
+          //  DevicePreview(
+          // enabled: !kReleaseMode,
+          // builder:
+          // (context) =>
+          MyApp(), // Wrap your app
+      // ),
     ),
   );
 }
@@ -42,13 +47,15 @@ class MyApp extends StatelessWidget {
       locale: const Locale('en', 'US'),
       fallbackLocale: const Locale('en', 'US'),
       defaultTransition: Transition.rightToLeft,
-      translations: LocalLanguage(),
+      // translations: LocalLanguage(),
+      useInheritedMediaQuery: true,
       theme: CustomTheme.light,
       navigatorObservers: [
         BotToastNavigatorObserver(),
       ],
       builder: (context, myWidget) {
         myWidget = BotToastInit()(context, myWidget);
+        // myWidget = DevicePreview.appBuilder(context, myWidget);
         return MediaQuery(
           data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
           child: myWidget,

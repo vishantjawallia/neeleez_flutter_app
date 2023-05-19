@@ -9,8 +9,10 @@ import 'package:neeleez_flutter_app/widgets/url_image.dart';
 
 import '../../../../../config/my_icon.dart';
 
-class DepartmentInputField extends StatelessWidget {
+class CustomInputDropDown extends StatelessWidget {
   final TextEditingController? controller;
+  final List<DropdownMenuItem<String>>? items;
+  final String? value;
   final String? name;
   final String? prefixIconPath;
   final Color? prefixIconColor;
@@ -35,7 +37,7 @@ class DepartmentInputField extends StatelessWidget {
   final void Function()? onTap;
   final void Function()? onAddTap;
   final bool? isCustomRtl;
-  const DepartmentInputField({
+  const CustomInputDropDown({
     Key? key,
     this.controller,
     this.name,
@@ -62,6 +64,8 @@ class DepartmentInputField extends StatelessWidget {
     this.checkedSuffixIcon = false,
     this.isCustomRtl = false,
     this.prefixUrlImage,
+    this.items,
+    this.value,
   }) : super(key: key);
 
   @override
@@ -137,32 +141,31 @@ class DepartmentInputField extends StatelessWidget {
                         ),
                       ),
                       Flexible(
-                        child: GestureDetector(
-                          onTap: onTap,
-                          child: TextField(
-                            style: Get.textTheme.bodyMedium!.copyWith(
-                              color: Palettes.primary,
-                              fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
-                            ),
-                            controller: controller,
-                            maxLength: maxLength,
-                            maxLines: maxLines ?? 1,
-                            minLines: minLines,
-                            maxLengthEnforcement: maxLengthEnforcement ?? MaxLengthEnforcement.none,
-                            enabled: enabled,
-                            obscureText: obscureText ?? false,
-                            decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(horizontal: 14),
-                              border: InputBorder.none,
-                              hintText: name ?? 'Username / Email :',
-                              hintStyle: Get.textTheme.bodyMedium!.copyWith(
-                                color: Palettes.primary.withOpacity(0.8),
-                                fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
+                        child: !enabled!
+                            ? _dropDown()
+                            : TextField(
+                                style: Get.textTheme.bodyMedium!.copyWith(
+                                  color: Palettes.primary,
+                                  fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
+                                ),
+                                controller: controller,
+                                maxLength: maxLength,
+                                maxLines: maxLines ?? 1,
+                                minLines: minLines,
+                                maxLengthEnforcement: maxLengthEnforcement ?? MaxLengthEnforcement.none,
+                                enabled: enabled,
+                                obscureText: obscureText ?? false,
+                                decoration: InputDecoration(
+                                  contentPadding: const EdgeInsets.symmetric(horizontal: 14),
+                                  border: InputBorder.none,
+                                  hintText: name ?? 'Username / Email :',
+                                  hintStyle: Get.textTheme.bodyMedium!.copyWith(
+                                    color: Palettes.primary.withOpacity(0.8),
+                                    fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
+                                  ),
+                                  isDense: true,
+                                ),
                               ),
-                              isDense: true,
-                            ),
-                          ),
-                        ),
                       ),
                       suffixIconPath!.isNotEmpty
                           ? Container(
@@ -231,6 +234,31 @@ class DepartmentInputField extends StatelessWidget {
                   ),
           )
         ],
+      ),
+    );
+  }
+
+  _dropDown() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 15),
+      child: DropdownButton<String>(
+        // focusNode: focusNode,
+        key: Key('$name'),
+        hint: Text(
+          "Select ${name!}",
+          style: Get.textTheme.bodyMedium!.copyWith(
+            color: Palettes.primary.withOpacity(0.8),
+            fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
+          ),
+        ),
+        isExpanded: true,
+        isDense: true,
+        value: value,
+        items: items,
+        icon: const Icon(Icons.arrow_drop_down_sharp),
+        style: const TextStyle(color: Colors.deepPurple),
+        underline: Container(),
+        onChanged: onChanged,
       ),
     );
   }
