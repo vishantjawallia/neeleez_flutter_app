@@ -87,4 +87,18 @@ mixin DepartmentService {
     }
     return false;
   }
+
+  Future<bool> deleteDepartment(
+    String? depId,
+  ) async {
+    try {
+      final res = await apiRepository.apiDelete("$baseUrl/api/Department/$depId");
+      log(res.toString());
+      return true;
+    } catch (e) {
+      log(e.toString());
+      log("getDepartment========>$e");
+    }
+    return false;
+  }
 }

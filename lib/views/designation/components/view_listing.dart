@@ -23,20 +23,22 @@ class ViewListing extends StatelessWidget {
         ),
         Flexible(
           fit: FlexFit.loose,
-          child: ListView.builder(
-            itemCount: viewModel.desList!.length,
-            shrinkWrap: true,
-            scrollDirection: Axis.vertical,
-            physics: const BouncingScrollPhysics(),
-            padding: EdgeInsets.zero,
-            itemBuilder: (context, index) {
-              return SingleListTile(
-                name: viewModel.desList![index].designationEn,
-                onCrossTap: viewModel.onCrossTap,
-                onTap: viewModel.onSingleItemTap,
-              );
-            },
-          ),
+          child: viewModel.desList != null
+              ? ListView.builder(
+                  itemCount: viewModel.desList!.length,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  physics: const BouncingScrollPhysics(),
+                  padding: EdgeInsets.zero,
+                  itemBuilder: (context, index) {
+                    return SingleListTile(
+                      name: viewModel.desList![index].designationEn,
+                      onCrossTap: () => viewModel.onCrossTap(context, viewModel.desList![index].id!),
+                      onTap: viewModel.onSingleItemTap,
+                    );
+                  },
+                )
+              : const SizedBox(),
         ),
       ],
     );

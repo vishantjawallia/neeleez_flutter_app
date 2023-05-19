@@ -92,4 +92,18 @@ mixin DesignationService {
     }
     return false;
   }
+
+  Future<bool> deleteDesignation(
+    String designationId,
+  ) async {
+    try {
+      final res = await apiRepository.apiDelete("$baseUrl/api/Designation/$designationId");
+      log(res.toString());
+      return true;
+    } catch (e) {
+      log(e.toString());
+      log("deleteDesignation========>$e");
+    }
+    return false;
+  }
 }

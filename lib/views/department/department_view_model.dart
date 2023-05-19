@@ -44,9 +44,21 @@ class DepartmentViewModel extends BaseViewModel with DepartmentService {
     notifyListeners();
   }
 
-  void onCrossTap(BuildContext _) {
+  void onCrossTap(BuildContext _, int depId) {
     searchFocusNode.unfocus();
-    alertPopUp(_);
+    alertPopUp(
+      _,
+      onYesTap: () async {
+        Get.back();
+        setBusy(true);
+        bool res = await deleteDepartment("$depId");
+        if (res) {
+          departList = await getDepartment(companyId!);
+          setBusy(false);
+          notifyListeners();
+        }
+      },
+    );
   }
 
   void onSingleItemTap() {
@@ -72,13 +84,23 @@ class DepartmentViewModel extends BaseViewModel with DepartmentService {
       GlobalWidgets.toast('Invalid Field');
       return;
     }
-    DateTime dateTime = DateTime.now(); // Replace with your desired DateTime
-
+    setBusy(true);
+    DateTime dateTime = DateTime.now();
     String formattedDateTime = DateFormat("yyyy-MM-ddTHH:mm:ss.SSS'Z'").format(dateTime.toUtc());
-    // print(formattedDateTime);
-    bool res = await postDepartment(0, department.text, departmentAr.text, user!.companyId!.toInt(), status, formattedDateTime, 0, 0);
+    bool res = await postDepartment(
+      0,
+      department.text,
+      departmentAr.text,
+      int.parse(companyId!),
+      status,
+      formattedDateTime,
+      0,
+      0,
+    );
     if (res) {
       isAddNew = false;
+      departList = await getDepartment(companyId!) ?? [];
+      setBusy(false);
       notifyListeners();
     }
   }

@@ -5,7 +5,7 @@ import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/config/palettes.dart';
 
 class SingleListTile extends StatelessWidget {
-  final void Function(BuildContext context)? onCrossTap;
+  final void Function()? onCrossTap;
   final void Function()? onTap;
   final String? name;
   const SingleListTile({
@@ -70,7 +70,7 @@ class SingleListTile extends StatelessWidget {
             ),
             horizontalTitleGap: 10,
             trailing: GestureDetector(
-              onTap: () => onCrossTap!(context),
+              onTap: onCrossTap,
               child: Image.asset(
                 MyIcon.iconIncorrect,
                 fit: BoxFit.fill,

@@ -213,7 +213,6 @@ class apiRepository {
         headers: {
           'Content-Type': "application/json",
         },
-        // body: jsonEncode(body ?? {}),
       );
       if (response.statusCode == 204 || response.statusCode == 200) {
         return true;

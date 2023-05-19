@@ -40,7 +40,7 @@ class AddItem extends StatelessWidget {
           ),
           CustomTextField(
             widgetMargin: const EdgeInsets.only(top: 4),
-            controller: viewModel.designation,
+            controller: viewModel.remark,
             name: 'Remark',
             prefixIconPath: MyIcon.telephone,
             prefixIconColor: Palettes.primary,
