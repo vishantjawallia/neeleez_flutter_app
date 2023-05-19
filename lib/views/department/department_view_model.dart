@@ -7,6 +7,8 @@ import 'package:neeleez_flutter_app/views/department/service/department_service.
 import 'package:neeleez_flutter_app/widgets/global_widget.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../config/pref_constant.dart';
+import '../../config/preference.dart';
 import 'components/alert_popup.dart';
 
 class DepartmentViewModel extends BaseViewModel with DepartmentService {
@@ -17,6 +19,10 @@ class DepartmentViewModel extends BaseViewModel with DepartmentService {
   TextEditingController departmentAr = TextEditingController();
   bool status = true;
   Department? obj;
+  List<Department>? departList;
+
+  String? companyId = SharedPreferenceHelper.getString(Preferences.companyId);
+  String? countryId = SharedPreferenceHelper.getString(Preferences.countryId);
 
   FocusNode searchFocusNode = FocusNode();
   // FocusNode department = FocusNode();
@@ -32,7 +38,7 @@ class DepartmentViewModel extends BaseViewModel with DepartmentService {
   Future<void> loadItems() async {
     setBusy(true);
     //Write your models loading codes here
-
+    departList ??= await getDepartment(companyId!);
     //Let other views to render again
     setBusy(false);
     notifyListeners();

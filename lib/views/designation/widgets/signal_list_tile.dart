@@ -7,9 +7,11 @@ import 'package:neeleez_flutter_app/config/palettes.dart';
 class SingleListTile extends StatelessWidget {
   final void Function(BuildContext context)? onCrossTap;
   final void Function()? onTap;
+  final String? name;
   const SingleListTile({
     super.key,
     required this.onCrossTap,
+    required this.name,
     this.onTap,
   });
 
@@ -50,7 +52,8 @@ class SingleListTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Designation'.tr,
+                  name!,
+                  // 'Designation'.tr,
                   style: Get.textTheme.titleLarge!.copyWith(
                     color: Palettes.grey3,
                     fontWeight: FontWeight.w600,

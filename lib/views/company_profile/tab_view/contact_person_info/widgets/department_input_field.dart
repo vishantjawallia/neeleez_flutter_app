@@ -36,6 +36,7 @@ class CustomInputDropDown extends StatelessWidget {
   final void Function(String? value)? onChanged;
   final void Function()? onTap;
   final void Function()? onAddTap;
+  final void Function()? onRightTap;
   final bool? isCustomRtl;
   const CustomInputDropDown({
     Key? key,
@@ -66,6 +67,7 @@ class CustomInputDropDown extends StatelessWidget {
     this.prefixUrlImage,
     this.items,
     this.value,
+    this.onRightTap,
   }) : super(key: key);
 
   @override
@@ -207,6 +209,7 @@ class CustomInputDropDown extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       GestureDetector(
+                        onTap: onRightTap,
                         child: SizedBox(
                           height: 21,
                           width: 21,

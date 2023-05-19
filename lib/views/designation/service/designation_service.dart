@@ -6,8 +6,6 @@ import '../../../config/config.dart';
 import '../../../models/designation/designation.dart';
 
 mixin DesignationService {
-
-
   Future<List<Designation>?> getDesignationList(
     String companyId,
   ) async {
@@ -44,10 +42,10 @@ mixin DesignationService {
       "stateDate": stateDate,
       "isActive": isActive,
       "userId": userId,
-      "companyUsetId": companyUsetId,
+      "companyUsetId": companyUsetId
     };
     try {
-      final res = await apiRepository.apiPost("$baseUrl/api/Designation/", body);
+      final res = await apiRepository.apiPost("$baseUrl/api/Designation", body, isReturnResponse: false);
       log(res.toString());
       if (res != null) {
         return true;

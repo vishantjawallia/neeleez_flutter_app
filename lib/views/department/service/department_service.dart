@@ -43,9 +43,9 @@ mixin DepartmentService {
       "companyUserId": companyUserId,
     };
     try {
-      final res = await apiRepository.apiPost("$baseUrl/api/Department", body);
-      log(res.toString());
+      final res = await apiRepository.apiPost("$baseUrl/api/Department", body, isReturnResponse: false);
       if (res != null) {
+        log(res.toString());
         return true;
       }
     } catch (e) {

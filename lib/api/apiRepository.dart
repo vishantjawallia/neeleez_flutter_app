@@ -64,6 +64,7 @@ class apiRepository {
     String? url,
     Map<String, dynamic>? body, {
     bool? auth,
+    bool? isReturnResponse = false,
   }) async {
     try {
       final response = await http.post(
@@ -72,10 +73,25 @@ class apiRepository {
           'Content-Type': "application/json",
         },
         body: jsonEncode(body!),
+        // encoding: Encoding.getByName("utf-8"),
       );
       log(body.toString());
+      log(response.statusCode.toString());
+      log(response.bodyBytes.toString());
+      log(response.contentLength.toString());
+      log(response.headers.toString());
+      log(response.isRedirect.toString());
+      log(response.persistentConnection.toString());
+      log(response.reasonPhrase.toString());
+      log(response.request.toString());
+      log(response.runtimeType.toString());
+      log(response.body.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
-        return jsonDecode(response.body);
+        if (!isReturnResponse!) {
+          return "Added";
+        } else {
+          return jsonDecode(response.body.toString());
+        }
       } else if (response.statusCode == 401) {
         log(response.statusCode.toString());
         log(url.toString());
@@ -136,13 +152,12 @@ class apiRepository {
         Uri.parse(url!),
         headers: {
           'Content-Type': "application/json",
-          
         },
         body: body,
       );
       log(body.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
-        return jsonDecode(response.body);
+        return jsonDecode(response.body.toString());
       } else if (response.statusCode == 401) {
         log(response.statusCode.toString());
         log(url.toString());

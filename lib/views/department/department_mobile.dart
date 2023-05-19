@@ -8,21 +8,24 @@ class _DepartmentMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: DefaultLayout(
-        height: 151,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 22),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _appBar(),
-              Flexible(
-                child: Container(
-                  padding: const EdgeInsets.only(top: 30),
-                  child: !viewModel.isAddNew ? ViewListing(viewModel: viewModel) : AddItem(viewModel: viewModel),
+      body: ModalProgressHUD(
+        load: viewModel.isBusy,
+        child: DefaultLayout(
+          height: 151,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 22),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _appBar(),
+                Flexible(
+                  child: Container(
+                    padding: const EdgeInsets.only(top: 30),
+                    child: !viewModel.isAddNew ? ViewListing(viewModel: viewModel) : AddItem(viewModel: viewModel),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

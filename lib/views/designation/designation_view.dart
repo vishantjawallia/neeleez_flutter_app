@@ -1,6 +1,7 @@
 library designation_view;
 
 import 'package:get/get.dart';
+import 'package:neeleez_flutter_app/widgets/custom_%20modal_progress_hud.dart';
 import 'package:stacked/stacked.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';

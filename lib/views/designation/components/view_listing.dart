@@ -24,13 +24,14 @@ class ViewListing extends StatelessWidget {
         Flexible(
           fit: FlexFit.loose,
           child: ListView.builder(
-            itemCount: 1,
+            itemCount: viewModel.desList!.length,
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
             physics: const BouncingScrollPhysics(),
             padding: EdgeInsets.zero,
             itemBuilder: (context, index) {
               return SingleListTile(
+                name: viewModel.desList![index].designationEn,
                 onCrossTap: viewModel.onCrossTap,
                 onTap: viewModel.onSingleItemTap,
               );

@@ -117,6 +117,7 @@ class ContactPersonInfo extends StatelessWidget {
               value: contact.selectedDepartment,
               onChanged: contact.departmentOnChange,
               onAddTap: () => contact.departmentOnTap(viewModel),
+              onRightTap: () => contact.onNewDepartmentSave(context, viewModel),
 
               prefixIconPath: MyIcon.portfolio,
               items: viewModel.departmentList?.map((e) => e.name!).map((String e) {
@@ -157,6 +158,7 @@ class ContactPersonInfo extends StatelessWidget {
                 );
               }).toList(),
               enabled: contact.designationEnabled,
+              onRightTap: () => contact.onNewDesignationSave(context, viewModel),
               onChanged: contact.designationOnChange,
               value: contact.selectedDesignation,
               onAddTap: () => contact.designationOnTap(viewModel),
