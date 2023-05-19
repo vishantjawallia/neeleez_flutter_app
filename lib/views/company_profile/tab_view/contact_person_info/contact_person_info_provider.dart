@@ -41,6 +41,8 @@ class ContactPersonInfoProvider extends ChangeNotifier with DepartmentService, D
     fullName.addListener(() => notifyListeners());
     designationController.addListener(() => notifyListeners());
     departmentController.addListener(() => notifyListeners());
+    //focus Node
+    mobileNoFocusNode.addListener(() => notifyListeners());
   }
 
   void loadItems(CompanyProfile? cp, List<Countries>? countryList) {
@@ -51,8 +53,6 @@ class ContactPersonInfoProvider extends ChangeNotifier with DepartmentService, D
       fullName.text = cp.companyContact?.nameEn ?? "";
       code = countryList?.firstWhere((e) => e.id == cp.companyAddress?.countryId).countryCode.toString();
       codeId = countryList?.firstWhere((e) => e.id == cp.companyAddress?.countryId).id;
-      //focus Node
-      mobileNoFocusNode.addListener(() => notifyListeners());
       notifyListeners();
     }
   }
@@ -143,13 +143,13 @@ class ContactPersonInfoProvider extends ChangeNotifier with DepartmentService, D
       GlobalWidgets.toast('Empty Field Not Allowed', contentColor: Palettes.red);
       return;
     }
-    viewModel.setBusy(true);
     DateTime dateTime = DateTime.now();
     String formattedDateTime = DateFormat("yyyy-MM-ddTHH:mm:ss.SSS'Z'").format(dateTime.toUtc());
+    viewModel.setBusy(true);
     final res = await postDesignation(
       0,
       int.parse(viewModel.companyId!),
-      departmentController.text,
+      designationController.text,
       "",
       "",
       formattedDateTime,

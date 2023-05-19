@@ -1,4 +1,4 @@
-class PutTimg2 {
+class PuttingTiming2 {
   final int? id;
   final int? companyId;
   final int? dowId;
@@ -7,18 +7,26 @@ class PutTimg2 {
   final bool? isHoliday;
   final bool? isOpen24Hours;
   final List<CompanyTimes>? companyTimes;
-  const PutTimg2({this.id, this.companyId, this.dowId, this.dowShort, this.dow, this.isHoliday, this.isOpen24Hours, this.companyTimes});
-  PutTimg2 copyWith({int? id, int? companyId, int? dowId, String? dowShort, String? dow, bool? isHoliday, bool? isOpen24Hours, List<CompanyTimes>? companyTimes}) {
-    return PutTimg2(
-      id: id ?? this.id,
-      companyId: companyId ?? this.companyId,
-      dowId: dowId ?? this.dowId,
-      dowShort: dowShort ?? this.dowShort,
-      dow: dow ?? this.dow,
-      isHoliday: isHoliday ?? this.isHoliday,
-      isOpen24Hours: isOpen24Hours ?? this.isOpen24Hours,
-      companyTimes: companyTimes ?? this.companyTimes,
-    );
+  const PuttingTiming2({this.id, this.companyId, this.dowId, this.dowShort, this.dow, this.isHoliday, this.isOpen24Hours, this.companyTimes});
+  PuttingTiming2 copyWith({
+    int? id,
+    int? companyId,
+    int? dowId,
+    String? dowShort,
+    String? dow,
+    bool? isHoliday,
+    bool? isOpen24Hours,
+    List<CompanyTimes>? companyTimes,
+  }) {
+    return PuttingTiming2(
+        id: id ?? this.id,
+        companyId: companyId ?? this.companyId,
+        dowId: dowId ?? this.dowId,
+        dowShort: dowShort ?? this.dowShort,
+        dow: dow ?? this.dow,
+        isHoliday: isHoliday ?? this.isHoliday,
+        isOpen24Hours: isOpen24Hours ?? this.isOpen24Hours,
+        companyTimes: companyTimes ?? this.companyTimes);
   }
 
   Map<String, Object?> toJson() {
@@ -34,8 +42,8 @@ class PutTimg2 {
     };
   }
 
-  static PutTimg2 fromJson(Map<String, Object?> json) {
-    return PutTimg2(
+  static PuttingTiming2 fromJson(Map<String, Object?> json) {
+    return PuttingTiming2(
         id: json['id'] == null ? null : json['id'] as int,
         companyId: json['companyId'] == null ? null : json['companyId'] as int,
         dowId: json['dowId'] == null ? null : json['dowId'] as int,
@@ -43,12 +51,18 @@ class PutTimg2 {
         dow: json['dow'] == null ? null : json['dow'] as String,
         isHoliday: json['isHoliday'] == null ? null : json['isHoliday'] as bool,
         isOpen24Hours: json['isOpen24Hours'] == null ? null : json['isOpen24Hours'] as bool,
-        companyTimes: json['companyTimes'] == null ? null : (json['companyTimes'] as List).map<CompanyTimes>((data) => CompanyTimes.fromJson(data as Map<String, Object?>)).toList());
+        companyTimes: json['companyTimes'] == null
+            ? null
+            : (json['companyTimes'] as List)
+                .map<CompanyTimes>((data) => CompanyTimes.fromJson(
+                      data as Map<String, Object?>,
+                    ))
+                .toList());
   }
 
   @override
   String toString() {
-    return '''PutTimg2(
+    return '''PuttingTiming2(
                 id:$id,
 companyId:$companyId,
 dowId:$dowId,
@@ -62,7 +76,7 @@ companyTimes:${companyTimes.toString()}
 
   @override
   bool operator ==(Object other) {
-    return other is PutTimg2 &&
+    return other is PuttingTiming2 &&
         other.runtimeType == runtimeType &&
         other.id == id &&
         other.companyId == companyId &&

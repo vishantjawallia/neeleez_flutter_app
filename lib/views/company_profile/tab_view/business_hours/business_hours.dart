@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -168,7 +167,7 @@ class BusinessHours extends StatelessWidget {
                                                           buss.way2AddList(ii!, jj!, kk!, companyTimes);
                                                         },
                                                         onCloseTap: (ii, jj, kk) async {
-                                                          buss.way2RemoveList(ii!, jj!, kk!);
+                                                          buss.way2RemoveList(context, ii!, jj!, kk!, viewModel);
                                                         },
                                                       ),
                                                     );
@@ -198,18 +197,7 @@ class BusinessHours extends StatelessWidget {
                 text: 'Save',
                 backgroundColor: Palettes.primary,
                 borderColor: Palettes.primary,
-                onTap: () async {
-                  final buss = Provider.of<BusinessHoursProvider>(context, listen: false);
-                  List<CompanyDayDetailViewModels> kk = [];
-                  for (var i = 0; i < buss.timings.length; i++) {
-                    CompanyTimings c = buss.timings[i];
-                    for (var j = 0; j < c.companyDayDetailViewModels!.length; j++) {
-                      kk.add(c.companyDayDetailViewModels![j]);
-                    }
-                  }
-                  log(jsonEncode(kk));
-                  return buss.onSaveHandler(viewModel);
-                },
+                onTap: () => buss.onSaveHandler(context, viewModel),
               ),
             ),
             const SizedBox(height: 40),

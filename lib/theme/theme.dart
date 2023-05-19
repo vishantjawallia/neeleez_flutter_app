@@ -7,6 +7,9 @@ class CustomTheme {
   CustomTheme._();
 
   static ThemeData light = ThemeData(
+    colorScheme: const ColorScheme.light(
+      primary: Palettes.primary,
+    ),
     primaryColor: Palettes.red,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     textTheme: TextTheme(

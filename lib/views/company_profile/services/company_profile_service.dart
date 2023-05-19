@@ -271,15 +271,12 @@ mixin CompanyProfileService {
     return null;
   }
 
-  Future<bool> putCompanyTimings(
+  Future<bool> postCompanyTimings(
     String companyId,
-    String list,
+    dynamic list,
   ) async {
     try {
-      // for (var element in list) {
-      //   log(element);
-      // }
-      final res = await apiRepository.apiPutWithDynamic("$baseUrl/api/Companies/UpdateTiming/$companyId", list);
+      final res = await apiRepository.apiPostWithDynamic("$baseUrl/api/CompanyTimings", list);
       if (res != null) {
         return true;
       }
@@ -506,5 +503,19 @@ mixin CompanyProfileService {
       log("putUpdateAddress========>$e");
     }
     return;
+  }
+
+  Future<bool> deleteCompanyTimings(
+    String cId,
+  ) async {
+    try {
+      final res = await apiRepository.apiDelete("$baseUrl/api/CompanyTimings/DeleteCompanyTimingRow/$cId");
+      log(res.toString());
+      return true;
+    } catch (e) {
+      log(e.toString());
+      log("deleteCompanyTimings========>$e");
+    }
+    return false;
   }
 }

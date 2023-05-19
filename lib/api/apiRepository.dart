@@ -73,19 +73,7 @@ class apiRepository {
           'Content-Type': "application/json",
         },
         body: jsonEncode(body!),
-        // encoding: Encoding.getByName("utf-8"),
       );
-      log(body.toString());
-      log(response.statusCode.toString());
-      log(response.bodyBytes.toString());
-      log(response.contentLength.toString());
-      log(response.headers.toString());
-      log(response.isRedirect.toString());
-      log(response.persistentConnection.toString());
-      log(response.reasonPhrase.toString());
-      log(response.request.toString());
-      log(response.runtimeType.toString());
-      log(response.body.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
         if (!isReturnResponse!) {
           return "Added";
@@ -98,8 +86,7 @@ class apiRepository {
         final obj = jsonDecode(response.body);
         throw obj['detail'];
       } else {
-        log(response.statusCode.toString());
-        log(url.toString());
+        errorResponse(response);
         throw "Exception-Occurred";
       }
     } on SocketException catch (e) {
@@ -113,6 +100,7 @@ class apiRepository {
     String? url,
     dynamic body, {
     bool? auth,
+    bool? isReturnResponse = false,
   }) async {
     try {
       final response = await http.post(
@@ -122,17 +110,20 @@ class apiRepository {
         },
         body: jsonEncode(body!),
       );
-      log(body.toString());
+
       if (response.statusCode == 200 || response.statusCode == 201) {
-        return jsonDecode(response.body);
+        if (!isReturnResponse!) {
+          return "Added";
+        } else {
+          return jsonDecode(response.body);
+        }
       } else if (response.statusCode == 401) {
         log(response.statusCode.toString());
         log(url.toString());
         final obj = jsonDecode(response.body);
         throw obj['detail'];
       } else {
-        log(response.statusCode.toString());
-        log(url.toString());
+        errorResponse(response);
         throw "Exception-Occurred";
       }
     } on SocketException catch (e) {
@@ -164,8 +155,7 @@ class apiRepository {
         final obj = jsonDecode(response.body);
         throw obj['detail'];
       } else {
-        log(response.statusCode.toString());
-        log(url.toString());
+        errorResponse(response);
         throw "Exception-Occurred";
       }
     } on SocketException catch (e) {
@@ -190,8 +180,7 @@ class apiRepository {
       if (response.statusCode == 200) {
         return jsonDecode(response.body);
       } else {
-        log(response.statusCode.toString());
-        log(response.body.toString());
+        errorResponse(response);
         throw "api-error";
       }
     } on SocketException catch (e) {
@@ -216,6 +205,8 @@ class apiRepository {
       );
       if (response.statusCode == 204 || response.statusCode == 200) {
         return true;
+      } else {
+        errorResponse(response);
       }
     } on SocketException catch (e) {
       log('$e');
@@ -241,29 +232,12 @@ class apiRepository {
         },
         body: jsonEncode(body),
       );
-      log(response.statusCode.toString());
-      log(response.bodyBytes.toString());
-      log(response.contentLength.toString());
-      log(response.headers.toString());
-      log(response.isRedirect.toString());
-      log(response.persistentConnection.toString());
-      log(response.reasonPhrase.toString());
-      log(response.request.toString());
-      log(response.runtimeType.toString());
-      log(response.body.toString());
-      // log(response.persistentConnection.toString());
+
       if (response.statusCode == 200) {
         return jsonDecode(response.body.toString());
+      } else {
+        errorResponse(response);
       }
-      // } else {
-      //   log(response.statusCode.toString());
-      //   log(response.body.toString());
-      //   log(response.headers.toString());
-      //   log(response.reasonPhrase.toString());
-      //   log(response.request.toString());
-      //   log(response.reasonPhrase.toString());
-      //   // throw "api-error";
-      // }
     } on SocketException catch (e) {
       log('$e');
       log(e.runtimeType.toString());
@@ -289,9 +263,7 @@ class apiRepository {
       if (response.statusCode == 200) {
         return jsonDecode(response.body.toString());
       } else {
-        log(response.statusCode.toString());
-        log(response.body.toString());
-
+        errorResponse(response);
         throw "api-error";
       }
     } on SocketException catch (e) {
@@ -462,6 +434,20 @@ class apiRepository {
     //     throw "no-internet";
     //   }
     // }
+  }
+
+  static errorResponse(http.Response response) {
+    log(response.statusCode.toString());
+    log(response.statusCode.toString());
+    log(response.bodyBytes.toString());
+    log(response.contentLength.toString());
+    log(response.headers.toString());
+    log(response.isRedirect.toString());
+    log(response.persistentConnection.toString());
+    log(response.reasonPhrase.toString());
+    log(response.request.toString());
+    log(response.runtimeType.toString());
+    log(response.body.toString());
   }
 
 //  {

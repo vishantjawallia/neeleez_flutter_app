@@ -267,7 +267,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService, 
   }
 
   /* ------------------------------ BusinessHoursData------------------------------ */
-  void businessHoursData(_, {bool reload = false}) async {
+  void businessHoursData(BuildContext _, {bool reload = false}) async {
     setBusy(true);
     if (reload) {
       timings = await getCompanyTimings(companyId!);
@@ -383,4 +383,8 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService, 
       },
     );
   }
+
+  // void deleteCompanyTiming() {
+  //   • /api/CompanyTimings/DeleteCompanyTimingRow/{CId}
+  // }
 }

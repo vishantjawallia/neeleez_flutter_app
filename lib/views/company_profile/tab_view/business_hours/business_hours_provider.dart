@@ -1,18 +1,20 @@
-// ignore_for_file: non_constant_identifier_names, unused_local_variable
+// ignore_for_file: non_constant_identifier_names, unused_local_variable, use_build_context_synchronously
 
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:neeleez_flutter_app/views/company_profile/company_profile_view_model.dart';
 
 import '../../../../models/company/timing.dart';
-import 'model/put_timing.dart';
+import 'widgets/delete_alert.dart';
+// import 'model/put_timing.dart';
+// import 'model/put_timing2.dart';
 // import '../../widgets/timing_box.dart';
 
 class BusinessHoursProvider extends ChangeNotifier {
-  List<CompanyTimings> realTimings = [];
+  // List<CompanyTimings> realTimings = [];
   List<CompanyTimings> timings = [];
 
   bool isClosed = false;
@@ -40,6 +42,7 @@ class BusinessHoursProvider extends ChangeNotifier {
       cL.add(
         obj.copyWith(
           id: id,
+          companyTimingId: 0,
           isNew: true,
           endHour: 0,
           endMinute: 0,
@@ -55,18 +58,40 @@ class BusinessHoursProvider extends ChangeNotifier {
     }
   }
 
-  void way2RemoveList(int iX, int iY, int iZ) {
+  void way2RemoveList(
+    BuildContext _,
+    int iX,
+    int iY,
+    int iZ,
+    CompanyProfileViewModel viewModel,
+  ) async {
     CompanyTimings ct = timings[iX];
     List<CompanyDayDetailViewModels> cdL = ct.companyDayDetailViewModels!;
     CompanyDayDetailViewModels cd = ct.companyDayDetailViewModels![iY];
     List<CompanyTimes> cL = cd.companyTimes!;
-    if (!(cL.length <= 1)) {
+    CompanyTimes cl = cd.companyTimes![iZ];
+    if (!(cL.length <= 1) && cl.isNew!) {
       log(iZ.toString());
       cL.removeAt(iZ);
       cd.companyTimes != cL;
       ct.companyDayDetailViewModels != cdL;
       timings.replaceRange(iX, iX + 1, [ct]);
       notifyListeners();
+    }
+    if (!cl.isNew!) {
+      deleteAlert(
+        _,
+        text: 'Timer setting will be deleted from the server permanently. Are you sure to delete this?',
+        onYesTap: () async {
+          Get.back();
+          viewModel.setBusy(true);
+          bool res = await viewModel.deleteCompanyTimings(cl.id.toString());
+          if (res) {
+            viewModel.setBusy(false);
+            viewModel.businessHoursData(_, reload: true);
+          }
+        },
+      );
     }
   }
 
@@ -81,7 +106,32 @@ class BusinessHoursProvider extends ChangeNotifier {
             alwaysUse24HourFormat: false,
           ),
           child: child!,
+          // child: Theme(
+          //   data: ThemeData.light().copyWith(
+          //     colorScheme: const ColorScheme.light(
+          //         // change the border color
+          //         primary: Palettes.primary,
+          //         background: Palettes.primary,
+          //         primaryContainer: Palettes.primary
+          //         // change the text color
+          //         // onSurface: Colors.primaries,
+          //         ),
+          //     // button colors
+          //     // buttonTheme: const ButtonThemeData(
+          //     //   colorScheme: ColorScheme.light(
+          //     //     primary: Colors.green,
+          //     //   ),
+          //     // ),
+          //   ),
+          //   child: child!,
+          // ),
         );
+        // return MediaQuery(
+        //   data: MediaQuery.of(context).copyWith(
+        //     alwaysUse24HourFormat: false,
+        //   ),
+        //   child: child!,
+        // );
       },
     );
     if (picked != null) {
@@ -217,55 +267,47 @@ class BusinessHoursProvider extends ChangeNotifier {
   }
 
   void loadItems(List<CompanyTimings> list) async {
-    if (timings.length != list.length) {
-      await Future.delayed(const Duration(milliseconds: 100));
-      timings = list;
-      notifyListeners();
-    }
+    // if (timings.length != list.length) {
+    // await Future.delayed(const Duration(milliseconds: 100));
+    timings = list;
+    notifyListeners();
+    // }
   }
 
-  void onSaveHandler(CompanyProfileViewModel viewModel) async {
-    List<PutTiming> timing2 = [];
-
-    for (var x = 0; x < timings.length; x++) {
-      CompanyTimings xx = timings[x];
-      for (var y = 0; y < xx.companyDayDetailViewModels!.length; y++) {
-        CompanyDayDetailViewModels yy = xx.companyDayDetailViewModels![y];
-        log(jsonEncode(yy));
-        for (var z = 0; z < yy.companyTimes!.length; z++) {
-          CompanyTimes zz = yy.companyTimes![z];
-          PutTiming obj = PutTiming(
-            dowId: yy.dowId,
-            // id: zz.id,
-            id: zz.isNew! ? 0 : zz.id,
-            isHoliday: yy.isHoliday,
-            startTime: intToTiming(zz.startHour!, zz.startMinute!),
-            endTime: intToTiming(zz.endHour!, zz.endHour!),
-          );
-          timing2.add(obj);
-        }
+  void onSaveHandler(context, CompanyProfileViewModel viewModel) async {
+    List<CompanyDayDetailViewModels> ttt = [];
+    for (var element in timings) {
+      ttt.add(element.companyDayDetailViewModels!.first);
+    }
+    for (var x = 0; x < ttt.length; x++) {
+      CompanyDayDetailViewModels xx = ttt[x];
+      for (var y = 0; y < xx.companyTimes!.length; y++) {
+        CompanyTimes yy = xx.companyTimes![y].copyWith(
+          id: xx.companyTimes![y].isNew! ? 0 : xx.companyTimes![y].id,
+        );
+        xx.companyTimes!.replaceRange(y, y + 1, [yy]);
       }
+      ttt.replaceRange(x, x + 1, [xx]);
     }
+    for (var element in ttt) {
+      Map jj = element.toJson();
+      log('{');
+      jj.forEach((key, value) {
+        log('"$key" : "$value"');
+      });
+      log('}');
+      // Helper.mapLoop(jsonEncode(element));
+// log(message)
 
-    for (var element in timing2) {
-      log(element.toJson().toString());
+      // log(element.toString ));
+      // log(jsonEncode(element));
     }
-    // log(timing2.toString());
-
-    // Map<String, dynamic> obj = {
-    //   "id": 0,
-    //   "dowId": 0,
-    //   "startTime": "string",
-    //   "endTime": "string",
-    //   "isHoliday": true,
-    // };
-
     viewModel.setBusy(true);
-    // await Future.delayed(const Duration(seconds: 2));
-    await viewModel.putCompanyTimings("76", jsonEncode(timing2));
-    viewModel.setBusy(false);
-    // await Future.delayed(const Duration(seconds: 3));
-    // viewModel.setBusy(false);
+    bool res = await viewModel.postCompanyTimings(ttt.first.companyId!.toString(), ttt);
+    if (res) {
+      viewModel.setBusy(false);
+      viewModel.businessHoursData(context, reload: true);
+    }
   }
 }
 
@@ -295,3 +337,35 @@ String intToTiming(int hour, int min) {
   log(formattedTime);
   return formattedTime;
 }
+
+// {
+//  "id" : 10374,
+//  "companyId" : 76,
+//  "dowId" : 1,
+//  "dowShort" : "MON",
+//  "dow" : "Monday",
+//  "isHoliday" : false,
+//  "isOpen24Hours" : true,
+//  "companyTimes" : [
+//    {
+//       id: 11512,
+//       isNew: false,
+//       companyTimingId: 10374,
+//       companyId: 0,
+//       startHour: 9,
+//       startMinute: 0,
+//       endHour: 18,
+//       endMinute: 00
+//    },
+//    {
+//       id: 0,
+//       isNew: true,
+//       companyTimingId: 0,
+//       companyId: 0,
+//       startHour: 8,
+//       startMinute: 0,
+//       endHour: 16,
+//       endMinute: 0,
+//    }
+//   ]
+// }

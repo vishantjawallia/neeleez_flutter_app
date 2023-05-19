@@ -33,6 +33,7 @@ mixin DesignationService {
     int? userId,
     int? companyUsetId,
   ) async {
+    log(designationEn.toString());
     Map<String, dynamic> body = {
       "id": id,
       "companyId": companyId,
