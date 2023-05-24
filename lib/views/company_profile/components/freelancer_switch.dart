@@ -4,6 +4,7 @@ import 'package:neeleez_flutter_app/config/palettes.dart';
 
 class FreelancerSwitch extends StatelessWidget {
   final bool? initialValue;
+  final Color? color;
 
   final void Function()? onChange;
 
@@ -11,6 +12,7 @@ class FreelancerSwitch extends StatelessWidget {
     super.key,
     required this.onChange,
     required this.initialValue,
+    this.color,
     // required this.value,
   });
 
@@ -21,7 +23,10 @@ class FreelancerSwitch extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: Palettes.primary, width: 0.7),
+        border: Border.all(
+          color: color ?? Palettes.primary,
+          width: 0.7,
+        ),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -29,7 +34,7 @@ class FreelancerSwitch extends StatelessWidget {
         children: [
           Text(
             'Are You a Freelancer?'.tr,
-            style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.black),
+            style: Get.textTheme.bodyLarge!.copyWith(color: color ?? Palettes.black),
           ),
           Container(
             decoration: BoxDecoration(
@@ -45,12 +50,15 @@ class FreelancerSwitch extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.fromLTRB(12, 5, 12, 5),
                       decoration: BoxDecoration(
-                        color: !initialValue! ? Palettes.primary : Colors.transparent,
+                        color: !initialValue! ? (color ?? Palettes.primary) : Colors.transparent,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Text(
                         'No'.tr,
-                        style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.white),
+                        style: Get.textTheme.bodyLarge!.copyWith(
+                          // color: Palettes.white,
+                          color: color == null ? Palettes.white : Palettes.primary,
+                        ),
                       ),
                     ),
                   ),
@@ -62,12 +70,14 @@ class FreelancerSwitch extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.fromLTRB(12, 5, 12, 5),
                       decoration: BoxDecoration(
-                        color: initialValue! ? Palettes.primary : Colors.transparent,
+                        color: initialValue! ? (color ?? Palettes.primary) : Colors.transparent,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Text(
                         'Yes'.tr,
-                        style: Get.textTheme.bodyLarge!.copyWith(color: Palettes.white),
+                        style: Get.textTheme.bodyLarge!.copyWith(
+                          color: color == null ? Palettes.white : Palettes.primary,
+                        ),
                       ),
                     ),
                   ),

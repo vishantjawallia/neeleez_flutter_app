@@ -8,6 +8,7 @@ import 'package:neeleez_flutter_app/models/company/companies.dart';
 import 'package:neeleez_flutter_app/models/company/provinces.dart';
 import 'package:neeleez_flutter_app/provider/MainProvider.dart';
 import 'package:neeleez_flutter_app/views/registration/widgets/drop_down_Input.dart';
+import 'package:neeleez_flutter_app/views/registration/widgets/multi_drop_down_Input.dart';
 import 'package:neeleez_flutter_app/widgets/custom_%20modal_progress_hud.dart';
 import 'package:neeleez_flutter_app/widgets/custom_button.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +20,8 @@ import '../../helpers/helper.dart';
 import '../../models/business_types/business_services_by_country.dart';
 import '../../models/business_types/business_types.dart';
 import '../../widgets/custom_text_field.dart';
+import '../company_profile/components/custom_multi_drop_down.dart';
+import '../company_profile/components/freelancer_switch.dart';
 import 'registration_view_model.dart';
 
 part 'registration_mobile.dart';

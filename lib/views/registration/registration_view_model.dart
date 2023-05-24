@@ -13,12 +13,15 @@ import '../company_profile/services/company_profile_service.dart';
 class RegistrationViewModel extends BaseViewModel with RegistrationService, CompanyProfileService {
   final List<Countries>? countries;
   final CountryDetail? countryDetail;
+  double? lat;
+  double? long;
 
   List<BusinessServicesByCountry> bus = [];
   BusinessServicesByCountry? busObj;
 
   List<BusinessTypes> busType = [];
-  BusinessTypes? busTypeObj;
+  List<BusinessTypes> busSelectedList = [];
+  // BusinessTypes? busTypeObj;
 
   List<Provinces> provinces = [];
   Provinces? province;
@@ -34,6 +37,14 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
   TextEditingController pass = TextEditingController();
   TextEditingController googleAddr = TextEditingController();
   TextEditingController additionalAddr = TextEditingController();
+  FocusNode busTypefocusNode = FocusNode();
+  ScrollController busTypeScrollController = ScrollController();
+
+  bool isFreelancer = false;
+
+  bool isTerms = false;
+
+  // List<BusinessTypes> busSelectedList = [];
 
   RegistrationViewModel(this.countries, this.countryDetail) {
     name.addListener(() => notifyListeners());
@@ -42,6 +53,15 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
     pass.addListener(() => notifyListeners());
     googleAddr.addListener(() => notifyListeners());
     additionalAddr.addListener(() => notifyListeners());
+    //
+    busTypefocusNode.addListener(() {
+      if (busTypefocusNode.hasFocus) {
+        busTypeScrollController.animateTo(busTypeScrollController.position.maxScrollExtent, duration: const Duration(milliseconds: 500), curve: Curves.ease);
+      }
+      notifyListeners();
+    });
+    //
+    busTypeScrollController.addListener(() => notifyListeners());
     loadItems();
   }
 
@@ -62,7 +82,7 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
   // addDeviceInfo();
 
   void busCategoryOnChange(BusinessServicesByCountry? value) async {
-    busTypeObj = null;
+    busSelectedList = [];
     busObj = value;
     setBusy(true);
     busType = await businessServiceIdWithCountryId("${value!.businessServiceId}", "${countryDetail!.countryId}") ?? [];
@@ -71,8 +91,10 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
   }
 
   void busSubCategoryOnChange(BusinessTypes? value) {
-    busTypeObj = value;
-    notifyListeners();
+    if (!busSelectedList.contains(value)) {
+      busSelectedList.add(value!);
+      notifyListeners();
+    }
   }
 
   void countryOnChange(Countries? value) async {
@@ -97,5 +119,76 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
   void cityOnChange(Cities? value) {
     city = value;
     notifyListeners();
+  }
+
+  void freelancerOnChange() {
+    isFreelancer = !isFreelancer;
+    notifyListeners();
+  }
+
+  void googleMapOnTap() {
+    // Get.
+  }
+
+  void busSubCategoryOnRemove(String? value) {
+    BusinessTypes? obj = busSelectedList.firstWhere((e) => e.businessTypeNameEn == value);
+    if (busSelectedList.contains(obj)) {
+      busSelectedList.remove(obj);
+      busTypeScrollController.animateTo(busTypeScrollController.position.maxScrollExtent, duration: const Duration(milliseconds: 500), curve: Curves.ease);
+      notifyListeners();
+    }
+  }
+
+  void termsOnChange(bool? value) {
+    isTerms = value!;
+    notifyListeners();
+  }
+
+  void registerOnTap() async {
+    setBusy(true);
+    // bool res = await addNewCompany(
+    //   isRegistered,
+    //   companyId,
+    //   isFreeLancer,
+    //   companyNameEn,
+    //   genderId,
+    //   mobile,
+    //   whatsapp,
+    //   tel1,
+    //   email,
+    //   password,
+    //   areaId,
+    //   countryId,
+    //   cityId,
+    //   lattitude,
+    //   longitude,
+    //   address,
+    //   googleAddress,
+    //   teamUserId,
+    //   isEmailVerified,
+    //   appMobileVerified,
+    //   webMobileVerified,
+    //   businessServiceId,
+    //   salesTeamId,
+    //   serviceTypes,
+    // );
+    // bool res = await addDeviceInfo(
+    //   applicationTypeId,
+    //   clientId,
+    //   companyId,
+    //   salesTeamId,
+    //   manufacturer,
+    //   name,
+    //   versionString,
+    //   platform,
+    //   idiom,
+    //   deviceType,
+    //   orientation,
+    //   density,
+    //   width,
+    //   height,
+    //   rotation,
+    // );
+    setBusy(false);
   }
 }

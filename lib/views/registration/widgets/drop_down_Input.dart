@@ -8,6 +8,7 @@ import '../../../widgets/drop_down/src/dropdown_button2.dart';
 class DropDownInput<E> extends StatelessWidget {
   final String? name;
   final String? prefixIconPath;
+  final String? prefixUrl;
   final E? value;
   final FocusNode? focusNode;
   final List<DropdownMenuItem<E>>? items;
@@ -18,8 +19,9 @@ class DropDownInput<E> extends StatelessWidget {
     this.value,
     required this.onChanged,
     required this.name,
-    required this.prefixIconPath,
+    this.prefixIconPath,
     this.focusNode,
+    this.prefixUrl,
   });
 
   @override
@@ -27,6 +29,7 @@ class DropDownInput<E> extends StatelessWidget {
     return CustomTextField(
       name: name,
       prefixIconPath: prefixIconPath,
+      prefixUrlImage: prefixUrl,
       widgetMargin: const EdgeInsets.symmetric(vertical: 5),
       inputWidget: SizedBox(
         height: 46,
@@ -37,13 +40,9 @@ class DropDownInput<E> extends StatelessWidget {
           underline: const SizedBox(),
           hint: Text(
             name ?? 'Select a project',
-            // Get.textTheme.bodyMedium!.copyWith(
-            //                 color: Palettes.primary.withOpacity(0.8),
-            //                 fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
-            //               )
             style: Get.textTheme.bodyMedium!.copyWith(
-              color: Palettes.primary.withOpacity(0.7),
-              fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.755),
+              color: Palettes.primary.withOpacity(0.8),
+              fontWeight: FontWeight.w500,
             ),
           ),
           buttonStyleData: const ButtonStyleData(

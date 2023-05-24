@@ -32,12 +32,9 @@ class _RegistrationMobile extends StatelessWidget {
                         MyImage.logo,
                       ),
                       const SizedBox(height: 50),
-                      GestureDetector(
-                        // onTap: () => Get.locale == const Locale('ur', 'PK') ? Get.updateLocale(const Locale('en', 'US')) : Get.updateLocale(const Locale('ur', 'PK')),
-                        child: Text(
-                          'registerNow'.tr,
-                          style: Get.textTheme.displayLarge,
-                        ),
+                      Text(
+                        'registerNow'.tr,
+                        style: Get.textTheme.displayLarge,
                       ),
                       const SizedBox(height: 10),
                       SizedBox(
@@ -78,6 +75,12 @@ class _RegistrationMobile extends StatelessWidget {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
+                      FreelancerSwitch(
+                        color: Palettes.white,
+                        initialValue: viewModel.isFreelancer,
+                        onChange: viewModel.freelancerOnChange,
+                      ),
+                      const SizedBox(height: 10),
                       const CustomTextField(
                         name: 'Company Name:',
                         prefixIconPath: MyIcon.officeBuilding,
@@ -104,10 +107,13 @@ class _RegistrationMobile extends StatelessWidget {
                             )
                             .toList(),
                       ),
-                      DropDownInput<BusinessTypes>(
+                      MultiDropDownInput<BusinessTypes>(
+                        focusNode: viewModel.busTypefocusNode,
+                        scrollController: viewModel.busTypeScrollController,
                         name: 'Business Sub-Category: ',
                         prefixIconPath: MyIcon.portfolio,
-                        value: viewModel.busTypeObj,
+                        selectedList: viewModel.busSelectedList.map((e) => e.businessTypeNameEn!).toList(),
+                        onRemove: viewModel.busSubCategoryOnRemove,
                         onChanged: viewModel.busSubCategoryOnChange,
                         items: viewModel.busType
                             .map(
@@ -125,34 +131,11 @@ class _RegistrationMobile extends StatelessWidget {
                             )
                             .toList(),
                       ),
-                      // DropDownInput(
-                      //   name: 'Service For:',
-                      //   prefixIconPath: MyIcon.sex,
-                      //   items: ['hi', 'go']
-                      //       .map((e) => DropdownMenuItem(
-                      //             value: e,
-                      //             child: Text(
-                      //               e,
-                      //               style: Get.textTheme.bodyMedium!.copyWith(
-                      // color: Palettes.black,
-                      // fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.755),
-                      // ),
-                      //               overflow: TextOverflow.ellipsis,
-                      //             ),
-                      //           ))
-                      //       .toList(),
-                      //   onChanged: (p0) {},
-                      // ),
                       const CustomTextField(
                         name: 'Telephone:',
                         prefixIconPath: MyIcon.telephone,
                         widgetMargin: EdgeInsets.symmetric(vertical: 5),
                       ),
-                      // const CustomTextField(
-                      //   name: 'WhatsApp:',
-                      //   prefixIconPath: MyIcon.whatsapp,
-                      //   widgetMargin: EdgeInsets.symmetric(vertical: 5),
-                      // ),
                       const CustomTextField(
                         name: 'Email:',
                         prefixIconPath: MyIcon.mail,
@@ -160,7 +143,7 @@ class _RegistrationMobile extends StatelessWidget {
                       ),
                       const CustomTextField(
                         name: 'Password:',
-                        prefixIconPath: MyIcon.mail,
+                        prefixIconPath: MyIcon.password,
                         widgetMargin: EdgeInsets.symmetric(vertical: 5),
                       ),
                     ],
@@ -194,7 +177,7 @@ class _RegistrationMobile extends StatelessWidget {
                     children: <Widget>[
                       DropDownInput<Countries>(
                         name: 'Country:',
-                        prefixIconPath: MyIcon.mail,
+                        prefixUrl: viewModel.country?.iconImage2 ?? "",
                         value: viewModel.country,
                         items: viewModel.countries!
                             .map((e) => DropdownMenuItem<Countries>(
@@ -213,7 +196,7 @@ class _RegistrationMobile extends StatelessWidget {
                       ),
                       DropDownInput<Provinces>(
                         name: 'State/Province:',
-                        prefixIconPath: MyIcon.locationPin,
+                        prefixIconPath: MyIcon.imgLocationState,
                         value: viewModel.province,
                         onChanged: viewModel.provinceOnChange,
                         items: viewModel.provinces
@@ -229,12 +212,10 @@ class _RegistrationMobile extends StatelessWidget {
                                   ),
                                 ))
                             .toList(),
-                        // items: dropDownItem([]),
                       ),
                       DropDownInput<Cities>(
                         name: 'City:',
-                        prefixIconPath: MyIcon.place,
-
+                        prefixIconPath: MyIcon.imgLocationCity,
                         value: viewModel.city,
                         onChanged: viewModel.cityOnChange,
                         items: viewModel.cities
@@ -250,24 +231,23 @@ class _RegistrationMobile extends StatelessWidget {
                                   ),
                                 ))
                             .toList(),
-
                       ),
-                      // const CustomTextField(
-                      //   name: 'Country:',
-                      //   prefixIconPath: MyIcon.mail,
-                      //   widgetMargin: EdgeInsets.symmetric(vertical: 5),
-                      //   suffixIconPath: MyIcon.polygon,
-                      // ),
-                      // const CustomTextField(
-                      //   name: 'State/Province:',
-                      //   prefixIconPath: MyIcon.locationPin,
-                      //   widgetMargin: EdgeInsets.symmetric(vertical: 5),
-                      //   suffixIconPath: MyIcon.polygon,
-                      // ),
                       const CustomTextField(
+                        enabled: false,
                         name: 'Google Address:',
                         prefixIconPath: MyIcon.place,
                         widgetMargin: EdgeInsets.symmetric(vertical: 5),
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: GestureDetector(
+                          onTap: viewModel.googleMapOnTap,
+                          child: Text(
+                            'Open Google Map',
+                            style: Get.textTheme.bodyMedium!.copyWith(color: Palettes.white, decoration: TextDecoration.underline, fontWeight: FontWeight.w500),
+                            textAlign: TextAlign.end,
+                          ),
+                        ),
                       ),
                       const SizedBox(height: 10),
                       const CustomTextField(
@@ -275,155 +255,88 @@ class _RegistrationMobile extends StatelessWidget {
                         prefixIconPath: MyIcon.place,
                         widgetMargin: EdgeInsets.symmetric(vertical: 5),
                       ),
-                      // const CustomTextField(
-                      //   height: 90,
-                      //   name: 'Additional Information:',
-                      //   prefixIconPath: MyIcon.information,
-                      //   widgetMargin: EdgeInsets.symmetric(vertical: 5),
-                      //   prefixPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 30),
-                      //   // prefixPadding: EdgeInsets.symmetric(
-                      //   //   vertical: 1000,
-                      //   // ),
-                      //   // maxLength: 500,
-                      //   // maxLines: 0,
-                      //   // minLines: 10,
-                      //   maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                      // ),
-                      // Container(
-                      //   margin: EdgeInsets.only(top: 0.5.h),
-                      //   decoration: BoxDecoration(
-                      //     // color: Palettes.transparent,
-                      //     border: Border.all(width: 1, color: Palettes.white),
-                      //     borderRadius: BorderRadius.circular(12),
-                      //   ),
-                      //   child: TextFormField(
-                      //     autofocus: false,
-                      //     // controller: _desc,
-                      //     maxLength: 500,
-                      //     maxLines: 20,
-                      //     minLines: 10,
-                      //     maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                      //     // style: MyTextStyle.bodyText1.copyWith(color: Palettes.black),
-                      //     decoration: InputDecoration(
-                      //       contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                      //       fillColor: Colors.white,
-                      //       filled: true,
-                      //       hintText: 'About Me',
-                      //       // hintStyle: MyTextStyle.bodyText1.copyWith(color: Palettes.grey),
-                      //       errorBorder: InputBorder.none,
-                      //       border: const OutlineInputBorder(
-                      //         borderSide: BorderSide.none,
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
-                      //CustomTextField(
-                      //   name: 'City:',
-                      //   prefixIconPath: MyIcon.place,
-                      //   widgetMargin: EdgeInsets.symmetric(vertical: 5),
-                      // ),
-                      // Container(
-                      //   margin: const EdgeInsets.symmetric(vertical: 5),
-                      //   height: 200,
-                      //   decoration: BoxDecoration(
-                      //     color: Palettes.white,
-                      //     borderRadius: BorderRadius.circular(12),
-                      //   ),
-                      // )
                     ],
                   ),
-                  // const SizedBox(height: 30),
-                  // Align(
-                  //   alignment: Alignment.centerLeft,
-                  //   child: Column(
-                  //     mainAxisAlignment: MainAxisAlignment.start,
-                  //     crossAxisAlignment: CrossAxisAlignment.start,
-                  //     children: [
-                  //       Text(
-                  //         'Login Information:'.tr,
-                  //         style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w600),
-                  //         textAlign: TextAlign.left,
-                  //       ),
-                  //       Container(
-                  //         alignment: Alignment.centerLeft,
-                  //         height: 4,
-                  //         width: 35,
-                  //         decoration: const BoxDecoration(
-                  //           color: Palettes.white,
-                  //         ),
-                  //       )
-                  //     ],
-                  //   ),
-                  // ),
+                  const SizedBox(height: 10),
+                  Align(
+                    widthFactor: 0.945,
+                    alignment: Alignment.centerRight,
+                    child: Container(
+                      child: Row(
+                        children: [
+                          Checkbox(
+                            fillColor: MaterialStateProperty.all(Palettes.white),
+                            focusNode: FocusNode(),
+                            focusColor: Palettes.primary,
+                            checkColor: Palettes.primary,
+                            visualDensity: VisualDensity.standard,
+                            value: viewModel.isTerms,
+                            onChanged: viewModel.termsOnChange,
+                          ),
+                          Flexible(
+                            child: RichText(
+                              text: TextSpan(
+                                text: "By checking this, I agree to Neeleez - We Care's ",
+                                style: Get.textTheme.bodyMedium!.copyWith(
+                                  color: Palettes.white,
+                                ),
+                                children: <TextSpan>[
+                                  TextSpan(
+                                    text: 'Terms of Use & Privacy Policy',
+                                    style: Get.textTheme.bodyMedium!.copyWith(
+                                      color: Palettes.white,
+                                      decoration: TextDecoration.underline,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                   const SizedBox(height: 50),
-                  // Column(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //   children: <Widget>[
-                  //     const CustomTextField(
-                  //       name: 'Username / Email:',
-                  //       prefixIconPath: MyIcon.user,
-                  //       widgetMargin: EdgeInsets.symmetric(vertical: 5),
-                  //     ),
-                  //     const CustomTextField(
-                  //       name: 'Password:',
-                  //       prefixIconPath: MyIcon.password,
-                  //       widgetMargin: EdgeInsets.symmetric(vertical: 5),
-                  //     ),
-                  //     const SizedBox(height: 30),
-                  //   ],
-                  // ),
                   CustomButton(
-                    onTap: () {},
+                    onTap: viewModel.registerOnTap,
                     text: 'register'.tr,
                   ),
                   const SizedBox(height: 40),
-                  _bottomLine(),
-                  const SizedBox(height: 60),
+                  // _bottomLine(),
+                  GestureDetector(
+                    onTap: () => Get.back(),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: Text(
+                        'Change Mobile Number'.tr,
+                        style: Get.textTheme.bodySmall!.copyWith(
+                          decoration: TextDecoration.underline,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () => Get.back(),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: Text(
+                        'Back to Login Screen'.tr,
+                        style: Get.textTheme.bodySmall!.copyWith(
+                          decoration: TextDecoration.underline,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),
           ),
         ),
       ),
-    );
-  }
-
-  List<DropdownMenuItem> dropDownItem(e) {
-    return e
-        .map((value) => DropdownMenuItem(
-              value: value,
-              child: Text(
-                value,
-                style: Get.textTheme.bodyMedium!.copyWith(
-                  color: Palettes.black,
-                  fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.755),
-                ),
-                overflow: TextOverflow.ellipsis,
-              ),
-            ))
-        .toList();
-  }
-
-  _bottomLine() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          '${'alreadyHaveAnAccount'.tr} ',
-          style: Get.textTheme.bodyMedium,
-        ),
-        GestureDetector(
-          onTap: () {
-            Get.back();
-          },
-          child: Text(
-            'logIn'.tr,
-            style: Get.textTheme.bodyMedium!.copyWith(
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
