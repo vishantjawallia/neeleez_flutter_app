@@ -11,91 +11,251 @@ class _MobileVerificationMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ModalProgressHUD(
-        load: viewModel.isBusy,
-        child: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: AssetImage(
-                MyImage.splashBackground1,
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: 100.h,
+          child: ModalProgressHUD(
+            load: viewModel.isBusy,
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(
+                    MyImage.splashBackground1,
+                  ),
+                ),
               ),
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 28),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 28),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(height: 10.h),
-                    Image.asset(
-                      height: 115,
-                      MyImage.logo,
-                      fit: BoxFit.cover,
-                    ),
-                    SizedBox(height: 5.h),
                     Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        GestureDetector(
-                          child: Text(
-                            'Mobile Verification'.tr,
-                            style: Get.textTheme.displayLarge,
-                          ),
+                        SizedBox(height: 10.h),
+                        Image.asset(
+                          height: 115,
+                          MyImage.logo,
+                          fit: BoxFit.cover,
                         ),
-                        SizedBox(height: 2.h),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 22),
-                          child: Text(
-                            'mobileVerificationText'.tr,
-                            style: Get.textTheme.bodyMedium,
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        SizedBox(height: 3.h),
-                        PhoneTextField(
-                          // onChanged: viewModel.onPhoneInputChange,
-                          controller: viewModel.phoneController,
-                          name: 'XXX-XXXXXXX',
-                          obscureText: false,
-                          prefixIconPath: MyIcon.mobileAnalytics,
-                          suffixIconPath: viewModel.phoneController.text.length > 11
-                              ? MyIcon.checked1
-                              : viewModel.phoneController.text.isNotEmpty
-                                  ? MyIcon.crossed
-                                  : '',
-                          inputFormatters: [],
-                        ),
-                        SizedBox(height: 3.h),
-                        CustomButton(
-                          onTap: viewModel.sendHandler,
-                          text: 'sendOtp'.tr,
-                          padding: const EdgeInsets.symmetric(horizontal: 85, vertical: 12),
+                        SizedBox(height: 5.h),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                              child: Text(
+                                'Mobile Verification'.tr,
+                                style: Get.textTheme.displayLarge,
+                              ),
+                            ),
+                            SizedBox(height: 2.h),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 22),
+                              child: Text(
+                                'mobileVerificationText'.tr,
+                                style: Get.textTheme.bodyMedium,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            SizedBox(height: 3.h),
+                            PhoneTextField(
+                              keyboardType: TextInputType.phone,
+                              onChanged: viewModel.phoneOnChange,
+                              inputFormatters: [viewModel.maskFormatter!],
+                              countryCode: viewModel.country?.countryCode ?? "+000",
+                              name: (viewModel.country!.mobileMaskFormat ?? '+000 00 000 0000').replaceAll('0', 'X'),
+                              // name: (viewModel.country!.mobileMask ?? '+000 00 000 0000').substring(viewModel.country!.countryCode!.length, viewModel.country!.mobileMask!.length).replaceAll('0', 'X'),
+                              prefixIconColor: Palettes.primary,
+                              prefixIconPath: MyIcon.mobileAnalytics,
+                              suffixIconPath: viewModel.phoneNumber.length == viewModel.country!.mobileNumberLength!
+                                  ? MyIcon.checked1
+                                  : viewModel.phoneNumber.isNotEmpty
+                                      ? MyIcon.crossed
+                                      : '',
+                              outlineBorder: true,
+                              onCountryCodeTap: () => viewModel.onCountryCodeTap(context, viewModel.countryList!, viewModel.country!.id),
+                            ),
+                            SizedBox(height: 3.h),
+                            CustomButton(
+                              onTap: viewModel.sendHandler,
+                              text: 'sendOtp'.tr,
+                              padding: const EdgeInsets.symmetric(horizontal: 85, vertical: 12),
+                            ),
+                          ],
                         ),
                       ],
                     ),
+                    GestureDetector(
+                      onTap: () => Get.back(),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 34),
+                        child: Text(
+                          'Back to Login Screen'.tr,
+                          style: Get.textTheme.bodySmall!.copyWith(
+                            decoration: TextDecoration.underline,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-                GestureDetector(
-                  onTap: () => Get.back(),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 34),
-                    child: Text(
-                      'Back to Login Screen'.tr,
-                      style: Get.textTheme.bodySmall!.copyWith(
-                        decoration: TextDecoration.underline,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ),
       ),
     );
+  }
+}
+
+class ExamplePage extends StatefulWidget {
+  const ExamplePage({Key? key}) : super(key: key);
+
+  @override
+  ExamplePageState createState() => ExamplePageState();
+}
+
+class ExampleMask {
+  final TextEditingController textController = TextEditingController();
+  final MaskTextInputFormatter formatter;
+  final FormFieldValidator<String>? validator;
+  final String hint;
+  final TextInputType textInputType;
+
+  ExampleMask({
+    required this.formatter,
+    this.validator,
+    required this.hint,
+    required this.textInputType,
+  });
+}
+
+class ExamplePageState extends State<ExamplePage> {
+  final List<ExampleMask> examples = [
+    ExampleMask(formatter: MaskTextInputFormatter(mask: "+# (###) ###-##-##"), hint: "+1 (234) 567-89-01", textInputType: TextInputType.phone),
+    ExampleMask(
+      formatter: MaskTextInputFormatter(mask: "+# (###) ###-##-##", type: MaskAutoCompletionType.eager),
+      hint: "+1 (234) 567-89-01 (eager type)",
+      textInputType: TextInputType.phone,
+    ),
+    ExampleMask(
+        formatter: MaskTextInputFormatter(mask: "##/##/####"),
+        hint: "31/12/2020",
+        textInputType: TextInputType.phone,
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return null;
+          }
+          final components = value.split("/");
+          if (components.length == 3) {
+            final day = int.tryParse(components[0]);
+            final month = int.tryParse(components[1]);
+            final year = int.tryParse(components[2]);
+            if (day != null && month != null && year != null) {
+              final date = DateTime(year, month, day);
+              if (date.year == year && date.month == month && date.day == day) {
+                return null;
+              }
+            }
+          }
+          return "wrong date";
+        }),
+    ExampleMask(
+      formatter: MaskTextInputFormatter(mask: "(AA) ####-####"),
+      hint: "(AB) 1234-5678",
+      textInputType: TextInputType.text,
+    ),
+    ExampleMask(
+      formatter: MaskTextInputFormatter(mask: "####.AAAAAA/####-####"),
+      hint: "1234.ABCDEF/2019-2020",
+      textInputType: TextInputType.text,
+    ),
+    ExampleMask(
+      formatter: SpecialMaskTextInputFormatter(),
+      hint: "A.1234 or B.123456",
+      textInputType: TextInputType.text,
+    ),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey.shade200,
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          children: examples.map(buildTextField).toList(),
+        ),
+      ),
+    );
+  }
+
+  Widget buildTextField(ExampleMask example) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Stack(
+        children: [
+          TextFormField(
+              controller: example.textController,
+              inputFormatters: [const UpperCaseTextFormatter(), example.formatter],
+              autocorrect: false,
+              keyboardType: example.textInputType,
+              autovalidateMode: AutovalidateMode.always,
+              validator: example.validator,
+              decoration: InputDecoration(
+                  hintText: example.hint,
+                  hintStyle: const TextStyle(color: Colors.grey),
+                  fillColor: Colors.white,
+                  filled: true,
+                  focusedBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.green)),
+                  enabledBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.blue)),
+                  errorBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.red)),
+                  border: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.green)),
+                  errorMaxLines: 1)),
+          Positioned(
+            right: 0,
+            top: 0,
+            child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Material(
+                  type: MaterialType.transparency,
+                  child: InkWell(borderRadius: const BorderRadius.all(Radius.circular(24)), child: const Icon(Icons.clear, color: Colors.grey, size: 24), onTap: () => example.textController.clear()),
+                )),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class UpperCaseTextFormatter implements TextInputFormatter {
+  const UpperCaseTextFormatter();
+
+  @override
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
+    return TextEditingValue(text: newValue.text.toUpperCase(), selection: newValue.selection);
+  }
+}
+
+class SpecialMaskTextInputFormatter extends MaskTextInputFormatter {
+  static String maskA = "S.####";
+  static String maskB = "S.######";
+
+  SpecialMaskTextInputFormatter({String? initialText}) : super(mask: maskA, filter: {"#": RegExp('[0-9]'), "S": RegExp('[AB]')}, initialText: initialText);
+
+  @override
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
+    if (newValue.text.startsWith("A")) {
+      if (getMask() != maskA) {
+        updateMask(mask: maskA);
+      }
+    } else {
+      if (getMask() != maskB) {
+        updateMask(mask: maskB);
+      }
+    }
+    return super.formatEditUpdate(oldValue, newValue);
   }
 }

@@ -4,7 +4,9 @@ class Preferences {
   Preferences._();
 
   static const String isLogged = "isLogged";
-  static const String countryInfo = "countryInfo";
+  // static const String countryInfo = "countryInfo";
+  static const String countryDetail = "countryDetail";
+  static const String countryCode = "countryCode";
   static const String languageSelected = "languageSelected";
   static const String isOnboardingCompleted = "isOnboardingCompleted";
   static const String companyId = "companyId";

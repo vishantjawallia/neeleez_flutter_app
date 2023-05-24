@@ -126,7 +126,13 @@ class _SelectCountryState extends State<SelectCountry> {
                       ),
                       const SizedBox(width: 6),
                       TextButton(
-                        onPressed: () => widget.onSubmit!(selectedObj!),
+                        onPressed: () {
+                          if (selectedObj != null) {
+                            widget.onSubmit!(selectedObj!);
+                          } else {
+                            Get.back();
+                          }
+                        },
                         child: Text(
                           'OK',
                           style: Get.textTheme.titleLarge!.copyWith(color: Palettes.black),
@@ -154,22 +160,6 @@ const List<String> _fruitNames = <String>[
   'Pineapple',
   'Strawberry',
 ];
-
-// void main() => runApp(const CupertinoPickerApp());
-
-// class CupertinoPickerApp extends StatelessWidget {
-//   const CupertinoPickerApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return const CupertinoApp(
-//       theme: CupertinoThemeData(brightness: Brightness.light),
-//       home: CupertinoPickerExample(
-
-//       ),
-//     );
-//   }
-// }
 
 class CupertinoPickerExample extends StatefulWidget {
   const CupertinoPickerExample({

@@ -34,6 +34,8 @@ dependencies:
     geolocator: ^9.0.2
     path: ^1.8.2
     device_preview: ^1.1.0
+    flutter_multi_formatter: ^2.11.0
+    mask_text_input_formatter: ^2.4.0
 dev_dependencies:
     flutter_test:
         sdk: flutter

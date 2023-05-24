@@ -198,6 +198,8 @@ class GeneralInfo extends StatelessWidget {
             suffixIconPath: !(general.data?.webMobileVerified ?? false) ? MyIcon.crossed : "",
             outlineBorder: true,
             onCountryCodeTap: () => general.onCountryCodeTap(context, viewModel.countryList),
+
+            
             // () {
             //   log(viewModel.countryList.toString());
             //   countrySelectDialog(
