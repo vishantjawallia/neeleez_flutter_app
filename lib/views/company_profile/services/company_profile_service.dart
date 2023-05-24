@@ -49,7 +49,7 @@ mixin CompanyProfileService {
     return null;
   }
 
-  //business category
+  // GET => /api/ BusinessService/BusinessServicesByCountry/IN
   Future<List<BusinessServicesByCountry>?> getBusinessCategory(
     String countryId,
   ) async {
@@ -65,7 +65,7 @@ mixin CompanyProfileService {
     return null;
   }
 
-  // CompanyEmailExist
+  // GET => /api/Companies/CompanyEmailExist/{email}/0
   Future<bool> companyEmailExist(
     String email,
   ) async {
@@ -96,6 +96,7 @@ mixin CompanyProfileService {
     return null;
   }
 
+  // GET => /api/ BusinessTypes/{BusinessCat}/{CountryId}
   Future<List<BusinessTypes>?> businessServiceIdWithCountryId(
     String businessServiceId,
     String countryId,
@@ -141,6 +142,7 @@ mixin CompanyProfileService {
     return null;
   }
 
+  // GET => /api/ Provinces/{countryId}
   Future<List<Provinces>?> getProvinces(
     String companyId,
   ) async {
@@ -157,6 +159,7 @@ mixin CompanyProfileService {
     return null;
   }
 
+  // GET => /api/ Cities/{provinceId}
   Future<List<Cities>?> getCities(
     String provinceId,
   ) async {
