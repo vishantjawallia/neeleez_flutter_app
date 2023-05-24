@@ -63,7 +63,7 @@ class _MobileVerificationMobile extends StatelessWidget {
                               onChanged: viewModel.phoneOnChange,
                               inputFormatters: [viewModel.maskFormatter!],
                               countryCode: viewModel.country?.countryCode ?? "+000",
-                              name: (viewModel.country!.mobileMaskFormat ?? '+000 00 000 0000').replaceAll('0', 'X'),
+                              name: (viewModel.country?.mobileMaskFormat ?? '+000 00 000 0000').replaceAll('0', 'X'),
                               // name: (viewModel.country!.mobileMask ?? '+000 00 000 0000').substring(viewModel.country!.countryCode!.length, viewModel.country!.mobileMask!.length).replaceAll('0', 'X'),
                               prefixIconColor: Palettes.primary,
                               prefixIconPath: MyIcon.mobileAnalytics,

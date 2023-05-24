@@ -81,67 +81,41 @@ class _RegistrationMobile extends StatelessWidget {
                       prefixIconPath: MyIcon.officeBuilding,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
-                    CustomTextField(
-                      name: 'Business Type:',
+                    DropDownInput(
+                      name: 'Business Category: ',
                       prefixIconPath: MyIcon.portfolio,
-                      widgetMargin: const EdgeInsets.symmetric(vertical: 5),
-                      suffixIconPath: MyIcon.polygon,
-                      onTap: () {},
+                      items: dropDownItem(['hi', 'go']),
+                      onChanged: (p0) {},
                     ),
-                    Container(
-                      width: 100.w,
-                      padding: EdgeInsets.symmetric(horizontal: 10.sp),
-                      decoration: const BoxDecoration(color: Palettes.white),
-                      child: DropdownButton<String>(
-                        isExpanded: true,
-                        value: "hi",
-                        icon: const Icon(Icons.arrow_drop_down_sharp),
-                        elevation: 16,
-                        focusColor: Palettes.white,
-                        hint: const Text(
-                          'Please Select......',
-                          // style: MyTextStyle.subTitle2.copyWith(color: Palettes.greyDark),
-                        ),
-                        // style: MyTextStyle.bodyText2.copyWith(color: Palettes.black),
-                        underline: Container(
-                          height: 0,
-                          color: Colors.deepPurpleAccent,
-                        ),
-                        onChanged: (String? value) {
-                          // setState(() {
-                          //   name = value!;
-                          // });
-                        },
-                        items: ['hi', 'go'].map<DropdownMenuItem<String>>((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(
-                              value,
-                              // style: MyTextStyle.subTitle2.copyWith(color: Palettes.black),
-                            ),
-                            // ),
-                          );
-                        }).toList(),
-                      ),
+                    DropDownInput(
+                      name: 'Business Sub-Category: ',
+                      prefixIconPath: MyIcon.portfolio,
+                      items: dropDownItem(['hi', 'go']),
+                      onChanged: (p0) {},
                     ),
-                    const CustomTextField(
-                      name: 'Gender:',
+                    DropDownInput(
+                      name: 'Service For:',
                       prefixIconPath: MyIcon.sex,
-                      widgetMargin: EdgeInsets.symmetric(vertical: 5),
-                      suffixIconPath: MyIcon.polygon,
-                    ),
-                    const CustomTextField(
-                      name: 'WhatsApp:',
-                      prefixIconPath: MyIcon.whatsapp,
-                      widgetMargin: EdgeInsets.symmetric(vertical: 5),
+                      items: dropDownItem(['hi', 'go']),
+                      onChanged: (p0) {},
                     ),
                     const CustomTextField(
                       name: 'Telephone:',
                       prefixIconPath: MyIcon.telephone,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
+                    // const CustomTextField(
+                    //   name: 'WhatsApp:',
+                    //   prefixIconPath: MyIcon.whatsapp,
+                    //   widgetMargin: EdgeInsets.symmetric(vertical: 5),
+                    // ),
                     const CustomTextField(
                       name: 'Email:',
+                      prefixIconPath: MyIcon.mail,
+                      widgetMargin: EdgeInsets.symmetric(vertical: 5),
+                    ),
+                    const CustomTextField(
+                      name: 'Password:',
                       prefixIconPath: MyIcon.mail,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
@@ -174,37 +148,61 @@ class _RegistrationMobile extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    const CustomTextField(
+                    DropDownInput(
                       name: 'Country:',
                       prefixIconPath: MyIcon.mail,
-                      widgetMargin: EdgeInsets.symmetric(vertical: 5),
-                      suffixIconPath: MyIcon.polygon,
+                      items: dropDownItem(['hi', 'go']),
+                      onChanged: (p0) {},
                     ),
-                    const CustomTextField(
+                    DropDownInput(
                       name: 'State/Province:',
                       prefixIconPath: MyIcon.locationPin,
-                      widgetMargin: EdgeInsets.symmetric(vertical: 5),
-                      suffixIconPath: MyIcon.polygon,
+                      items: dropDownItem([]),
+                      onChanged: (p0) {},
                     ),
-                    const CustomTextField(
+                    DropDownInput(
                       name: 'City:',
+                      prefixIconPath: MyIcon.place,
+                      items: dropDownItem(['hi', 'go']),
+                      onChanged: (p0) {},
+                    ),
+                    // const CustomTextField(
+                    //   name: 'Country:',
+                    //   prefixIconPath: MyIcon.mail,
+                    //   widgetMargin: EdgeInsets.symmetric(vertical: 5),
+                    //   suffixIconPath: MyIcon.polygon,
+                    // ),
+                    // const CustomTextField(
+                    //   name: 'State/Province:',
+                    //   prefixIconPath: MyIcon.locationPin,
+                    //   widgetMargin: EdgeInsets.symmetric(vertical: 5),
+                    //   suffixIconPath: MyIcon.polygon,
+                    // ),
+                    const CustomTextField(
+                      name: 'Google Address:',
                       prefixIconPath: MyIcon.place,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     ),
+                    const SizedBox(height: 10),
                     const CustomTextField(
-                      height: 90,
-                      name: 'Additional Information:',
-                      prefixIconPath: MyIcon.information,
+                      name: 'Additional  Address:',
+                      prefixIconPath: MyIcon.place,
                       widgetMargin: EdgeInsets.symmetric(vertical: 5),
-                      prefixPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 30),
-                      // prefixPadding: EdgeInsets.symmetric(
-                      //   vertical: 1000,
-                      // ),
-                      // maxLength: 500,
-                      // maxLines: 0,
-                      // minLines: 10,
-                      maxLengthEnforcement: MaxLengthEnforcement.enforced,
                     ),
+                    // const CustomTextField(
+                    //   height: 90,
+                    //   name: 'Additional Information:',
+                    //   prefixIconPath: MyIcon.information,
+                    //   widgetMargin: EdgeInsets.symmetric(vertical: 5),
+                    //   prefixPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 30),
+                    //   // prefixPadding: EdgeInsets.symmetric(
+                    //   //   vertical: 1000,
+                    //   // ),
+                    //   // maxLength: 500,
+                    //   // maxLines: 0,
+                    //   // minLines: 10,
+                    //   maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                    // ),
                     // Container(
                     //   margin: EdgeInsets.only(top: 0.5.h),
                     //   decoration: BoxDecoration(
@@ -238,59 +236,59 @@ class _RegistrationMobile extends StatelessWidget {
                     //   prefixIconPath: MyIcon.place,
                     //   widgetMargin: EdgeInsets.symmetric(vertical: 5),
                     // ),
-                    Container(
-                      margin: const EdgeInsets.symmetric(vertical: 5),
-                      height: 200,
-                      decoration: BoxDecoration(
-                        color: Palettes.white,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    )
+                    // Container(
+                    //   margin: const EdgeInsets.symmetric(vertical: 5),
+                    //   height: 200,
+                    //   decoration: BoxDecoration(
+                    //     color: Palettes.white,
+                    //     borderRadius: BorderRadius.circular(12),
+                    //   ),
+                    // )
                   ],
                 ),
-                const SizedBox(height: 30),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Login Information:'.tr,
-                        style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w600),
-                        textAlign: TextAlign.left,
-                      ),
-                      Container(
-                        alignment: Alignment.centerLeft,
-                        height: 4,
-                        width: 35,
-                        decoration: const BoxDecoration(
-                          color: Palettes.white,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 10),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    const CustomTextField(
-                      name: 'Username / Email:',
-                      prefixIconPath: MyIcon.user,
-                      widgetMargin: EdgeInsets.symmetric(vertical: 5),
-                    ),
-                    const CustomTextField(
-                      name: 'Password:',
-                      prefixIconPath: MyIcon.password,
-                      widgetMargin: EdgeInsets.symmetric(vertical: 5),
-                    ),
-                    const SizedBox(height: 30),
-                    CustomButton(
-                      onTap: () {},
-                      text: 'register'.tr,
-                    ),
-                  ],
+                // const SizedBox(height: 30),
+                // Align(
+                //   alignment: Alignment.centerLeft,
+                //   child: Column(
+                //     mainAxisAlignment: MainAxisAlignment.start,
+                //     crossAxisAlignment: CrossAxisAlignment.start,
+                //     children: [
+                //       Text(
+                //         'Login Information:'.tr,
+                //         style: Get.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w600),
+                //         textAlign: TextAlign.left,
+                //       ),
+                //       Container(
+                //         alignment: Alignment.centerLeft,
+                //         height: 4,
+                //         width: 35,
+                //         decoration: const BoxDecoration(
+                //           color: Palettes.white,
+                //         ),
+                //       )
+                //     ],
+                //   ),
+                // ),
+                const SizedBox(height: 50),
+                // Column(
+                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //   children: <Widget>[
+                //     const CustomTextField(
+                //       name: 'Username / Email:',
+                //       prefixIconPath: MyIcon.user,
+                //       widgetMargin: EdgeInsets.symmetric(vertical: 5),
+                //     ),
+                //     const CustomTextField(
+                //       name: 'Password:',
+                //       prefixIconPath: MyIcon.password,
+                //       widgetMargin: EdgeInsets.symmetric(vertical: 5),
+                //     ),
+                //     const SizedBox(height: 30),
+                //   ],
+                // ),
+                CustomButton(
+                  onTap: () {},
+                  text: 'register'.tr,
                 ),
                 const SizedBox(height: 40),
                 _bottomLine(),
@@ -301,6 +299,19 @@ class _RegistrationMobile extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  dropDownItem(List e) {
+    return e
+        .map((value) => DropdownMenuItem(
+              value: value,
+              child: Text(
+                value,
+                style: Get.textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w500, color: Palettes.black),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ))
+        .toList();
   }
 
   _bottomLine() {

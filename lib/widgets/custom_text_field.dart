@@ -27,6 +27,8 @@ class CustomTextField extends StatelessWidget {
   final bool? obscureText;
   final bool? autofocus;
   final bool? enabled;
+  final Widget? inputWidget;
+
   final String? prefixUrlImage;
   final void Function(String? value)? onChanged;
   final void Function()? onTap;
@@ -59,6 +61,7 @@ class CustomTextField extends StatelessWidget {
     this.isCustomRtl = false,
     this.prefixUrlImage,
     this.outlineBorder = false,
+    this.inputWidget,
   }) : super(key: key);
 
   @override
@@ -132,32 +135,34 @@ class CustomTextField extends StatelessWidget {
                 ),
               ),
               Flexible(
-                child: GestureDetector(
-                  onTap: onTap,
-                  child: TextField(
-                    style: Get.textTheme.bodyMedium!.copyWith(
-                      color: Palettes.primary,
-                      fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
-                    ),
-                    controller: controller,
-                    maxLength: maxLength,
-                    maxLines: maxLines ?? 1,
-                    minLines: minLines,
-                    maxLengthEnforcement: maxLengthEnforcement ?? MaxLengthEnforcement.none,
-                    enabled: enabled,
-                    obscureText: obscureText ?? false,
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 14),
-                      border: InputBorder.none,
-                      hintText: name ?? 'Username / Email :',
-                      hintStyle: Get.textTheme.bodyMedium!.copyWith(
-                        color: Palettes.primary.withOpacity(0.8),
-                        fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
+                fit: FlexFit.loose,
+                child: inputWidget ??
+                    GestureDetector(
+                      onTap: onTap,
+                      child: TextField(
+                        style: Get.textTheme.bodyMedium!.copyWith(
+                          color: Palettes.primary,
+                          fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
+                        ),
+                        controller: controller,
+                        maxLength: maxLength,
+                        maxLines: maxLines ?? 1,
+                        minLines: minLines,
+                        maxLengthEnforcement: maxLengthEnforcement ?? MaxLengthEnforcement.none,
+                        enabled: enabled,
+                        obscureText: obscureText ?? false,
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 14),
+                          border: InputBorder.none,
+                          hintText: name ?? 'Username / Email :',
+                          hintStyle: Get.textTheme.bodyMedium!.copyWith(
+                            color: Palettes.primary.withOpacity(0.8),
+                            fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
+                          ),
+                          isDense: true,
+                        ),
                       ),
-                      isDense: true,
                     ),
-                  ),
-                ),
               ),
               suffixIconPath!.isNotEmpty
                   ? Container(
