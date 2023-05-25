@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:neeleez_flutter_app/models/company/cities.dart';
 import 'package:neeleez_flutter_app/models/company/companies.dart';
@@ -37,7 +39,7 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
   TextEditingController pass = TextEditingController();
   TextEditingController googleAddr = TextEditingController();
   TextEditingController additionalAddr = TextEditingController();
-  FocusNode busTypefocusNode = FocusNode();
+  FocusScopeNode busTypeFocusScopeNode = FocusScopeNode();
   ScrollController busTypeScrollController = ScrollController();
 
   bool isFreelancer = false;
@@ -54,12 +56,7 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
     googleAddr.addListener(() => notifyListeners());
     additionalAddr.addListener(() => notifyListeners());
     //
-    busTypefocusNode.addListener(() {
-      if (busTypefocusNode.hasFocus) {
-        busTypeScrollController.animateTo(busTypeScrollController.position.maxScrollExtent, duration: const Duration(milliseconds: 500), curve: Curves.ease);
-      }
-      notifyListeners();
-    });
+    busTypeFocusScopeNode.addListener(() => notifyListeners());
     //
     busTypeScrollController.addListener(() => notifyListeners());
     loadItems();
@@ -88,6 +85,7 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
     busType = await businessServiceIdWithCountryId("${value!.businessServiceId}", "${countryDetail!.countryId}") ?? [];
     setBusy(false);
     notifyListeners();
+    log(busObj.toString());
   }
 
   void busSubCategoryOnChange(BusinessTypes? value) {
@@ -95,6 +93,7 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
       busSelectedList.add(value!);
       notifyListeners();
     }
+    log(busSelectedList.toString());
   }
 
   void countryOnChange(Countries? value) async {
@@ -105,6 +104,7 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
     provinces = await getProvinces("${value!.id}") ?? [];
     setBusy(false);
     notifyListeners();
+    log(country.toString());
   }
 
   void provinceOnChange(Provinces? value) async {
@@ -114,11 +114,13 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
     cities = await getCities("${value!.provinceId}") ?? [];
     setBusy(false);
     notifyListeners();
+    log(province.toString());
   }
 
   void cityOnChange(Cities? value) {
     city = value;
     notifyListeners();
+    log(city.toString());
   }
 
   void freelancerOnChange() {
@@ -192,3 +194,38 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
     setBusy(false);
   }
 }
+
+
+
+// {
+//   "isRegistered": 0,
+//   "companyId": 73488,
+//   "isFreeLancer": true,
+//   "companyNameEn": "Bhuci",
+//   "genderId": 0,
+//   "mobile": "9988204108",
+//   "whatsapp": "9988204108",
+//   "tel1": "9988204108",
+//   "email": "bhuci@gmail.com",
+//   "password": "123456",
+//   "areaId": 0,
+//   "countryId": 100,
+//   "cityId": 1467,
+//   "lattitude": 32.26707956240034,
+//   "longitude": 75.56337676942348,
+//   "address": "Hello",
+//   "googleAddress": "Narot Mehra, Jalandhar Division, Punjab, India, 145025",
+//   "teamUserId": 0,
+//   "isEmailVerified": false,
+//   "appMobileVerified": false,
+//   "webMobileVerified": false,
+//   "businessServiceId": 2,
+//   "salesTeamId": 0,
+//   "serviceTypes": [
+//     {
+//       "btypeId": 22
+//     },{
+//       "btypeId": 36
+//     }
+//   ]
+// }

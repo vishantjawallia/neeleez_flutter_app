@@ -8,49 +8,62 @@ import '../../../widgets/custom_text_field.dart';
 import '../../../widgets/drop_down/src/dropdown_button2.dart';
 import '../../../widgets/global_widget.dart';
 
-class MultiDropDownInput<E> extends StatelessWidget {
+class MultiDropDownInput<E> extends StatefulWidget {
   final String? name;
   final String? itemName;
   final ScrollController? scrollController;
   final String? prefixIconPath;
   final List<String>? selectedList;
-  final FocusNode? focusNode;
+  final FocusScopeNode? focusScopeNode;
   final List<DropdownMenuItem<E>>? items;
   final void Function(E? value)? onChanged;
   final void Function(String? value)? onRemove;
-  MultiDropDownInput({
+  const MultiDropDownInput({
     super.key,
     required this.items,
     required this.onChanged,
     required this.name,
     this.prefixIconPath,
-    this.focusNode,
+    this.focusScopeNode,
     this.selectedList,
     this.itemName,
     required this.onRemove,
     this.scrollController,
   });
 
+  @override
+  State<MultiDropDownInput<E>> createState() => _MultiDropDownInputState<E>();
+}
+
+class _MultiDropDownInputState<E> extends State<MultiDropDownInput<E>> {
   final GlobalKey<DropdownButton2State> _menuKey = GlobalKey<DropdownButton2State>();
+
+  final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     final button = _showPopupMenu();
     return CustomTextField(
-      name: name,
-      prefixIconPath: prefixIconPath,
+      key: _key,
+      name: widget.name,
+      prefixIconPath: widget.prefixIconPath,
       widgetMargin: const EdgeInsets.symmetric(vertical: 5),
       inputWidget: SizedBox(
         height: 46,
         child: GestureDetector(
           onTap: () {
-            if (items!.isEmpty) {
+            if (widget.items!.isEmpty) {
               GlobalWidgets.toast('Select business category first.');
               return;
             }
             try {
-              final state = _menuKey.currentState;
-              log(state.runtimeType.toString());
-              state!.callTap();
+              setState(() {
+                final state = _menuKey.currentState;
+                log(state.runtimeType.toString());
+                state!.callTap();
+              });
+              // state.widget.focusNode!.requestFocus();
+              // state.callTap();
             } catch (e) {
               log(e.toString());
             }
@@ -69,11 +82,11 @@ class MultiDropDownInput<E> extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      selectedList!.isNotEmpty
+                      widget.selectedList!.isNotEmpty
                           ? Flexible(
                               child: ListView.builder(
-                                controller: scrollController,
-                                itemCount: selectedList!.length,
+                                controller: widget.scrollController,
+                                itemCount: widget.selectedList!.length,
                                 shrinkWrap: true,
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (context, index) {
@@ -89,7 +102,7 @@ class MultiDropDownInput<E> extends StatelessWidget {
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            selectedList?[index] ?? 'Account',
+                                            widget.selectedList?[index] ?? 'Account',
                                             style: Get.textTheme.bodyMedium!.copyWith(
                                               color: Palettes.black,
                                               fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.5),
@@ -97,7 +110,7 @@ class MultiDropDownInput<E> extends StatelessWidget {
                                           ),
                                           const SizedBox(width: 4),
                                           GestureDetector(
-                                            onTap: () => onRemove!(selectedList?[index]),
+                                            onTap: () => widget.onRemove!(widget.selectedList?[index]),
                                             child: const Icon(
                                               Icons.cancel,
                                               color: Palettes.red,
@@ -115,7 +128,7 @@ class MultiDropDownInput<E> extends StatelessWidget {
                               alignment: Alignment.centerLeft,
                               child: SizedBox(
                                 child: Text(
-                                  '$name',
+                                  '${widget.name}',
                                   style: Get.textTheme.bodyMedium!.copyWith(
                                     color: Palettes.primary.withOpacity(0.8),
                                     fontWeight: FontWeight.lerp(FontWeight.w400, FontWeight.w500, 0.755),
@@ -133,14 +146,14 @@ class MultiDropDownInput<E> extends StatelessWidget {
     );
   }
 
-  _showPopupMenu() {
+  DropdownButton2<E> _showPopupMenu() {
     return DropdownButton2(
       key: _menuKey,
-      focusNode: focusNode,
+      focusNode: widget.focusScopeNode,
       isExpanded: true,
       underline: const SizedBox(),
       hint: Text(
-        name ?? 'Select a project',
+        widget.name ?? 'Select a project',
         style: Get.textTheme.bodyMedium!.copyWith(
           color: Palettes.primary.withOpacity(0.8),
           fontWeight: FontWeight.w500,
@@ -155,9 +168,9 @@ class MultiDropDownInput<E> extends StatelessWidget {
         maxHeight: 310,
         offset: Offset(0, -6),
       ),
-      items: items,
+      items: widget.items,
       // value: value,
-      onChanged: onChanged,
+      onChanged: widget.onChanged,
     );
   }
 }

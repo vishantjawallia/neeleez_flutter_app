@@ -243,7 +243,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService, 
       }
       // serviceFor
       serviceForId = genInfo!.genderId.toString();
-      serviceForValue = serviceForList!.firstWhere((e) => e.genderId == (genInfo?.genderId ?? 0)).genderEn;
+      serviceForValue = genInfo!.genderId != 0 ? serviceForList?.firstWhere((e) => e.genderId == (genInfo?.genderId ?? 0)).genderEn : null;
       serviceList = serviceForList!.map((e) => e.genderEn!).toList();
       // amentias
       amentiasStringList = amentiasList!.map((e) => e.amenityNameEn!).toList();
@@ -252,7 +252,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService, 
     }
     setBusy(false);
     notifyListeners();
-    Provider.of<GeneralInfoProvider>(_, listen: false).loadItem(genInfo, cp,countryList);
+    Provider.of<GeneralInfoProvider>(_, listen: false).loadItem(genInfo, cp, countryList);
     Provider.of<SocialMediaProvider>(_, listen: false).loadItem(genInfo);
   }
 
@@ -294,7 +294,7 @@ class CompanyProfileViewModel extends BaseViewModel with CompanyProfileService, 
     setBusy(false);
     notifyListeners();
     Provider.of<FileSectionProvider>(_, listen: false).loadItem(cp?.companyImages);
-    Provider.of<ContactPersonInfoProvider>(_, listen: false).loadItems(cp,countryList);
+    Provider.of<ContactPersonInfoProvider>(_, listen: false).loadItems(cp, countryList);
   }
 
   //State Change Staff

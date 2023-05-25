@@ -26,7 +26,7 @@ class FileSectionProvider extends ChangeNotifier {
   void loadItem(List<CompanyImages>? list) async {
     await Future.delayed(const Duration(milliseconds: 100));
     imagesList = list ?? [];
-    totalSize = list?.map((e) => e.size!).toList().reduce((value, element) => value + element) ?? 0;
+    totalSize = (list ?? []).isNotEmpty ? ((list!.map((e) => e.size!).toList()).reduce((value, element) => value + element)) : 0;
     notifyListeners();
   }
 

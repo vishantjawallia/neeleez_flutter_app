@@ -76,6 +76,10 @@ class MobileVerificationViewModel extends BaseViewModel {
     phoneNumber = country!.countryCode! + value!.replaceAll(RegExp('[^0-9]'), '').toString();
     notifyListeners();
   }
+// GET /api/Companies/MobileAvailability/{Mobile}  true/fasle
+// GET /api/Companies/CompanyIdByMobile/{Mobile}  ==> id 9699
+  // GET /api/Companies/SignIn/{Mobile} 
+
 }
 
 // class NumberFormatter extends TextInputFormatter {

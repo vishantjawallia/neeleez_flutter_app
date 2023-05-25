@@ -108,8 +108,8 @@ class _RegistrationMobile extends StatelessWidget {
                             .toList(),
                       ),
                       MultiDropDownInput<BusinessTypes>(
-                        focusNode: viewModel.busTypefocusNode,
                         scrollController: viewModel.busTypeScrollController,
+                        focusScopeNode: viewModel.busTypeFocusScopeNode,
                         name: 'Business Sub-Category: ',
                         prefixIconPath: MyIcon.portfolio,
                         selectedList: viewModel.busSelectedList.map((e) => e.businessTypeNameEn!).toList(),
@@ -261,40 +261,38 @@ class _RegistrationMobile extends StatelessWidget {
                   Align(
                     widthFactor: 0.945,
                     alignment: Alignment.centerRight,
-                    child: Container(
-                      child: Row(
-                        children: [
-                          Checkbox(
-                            fillColor: MaterialStateProperty.all(Palettes.white),
-                            focusNode: FocusNode(),
-                            focusColor: Palettes.primary,
-                            checkColor: Palettes.primary,
-                            visualDensity: VisualDensity.standard,
-                            value: viewModel.isTerms,
-                            onChanged: viewModel.termsOnChange,
-                          ),
-                          Flexible(
-                            child: RichText(
-                              text: TextSpan(
-                                text: "By checking this, I agree to Neeleez - We Care's ",
-                                style: Get.textTheme.bodyMedium!.copyWith(
-                                  color: Palettes.white,
-                                ),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                    text: 'Terms of Use & Privacy Policy',
-                                    style: Get.textTheme.bodyMedium!.copyWith(
-                                      color: Palettes.white,
-                                      decoration: TextDecoration.underline,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ],
+                    child: Row(
+                      children: [
+                        Checkbox(
+                          fillColor: MaterialStateProperty.all(Palettes.white),
+                          focusNode: FocusNode(),
+                          focusColor: Palettes.primary,
+                          checkColor: Palettes.primary,
+                          visualDensity: VisualDensity.standard,
+                          value: viewModel.isTerms,
+                          onChanged: viewModel.termsOnChange,
+                        ),
+                        Flexible(
+                          child: RichText(
+                            text: TextSpan(
+                              text: "By checking this, I agree to Neeleez - We Care's ",
+                              style: Get.textTheme.bodyMedium!.copyWith(
+                                color: Palettes.white,
                               ),
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text: 'Terms of Use & Privacy Policy',
+                                  style: Get.textTheme.bodyMedium!.copyWith(
+                                    color: Palettes.white,
+                                    decoration: TextDecoration.underline,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   const SizedBox(height: 50),

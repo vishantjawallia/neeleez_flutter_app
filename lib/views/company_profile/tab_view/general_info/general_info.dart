@@ -67,6 +67,7 @@ class GeneralInfo extends StatelessWidget {
                     isFreeLancer: general.isFreelancer,
                     tagLine: general.tagline.text,
                     whatsapp: general.whatsAppNo.text,
+                    mobile: general.data?.mobile,
                     url: general.website.text,
                     genderId: int.tryParse(viewModel.serviceForId!),
                     businessServiceId: bC,
@@ -199,7 +200,6 @@ class GeneralInfo extends StatelessWidget {
             outlineBorder: true,
             onCountryCodeTap: () => general.onCountryCodeTap(context, viewModel.countryList),
 
-            
             // () {
             //   log(viewModel.countryList.toString());
             //   countrySelectDialog(
