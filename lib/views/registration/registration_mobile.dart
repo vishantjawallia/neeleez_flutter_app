@@ -203,19 +203,19 @@ class _RegistrationMobile extends StatelessWidget {
                           name: 'Country:',
                           prefixUrl: viewModel.country?.iconImage2 ?? "",
                           value: viewModel.country,
-                          items: viewModel.countries!
-                              .map((e) => DropdownMenuItem<Countries>(
-                                    value: e,
-                                    child: Text(
-                                      e.nameEn!,
-                                      style: Get.textTheme.bodyMedium!.copyWith(
-                                        color: Palettes.black,
-                                        fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.755),
-                                      ),
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ))
-                              .toList(),
+                          items: viewModel.countries!.map((e) {
+                            return DropdownMenuItem<Countries>(
+                              value: e,
+                              child: Text(
+                                e.nameEn!,
+                                style: Get.textTheme.bodyMedium!.copyWith(
+                                  color: Palettes.black,
+                                  fontWeight: FontWeight.lerp(FontWeight.w500, FontWeight.w600, 0.755),
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            );
+                          }).toList(),
                           onChanged: viewModel.countryOnChange,
                         ),
                         DropDownInput<Provinces>(
@@ -305,7 +305,24 @@ class _RegistrationMobile extends StatelessWidget {
                                 ),
                                 children: <TextSpan>[
                                   TextSpan(
-                                    text: 'Terms of Use & Privacy Policy',
+                                    text: 'Terms of Use',
+                                    recognizer: TapGestureRecognizer()..onTap = () => viewModel.termsHandler,
+                                    style: Get.textTheme.bodyMedium!.copyWith(
+                                      color: Palettes.white,
+                                      decoration: TextDecoration.underline,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: ' & ',
+                                    style: Get.textTheme.bodyMedium!.copyWith(
+                                      color: Palettes.white,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    recognizer: TapGestureRecognizer()..onTap = () => viewModel.privacyHandler,
+                                    text: 'Privacy Policy',
                                     style: Get.textTheme.bodyMedium!.copyWith(
                                       color: Palettes.white,
                                       decoration: TextDecoration.underline,

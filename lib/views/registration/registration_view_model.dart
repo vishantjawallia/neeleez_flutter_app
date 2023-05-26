@@ -61,6 +61,8 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
   // List<BusinessTypes> busSelectedList = [];
 
   RegistrationViewModel(this.countries, this.countryDetail) {
+    country = countries?.firstWhere((e) => e.id.toString() == countryId);
+    notifyListeners();
     name.addListener(() => notifyListeners());
     tel.addListener(() => notifyListeners());
     email.addListener(() => notifyListeners());
@@ -258,6 +260,14 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
   void serviceForOnChange(Gender? value) {
     serviceObj = value;
     notifyListeners();
+  }
+
+  void privacyHandler() {
+    log("message");
+  }
+
+  void termsHandler() {
+    log("message");
   }
 }
 
