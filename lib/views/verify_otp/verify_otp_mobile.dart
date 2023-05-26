@@ -4,9 +4,9 @@ part of verify_otp_view;
 class _VerifyOtpMobile extends StatelessWidget {
   final VerifyOtpViewModel viewModel;
 
-  _VerifyOtpMobile(this.viewModel);
+  const _VerifyOtpMobile(this.viewModel);
 
-  final TextEditingController _otp = TextEditingController();
+  // final TextEditingController _otp = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,13 +46,14 @@ class _VerifyOtpMobile extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
-                        'Provide 6 digit OTP (One Time Password) we just sent you on ${viewModel.phoneNumber}',
+                        'Provide 6 digit OTP (One Time Password) we just sent you on ${viewModel.phoneNumberWithCode}',
                         style: Get.textTheme.bodyMedium,
                         textAlign: TextAlign.center,
                       ),
                     ),
                     Pinput(
-                      controller: _otp,
+                      focusNode: viewModel.otpFocusNode,
+                      controller: viewModel.otp,
                       onCompleted: (pin) => print(pin),
                       length: 6,
                       obscureText: false,
@@ -95,20 +96,23 @@ class _VerifyOtpMobile extends StatelessWidget {
                         }),
                     // SizedBox(height: 3.h),
                     CustomButton(
-                      onTap: viewModel.verifyHandler,
+                      onTap: () => viewModel.verifyHandler(context),
                       text: 'Verify'.tr,
                       padding: const EdgeInsets.symmetric(horizontal: 85, vertical: 12),
                     ),
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 34),
-                  child: Text(
-                    'Change Mobile Number'.tr,
-                    style: Get.textTheme.bodySmall!.copyWith(
-                      decoration: TextDecoration.underline,
+                GestureDetector(
+                  onTap: viewModel.mobileChangeHandler,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 34),
+                    child: Text(
+                      'Change Mobile Number'.tr,
+                      style: Get.textTheme.bodySmall!.copyWith(
+                        decoration: TextDecoration.underline,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
                   ),
                 ),
               ],

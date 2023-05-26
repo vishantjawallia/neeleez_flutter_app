@@ -1,12 +1,18 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:neeleez_flutter_app/components/dailogs/warning_popup.dart';
 import 'package:neeleez_flutter_app/models/company/cities.dart';
 import 'package:neeleez_flutter_app/models/company/companies.dart';
 import 'package:neeleez_flutter_app/models/country_detail.dart';
+import 'package:neeleez_flutter_app/models/gender/gender.dart';
 import 'package:neeleez_flutter_app/views/registration/service/registration_service.dart';
+import 'package:neeleez_flutter_app/views/select_address/select_address_view.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../config/pref_constant.dart';
+import '../../config/preference.dart';
 import '../../models/business_types/business_services_by_country.dart';
 import '../../models/business_types/business_types.dart';
 import '../../models/company/provinces.dart';
@@ -15,6 +21,9 @@ import '../company_profile/services/company_profile_service.dart';
 class RegistrationViewModel extends BaseViewModel with RegistrationService, CompanyProfileService {
   final List<Countries>? countries;
   final CountryDetail? countryDetail;
+  String? companyId = SharedPreferenceHelper.getString(Preferences.companyId);
+  String? countryId = SharedPreferenceHelper.getString(Preferences.countryId);
+
   double? lat;
   double? long;
 
@@ -46,6 +55,9 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
 
   bool isTerms = false;
 
+  List<Gender> serviceList = [];
+  Gender? serviceObj;
+
   // List<BusinessTypes> busSelectedList = [];
 
   RegistrationViewModel(this.countries, this.countryDetail) {
@@ -56,7 +68,10 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
     googleAddr.addListener(() => notifyListeners());
     additionalAddr.addListener(() => notifyListeners());
     //
-    busTypeFocusScopeNode.addListener(() => notifyListeners());
+    busTypeFocusScopeNode.addListener(() {
+      busTypeScrollController.animateTo(busTypeScrollController.position.maxScrollExtent, duration: const Duration(milliseconds: 400), curve: Curves.ease);
+      notifyListeners();
+    });
     //
     busTypeScrollController.addListener(() => notifyListeners());
     loadItems();
@@ -93,6 +108,8 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
       busSelectedList.add(value!);
       notifyListeners();
     }
+    // busTypeScrollController.animateTo(busTypeScrollController.position.maxScrollExtent, duration: const Duration(milliseconds: 500), curve: Curves.ease);
+    // notifyListeners();
     log(busSelectedList.toString());
   }
 
@@ -107,13 +124,16 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
     log(country.toString());
   }
 
-  void provinceOnChange(Provinces? value) async {
+  void provinceOnChange(_, Provinces? value) async {
     city = null;
     province = value;
     setBusy(true);
     cities = await getCities("${value!.provinceId}") ?? [];
     setBusy(false);
     notifyListeners();
+    if (cities.isEmpty) {
+      warningPopup(_, dsc: "Currently no city found for selected province");
+    }
     log(province.toString());
   }
 
@@ -129,14 +149,14 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
   }
 
   void googleMapOnTap() {
-    // Get.
+    Get.to(() => SelectAddressView(city: city));
   }
 
   void busSubCategoryOnRemove(String? value) {
     BusinessTypes? obj = busSelectedList.firstWhere((e) => e.businessTypeNameEn == value);
     if (busSelectedList.contains(obj)) {
       busSelectedList.remove(obj);
-      busTypeScrollController.animateTo(busTypeScrollController.position.maxScrollExtent, duration: const Duration(milliseconds: 500), curve: Curves.ease);
+      // busTypeScrollController.animateTo(busTypeScrollController.position.maxScrollExtent, duration: const Duration(milliseconds: 500), curve: Curves.ease);
       notifyListeners();
     }
   }
@@ -146,52 +166,98 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
     notifyListeners();
   }
 
-  void registerOnTap() async {
+  void registerOnTap(_) async {
+    if (name.text.isEmpty) {
+      warningPopup(_, dsc: "Please enter a Company name");
+      return;
+    }
+    if (busObj == null || busSelectedList.isEmpty) {
+      warningPopup(_, dsc: "Select Business Type");
+      return;
+    }
+    if (email.text.isEmpty) {
+      warningPopup(_, dsc: "Please enter an email");
+      return;
+    }
+    if (pass.text.isEmpty) {
+      warningPopup(_, dsc: "Password is empty or invalid");
+      return;
+    }
+    if (province == null) {
+      warningPopup(_, dsc: "Select State / Province");
+      return;
+    }
+    if (city == null) {
+      warningPopup(_, dsc: "Select City");
+      return;
+    }
+    if (googleAddr.text.isEmpty) {
+      warningPopup(_, dsc: "Type your location or select in map");
+      return;
+    }
+    if (!isTerms) {
+      warningPopup(_, dsc: "You must accept the Terms & Conditions");
+      return;
+    }
     setBusy(true);
     // bool res = await addNewCompany(
-    //   isRegistered,
-    //   companyId,
-    //   isFreeLancer,
-    //   companyNameEn,
-    //   genderId,
-    //   mobile,
-    //   whatsapp,
-    //   tel1,
-    //   email,
-    //   password,
-    //   areaId,
-    //   countryId,
-    //   cityId,
-    //   lattitude,
-    //   longitude,
-    //   address,
-    //   googleAddress,
-    //   teamUserId,
-    //   isEmailVerified,
-    //   appMobileVerified,
-    //   webMobileVerified,
-    //   businessServiceId,
-    //   salesTeamId,
-    //   serviceTypes,
+    //   0,
+    //   int.parse(companyId!),
+    //   isFreelancer,
+    //   name.text, //companyNameEn!,
+    //   0, //genderId,
+    //   "",
+    //   "",
+    //   "",
+    //   email.text,
+    //   pass.text,
+    //   0,
+    //   int.parse(countryId!),
+    //   city!.cityId,
+    //   lat,
+    //   long,
+    //   "",
+    //   "",
+    //   0,
+    //   false,
+    //   false,
+    //   false,
+    //   busObj!.businessServiceId,
+    //   0,
+    //   busSelectedList.map((e) => {"btypeId": e.businessTypeId!}).toList(),
     // );
-    // bool res = await addDeviceInfo(
-    //   applicationTypeId,
-    //   clientId,
-    //   companyId,
-    //   salesTeamId,
-    //   manufacturer,
-    //   name,
-    //   versionString,
-    //   platform,
-    //   idiom,
-    //   deviceType,
-    //   orientation,
-    //   density,
-    //   width,
-    //   height,
-    //   rotation,
-    // );
+    // if (res) {
+    //   // bool res = await addDeviceInfo(
+    //   //   applicationTypeId,
+    //   //   clientId,
+    //   //   companyId,
+    //   //   salesTeamId,
+    //   //   manufacturer,
+    //   //   name,
+    //   //   versionString,
+    //   //   platform,
+    //   //   idiom,
+    //   //   deviceType,
+    //   //   orientation,
+    //   //   density,
+    //   //   width,
+    //   //   height,
+    //   //   rotation,
+    //   // );
+    //   setBusy(false);
+    // }
+
     setBusy(false);
+  }
+
+  Future<bool> onWillPop() async {
+    // alertPopUp(_)
+    return false;
+  }
+
+  void serviceForOnChange(Gender? value) {
+    serviceObj = value;
+    notifyListeners();
   }
 }
 

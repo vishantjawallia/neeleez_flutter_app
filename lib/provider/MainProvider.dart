@@ -58,8 +58,8 @@ class MainProvider extends ChangeNotifier with CompanyProfileService, Department
   }
 
   void loadFirstItem() async {
+    countries = await getCountries();
     genders = await getGenders();
     amentias = await getAmenities();
-    countries = await getCountries();
   }
 }

@@ -6,6 +6,7 @@ import 'package:neeleez_flutter_app/config/palettes.dart';
 import 'package:neeleez_flutter_app/models/company/cities.dart';
 import 'package:neeleez_flutter_app/models/company/companies.dart';
 import 'package:neeleez_flutter_app/models/company/provinces.dart';
+import 'package:neeleez_flutter_app/models/gender/gender.dart';
 import 'package:neeleez_flutter_app/provider/MainProvider.dart';
 import 'package:neeleez_flutter_app/views/registration/widgets/drop_down_Input.dart';
 import 'package:neeleez_flutter_app/views/registration/widgets/multi_drop_down_Input.dart';

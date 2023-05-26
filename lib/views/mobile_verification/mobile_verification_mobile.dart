@@ -59,6 +59,7 @@ class _MobileVerificationMobile extends StatelessWidget {
                             ),
                             SizedBox(height: 3.h),
                             PhoneTextField(
+                              focusNode: viewModel.phoneFocusScopeNode,
                               keyboardType: TextInputType.phone,
                               onChanged: viewModel.phoneOnChange,
                               inputFormatters: [viewModel.maskFormatter!],
@@ -67,7 +68,7 @@ class _MobileVerificationMobile extends StatelessWidget {
                               // name: (viewModel.country!.mobileMask ?? '+000 00 000 0000').substring(viewModel.country!.countryCode!.length, viewModel.country!.mobileMask!.length).replaceAll('0', 'X'),
                               prefixIconColor: Palettes.primary,
                               prefixIconPath: MyIcon.mobileAnalytics,
-                              suffixIconPath: viewModel.phoneNumber.length == viewModel.country!.mobileNumberLength!
+                              suffixIconPath: viewModel.phoneNumberWithCode.length == viewModel.country!.mobileNumberLength!
                                   ? MyIcon.checked1
                                   : viewModel.phoneNumber.isNotEmpty
                                       ? MyIcon.crossed
@@ -77,7 +78,7 @@ class _MobileVerificationMobile extends StatelessWidget {
                             ),
                             SizedBox(height: 3.h),
                             CustomButton(
-                              onTap: viewModel.sendHandler,
+                              onTap: () => viewModel.sendHandler(context),
                               text: 'sendOtp'.tr,
                               padding: const EdgeInsets.symmetric(horizontal: 85, vertical: 12),
                             ),

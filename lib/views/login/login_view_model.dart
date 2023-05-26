@@ -54,7 +54,10 @@ class LoginViewModel extends BaseViewModel {
   void onTap() {}
 
   void signUpHandler() {
-    Get.to(() => const MobileVerificationView(loading: true), transition: Transition.downToUp);
+    Get.to(
+      () => const MobileVerificationView(),
+      transition: Transition.downToUp,
+    );
   }
 
   onChangeRemember(bool? value) {

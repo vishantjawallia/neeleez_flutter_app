@@ -1,8 +1,6 @@
 library mobile_verification_view;
 
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:neeleez_flutter_app/config/my_Image.dart';
 import 'package:neeleez_flutter_app/config/my_icon.dart';
 import 'package:neeleez_flutter_app/helpers/helper.dart';
@@ -24,18 +22,17 @@ part 'mobile_verification_desktop.dart';
 // ignore: must_be_immutable
 class MobileVerificationView extends StatelessWidget {
   static const routeName = '/mobile_verification';
-  final bool? loading;
 
-  const MobileVerificationView({super.key, this.loading = false});
+  const MobileVerificationView({super.key});
 
   @override
   Widget build(BuildContext context) {
     final main = Provider.of<MainProvider>(context);
     return ViewModelBuilder<MobileVerificationViewModel>.reactive(
         viewModelBuilder: () => MobileVerificationViewModel(
-              loading!,
               countryDetail: main.countryDetail,
               countryList: main.countries,
+              country: main.countries?.firstWhere((e) => e.id == main.countryDetail!.countryId),
             ),
         onViewModelReady: (viewModel) {
           // Do something once your viewModel is initialized
