@@ -13,6 +13,7 @@ import 'core/locator.dart';
 import 'core/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'languages/language.dart';
 import 'views/dashboard/dashboard_view.dart';
 import 'views/registration/registration_view.dart';
 import 'views/main/main_view.dart';
@@ -47,6 +48,9 @@ class MyApp extends StatelessWidget {
       locale: const Locale('en', 'US'),
       fallbackLocale: const Locale('en', 'US'),
       defaultTransition: Transition.rightToLeft,
+      // supportedLocales: [
+
+      // ],
       // translations: LocalLanguage(),
       useInheritedMediaQuery: true,
       theme: CustomTheme.light,

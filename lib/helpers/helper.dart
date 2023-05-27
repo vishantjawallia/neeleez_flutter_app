@@ -38,6 +38,30 @@ class Helper {
     }
     return true;
   }
+
+  // static Future<LanguageModel> getLanguage({String? fileName}) async {
+  //   LanguageModel? body;
+  //   final String response =
+  //       // if (fileName != null) {
+  //       //   response = await File('./json/language/$fileName.json').readAsString();
+  //       // } else {
+  //       //   response = await File('./json/language/en_US.json').readAsString();
+  //       // }
+  //       // response =
+  //       await File('./json/language/en.json').readAsString();
+  //   List data = jsonDecode(response.toString());
+  //   Map<String, String> obj = {};
+  //   for (Map element in data) {
+  //     String name = element['name'];
+  //     String value = element['value'].toString();
+  //     obj.addAll({name: value});
+  //   }
+  //   LanguageModel languageModel = LanguageModel.fromJson(obj);
+  //   // Locale? local = Locale("${dd["language_code"]}", "${dd["country_code"]}");
+  //   // Get.updateLocale(local);
+  //   // await SharedPreferenceHelper.setString(Preferences.languageModel, data.toString());
+  //   return languageModel;
+  // }
 }
 
 // extension NumberParsing on String {
@@ -46,6 +70,20 @@ class Helper {
 //   }
 //   // ···
 // }
+
+// void main(List<String> args) async {
+//   // LanguageModel? model = await Helper.getLanguage(fileName: "en");
+//   loadI();
+// }
+
+// void loadI() async {
+//   LanguageModel? model = await Helper.getLanguage(fileName: "en");
+//   final Directory directory = await getApplicationDocumentsDirectory();
+//   final File file = File('${directory.path}/en.json');
+//   await file.writeAsString(model.toJson().toString());
+// }
+
+// getApplicationDocumentsDirectory() {}
 
 extension NumberParsing on num {
   /// Calculates the height depending on the device's screen size
@@ -90,4 +128,3 @@ extension StringParsing on String {
 //   /// Calculates the sp (Scalable Pixel) depending on the device's screen size
 //   double get sp => this * (Get.width / 3) / 100;
 // }
-

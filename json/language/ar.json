@@ -1,0 +1,2130 @@
+[
+  { "name": "btn_forget_send", "value": "ارسل" },
+  { "name": "btn_leave_apply", "value": "تطبيق الإجازة" },
+  { "name": "btn_leave_view", "value": "عرض الإجازة" },
+  { "name": "btn_login_Login", "value": "تسجيل الدخول" },
+  { "name": "btn_mobile_send_otp", "value": "إرسال OTP" },
+  { "name": "btn_msgButtonAdd", "value": "اضافة" },
+  { "name": "btn_msgButtonCancel", "value": "الغاء " },
+  { "name": "btn_msgButtonCheckout", "value": "الدفع" },
+  { "name": "btn_msgButtonClose", "value": "اغلاق" },
+  { "name": "btn_msgButtonCloseApp", "value": "أغلق التطبيق" },
+  { "name": "btn_msgButtonComplete", "value": "اكمل" },
+  { "name": "btn_msgButtonDeactivate", "value": "تعطيل" },
+  { "name": "btn_msgButtonDelete", "value": "حذف" },
+  { "name": "btn_msgButtonEdit", "value": "حرر" },
+  { "name": "btn_msgButtonNo", "value": "لا" },
+  { "name": "btn_msgButtonOk", "value": "موافق" },
+  { "name": "btn_msgButtonPrint", "value": "طباعة" },
+  { "name": "btn_msgButtonProcess", "value": "عملية" },
+  { "name": "btn_msgButtonRating", "value": "قدم التقييم" },
+  { "name": "btn_msgButtonReload", "value": "إعادة تحميل" },
+  { "name": "btn_msgButtonReschedule", "value": "اعاده جدوله" },
+  { "name": "btn_msgButtonResend", "value": "ارسال" },
+  { "name": "btn_msgButtonSubscibe", "value": "إشترك الآن" },
+  { "name": "btn_msgButtonSubscibe2", "value": "تم الاشتراك فيه بالفعل" },
+  { "name": "btn_msgButtonUpdate", "value": "تحديث" },
+  { "name": "btn_msgButtonUpgrade", "value": "رفع مستوى" },
+  { "name": "btn_msgButtonView", "value": "منظر" },
+  { "name": "btn_msgButtonYes", "value": "نعم" },
+  { "name": "btn_next", "value": "التالي" },
+  { "name": "btn_offer2_activate", "value": "تنشيط" },
+  { "name": "btn_offer2_activationCode", "value": "رمز التفعيل: " },
+  { "name": "btn_offer2_deactivate", "value": "الغاء تنشيط" },
+  { "name": "btn_offer2_generate", "value": "ولد" },
+  { "name": "btn_pay_now", "value": "ادفع الآن" },
+  { "name": "btn_rating_submit", "value": "إرسال" },
+  { "name": "btn_reg", "value": "تسجيل" },
+  { "name": "btn_reset_password", "value": "تغيير كلمة المرور" },
+  { "name": "btn_save", "value": "حفظ" },
+  { "name": "btn_send", "value": "إرسال" },
+  { "name": "btn_update_playstore", "value": "التحديث الآن" },
+  { "name": "btn_update_skip", "value": "لا، شكراً!" },
+  { "name": "btn_update_title2", "value": "التحديث المطلوب" },
+  { "name": "btn_verify", "value": "التحقق" },
+  { "name": "btnUploadImage", "value": "تحميل صورة" },
+  { "name": "Cancel", "value": "إلغاء الأمر" },
+  {
+    "name": "Intro_body1",
+    "value": "تم تصميم كاين لجعل الحياة أبسط. نسعى جاهدين لتمكين جميع جوانب الاحتياجات اليومية بطريقة أكثر ذكاء"
+  },
+  {
+    "name": "Intro_body2",
+    "value": "يمكن أن يؤدي تحويل القيود الاجتماعية مع وجود مقدمي الخدمات المحترفين عبر الإنترنت إلى تسهيل جدولة المواعيد ، وتعزيز عروض الخصم وتفاصيل الخدمة بطريقة أفضل من خلال البقاء مرئيا في رادار الملايين من مستخدمي كاين"
+  },
+  {
+    "name": "Intro_body3",
+    "value": "يجب ألا يزعج أسلوب الحياة غير المستقر بعد تأثيرات كوفيد الخدمات ذات الأبواب المغلقة. لنكن مبدعين في ربط العملاء وتقديم خدمات احترافية لا يمكن إيقافها"
+  },
+  {
+    "name": "Intro_body4",
+    "value": "سجّل كاين ونحصل على تسجيل ولاء تلقائي لكسب نقاط على كل نشاط وربح مكافآت كبيرة"
+  },
+  { "name": "Intro_skip", "value": "تخطي المقدمة" },
+  { "name": "Intro_title1", "value": "تطبيق جوال ذكي واحد للجميع" },
+  { "name": "Intro_title2", "value": "ابق على اتصال ، كن مرئيًا" },
+  { "name": "Intro_title3", "value": "اربح واربح مع نيليز" },
+  {
+    "name": "Intro_title4",
+    "value": "التغلب على التحديات من خلال الاتصال والإبداع"
+  },
+  {
+    "name": "lbl_account_del_ask_password",
+    "value": "للمتابعة، يرجى إعادة إدخال كلمة المرور الخاصة بك"
+  },
+  { "name": "lbl_account_del_ask1", "value": "ماذا تريد أن تفعل بحسابك؟" },
+  { "name": "lbl_account_del_btn_deactivate", "value": "الغاء تنشيط" },
+  { "name": "lbl_account_del_btn_delete", "value": "حذف" },
+  { "name": "lbl_account_del_choice1", "value": "لماذا تحذف حسابك؟" },
+  {
+    "name": "lbl_account_del_choice2",
+    "value": "لماذا تقوم بإلغاء تنشيط حسابك؟"
+  },
+  {
+    "name": "lbl_account_del_confirm1",
+    "value": "هل أنت متأكد من أنك تريد حذف حسابك؟ يمكنك إعادة تنشيط حسابك في غضون 14 يوما من الحذف؛ خلاف ذلك ، سيتم حذفه بشكل دائم."
+  },
+  {
+    "name": "lbl_account_del_confirm2",
+    "value": "هل أنت متأكد من إلغاء تنشيط حسابك؟ سيتم إعادة تنشيط الحساب بمجرد تسجيل الدخول مرة أخرى."
+  },
+  { "name": "lbl_account_del_error_choice", "value": "حدد الخيار من القائمة" },
+  { "name": "lbl_account_del_error_choice2", "value": "حدد السبب" },
+  {
+    "name": "lbl_account_del_error_deactivate",
+    "value": "فشلت عملية إلغاء تنشيط الحساب. حاول مرة أخرى."
+  },
+  {
+    "name": "lbl_account_del_error_delete",
+    "value": "فشلت عملية حذف الحساب. حاول مرة أخرى."
+  },
+  {
+    "name": "lbl_account_del_error_password1",
+    "value": "أدخل كلمة مرور صالحة"
+  },
+  {
+    "name": "lbl_account_del_error_password2",
+    "value": "كلمة المرور المدخلة غير صحيحة"
+  },
+  {
+    "name": "lbl_account_del_error_reactivate",
+    "value": "فشلت عملية إعادة تنشيط الحساب. حاول مرة أخرى."
+  },
+  { "name": "lbl_account_del_hi", "value": "هناك " },
+  {
+    "name": "lbl_account_del_info1a",
+    "value": "نحن لسنا سعداء لرؤيتك تذهب. يوصى بإلغاء تنشيط حساب ملف تعريف شركتك بدلا من الحذف. إذا كنت لا تزال ترغب في حذف ملف تعريف شركتك من Neeleez - نحن نهتم بشكل دائم ، فوفقا لسياستنا ، سنبقيه معلقا معنا لمدة 14 يوما. في حالة تغيير رأيك ، يمكنك تسجيل الدخول مرة أخرى لإعادة تنشيط ملف تعريف شركتك."
+  },
+  {
+    "name": "lbl_account_del_info1b",
+    "value": "بعد 14 يوما ، سيتم حذف ملف تعريف شركتك إلى جانب جميع المعاملات والبيانات المرتبطة بها نهائيا ولن تتمكن بعد الآن من الوصول إلى ملف تعريف شركتك."
+  },
+  {
+    "name": "lbl_account_del_info1c",
+    "value": "يرجى العلم أنه بالنقر فوق الزر أدناه ، سيتم أيضا إنهاء أي حزمة مدفوعة تم شراؤها ويعتبر أي مبلغ (إذا تم دفعه بالفعل) ملغيا ولن يكون قابلا للاسترداد أو التعديل على الرغم من أي تاريخ انتهاء صلاحية أو تحت أي ظرف من الظروف."
+  },
+  {
+    "name": "lbl_account_del_info2a",
+    "value": "يمكن استخدام إلغاء تنشيط حسابك بينما تحتاج إلى الابتعاد عن كايين - نحن نهتم لفترة من الوقت. سيؤدي ذلك إلى إخفاء ملف تعريف شركتك وجميع الأنشطة مؤقتا."
+  },
+  {
+    "name": "lbl_account_del_info2b",
+    "value": "يمكنك تنشيطه مرة أخرى عن طريق تسجيل الدخول مرة أخرى."
+  },
+  {
+    "name": "lbl_account_del_info2c",
+    "value": "قد لا نتمكن من الرد على مخاوف التعطيل الخاصة بك بشكل فردي ولكن يمكنك إرسال طلبك أو أي أسئلة باستخدام نموذج الدعم الخاص بنا "
+  },
+  {
+    "name": "lbl_account_del_success_deactivate",
+    "value": "تم إلغاء تنشيط الحساب بنجاح. سيتم إعادة تنشيط الحساب بمجرد تسجيل الدخول مرة أخرى."
+  },
+  {
+    "name": "lbl_account_del_success_delete",
+    "value": "تم حذف الحساب بنجاح. إذا قمت بتسجيل الدخول في غضون 14 يوما من الحذف ، فيمكنك إعادة تنشيطه ؛ خلاف ذلك ، سيتم حذف الحساب نهائيا."
+  },
+  { "name": "lbl_account_del_title_deactivate", "value": "إلغاء تنشيط الحساب" },
+  { "name": "lbl_account_del_title_delete", "value": "حذف الحساب" },
+  {
+    "name": "lbl_account_login_delete_confirm",
+    "value": "هل تريد استرداد حسابك؟ كما قمت بتسجيل الدخول قبل حذفه نهائيا."
+  },
+  {
+    "name": "lbl_account_login_delete_error",
+    "value": "فشل استرداد الحساب. حاول مرة أخرى."
+  },
+  {
+    "name": "lbl_account_login_delete_error2",
+    "value": "لا يمكن استرداد الحساب بسبب حذفه نهائيا."
+  },
+  {
+    "name": "lbl_account_login_delete_success",
+    "value": "استرداد الحساب بنجاح"
+  },
+  {
+    "name": "lbl_account_login_error_reactivate",
+    "value": "فشلت إعادة تنشيط الحساب. حاول مرة أخرى."
+  },
+  {
+    "name": "lbl_account_login_success_reactivate",
+    "value": "تمت إعادة تنشيط الحساب بنجاح."
+  },
+  { "name": "lbl_addNewService", "value": "إضافة خدمة جديدة" },
+  { "name": "lbl_CpArticleName", "value": "اسم المقال" },
+  { "name": "lbl_CpArticleNo", "value": "لا." },
+  { "name": "lbl_CpArticleQty", "value": "الكميه" },
+  { "name": "lbl_CpArticleUnit", "value": "وحدة" },
+  { "name": "lbl_CpFormatName", "value": "اسم التنسيق" },
+  { "name": "lbl_CpFormatPrice", "value": "سعر" },
+  { "name": "lbl_CpOffer", "value": "العروض" },
+  { "name": "lbl_CpOfferAllDays", "value": "كل الأيام" },
+  { "name": "lbl_CpOfferApply", "value": "تطبيق العرض" },
+  { "name": "lbl_CpOfferCode", "value": "رمز العرض" },
+  { "name": "lbl_CpOfferDateEnd", "value": " تاريخ انتهاء العرض" },
+  { "name": "lbl_CpOfferDateStart", "value": " تاريخ بدء العرض" },
+  { "name": "lbl_CpOfferDays", "value": " أيام العرض" },
+  { "name": "lbl_CpOfferNameAr", "value": "اسم العرض (ع)" },
+  { "name": "lbl_CpOfferNameEn", "value": "اسم العرض (en)" },
+  { "name": "lbl_CpOfferType", "value": "انواع العروض " },
+  { "name": "lbl_dash", "value": "لوحة القيادة" },
+  { "name": "lbl_dash_appointment", "value": "المواعيد" },
+  { "name": "lbl_dash_cl", "value": "نقرات" },
+  { "name": "lbl_dash_cl_a", "value": "العروض / الخصومات" },
+  { "name": "lbl_dash_li", "value": "قائمة المواعيد" },
+  { "name": "lbl_dash_mo", "value": "شهر" },
+  { "name": "lbl_dash_on", "value": "النقرات في الأسبوع" },
+  { "name": "lbl_dash_on_a", "value": "المواعيد المحجوزة" },
+  { "name": "lbl_dash_on_ap", "value": "مواعيد" },
+  {
+    "name": "lbl_dash_pkg_expire_info1",
+    "value": "انتهى الوصول المجاني والمحدود."
+  },
+  {
+    "name": "lbl_dash_pkg_expire_info2",
+    "value": "يرجى الاشتراك في أي حزمة مدفوعة للحصول على الوصول."
+  },
+  { "name": "lbl_dash_pkg_trial_btn", "value": "باقة الاشتراك" },
+  { "name": "lbl_dash_pkg_trial_btn2", "value": "اشترك" },
+  { "name": "lbl_dash_pkg_trial_btn3", "value": "احقا" },
+  {
+    "name": "lbl_dash_pkg_trial_info1",
+    "value": "تم تنشيط شهر واحد مجانا ومحدودة الوصول."
+  },
+  {
+    "name": "lbl_dash_pkg_trial_info2",
+    "value": "الترقية إلى حزمة مدفوعة مع خصم 50٪ في أي وقت خلال هذا الشهر للاستفادة الكاملة من ميزات Kayyen."
+  },
+  { "name": "lbl_dash_pkg_trial_name", "value": "نسخة تجريبية مجانية" },
+  { "name": "lbl_dash_to", "value": "اليوم" },
+  { "name": "lbl_dash_toa", "value": "مجموع" },
+  { "name": "lbl_dash_up", "value": "حزمة الترقية" },
+  { "name": "lbl_dash_views", "value": "المشاهدات" },
+  { "name": "lbl_dash_week", "value": "أسبوع" },
+  { "name": "lbl_Dashboard_card_total_appoint", "value": "إجمالي المواعيد" },
+  { "name": "lbl_Dashboard_card_total_click", "value": "إجمالي النقرات" },
+  { "name": "lbl_Dashboard_Earned", "value": "النقط المحصلة" },
+  { "name": "lbl_Dashboard_Greeting1", "value": "صباح الخير" },
+  { "name": "lbl_Dashboard_Greeting2", "value": "مساء الخير" },
+  { "name": "lbl_Dashboard_Greeting3", "value": "مساء الخير" },
+  { "name": "lbl_Dashboard_Greeting4", "value": "تصبح على خير" },
+  {
+    "name": "lbl_Dashboard_Network_Not_Available",
+    "value": "الشبكة غير متوفرة"
+  },
+  { "name": "lbl_Dashboard_Timer_day", "value": "أيام" },
+  { "name": "lbl_Dashboard_Timer_hr", "value": "ساعات" },
+  { "name": "lbl_Dashboard_Timer_min", "value": "دقائق " },
+  { "name": "lbl_Dashboard_Timer_sec", "value": "ثواني" },
+  { "name": "lbl_empty_department", "value": "لم تتم إضافة أي قسم حتى الآن" },
+  {
+    "name": "lbl_empty_designation",
+    "value": "لم تتم إضافة أي تسمية حتى الآن"
+  },
+  { "name": "lbl_empty_format", "value": "لم تتم إضافة تنسيق حتى الآن" },
+  { "name": "lbl_empty_group", "value": "لم تتم إضافة أي مجموعة حتى الآن" },
+  { "name": "lbl_empty_leave", "value": "لا أوراق المضافة" },
+  { "name": "lbl_empty_offer", "value": "العرض لم يتم إضافته بعد" },
+  { "name": "lbl_empty_offer2", "value": "لا يوجد شيء لعرضه" },
+  {
+    "name": "lbl_empty_package",
+    "value": "الحزمة غير المشتركة في البلد المحدد حاليا"
+  },
+  {
+    "name": "lbl_empty_qualification",
+    "value": "لم تتم إضافة مؤهلات حتى الآن"
+  },
+  { "name": "lbl_empty_section", "value": "لم تتم إضافة أي قسم حتى الآن" },
+  { "name": "lbl_empty_service", "value": "لم تتم إضافة أي خدمة حتى الآن" },
+  { "name": "lbl_empty_serviceComposition", "value": "تكوين الخدمة غير متوفر" },
+  { "name": "lbl_empty_serviceFormat", "value": "تنسيق الخدمة غير متوفر" },
+  { "name": "lbl_empty_skill", "value": "لم تتم إضافة أي مهارة حتى الآن" },
+  {
+    "name": "lbl_forget_desc",
+    "value": "أدخل عنوان البريد الإلكتروني المسجل أدناه لإعادة تعيين كلمة المرور"
+  },
+  {
+    "name": "lbl_forget_desc2",
+    "value": "أدخل رقم الهاتف المحمول المسجل أدناه لعملية إعادة تعيين كلمة المرور"
+  },
+  {
+    "name": "lbl_forget_error_noaccount",
+    "value": "معرف البريد الإلكتروني غير مسجل لدى Neeleez."
+  },
+  {
+    "name": "lbl_forget_error_noaccount2",
+    "value": "رقم الجوال غير مسجل لدى نليز.."
+  },
+  { "name": "lbl_forget_placeholder_email", "value": "البريد الإلكتروني" },
+  { "name": "lbl_forget_title", "value": "هل نسيت كلمة المرور" },
+  {
+    "name": "lbl_forget_with_mobile",
+    "value": "استعادة كلمة المرور مع الهاتف المتحرك OTP"
+  },
+  {
+    "name": "lbl_inapp_purchase_error1",
+    "value": "حاليا يبدو أن متجر التطبيقات غير متوفر. حاول مرة أخرى لاحقا."
+  },
+  {
+    "name": "lbl_inapp_purchase_error2",
+    "value": "يبدو أن الفوترة غير متوفرة، يرجى المحاولة مرة أخرى لاحقا."
+  },
+  {
+    "name": "lbl_inapp_purchase_error3",
+    "value": "يبدو أن الدفع غير صالح ، يرجى المحاولة مرة أخرى."
+  },
+  {
+    "name": "lbl_inapp_purchase_error4",
+    "value": "لا يبدو أن الدفع ممكن/مسموح به، يرجى المحاولة مرة أخرى."
+  },
+  {
+    "name": "lbl_inapp_purchase_not_supported",
+    "value": "الشراء داخل التطبيق غير مدعوم."
+  },
+  {
+    "name": "lbl_inapp_purchase_not_supported2",
+    "value": "Google Pay غير متصل"
+  },
+  { "name": "lbl_inapp_purchase_not_supported3", "value": "اي تيونز غير متصل" },
+  {
+    "name": "lbl_info_mobile0",
+    "value": "سيتم استخدام رقم الهاتف المحمول من قبل فريق كايين فقط. لن يتم إبلاغ رقم الهاتف المحمول لأي شخص."
+  },
+  {
+    "name": "lbl_info_mobile1",
+    "value": "سيتم استخدام رقم الهاتف المحمول من قبل فريق كايين فقط."
+  },
+  {
+    "name": "lbl_info_mobile2",
+    "value": "لن يتم إبلاغ رقم الهاتف المحمول لأي شخص."
+  },
+  {
+    "name": "lbl_info_signup1a",
+    "value": "من خلال التحقق من هذا ، وأنا أتفق مع كايين -- نحن نهتم"
+  },
+  { "name": "lbl_info_signup1b", "value": "شروط الاستخدام" },
+  { "name": "lbl_info_signup1c", "value": "سياسة الخصوصية" },
+  {
+    "name": "lbl_info_signup2",
+    "value": "من خلال التحقق من ذلك ، أوافق على أن Neeleez - نحن نهتم يمكن استخدام ملفي الشخصي لتسهيل خدماتي لمستخدمي Kayyen."
+  },
+  {
+    "name": "lbl_info_signup3",
+    "value": "من خلال التحقق من ذلك ، أشهد على شرفي بأنني أخصائي صحي أو مزود معتمد لخدمات الأعمال المختارة أعلاه."
+  },
+  { "name": "lbl_intro", "value": "لوريم إيبسوم" },
+  { "name": "lbl_intro_a", "value": "سجل في كايين - نحن نهتم بتوسيع أعمالك" },
+  {
+    "name": "lbl_login_desc",
+    "value": "أدخل اسم المستخدم / كلمة المرور الخاصة بك للوصول إلى ميزات التطبيق"
+  },
+  { "name": "lbl_login_forget_password", "value": "هل نسيت كلمة المرور؟" },
+  { "name": "lbl_login_placeholder_password", "value": "شعار" },
+  {
+    "name": "lbl_login_placeholder_username",
+    "value": "اسم المستخدم / البريد الإلكتروني :"
+  },
+  { "name": "lbl_login_remember", "value": "تذكرني" },
+  { "name": "lbl_login_title", "value": "تسجيل الدخول" },
+  {
+    "name": "lbl_media_error_image_size",
+    "value": "يجب أن يكون حجم الصورة أقل أو مساويا ل "
+  },
+  {
+    "name": "lbl_media_error_video_len",
+    "value": "يجب أن يكون طول الفيديو أقل أو مساويا ل "
+  },
+  {
+    "name": "lbl_media_error_video_size",
+    "value": "يجب أن يكون حجم الفيديو أقل أو يساوي "
+  },
+  { "name": "lbl_media_upload_complete", "value": "تم إكمال التحميل" },
+  { "name": "lbl_media_upload_failed", "value": "فشل التحميل" },
+  { "name": "lbl_menu_about", "value": "عن" },
+  { "name": "lbl_menu_appointment", "value": "المواعيد" },
+  { "name": "lbl_menu_changePass", "value": "تغيير كلمة المرور" },
+  { "name": "lbl_menu_dashboard", "value": "لوحه القياده" },
+  { "name": "lbl_menu_datalisting", "value": "قائمة البيانات" },
+  { "name": "lbl_menu_eCommerce", "value": "التجارة الإلكترونية" },
+  { "name": "lbl_menu_logout", "value": "الخروج" },
+  { "name": "lbl_menu_offerlist", "value": "الرموز الترويجية" },
+  { "name": "lbl_menu_packageSubscriptions", "value": "اشتراكات الحزم" },
+  { "name": "lbl_menu_paymentOnline", "value": "الدفع عبر الإنترنت" },
+  { "name": "lbl_menu_paymentsHistory", "value": "تاريخ الدفع" },
+  { "name": "lbl_menu_profile", "value": "نبذة عن الشركة" },
+  { "name": "lbl_menu_serviceProvider", "value": "مقدمي الخدمات" },
+  { "name": "lbl_menu_storyboard", "value": "صفحة القصة" },
+  { "name": "lbl_menu_support", "value": "دعم" },
+  {
+    "name": "lbl_mobile_send_disp",
+    "value": "سوف نرسل SMS مع رمز OTP إلى رقم الجوال المقدم لعملية التحقق"
+  },
+  { "name": "lbl_mobile_send_title", "value": "التحقق من رقم الهاتف المحمول" },
+  {
+    "name": "lbl_msg_MSGadditionalinfo",
+    "value": "الرجاء إدخال معلومات إضافية"
+  },
+  {
+    "name": "lbl_msg_MSGCancelationReason",
+    "value": "الرجاء إدخال السبب الخاص بك هنا"
+  },
+  { "name": "lbl_msg_MSGOtpEmpty", "value": "رقم الجوال فارغ" },
+  { "name": "lbl_msg_MSGOtpSend", "value": "أدخل رقم جوال صالح!" },
+  { "name": "lbl_msg_MSGOtpVerify", "value": "رجاءا أدخل الرمز" },
+  {
+    "name": "lbl_msg_MSGResetPasswordCurrent",
+    "value": "الرجاء إدخال كلمة المرور الحالية"
+  },
+  {
+    "name": "lbl_msg_MSGResetPasswordNew",
+    "value": "الرجاء إدخال كلمة مرور جديدة"
+  },
+  {
+    "name": "lbl_msg_MSGResetPasswordRewriteNew",
+    "value": "يرجى إعادة كتابة كلمة المرور الجديدة"
+  },
+  { "name": "lbl_msg_MSGSignInPassword", "value": "الرجاء إدخال كلمة المرور" },
+  { "name": "lbl_msg_MSGSignUpCName", "value": "الرجاء إدخال اسم الشركة" },
+  { "name": "lbl_msg_MSGSignUpDob", "value": "الرجاء إدخال تاريخ الميلاد" },
+  { "name": "lbl_msg_MSGSignUpEmail", "value": "الرجاء إدخال بريد إلكتروني" },
+  { "name": "lbl_msg_MSGSignUpFName", "value": "الرجاء إدخال الاسم الأول" },
+  { "name": "lbl_msg_MSGSignUpLName", "value": "الرجاء إدخال اسم العائلة" },
+  {
+    "name": "lbl_msg_MSGSportsSettingsLocation",
+    "value": "الرجاء إدخال الموقع المتاح"
+  },
+  { "name": "lbl_msg_MSGSucess", "value": "تم حفظ المعلومات بنجاح" },
+  { "name": "lbl_msg_MSGTagline", "value": "الرجاء إدخال سطر الوصف" },
+  { "name": "lbl_msg_MSGUsername", "value": "الرجاء إدخال اسم مستخدم" },
+  {
+    "name": "lbl_msg_MSGWarningPassword",
+    "value": "يجب أن تتكون كلمة المرور من 8 إلى 20 حرفًا"
+  },
+  { "name": "lbl_msg_Telephone", "value": "الرجاء إدخال رقم الهاتف" },
+  { "name": "lbl_msgbody_msgBodyAccountCreated", "value": "تم إنشاء حسابك" },
+  {
+    "name": "lbl_msgbody_msgBodyAppCloseAsk",
+    "value": "هل تريد حقًا إغلاق التطبيق؟"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyAppCloseEditAsk",
+    "value": "هل تريد حقًا الخروج من تعديل  العمل ؟"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyAppCloseRegAsk",
+    "value": "هل تريد حقًا العودة وإغلاق التسجيل؟"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyAppCloseRegPreAsk",
+    "value": "هل تريد حقًا الانتقال إلى صفحة التسجيل السابقة؟"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyBackToLoginScreen",
+    "value": "هل تريد العودة إلى شاشة تسجيل الدخول؟"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyBackToMobileScreen",
+    "value": "هل تريد حقا تغيير رقم الهاتف المحمول؟"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyDetailError",
+    "value": "أدخل التفاصيل الصحيحة"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyDocumentSelectWarning",
+    "value": "أنواع المستندات المدعومة هي PDF فقط"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyEmptyEmail2",
+    "value": "البريد الإلكتروني فارغ أو غير صالح"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyEmptyPassword",
+    "value": "حقل كلمة المرور فارغ"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyEmptyPassword2",
+    "value": "كلمة المرور فارغة أو غير صالحة"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyEmptyPassword2b",
+    "value": "تأكيد كلمة المرور فارغة أو غير صالحة"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyEmptyPassword3",
+    "value": "كلمة المرور القديمة فارغة أو غير صالحة"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyEmptyPassword3b",
+    "value": "يجب ألا يقل طول كلمة المرور عن 6 أحرف"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyEmptyUserName",
+    "value": "اسم المستخدم أو حقل البريد الإلكتروني فارغ"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyErrorAminityType",
+    "value": "الرجاء تحديد وسائل الراحة!"
+  },
+  { "name": "lbl_msgbody_msgBodyErrorArea", "value": "حدد المنطقة" },
+  {
+    "name": "lbl_msgbody_msgBodyErrorBusinessType",
+    "value": "الرجاء تحديد نوع العمل!"
+  },
+  { "name": "lbl_msgbody_msgBodyErrorCity", "value": "اختر مدينة" },
+  { "name": "lbl_msgbody_msgBodyErrorCountry", "value": "اختر الدولة" },
+  {
+    "name": "lbl_msgbody_msgBodyErrorCurrentPassword",
+    "value": "كلمة المرور الحالية غير صحيحة"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyErrorDate",
+    "value": "يجب أن يكون التاريخ بتنسيق mm / dd / yyyy"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyErrorDateOfBirth",
+    "value": "تاريخ الميلاد غير صحيح"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyErrorEmail",
+    "value": "عنوان البريد الإلكتروني غير صالح!"
+  },
+  { "name": "lbl_msgbody_msgBodyErrorGender", "value": "حدد نوع الجنس" },
+  {
+    "name": "lbl_msgbody_msgBodyErrorGenderType",
+    "value": "الرجاء تحديد نوع الجنس!"
+  },
+  { "name": "lbl_msgbody_msgBodyErrorLanguage", "value": "اختار اللغة" },
+  { "name": "lbl_msgbody_msgBodyErrorLocation", "value": "اختر موقعا" },
+  { "name": "lbl_msgbody_msgBodyErrorNationality", "value": "اختر الجنسية" },
+  {
+    "name": "lbl_msgbody_msgBodyErrorNewPassword",
+    "value": "كلمة المرور الجديدة غير مطابقة"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyErrorOpenDocument",
+    "value": "لا يمكن فتح المستند"
+  },
+  { "name": "lbl_msgbody_msgBodyErrorPackage", "value": "الحزمة غير محددة" },
+  {
+    "name": "lbl_msgbody_msgBodyErrorPayment",
+    "value": "لم يتم تحديد وضع الدفع"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyErrorPayment2",
+    "value": "لم يتم إدخال مبلغ الحزمة"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyErrorPersonEmail",
+    "value": "عنوان البريد الإلكتروني غير صالح!"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyErrorPersonMobile",
+    "value": "أدخل رقم جوال صالح!"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyErrorPersonName",
+    "value": "أدخل الاسم الكامل لجهة الاتصال!"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyErrorPersonWhatsapp",
+    "value": "أدخل رقم واتساب صالح!"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyErrorState",
+    "value": "حدد الولاية / المقاطعة"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyErrorTermsAndCondition",
+    "value": "يجب عليك قبول الشروط "
+  },
+  {
+    "name": "lbl_msgbody_msgBodyErrorWhatsapp",
+    "value": "أدخل رقم واتساب صالح!"
+  },
+  { "name": "lbl_msgbody_msgBodyExit", "value": "هل تريد حقا الخروج؟" },
+  {
+    "name": "lbl_msgbody_msgBodyFeatureComingSoon",
+    "value": "هذه الميزة ستتوفر قريبا"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyImageErrorDelete",
+    "value": "لم يتم حذف الصورة\r\nاتصالك بالإنترنت"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyImageErrorDownload",
+    "value": "لم يتم تنزيل الصورة\r\nاتصالك بالإنترنت"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyImageErrorUpload",
+    "value": "لم يتم تحميل الصورة\r\nاتصالك بالإنترنت"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyImageRemoveAsk",
+    "value": "هل تريد إزالة هذه الصورة؟"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyImageRemoveAsk2",
+    "value": "هل تريد حقا حذفه؟"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyImageSelectError",
+    "value": "يوجد خطأ في هذه الصورة\r\nالرجاء استخدام صورة أخرى."
+  },
+  {
+    "name": "lbl_msgbody_msgBodyImageSelectWarning",
+    "value": "أنواع الصور المدعومة هي jpg / png فقط"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyInternetConnection",
+    "value": "يرجى التحقق من اتصالك بالإنترنت وإعادة تشغيل التطبيق"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyInternetError",
+    "value": "خطأ في الاتصال بالإنترنت"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyJobGoogleAdrError",
+    "value": "عنوان google غير صالح"
+  },
+  { "name": "lbl_msgbody_msgBodyLogout", "value": "هل تريد حقا تسجيل الخروج؟" },
+  {
+    "name": "lbl_msgbody_msgBodyLogoutAsk",
+    "value": "هل أنت متأكد ؟ تسجيل خروج"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyNotMatchPassword",
+    "value": "كلمة المرور غير متطابقة"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyNotMatchPassword2",
+    "value": "يجب أن تتطابق كلمتا المرور"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyNotMatchPassword3",
+    "value": "تأكيد عدم تطابق كلمة المرور مع كلمة المرور الجديدة"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyOTPIncorrect",
+    "value": "كلمة مرور لمرة واحدة غير صالحة"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyPackagenotAvail",
+    "value": "هذه الحزمة غير متوفرة الآن"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyPackageSubscribe",
+    "value": "تم الاشتراك في الحزمة بنجاح"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyPasswordUpdated",
+    "value": "تم تحديث كلمة السر"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyPersonEmail",
+    "value": "عنوان البريد الإلكتروني غير صالح!"
+  },
+  { "name": "lbl_msgbody_msgBodyPersonMobile", "value": "أدخل رقم جوال صالح!" },
+  {
+    "name": "lbl_msgbody_msgBodyPersonName",
+    "value": "أدخل الاسم الكامل لجهة الاتصال!"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyPhaseNotAvailable",
+    "value": "القائمة قيد التطوير"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyProfileUpdated",
+    "value": "تحديث الملف الشخصي"
+  },
+  { "name": "lbl_msgbody_msgBodySelectBusinessType", "value": "حدد نوع العمل" },
+  { "name": "lbl_msgbody_msgBodySelectPackage", "value": "حدد أي حزمة" },
+  {
+    "name": "lbl_msgbody_msgBodyServerError",
+    "value": "خطأ في الخادم\r\nمن فضلك  عد بعد قليل"
+  },
+  {
+    "name": "lbl_msgbody_msgBodySocialAccount",
+    "value": "أدخل تفاصيل الحساب الاجتماعي"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyTypeLocation",
+    "value": "اكتب موقعك أو حدد في الخريطة"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyUserPassError",
+    "value": "اسم المستخدم أو كلمة المرور غير صحيحة"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyVideoSelectWarning",
+    "value": "أنواع الفيديو المدعومة هي mp4 فقط"
+  },
+  {
+    "name": "lbl_msgbody_msgBodyWebsiteAddress",
+    "value": "أدخل عنوان موقع ويب صالح"
+  },
+  {
+    "name": "lbl_msgBodyApiAppointApprove",
+    "value": "تمت الموافقة على التعيين بنجاح"
+  },
+  { "name": "lbl_msgBodyApiAppointCancel", "value": "تم إلغاء الموعد بنجاح" },
+  { "name": "lbl_msgBodyApiAppointComplete", "value": "تم إكمال الموعد بنجاح" },
+  {
+    "name": "lbl_msgBodyApiAppointRating",
+    "value": "تصنيف العملاء يعطى بنجاح"
+  },
+  { "name": "lbl_msgBodyApiAppointReject", "value": "تم رفض التعيين بنجاح" },
+  {
+    "name": "lbl_msgBodyApiAppointReschedule",
+    "value": "إعادة جدولة الموعد بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiArtCompDeleted",
+    "value": "تم حذف تكوين خدمة العمل بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiArtCompUpdated",
+    "value": "تم تحديث تكوين خدمة العمل بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiArtFormatDeleted",
+    "value": "تنسيق خدمة العمل المحذوف بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiArtFormatUpdated",
+    "value": "تحديث تنسيق خدمة العمل بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiArticleAdded",
+    "value": "تمت إضافة مقال الأعمال بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiArticleDeleted",
+    "value": "خدمة الأعمال المحذوفة بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiArticleUpdated",
+    "value": "مقال أعمال تم تحديثه بنجاح"
+  },
+  { "name": "lbl_msgBodyApiDepartAdded", "value": "تمت إضافة القسم بنجاح" },
+  { "name": "lbl_msgBodyApiDepartDeleted", "value": "تم حذف القسم بنجاح" },
+  { "name": "lbl_msgBodyApiDepartUpdated", "value": "تم تحديث القسم بنجاح" },
+  { "name": "lbl_msgBodyApiDesignAdded", "value": "تمت إضافة التعيين بنجاح" },
+  { "name": "lbl_msgBodyApiDesignDeleted", "value": "تم حذف التعيين بنجاح" },
+  { "name": "lbl_msgBodyApiDesignUpdated", "value": "تم تحديث التعيين بنجاح" },
+  {
+    "name": "lbl_msgBodyApiFormatAdded",
+    "value": "تمت إضافة تنسيق الأعمال بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiFormatDeleted",
+    "value": "تنسيق الأعمال المحذوف بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiFormatUpdated",
+    "value": "تم تحديث تنسيق الأعمال بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiGroupAdded",
+    "value": "وأضافت مجموعة الأعمال بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiGroupDeleted",
+    "value": "تم حذف مجموعة الأعمال بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiGroupUpdated",
+    "value": "تم تحديث مجموعة الأعمال بنجاح"
+  },
+  { "name": "lbl_msgBodyApiLangAdded", "value": "تمت إضافة اللغة بنجاح" },
+  { "name": "lbl_msgBodyApiLangDeleted", "value": "تم حذف اللغة بنجاح" },
+  { "name": "lbl_msgBodyApiLangUpdated", "value": "تم تحديث اللغة بنجاح" },
+  { "name": "lbl_msgBodyApiOfferAdded", "value": "عرض الأعمال المضافة بنجاح" },
+  { "name": "lbl_msgBodyApiOfferDeleted", "value": "تم حذف عرض الأعمال بنجاح" },
+  { "name": "lbl_msgBodyApiOfferUpdated", "value": "تحديث عرض الأعمال بنجاح" },
+  {
+    "name": "lbl_msgBodyApiOfferUpdated1",
+    "value": "عرض الأعمال المطبق على المادة بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiPkgAndroidIdNotFound",
+    "value": "فشلت عملية الدفع الروبوت. الاتصال بفريق دعم كايين"
+  },
+  {
+    "name": "lbl_msgBodyApiPkgAndroidIdNotFound2",
+    "value": "لم يتم العثور على الدفع من Google"
+  },
+  {
+    "name": "lbl_msgBodyApiPkgInitFail",
+    "value": "فشلت عملية تهيئة الدفع. حاول بعد وقت ما."
+  },
+  {
+    "name": "lbl_msgBodyApiPkgIosIdNotFound",
+    "value": "فشلت عملية الدفع من Apple. الاتصال بفريق دعم كاين"
+  },
+  {
+    "name": "lbl_msgBodyApiPkgIosIdNotFound2",
+    "value": "لم يتم العثور على Apple Payment"
+  },
+  { "name": "lbl_msgBodyApiPkgTransection", "value": "تم إتمام معاملتك بنجاح" },
+  { "name": "lbl_msgBodyApiPkgTransection2", "value": "فشل معاملتك" },
+  {
+    "name": "lbl_msgBodyApiPkgTransection3",
+    "value": "لم يتم العثور على موقع ويب"
+  },
+  {
+    "name": "lbl_msgBodyApiPkgTransection4a",
+    "value": "المعاملة الخاصة بك ناجحة، ولكنها فشلت في التحديث إلى خادمنا."
+  },
+  {
+    "name": "lbl_msgBodyApiPkgTransectionId",
+    "value": "معرف المعاملة الخاص بك هو "
+  },
+  { "name": "lbl_msgBodyApiSectionAdded", "value": "تمت إضافة القسم بنجاح" },
+  { "name": "lbl_msgBodyApiSectionDeleted", "value": "حذف المقطع بنجاح" },
+  { "name": "lbl_msgBodyApiSectionUpdated", "value": "تم تحديث القسم بنجاح" },
+  {
+    "name": "lbl_msgBodyApiStaffAdded",
+    "value": "تم اضافة رجال الأعمال بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffAllocationCreate",
+    "value": "تمت إضافة تخصيص الموظفين بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffAllocationUpdate",
+    "value": "تم تحديث تخصيص الموظفين بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffDeleted",
+    "value": "تم حذف موظفي الأعمال بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffHolidayCreate",
+    "value": "تم اضافة عطلة الموظفين  بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffHolidayDelete",
+    "value": "تم حذف عطلة الموظفين ابنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffHolidayUpdate",
+    "value": "تم تحديث عطلة الموظفين بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffIdentityCreate",
+    "value": "تمت إضافة هوية الموظفين بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffIdentityUpdate",
+    "value": "تم تحديث هوية الموظفين بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffProfileCreate",
+    "value": "تم انشاء ملف تعريف الموظفين بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffProfileUpdate",
+    "value": "تم تحديث ملف تعريف الموظفين بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffQualifyCreate",
+    "value": "تمت إضافة مؤهلات الموظفين بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffQualifyDelete",
+    "value": "تم حذف تأهيل الموظفين بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffQualifyUpdate",
+    "value": "تم تحديث تأهيل الموظفين  بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffSkillCreate",
+    "value": "تمت إضافة مهارة الموظفين بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffSkillDelete",
+    "value": "تم حذف مهارة الموظفين بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffSkillUpdate",
+    "value": "تم تحديث مهارة الموظفين بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffTimeCreate",
+    "value": "تم اضافة وقت خدمة الموظفين المضاف بنجاح"
+  },
+  {
+    "name": "lbl_msgBodyApiStaffTimeUpdate",
+    "value": "تم تحديث وقت خدمة الموظفين بنجاح"
+  },
+  { "name": "lbl_msgBodyApiStafUpdated", "value": "تحديث موظفي الأعمال بنجاح" },
+  { "name": "lbl_msgBodyAppointCancel", "value": "هل تريد إلغاء هذا الموعد" },
+  {
+    "name": "lbl_msgBodyAppointComplete",
+    "value": "هل تريد حقا إكمال هذا الموعد؟"
+  },
+  { "name": "lbl_msgBodyAppointDay", "value": "يوم" },
+  { "name": "lbl_msgBodyAppointDuration", "value": "مدة:" },
+  { "name": "lbl_msgBodyAppointEmpty1", "value": "لم يتم إنشاء موعد بعد" },
+  { "name": "lbl_msgBodyAppointEmpty2", "value": "لا توجد مواعيد لعرضها" },
+  { "name": "lbl_msgBodyAppointFilterService", "value": "تصفية حسب الخدمة" },
+  { "name": "lbl_msgBodyAppointFilterStaff", "value": "تصفية حسب الموظفين" },
+  { "name": "lbl_msgBodyAppointMonth", "value": "شهر" },
+  {
+    "name": "lbl_msgBodyAppointRating",
+    "value": "هل تريد حقا أن تعطي هذا التصنيف لهذا العميل؟"
+  },
+  {
+    "name": "lbl_msgBodyAppointReschedule",
+    "value": "هل تريد حقا إعادة جدولة هذا الموعد"
+  },
+  { "name": "lbl_msgBodyAppointStaff", "value": "طاقم:" },
+  { "name": "lbl_msgBodyAppointYear", "value": "سنة" },
+  {
+    "name": "lbl_msgBodyCardFeature",
+    "value": "ميزة الدفع بالبطاقة غير متوفرة في الوقت الحالي"
+  },
+  {
+    "name": "lbl_msgBodyCardRemove",
+    "value": "هل تريد حقًا إزالة هذه البطاقة من القائمة؟"
+  },
+  {
+    "name": "lbl_msgBodyErrorArtCompNotPrice",
+    "value": "لا يمكن أن تكون الكمية صفرا"
+  },
+  {
+    "name": "lbl_msgBodyErrorArtCompNotPrice2",
+    "value": "يجب أن تكون الكمية أكبر من 0"
+  },
+  { "name": "lbl_msgBodyErrorArtCompNotSelect", "value": "حدد الخدمة" },
+  {
+    "name": "lbl_msgBodyErrorArtFormatNotPrice",
+    "value": "أدخل سعر تنسيق المقالة"
+  },
+  {
+    "name": "lbl_msgBodyErrorArtFormatNotPrice2",
+    "value": "يجب أن يكون السعر أكبر من 0"
+  },
+  {
+    "name": "lbl_msgBodyErrorArtFormatNotSelect",
+    "value": "تحديد تنسيق المقالة"
+  },
+  { "name": "lbl_msgBodyErrorArticleDescp", "value": "أدخل الوصف المناسب" },
+  {
+    "name": "lbl_msgBodyErrorArticleDuration",
+    "value": "أدخل مدة الخدمة بالدقائق"
+  },
+  {
+    "name": "lbl_msgBodyErrorArticleDuration2",
+    "value": "يجب أن تكون المدة أكبر من 0"
+  },
+  {
+    "name": "lbl_msgBodyErrorArticleNameApp",
+    "value": "أدخل اسم المقالة المناسبة للتطبيق"
+  },
+  {
+    "name": "lbl_msgBodyErrorArticleNameAr",
+    "value": "أدخل اسم المادة المناسبة باللغة العربية"
+  },
+  {
+    "name": "lbl_msgBodyErrorArticleNameEn",
+    "value": "أدخل اسم المادة المناسبة باللغة الإنجليزية"
+  },
+  {
+    "name": "lbl_msgBodyErrorArticlePkrCompose",
+    "value": "اختيار يتكون للمقال"
+  },
+  { "name": "lbl_msgBodyErrorArticlePkrFormat", "value": "حدد تنسيق للمقال" },
+  { "name": "lbl_msgBodyErrorArticlePkrGroup", "value": "حدد مجموعة للمقال" },
+  { "name": "lbl_msgBodyErrorArticlePrice", "value": "أدخل سعر المادة" },
+  {
+    "name": "lbl_msgBodyErrorArticlePrice2",
+    "value": "يجب أن يكون السعر أكبر من 0"
+  },
+  { "name": "lbl_msgBodyErrorArtOfferCode", "value": "أدخل رمز العرض المناسب" },
+  { "name": "lbl_msgBodyErrorArtOfferDays", "value": "حدد أيام العرض" },
+  {
+    "name": "lbl_msgBodyErrorArtOfferEndDate",
+    "value": "أدخل تاريخ انتهاء العرض المناسب"
+  },
+  { "name": "lbl_msgBodyErrorArtOfferName", "value": "أدخل اسم العرض المناسب" },
+  {
+    "name": "lbl_msgBodyErrorArtOfferSaveArticleOffer",
+    "value": "إضافة المقالة المتبقية للعرض"
+  },
+  {
+    "name": "lbl_msgBodyErrorArtOfferSelectArticle",
+    "value": "حدد خدمة واحدة على الأقل"
+  },
+  { "name": "lbl_msgBodyErrorArtOfferSelectOffer", "value": "حدد العرض" },
+  {
+    "name": "lbl_msgBodyErrorArtOfferSelectOfferFromList",
+    "value": "حدد العرض من القائمة"
+  },
+  {
+    "name": "lbl_msgBodyErrorArtOfferSelectOfferType",
+    "value": "حدد نوع العرض"
+  },
+  {
+    "name": "lbl_msgBodyErrorArtOfferStartDate",
+    "value": "أدخل تاريخ بدء العرض المناسب"
+  },
+  { "name": "lbl_msgBodyErrorCardCVV", "value": "أدخل رمز CVV صالح" },
+  { "name": "lbl_msgBodyErrorCardDate", "value": "أدخل MM/YY صالحة لبطاقتك" },
+  {
+    "name": "lbl_msgBodyErrorCardDate1",
+    "value": "أدخل الشهر الصالح للحصول على البطاقة"
+  },
+  {
+    "name": "lbl_msgBodyErrorCardDate2",
+    "value": "أدخل سنة صالحة للحصول على البطاقة"
+  },
+  { "name": "lbl_msgBodyErrorCardName", "value": "أدخل اسم البطاقة" },
+  { "name": "lbl_msgBodyErrorCardNumber", "value": "أدخل رقم بطاقة صالح" },
+  { "name": "lbl_msgBodyErrorCheckboxInfo1", "value": "يجب عليك قبول الشروط " },
+  { "name": "lbl_msgBodyErrorCheckboxInfo2", "value": "يجب عليك قبول الشروط " },
+  { "name": "lbl_msgBodyErrorCheckboxInfo3", "value": "يجب عليك قبول الشروط " },
+  {
+    "name": "lbl_msgBodyErrorDepartAr",
+    "value": "أدخل اسم القسم الصحيح باللغة العربية"
+  },
+  {
+    "name": "lbl_msgBodyErrorDepartEn",
+    "value": "أدخل اسم القسم الصحيح باللغة الإنجليزية"
+  },
+  {
+    "name": "lbl_msgBodyErrorDesignAr",
+    "value": "أدخل اسم التسمية المناسبة باللغة العربية"
+  },
+  { "name": "lbl_msgBodyErrorDesignation", "value": "حدد وظيفتك" },
+  { "name": "lbl_msgBodyErrorDesignation2", "value": "أدخل وظيفتك" },
+  {
+    "name": "lbl_msgBodyErrorDesignEn",
+    "value": "أدخل اسم التعيين الصحيح باللغة الإنجليزية"
+  },
+  {
+    "name": "lbl_msgBodyErrorFormatNameAr",
+    "value": "أدخل اسم التنسيق الصحيح باللغة العربية"
+  },
+  {
+    "name": "lbl_msgBodyErrorFormatNameEn",
+    "value": "أدخل اسم التنسيق الصحيح باللغة الإنجليزية"
+  },
+  {
+    "name": "lbl_msgBodyErrorGallery",
+    "value": "أنت غير قادر على إضافة أكثر من 5 صورة"
+  },
+  {
+    "name": "lbl_msgBodyErrorGroupNameAr",
+    "value": "أدخل اسم المجموعة المناسبة باللغة العربية"
+  },
+  {
+    "name": "lbl_msgBodyErrorGroupNameEn",
+    "value": "أدخل اسم المجموعة المناسبة باللغة الإنجليزية"
+  },
+  { "name": "lbl_msgBodyErrorGroupStatus", "value": "حدد الحالة النشطة" },
+  {
+    "name": "lbl_msgBodyErrorLangAr",
+    "value": "أدخل اسم اللغة الصحيحة باللغة العربية"
+  },
+  {
+    "name": "lbl_msgBodyErrorLangEn",
+    "value": "أدخل اسم اللغة الصحيحة باللغة الإنجليزية"
+  },
+  {
+    "name": "lbl_msgBodyErrorSectionAr",
+    "value": "أدخل القسم المناسب لاسم القسم باللغة العربية"
+  },
+  { "name": "lbl_msgBodyErrorSectionDepart", "value": "حدد قسم للقسم" },
+  {
+    "name": "lbl_msgBodyErrorSectionEn",
+    "value": "أدخل القسم المناسب لاسم القسم باللغة الإنجليزية"
+  },
+  { "name": "lbl_msgBodyErrorSocial", "value": "أدخل تفاصيل الحساب الاجتماعي" },
+  { "name": "lbl_msgBodyErrorSocialFacebbok", "value": "أدخل رابط فايسبوك" },
+  { "name": "lbl_msgBodyErrorSocialInsta", "value": "أدخل رابط انستجرام" },
+  { "name": "lbl_msgBodyErrorSocialLinked", "value": "أدخل رابط لينكد إن" },
+  { "name": "lbl_msgBodyErrorSocialTwitter", "value": "أدخل رابط تويتر" },
+  { "name": "lbl_msgBodyErrorStaffActive", "value": "تحديد الحالة النشطة" },
+  { "name": "lbl_msgBodyErrorStaffArticle", "value": "اختر خدمات الموظفين" },
+  {
+    "name": "lbl_msgBodyErrorStaffAvail",
+    "value": "تحديد حالة توفر موفر الخدمة"
+  },
+  { "name": "lbl_msgBodyErrorStaffAvail2", "value": "تحديد توفر موفر الخدمة " },
+  {
+    "name": "lbl_msgBodyErrorStaffBEmail",
+    "value": "أدخل البريد الإلكتروني المناسب للأعمال"
+  },
+  { "name": "lbl_msgBodyErrorStaffBType", "value": "حدد نوع عمل الموظفين" },
+  { "name": "lbl_msgBodyErrorStaffDepart", "value": "تحديد القسم" },
+  { "name": "lbl_msgBodyErrorStaffDesig", "value": "تحديد التعيين" },
+  {
+    "name": "lbl_msgBodyErrorStaffDob",
+    "value": "أدخل التاريخ الصحيح للولادة"
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffDuration",
+    "value": "أدخل مدة الموظفين لأي خدمة في دقيقة"
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffDuration1",
+    "value": "أدخل مدة الموعد في الدقيقة"
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffDuration2",
+    "value": "لا يمكن أن تكون مدة الموعد سلبية"
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffDuration3",
+    "value": "مدة الموعد ستكون بين 15 إلى 180 دقيقة."
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffEmail",
+    "value": "إدخل بريد إلكتروني  صالح للموظفين "
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffEmail2",
+    "value": "التحقق من معرف البريد الإلكتروني لموفر الخدمة"
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffFName",
+    "value": "أدخل الاسم الأول للموظفين المناسبين"
+  },
+  { "name": "lbl_msgBodyErrorStaffGender", "value": "اختر نوع الجنس" },
+  {
+    "name": "lbl_msgBodyErrorStaffIdCard",
+    "value": "إدخال رقم بطاقة تعريف المناسبة"
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffIdCardEpr",
+    "value": "أدخل تاريخ انتهاء صلاحية بطاقة الهوية "
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffLang",
+    "value": "حدد اللغة المهنية الخاصة بك"
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffLName",
+    "value": "أدخل اسم العائلة للموظفين المناسبين"
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffMobile",
+    "value": "أدخل رقم الهاتف المتحرك المناسب"
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffMobile2",
+    "value": "التحقق من رقم الجوال لموفر الخدمة"
+  },
+  { "name": "lbl_msgBodyErrorStaffNationality", "value": "اختر الجنسية" },
+  { "name": "lbl_msgBodyErrorStaffNName", "value": "أدخل اسم الموظف المناسب" },
+  {
+    "name": "lbl_msgBodyErrorStaffNoProfile",
+    "value": "لم يتم إنشاء ملف تعريف المستخدم بعد. انشأ مستخدم في قسم ملف التعريف أولا."
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffPassport",
+    "value": "أدخل رقم جواز سفر ساري المفعول"
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffPassportEpr",
+    "value": "أدخل تاريخ انتهاء صلاحية جواز السفر"
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffPEmail",
+    "value": "أدخل البريد الإلكتروني الشخصي الصحيح"
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffQualifyCountry",
+    "value": "تحديد البلد من القائمة"
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffQualifyName",
+    "value": "إدخال اسم مؤهل صالح"
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffResidencyEpr",
+    "value": "أدخل تاريخ انتهاء صلاحية إعادة الإصدار الصالح"
+  },
+  { "name": "lbl_msgBodyErrorStaffSection", "value": "حدد القسم" },
+  {
+    "name": "lbl_msgBodyErrorStaffServiceEndDate",
+    "value": "إدخال تاريخ انتهاء الخدمة المناسب"
+  },
+  {
+    "name": "lbl_msgBodyErrorStaffServiceStartDate",
+    "value": "إدخال تاريخ بدء الخدمة المناسب"
+  },
+  { "name": "lbl_msgBodyErrorStaffSkillName", "value": "إدخال اسم مهارة صالح" },
+  { "name": "lbl_msgBodyErrorStaffSPType", "value": "تحديد نوع موفر الخدمة" },
+  {
+    "name": "lbl_msgBodyErrorStaffWhatsapp",
+    "value": "أدخل رقم الواتساب المناسب"
+  },
+  { "name": "lbl_msgBodyErrorTermCondition", "value": "يجب عليك قبول الشروط " },
+  { "name": "lbl_msgBodyPaypalCancel", "value": "إلغاء الدفع باي بال" },
+  { "name": "lbl_msgBodyPaypalID", "value": "الدفع باي بال :" },
+  { "name": "lbl_msgBodyPaypalNotAvail", "value": " الدفع غير متوفر باي بال" },
+  {
+    "name": "lbl_msgBodyRemoveItemFromList",
+    "value": "هل تريد حقا إزالة هذا العنصر؟"
+  },
+  { "name": "lbl_msgBodyStaffRemove", "value": "هل تريد حقا إزالة  الموظفين؟" },
+  { "name": "lbl_msgButtonApprove", "value": "مقبول " },
+  { "name": "lbl_msgButtonComplete", "value": "كامل" },
+  { "name": "lbl_msgButtonReject", "value": "رفض" },
+  { "name": "lbl_name", "value": "فرانشيسكا ميتس" },
+  { "name": "lbl_name_em", "value": "Francesca@gmail.com" },
+  {
+    "name": "lbl_nofound_department1",
+    "value": "قائمة الادارة فارغة، الرجاء إنشاء ادارة لإضافة قسم"
+  },
+  {
+    "name": "lbl_nofound_gallery1",
+    "value": "صورة الأعمال لم يتم إضافتها بعد"
+  },
+  {
+    "name": "lbl_nofound_gallery2",
+    "value": "لا توجد صورة عمل لعرضها وإضافة صورة"
+  },
+  {
+    "name": "lbl_nofound_group1",
+    "value": "قائمة المجموعة فارغة، يرجى إنشاء مجموعة لإضافة خدمة"
+  },
+  { "name": "lbl_nofound_service1", "value": "لا توجد خدمات تم إنشاؤها بعد" },
+  {
+    "name": "lbl_nofound_service2",
+    "value": "لا توجد خدمات لعرضها، وإنشاء خدمة"
+  },
+  { "name": "lbl_open_googlemap", "value": "افتح خريطة جوجل" },
+  {
+    "name": "lbl_otp_send_click",
+    "value": "عندما تنقر على زر إرسال OTP ، سنرسل لك رسالة\r\nOTP على رقم الهاتف المتحرك المحدد للتحقق"
+  },
+  { "name": "lbl_otp_send_mo", "value": "التحقق من الهاتف المحمول" },
+  { "name": "lbl_otp_send_num", "value": "971" },
+  { "name": "lbl_otp_send_num_a", "value": "XXX XXX XXXX" },
+  { "name": "lbl_otp_verify", "value": "تحقق من OTP" },
+  { "name": "lbl_otp_verify_resend", "value": "إعادة إرسال رمز التحقق" },
+  {
+    "name": "lbl_otp_verify_send",
+    "value": "تقديم كلمة مرور لمرة واحدة (OTP) مكونة من 6 أرقام أرسلناها إليك للتو "
+  },
+  { "name": "lbl_pack_date", "value": "الخميس ، 19 فبراير 21" },
+  { "name": "lbl_pack_sub", "value": "تاريخ الدفع" },
+  { "name": "lbl_pack_sub2", "value": "الباقة" },
+  { "name": "lbl_package_not_available", "value": "الباقات غير متوفرة" },
+  { "name": "lbl_package_not_available2", "value": "لم يتم العثور على الحزمة" },
+  { "name": "lbl_pay", "value": "الدفع" },
+  { "name": "lbl_pay_card_empty", "value": "بطاقة الائتمان/الخصم غير محفوظة" },
+  { "name": "lbl_pay_card_number", "value": "رقم البطاقة" },
+  { "name": "lbl_pay_cr", "value": "XXXX XXXX XXXX XXXX" },
+  { "name": "lbl_pay_cvv", "value": "سي في في" },
+  { "name": "lbl_pay_name", "value": "الاسم على البطاقة" },
+  { "name": "lbl_pay_name2", "value": "اسم حامل البطاقة" },
+  { "name": "lbl_pay_reset", "value": "اعاده تعيين" },
+  { "name": "lbl_pay_save", "value": "وفر للمعاملات المستقبلية" },
+  { "name": "lbl_pay_val", "value": "50.00 دولارًا أمريكيًا" },
+  { "name": "lbl_pay_value", "value": "صالح من خلال" },
+  { "name": "lbl_pay_value2", "value": "YY / MM" },
+  {
+    "name": "lbl_payment_method_notAvail",
+    "value": "هذا الأسلوب غير متوفر حاليا"
+  },
+  { "name": "lbl_payment_method_notAvail_cc", "value": "دفعات البطاقات قريبا" },
+  { "name": "lbl_pop_a", "value": "ناجح" },
+  { "name": "lbl_pop_b", "value": "الغاء " },
+  { "name": "lbl_pop_c", "value": "خطأ" },
+  { "name": "lbl_pop_d", "value": "التحقق" },
+  { "name": "lbl_pop_e", "value": "رائع" },
+  { "name": "lbl_pop_f", "value": "آسف!" },
+  { "name": "lbl_pop_g", "value": "تسجيل خروج" },
+  { "name": "lbl_pro_ab", "value": "حول الأعمال" },
+  { "name": "lbl_pro_ab_a", "value": "حول الأعمال" },
+  { "name": "lbl_pro_add", "value": "عنوان اضافي" },
+  { "name": "lbl_pro_add2", "value": "عنوان Google" },
+  { "name": "lbl_pro_am", "value": "وسائل الراحة" },
+  { "name": "lbl_pro_bas", "value": "أساسي" },
+  { "name": "lbl_pro_bus", "value": "ساعات العمل" },
+  { "name": "lbl_pro_clo", "value": "مغلق" },
+  { "name": "lbl_pro_close", "value": "مغلق" },
+  { "name": "lbl_pro_close2", "value": "عيد" },
+  { "name": "lbl_pro_co", "value": "معلومات الاتصال" },
+  { "name": "lbl_pro_com", "value": "ملف الشركة" },
+  { "name": "lbl_pro_com_ar", "value": "اسم الشركة: AR" },
+  { "name": "lbl_pro_con", "value": "معلومات جهة الاتصال" },
+  { "name": "lbl_pro_curr", "value": "الرزمة الحالية" },
+  { "name": "lbl_pro_day", "value": "يوم" },
+  { "name": "lbl_pro_daye", "value": "نهاية" },
+  { "name": "lbl_pro_days", "value": "بداية" },
+  { "name": "lbl_pro_des", "value": "وظيفة" },
+  { "name": "lbl_pro_dia", "value": "الماس" },
+  { "name": "lbl_pro_em", "value": "بريد الالكتروني" },
+  { "name": "lbl_pro_fa", "value": "موقع التواصل الاجتماعي الفيسبوك" },
+  { "name": "lbl_pro_fri", "value": "جمعة" },
+  { "name": "lbl_pro_full", "value": "الاسم الكامل" },
+  { "name": "lbl_pro_gen", "value": "معلومات عامة :" },
+  { "name": "lbl_pro_gol", "value": "ذهب" },
+  { "name": "lbl_pro_in", "value": "انستغرام" },
+  { "name": "lbl_pro_li", "value": "لينكد ان" },
+  { "name": "lbl_pro_mob", "value": "جوال" },
+  { "name": "lbl_pro_mon", "value": "الاثنين" },
+  { "name": "lbl_pro_pack", "value": "الحزم" },
+  { "name": "lbl_pro_pack_a", "value": "القائمة" },
+  { "name": "lbl_pro_pack_b", "value": "الصفحة الشخصية" },
+  { "name": "lbl_pro_pack_c", "value": "توفر صفحة الخريطة" },
+  { "name": "lbl_pro_pack_d", "value": "قائمة الأولوية" },
+  { "name": "lbl_pro_pack_e", "value": "صفحة قصة كاين" },
+  { "name": "lbl_pro_pack_f", "value": "تفاصيل الخدمات / الأسعار / القائمة" },
+  { "name": "lbl_pro_pack_g", "value": "العروض / الخصومات" },
+  { "name": "lbl_pro_pack_h", "value": "المدفوعات / المواعيد عبر الإنترنت" },
+  { "name": "lbl_pro_pack_i", "value": "بيع المنتجات عبر الإنترنت" },
+  { "name": "lbl_pro_pla", "value": "بلاتينيوم" },
+  { "name": "lbl_pro_sat", "value": "السبت" },
+  { "name": "lbl_pro_so", "value": "وسائل التواصل الاجتماعي" },
+  { "name": "lbl_pro_sun", "value": "الأحد" },
+  { "name": "lbl_pro_tag", "value": "سطر الوصف" },
+  { "name": "lbl_pro_thu", "value": "الخميس" },
+  { "name": "lbl_pro_time", "value": 0.375 },
+  { "name": "lbl_pro_time_a", "value": 0.7083333333333334 },
+  { "name": "lbl_pro_time_applyAll", "value": "تطبيق للكل" },
+  { "name": "lbl_pro_tue", "value": " الثلاثاء" },
+  { "name": "lbl_pro_tw", "value": "تويتر" },
+  { "name": "lbl_pro_val", "value": 0 },
+  { "name": "lbl_pro_vala", "value": "$\r\n50.00" },
+  { "name": "lbl_pro_valb", "value": "$\r\n100.00" },
+  { "name": "lbl_pro_valc", "value": "$\r\n150.00" },
+  { "name": "lbl_pro_web", "value": "الموقع الكتروني" },
+  { "name": "lbl_pro_wed", "value": "الأربعاء" },
+  { "name": "lbl_pro_year", "value": "سنة تأسيس الشركة" },
+  {
+    "name": "lbl_profile_notfound",
+    "value": "لم يتم العثور على ملف تعريف الشركة.\r\n رجاء، حاول بعد وقت"
+  },
+  { "name": "lbl_rating_info2", "value": "الحد الأقصى 100 كلمة" },
+  { "name": "lbl_rating_placeholder", "value": "ساعدنا على تحسين!" },
+  { "name": "lbl_rating1", "value": "أردأ" },
+  { "name": "lbl_rating2", "value": "سيئ" },
+  { "name": "lbl_rating3", "value": "متوسط" },
+  { "name": "lbl_rating4", "value": "جيد" },
+  { "name": "lbl_rating5", "value": "أفضل" },
+  { "name": "lbl_reg", "value": "سجل الان!" },
+  { "name": "lbl_reg_add", "value": "معلومة اضافية" },
+  { "name": "lbl_reg_al", "value": "هل لديك حساب؟" },
+  { "name": "lbl_reg_area", "value": "منطقة" },
+  { "name": "lbl_reg_bu", "value": "نوع العمل" },
+  { "name": "lbl_reg_ci", "value": "مدينة" },
+  { "name": "lbl_reg_co", "value": "دولة" },
+  { "name": "lbl_reg_com", "value": "اسم الشركة" },
+  { "name": "lbl_reg_em", "value": "البريد الالكتروني" },
+  { "name": "lbl_reg_freelancer", "value": "هل أنت مستقل؟" },
+  { "name": "lbl_reg_gen", "value": "معلومات عامة" },
+  { "name": "lbl_reg_gend", "value": "الأجناس" },
+  { "name": "lbl_reg_gend2", "value": "خدمات ل" },
+  { "name": "lbl_reg_lo", "value": "الموقع" },
+  { "name": "lbl_reg_log", "value": "معلومات تسجيل الدخول" },
+  { "name": "lbl_reg_log_in", "value": "تسجيل الدخول" },
+  { "name": "lbl_reg_pass", "value": "كلمة المرور" },
+  { "name": "lbl_reg_st", "value": "الولاية / المقاطعة" },
+  { "name": "lbl_reg_tel", "value": "هاتف" },
+  { "name": "lbl_reg_user", "value": "اسم المستخدم / البريد الإلكتروني" },
+  { "name": "lbl_reg_wh", "value": "الواتس اب" },
+  { "name": "lbl_reset_password_new", "value": "كلمة مرور جديدة" },
+  { "name": "lbl_reset_password_new2", "value": "تأكيد كلمة المرور" },
+  { "name": "lbl_reset_password_old", "value": "كلمة المرور السابقة" },
+  { "name": "lbl_reset_title", "value": "تغيير كلمة المرور" },
+  { "name": "lbl_splash", "value": "تطبيق الأعمال" },
+  { "name": "lbl_splash_loading", "value": "إعداد بيئة التطبيق" },
+  {
+    "name": "lbl_staff_company_timing_not_found1",
+    "value": "لم يتم العثور على تفاصيل توقيت الشركة."
+  },
+  {
+    "name": "lbl_staff_company_timing_not_found2",
+    "value": "من فضلك، تحديث تفاصيل توقيت الشركة في قسم ملف تعريف الشركة."
+  },
+  {
+    "name": "lbl_staff_company_timing_not_range1",
+    "value": "الوقت المحدد ليس ضمن نطاق توقيت الشركة."
+  },
+  { "name": "lbl_staff_company_timing_not_range2", "value": "وقت الشركة من" },
+  { "name": "lbl_staff_company_timing_not_range3", "value": "ل" },
+  {
+    "name": "lbl_Staff_holiday_both_date_confict",
+    "value": "يتعارض تاريخ العطلة المحدد مع تاريخ عطلة آخر."
+  },
+  {
+    "name": "lbl_Staff_holiday_end_date_confict",
+    "value": "يتعارض تاريخ انتهاء العطلة المحدد مع تاريخ عطلة آخر."
+  },
+  {
+    "name": "lbl_Staff_holiday_start_date_confict",
+    "value": "يتعارض تاريخ بدء العطلة المحدد مع تاريخ عطلة آخر."
+  },
+  { "name": "lbl_StaffDateNA", "value": "N/A" },
+  { "name": "lbl_StaffDateNA2", "value": "غير متوفر" },
+  { "name": "lbl_StaffManageActivate", "value": "تفعيل" },
+  {
+    "name": "lbl_StaffManageAskActivate",
+    "value": "هل تريد تنشيط موفر الخدمة؟"
+  },
+  {
+    "name": "lbl_StaffManageAskDeactivate",
+    "value": "هل تريد إلغاء تنشيط موفر الخدمة؟"
+  },
+  { "name": "lbl_StaffManageEmpty1", "value": "لم يتم إضافة الموظفين بعد" },
+  {
+    "name": "lbl_StaffManageEmpty2",
+    "value": "لا يوجد موظفون للعرض، إضافة موظفين"
+  },
+  { "name": "lbl_StaffManageViewProfile", "value": "عرض ملف التعريف" },
+  { "name": "lbl_StaffViewDateStartEnd", "value": "البداية - النهاية" },
+  { "name": "lbl_StaffViewDesig", "value": "تعيين:" },
+  { "name": "lbl_StaffViewEmail", "value": "البريد الإلكتروني:" },
+  { "name": "lbl_StaffViewFullName", "value": "الاسم الكامل :" },
+  { "name": "lbl_StaffViewInfo", "value": "معلومات شخصية" },
+  { "name": "lbl_StaffViewMobile", "value": "جوال:" },
+  { "name": "lbl_StaffViewWhatsapp", "value": "واتساب :" },
+  { "name": "lbl_support_back", "value": "العودة إلى لوحة المعلومات" },
+  {
+    "name": "lbl_support_email_send_failed",
+    "value": "تذكرتك غير قادر على إرسالها إلى كايين نحن نهتم الدعم. من فضلك، حاول مرة أخرى."
+  },
+  {
+    "name": "lbl_support_email_sent",
+    "value": "تم إرسال تذكرتك إلى فريق الدعم لدينا"
+  },
+  { "name": "lbl_support_info1", "value": "نحن هنا للدعم" },
+  {
+    "name": "lbl_support_info2",
+    "value": "أخبرنا عن مخاوفك وسيقوم فريقنا بالرد عليك في أسرع وقت ممكن."
+  },
+  { "name": "lbl_support_kayyen", "value": "كايان - نحن نهتم" },
+  { "name": "lbl_text_account", "value": "حساب" },
+  { "name": "lbl_text_Active", "value": "مفعلة" },
+  {
+    "name": "lbl_text_AppointAskApprove",
+    "value": "هل تريد حقا الموافقة على هذا الموعد؟"
+  },
+  { "name": "lbl_text_AppointAskCancel2", "value": "إلغاء الأمر؟" },
+  {
+    "name": "lbl_text_AppointAskCancel3",
+    "value": "لماذا تريد إلغاء هذا الموعد؟"
+  },
+  {
+    "name": "lbl_text_AppointAskComplete",
+    "value": "هل تريد حقا إكمال هذا الموعد؟"
+  },
+  { "name": "lbl_text_AppointAskReject1", "value": "هل تريد حقا أن" },
+  { "name": "lbl_text_AppointAskReject2", "value": "رفض؟" },
+  {
+    "name": "lbl_text_AppointAskReject3",
+    "value": "لماذا تريد رفض هذا الموعد؟"
+  },
+  { "name": "lbl_text_appointmentWith", "value": "موعد مع: " },
+  {
+    "name": "lbl_text_article_offer_erro_diff",
+    "value": "أدخل مقدار الفرق للعنصر"
+  },
+  {
+    "name": "lbl_text_article_offer_error_percent",
+    "value": "أدخل النسبة المئوية للعنصر"
+  },
+  {
+    "name": "lbl_text_article_offer_error_price",
+    "value": "أدخل السعر الثابت للمنتج"
+  },
+  {
+    "name": "lbl_text_article_service",
+    "value": "إذا كانت الخدمة ثم تعيين تشغيل، إذا كان هو المادة ثم تعيين قبالة"
+  },
+  { "name": "lbl_text_back", "value": "رجوع" },
+  { "name": "lbl_text_business_category", "value": "فئة الأعمال" },
+  { "name": "lbl_text_business_subcategory", "value": "الفئة الفرعية للأعمال" },
+  { "name": "lbl_text_cancelled", "value": "الغاء" },
+  { "name": "lbl_text_completed", "value": "اكمال" },
+  {
+    "name": "lbl_text_cong_disp_content1",
+    "value": "تميز وشارك في السحب المحظوظ للفوز بجوائز رائعة."
+  },
+  {
+    "name": "lbl_text_cong_disp_content2",
+    "value": "لا تفوت فرصة الفوز بجوائز مذهلة!"
+  },
+  {
+    "name": "lbl_text_cong_disp_content3",
+    "value": "نقاط للدخول في السحب المحظوظ"
+  },
+  { "name": "lbl_text_cong_disp_content4a", "value": "تحتاج" },
+  {
+    "name": "lbl_text_cong_disp_content4b",
+    "value": "المزيد من النقاط للدخول في السحب المحظوظ!"
+  },
+  { "name": "lbl_text_cong_info1", "value": "لقد كسبت" },
+  {
+    "name": "lbl_text_cong_info2",
+    "value": "على التسجيل الخاص بك مع عائلة كاين"
+  },
+  { "name": "lbl_text_cong_info3", "value": "خذ خدماتك من" },
+  { "name": "lbl_text_cong_info4", "value": "أو كسب النقاط عن طريق" },
+  { "name": "lbl_text_cong_point", "value": " النقاط " },
+  {
+    "name": "lbl_text_congrate_backToHome",
+    "value": "العودة إلى الشاشة الرئيسية"
+  },
+  { "name": "lbl_text_congrate_InvoiceSave", "value": "حفظ الفاتورة" },
+  { "name": "lbl_text_congrate_InvoiceSend", "value": "إرسال فاتورة" },
+  { "name": "lbl_text_congrate_InvoiceSend2", "value": "فاتورة الدفع" },
+  {
+    "name": "lbl_text_congrate_InvoiceSend3",
+    "value": "تم إرسال البريد الإلكتروني بنجاح"
+  },
+  { "name": "lbl_text_congrate_InvoiceSent", "value": "الفاتورة المرسلة" },
+  { "name": "lbl_text_congrate_InvoiceView", "value": "عرض الفاتورة" },
+  { "name": "lbl_text_congrate_line1", "value": " لقد دفعت " },
+  { "name": "lbl_text_congrate_line2", "value": "بنجاح للاشتراك " },
+  { "name": "lbl_text_congrate_line3", "value": "لقد اشتركت بنجاح في " },
+  { "name": "lbl_text_congrate_thank", "value": "شكرًا لك!" },
+  {
+    "name": "lbl_text_contact_support_team",
+    "value": "اتصل بمزود الخدمة لدينا للدفع"
+  },
+  {
+    "name": "lbl_text_Contact_Team_location",
+    "value": "لتحديث الموقع، يرجى الاتصال بفريق الدعم لدينا"
+  },
+  {
+    "name": "lbl_text_Contact_Team_location2a",
+    "value": "لتحديث الموقع، يرجى الاتصال بنا"
+  },
+  { "name": "lbl_text_Contact_Team_location2b", "value": "دعم" },
+  { "name": "lbl_text_Contact_Team_location2c", "value": "فريق" },
+  {
+    "name": "lbl_text_Contest_disclaimer",
+    "value": "تنويه: العروض والمسابقات أو اليانصيب هي لغرض الألعاب فقط. شركة Apple Inc. ليست مسؤولة عن أي نوع من الضرر أو الخصوصية لمعلوماتك وخسارتك المالية."
+  },
+  {
+    "name": "lbl_text_Contest_terms",
+    "value": "الشروط والأحكام: هذه المسابقة غير متصلة تماما وغير موجودة في التطبيق. لذا، سيقوم فريقنا بذلك دون اتصال بالإنترنت وسيخبرك ما إذا كنت مؤهلا للفائزين أو الأسعار."
+  },
+  { "name": "lbl_text_continue", "value": "استمر" },
+  {
+    "name": "lbl_text_ConutryLang_notFound",
+    "value": "تفاصيل لغة الدولة غير متوفرة"
+  },
+  { "name": "lbl_text_counter_label1", "value": "للفوز بجوائز مثيرة" },
+  { "name": "lbl_text_counter_label2", "value": "الوقت المتبقي للسحب المحظوظ" },
+  {
+    "name": "lbl_text_counter_label3",
+    "value": "كسب المزيد من النقاط للمشاركة في السحب المحظوظ"
+  },
+  {
+    "name": "lbl_text_country_list_warning",
+    "value": "البلدان غير المتاحة لأسباب فنية. من فضلك ، قم بتسجيل الخروج وتسجيل الدخول مرة أخرى."
+  },
+  { "name": "lbl_text_countryIndia", "value": "الهند." },
+  { "name": "lbl_text_countryLangAr", "value": "العربية" },
+  { "name": "lbl_text_countryLangEn", "value": "الإنجليزية" },
+  { "name": "lbl_text_countryLangFr", "value": "الفرنسية" },
+  { "name": "lbl_text_countryLangRu", "value": "الروسية" },
+  { "name": "lbl_text_countryMorocco", "value": "المغرب" },
+  { "name": "lbl_text_countryTunisia", "value": "تونس" },
+  { "name": "lbl_text_countryUAE", "value": "الامارات العربية المتحدة" },
+  { "name": "lbl_text_data_article", "value": "مقالة" },
+  { "name": "lbl_text_data_articles", "value": "المواد" },
+  { "name": "lbl_text_data_format", "value": "تنسيق" },
+  { "name": "lbl_text_data_formats", "value": "تنسيقات" },
+  { "name": "lbl_text_datefrom", "value": "من تاريخ" },
+  { "name": "lbl_text_dateto", "value": "حتى تاريخ" },
+  {
+    "name": "lbl_text_delete_confirmation",
+    "value": "هل تريد حذف جميع الإشعارات؟"
+  },
+  { "name": "lbl_text_dentist", "value": "اطباء الاسنان" },
+  { "name": "lbl_text_Disclaimer", "value": "اخلاء المسؤوليه" },
+  { "name": "lbl_text_doctors", "value": "اطباء" },
+  {
+    "name": "lbl_text_email_Checking",
+    "value": "التحقق من حالة البريد الإلكتروني"
+  },
+  { "name": "lbl_text_email_exist", "value": "البريد الإلكتروني مسجل بالفعل" },
+  {
+    "name": "lbl_text_email_existNot",
+    "value": "يمكنك استخدام هذا البريد الإلكتروني"
+  },
+  { "name": "lbl_text_empty_notification", "value": "لا يوجد إشعار حتى الآن" },
+  { "name": "lbl_text_gps_error", "value": "خطأ GPS" },
+  { "name": "lbl_text_image_action", "value": "إجراء الصورة" },
+  { "name": "lbl_text_image_camera", "value": "كاميرا" },
+  { "name": "lbl_text_image_choose", "value": "اختر صورة" },
+  { "name": "lbl_text_image_delete", "value": "حذف الصورة" },
+  { "name": "lbl_text_image_gallery", "value": "معرض" },
+  {
+    "name": "lbl_text_image_gallery_error1",
+    "value": "إجمالي حجم التحميل زاد عن حجم معرض الحزم المسموح به"
+  },
+  { "name": "lbl_text_image_gallery_img", "value": "صورة" },
+  { "name": "lbl_text_image_gallery_prg_progress", "value": "ترقى : " },
+  { "name": "lbl_text_image_gallery_prg_total", "value": "الحجم الإجمالي : " },
+  { "name": "lbl_text_image_gallery_prg_uploaded", "value": "حجم تحميلها : " },
+  { "name": "lbl_text_image_gallery_prg_uploading", "value": "تحميل الملفات" },
+  {
+    "name": "lbl_text_image_gallery_prg_uploading2",
+    "value": "تحميل الملف (إعادة المحاولة)"
+  },
+  { "name": "lbl_text_image_gallery_select", "value": "تحديد نوع التحميل" },
+  { "name": "lbl_text_image_gallery_video", "value": "فديو" },
+  { "name": "lbl_text_image_replace", "value": "استبدال الصورة" },
+  {
+    "name": "lbl_text_image_selection_error",
+    "value": "خطأ أثناء تحديد الصورة.  الرجاء تحديد صورة أخرى"
+  },
+  {
+    "name": "lbl_text_imageDefault",
+    "value": "هل تريد الاحتفاظ بهذه الصورة كصورة الشركة الرئيسية؟"
+  },
+  { "name": "lbl_text_Inactive", "value": "غير مفعل" },
+  {
+    "name": "lbl_text_InAppPayment_Not_Support",
+    "value": "دفع الشراء داخل التطبيق غير مدعوم"
+  },
+  { "name": "lbl_text_info", "value": "شارك تجربتك معنا!" },
+  { "name": "lbl_text_invoice_address", "value": "تبوك:" },
+  { "name": "lbl_text_invoice_client", "value": "عميل:" },
+  { "name": "lbl_text_invoice_date", "value": "تاريخ:" },
+  { "name": "lbl_text_invoice_date2", "value": "تاريخ الانتهاء: " },
+  {
+    "name": "lbl_text_invoice_discription",
+    "value": "الوصف (الخدمات / الحزمة / البنود)"
+  },
+  { "name": "lbl_text_invoice_email", "value": "بريد الالكتروني:" },
+  { "name": "lbl_text_invoice_Gateway_CMI", "value": "بوابة الدفع CMI" },
+  { "name": "lbl_text_invoice_Gateway_Payby", "value": "بوابة الدفع Payby" },
+  { "name": "lbl_text_invoice_Gateway_Paypal", "value": "بوابة الدفع Paypal" },
+  { "name": "lbl_text_invoice_mobile", "value": "متحرك:" },
+  { "name": "lbl_text_invoice_Price", "value": "السعر" },
+  { "name": "lbl_text_invoice_Quantity", "value": "كمية" },
+  { "name": "lbl_text_invoice_refNum", "value": "رقم المرجع: " },
+  { "name": "lbl_text_invoice_serviceCharge", "value": "رسوم الخدمة:" },
+  { "name": "lbl_text_invoice_SrNo", "value": "S.NO." },
+  {
+    "name": "lbl_text_invoice_system_generate",
+    "value": "** هذه هي فاتورة النظام المنشأة ولا تتطلب التوقيع والختم **"
+  },
+  { "name": "lbl_text_invoice_title", "value": "فاتورة" },
+  { "name": "lbl_text_invoice_Total", "value": "مجموع" },
+  { "name": "lbl_text_invoice_TotalAdjust", "value": "الخصم / التعديل:" },
+  {
+    "name": "lbl_text_invoice_TotalGatewayCharge",
+    "value": "رسوم بوابة الدفع "
+  },
+  { "name": "lbl_text_invoice_TotalNote", "value": "ملحوظة:" },
+  { "name": "lbl_text_invoice_TotalNote2", "value": "الدفع الناتج عن " },
+  { "name": "lbl_text_invoice_TotalNoteSum", "value": "مجموع " },
+  { "name": "lbl_text_invoice_TotalSub", "value": "المجموع الفرعي:" },
+  { "name": "lbl_text_invoice_TotalTax", "value": "ضريبة " },
+  { "name": "lbl_text_lawyer", "value": "المحامون" },
+  {
+    "name": "lbl_text_login_api_fail1",
+    "value": "لم يتم إنشاء كلمة المرور. يرجى المحاولة مرة أخرى."
+  },
+  {
+    "name": "lbl_text_login_api_fail2",
+    "value": "لم يتم تحديث كلمة المرور. يرجى المحاولة مرة أخرى"
+  },
+  {
+    "name": "lbl_text_login_api_fail3",
+    "value": "كلمة المرور غير متطابقة. يرجى المحاولة مرة أخرى"
+  },
+  {
+    "name": "lbl_text_login_api_success1",
+    "value": "تم إنشاء كلمة المرور بنجاح."
+  },
+  {
+    "name": "lbl_text_login_api_success2",
+    "value": "تم تحديث كلمة المرور بنجاح"
+  },
+  { "name": "lbl_text_login_ask1", "value": "هل تريد إنشاء كلمة مرور؟" },
+  { "name": "lbl_text_login_ask2", "value": "هل تريد تغيير كلمة المرور؟" },
+  { "name": "lbl_text_login_back", "value": "العودة إلى شاشة تسجيل الدخول" },
+  {
+    "name": "lbl_text_login_info1",
+    "value": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل"
+  },
+  { "name": "lbl_text_login_info2", "value": "يجب أن تتطابق كلمتا المرور" },
+  { "name": "lbl_text_login_signin", "value": "تسجيل الدخول" },
+  { "name": "lbl_text_login_signup", "value": "التسجيل" },
+  { "name": "lbl_text_login_title1", "value": "مرحباً بك مرة أخرى " },
+  {
+    "name": "lbl_text_login_title2",
+    "value": "يسعدنا أن نراكم مرة أخرى.\r\nإنشاء كلمة مرور لمتابعة استخدام حسابك"
+  },
+  { "name": "lbl_text_login_txt1", "value": "ليس لديك حساب؟ " },
+  { "name": "lbl_text_login_txt2", "value": "هل لديك حساب بالفعل؟" },
+  { "name": "lbl_text_loyaltyEmpty", "value": "نقطة الولاء غير متوفرة" },
+  { "name": "lbl_text_media_camera_error1", "value": "لا كاميرا" },
+  {
+    "name": "lbl_text_media_camera_error2",
+    "value": "معذرة! لا توجد كاميرا متاحة."
+  },
+  { "name": "lbl_text_media_gallery_error1", "value": "الصور غير مدعومة" },
+  {
+    "name": "lbl_text_media_gallery_error2",
+    "value": ":( لم يتم منح الإذن للصور."
+  },
+  {
+    "name": "lbl_text_media_video_error1",
+    "value": "مقاطع الفيديو غير مدعومة"
+  },
+  {
+    "name": "lbl_text_media_video_error2",
+    "value": ":( لم يتم منح الإذن لمقاطع الفيديو."
+  },
+  { "name": "lbl_text_minute", "value": "محضر" },
+  { "name": "lbl_text_offer2_coupon_list", "value": "رموز قسيمة العرض" },
+  {
+    "name": "lbl_text_offer2_date_end",
+    "value": "تاريخ انتهاء الرمز الترويجي"
+  },
+  { "name": "lbl_text_offer2_date_start", "value": "تاريخ بدء الرمز الترويجي" },
+  {
+    "name": "lbl_text_offer2_error_generate_code",
+    "value": "إنشاء رمز مقدم الخدمة"
+  },
+  {
+    "name": "lbl_text_offer2_error_select_promo",
+    "value": "اختر الرمز الترويجي"
+  },
+  { "name": "lbl_text_offer2_error_terms", "value": "اختر خصم شروط الموعد" },
+  {
+    "name": "lbl_text_offer2_info1",
+    "value": "من خلال تحديد هذا المربع ، فإنك توافق على منح خصم للعملاء الذين يستخدمون هذا الرمز الترويجي."
+  },
+  {
+    "name": "lbl_text_offer2_info2",
+    "value": "يجب عليك إدخال رمز مقدم الخدمة أعلاه في تطبيق Neeleez We Care عندما يأتي العميل للحصول على خصم"
+  },
+  {
+    "name": "lbl_text_offer2_info3",
+    "value": "سيتم استخدام هذا الرمز الترويجي لإعطاء خصم يصل إلى [PROMOMAX]"
+  },
+  { "name": "lbl_text_offer2_sp_code", "value": "رمز مقدم الخدمة" },
+  { "name": "lbl_text_offer2_tab1", "value": "تنشيط" },
+  { "name": "lbl_text_offer2_tab2", "value": "افتدي" },
+  {
+    "name": "lbl_text_package_notPaid",
+    "value": "لم يتم استلام دفعة الحزمة الخاصة بك بعد. يرجى إكمال الدفع وإبلاغ فريق الدعم لدينا."
+  },
+  {
+    "name": "lbl_text_package_notPaidWarning",
+    "value": "من فضلك ، أكمل دفع الباقة المشتركة لمواصلة خدمتنا"
+  },
+  {
+    "name": "lbl_text_package_notPaidWarning2",
+    "value": "يرجى الاشتراك في باقة مدفوعة للوصول إلى هذه الميزة."
+  },
+  { "name": "lbl_text_package_select", "value": "حدد الحزمة" },
+  {
+    "name": "lbl_text_package_success",
+    "value": "تم تسجيل باقتك. من فضلك، أكمل الدفع الخاص بك وأبلغ فريق كاين "
+  },
+  {
+    "name": "lbl_text_packageUpgrade",
+    "value": "فتح ميزة بريميوم عن طريق ترقية خطتك المدرجة أدناه"
+  },
+  { "name": "lbl_text_payment_account_address", "value": "عنوان:" },
+  { "name": "lbl_text_payment_account_bank", "value": "اسم البنك:" },
+  {
+    "name": "lbl_text_payment_account_ifsc",
+    "value": "رمز مؤسسة التمويل الدولية:"
+  },
+  { "name": "lbl_text_payment_account_name", "value": "اسم الحساب:" },
+  { "name": "lbl_text_payment_account_no", "value": "رقم الحساب:" },
+  { "name": "lbl_text_payment_account_note", "value": "ملاحظة:" },
+  {
+    "name": "lbl_text_payment_account_note1",
+    "value": "يرجى الدفع لهذا الحساب ومشاركة إيصال الدفع الخاص بك مع رقم مسجل على البريد الإلكتروني: payment@neeleez.com أو WhatsApp Us على  971 XXXXXX XXXXX مع في 24 ساعة ستحصل على التنشيط."
+  },
+  { "name": "lbl_text_payment_account_terms", "value": ":الأحكام و الشروط" },
+  { "name": "lbl_text_payment_type_bank", "value": "التحويل المصرفي" },
+  { "name": "lbl_text_payment_type_cash", "value": "تحويل نقدي" },
+  { "name": "lbl_text_payment_type_cheque", "value": "شيك" },
+  {
+    "name": "lbl_text_payment_type_mobile",
+    "value": "الدفع عبر الهاتف المحمول"
+  },
+  { "name": "lbl_text_payment_type_online", "value": "الدفع عبر الإنترنت" },
+  { "name": "lbl_text_paymentempty", "value": "قائمة الدفع غير متوفرة" },
+  {
+    "name": "lbl_text_permission_storage_error",
+    "value": "تم رفض إذن التخزين من قبل المستخدم. من فضلك، منح الإذن من إعداد المحمول لمعرض مفتوح"
+  },
+  {
+    "name": "lbl_text_permission_storage_error1",
+    "value": "تم رفض إذن التخزين من قبل المستخدم. من فضلك، أعط الإذن من إعداد الهاتف المحمول للمعرض المفتوح"
+  },
+  {
+    "name": "lbl_text_permission_storage_error2",
+    "value": "يتم رفض إذن التخزين/الكاميرا من قبل المستخدم. الرجاء، منح الإذن من إعداد الهاتف المحمول للكاميرا المفتوحة"
+  },
+  {
+    "name": "lbl_text_permission_storage_error3",
+    "value": "إذن التخزين/الكاميرا الذي رفضه المستخدم. يرجى منح إذن من إعدادات التطبيق لتحديد الفيديو"
+  },
+  { "name": "lbl_text_personal", "value": "شخصي" },
+  { "name": "lbl_text_pkg_info1", "value": "سجل الآن و استفد من الخصم" },
+  { "name": "lbl_text_pkg_info2", "value": "أول 3 أشهر مجانا" },
+  { "name": "lbl_text_pkg_info3", "value": "الاشتراك أو الترقية الآن" },
+  { "name": "lbl_text_pkgAvail", "value": "متوفرة" },
+  { "name": "lbl_text_pkgDetailAutoRenewal", "value": "تجديد تلقائي" },
+  { "name": "lbl_text_pkgDetailExpiry", "value": "تاريخ الانتهاء" },
+  { "name": "lbl_text_pkgDetailFree", "value": "مجاناً" },
+  { "name": "lbl_text_pkgDetailI", "value": "تفاصيل الرزمة" },
+  { "name": "lbl_text_pkgDetailIssue", "value": "تاريخ الإصدار" },
+  { "name": "lbl_text_pkgDetailMethodError", "value": "طريقة الدفع غير متاحة" },
+  { "name": "lbl_text_pkgDetailPerMonth", "value": "(في الشهر)" },
+  { "name": "lbl_text_pkgDetailPerYear", "value": "(في السنة)" },
+  { "name": "lbl_text_pkgDetailPerYear2", "value": "سنويا" },
+  {
+    "name": "lbl_text_pkgDetailPolicy",
+    "value": "بالنقر فوق هذا المربع ، أوافق على سياسة الخصوصية وشروط الشروط"
+  },
+  {
+    "name": "lbl_text_pkgDetailPolicy1",
+    "value": " بالنقر على هذا المربع أوافق على "
+  },
+  { "name": "lbl_text_pkgDetailPolicy2", "value": " وَ " },
+  { "name": "lbl_text_pkgDetailServiceCharge", "value": "رسوم الخدمة:" },
+  { "name": "lbl_text_pkgDetailSummery", "value": "ملخص الدفع" },
+  { "name": "lbl_text_pkgDetailTotalDiscount", "value": "خصم:" },
+  {
+    "name": "lbl_text_pkgDetailTotalDiscount2",
+    "value": "الخصم (مطبق مسبقا):"
+  },
+  { "name": "lbl_text_pkgDetailTotalGrand", "value": "المجموع الإجمالي:" },
+  { "name": "lbl_text_pkgDetailTotalNet", "value": "المجموع الصافي:" },
+  {
+    "name": "lbl_text_pkgDetailTotalPayment",
+    "value": "طريقة الدفع او السداد"
+  },
+  { "name": "lbl_text_pkgDetailTotalSub", "value": "المجموع الفرعي:" },
+  { "name": "lbl_text_pkgDetailTotalTax", "value": "الضريبة " },
+  { "name": "lbl_text_pkgExpire", "value": "انقضاء" },
+  { "name": "lbl_text_pkgListRenew", "value": "تاريخ التجديد:" },
+  { "name": "lbl_text_pkgListReschedule", "value": "تاريخ إعادة الجدولة:" },
+  { "name": "lbl_text_pkgService", "value": "الخدمات / الميزات" },
+  { "name": "lbl_text_pkgSubscribe", "value": "حزمة الاشتراك الحالية" },
+  { "name": "lbl_text_professional", "value": "المحترفون" },
+  { "name": "lbl_text_remark", "value": "ملاجظة" },
+  { "name": "lbl_text_renew_data", "value": "تاريخ التجديد: " },
+  { "name": "lbl_text_salon", "value": "المعارض التجارية" },
+  {
+    "name": "lbl_text_service_composition",
+    "value": "إذا كانت هذه الخدمة هي تكوين ثم تعيين ON"
+  },
+  {
+    "name": "lbl_text_service_formatted",
+    "value": "إذا تم تنسيق هذه الخدمة ، فقم بتعيين ON"
+  },
+  { "name": "lbl_text_signup", "value": "اشترك مع Neeleez" },
+  { "name": "lbl_text_signup_congratulations", "value": "مبروك!" },
+  { "name": "lbl_text_skip", "value": "تخطي" },
+  {
+    "name": "lbl_text_sms_send_fail",
+    "value": "فشل إرسال الرسائل القصيرة / كلمة المرور لمرة واحدة"
+  },
+  {
+    "name": "lbl_text_social_media_warning",
+    "value": "فقط أدخل اسم المستخدم لحسابك على وسائل التواصل الاجتماعي"
+  },
+  { "name": "lbl_text_staff_delete_fail", "value": "فشل حذف مقدم الخدمة" },
+  { "name": "lbl_text_staff_header_allocation", "value": "تخصيص" },
+  { "name": "lbl_text_staff_header_appointment", "value": "موعد" },
+  { "name": "lbl_text_staff_header_general", "value": "عام" },
+  { "name": "lbl_text_staff_header_holiday", "value": "عيد" },
+  { "name": "lbl_text_staff_header_identity", "value": "الهوية" },
+  { "name": "lbl_text_staff_header_qualification", "value": "تأهيل" },
+  { "name": "lbl_text_staff_header_skill", "value": "مهارة" },
+  { "name": "lbl_text_staff_header_timing", "value": "توقيت" },
+  {
+    "name": "lbl_text_staff_holiday_ask_add",
+    "value": "هل تريد حقا إضافة هذه العطلة؟"
+  },
+  {
+    "name": "lbl_text_staff_holiday_ask_delete",
+    "value": "هل تريد حقا حذف هذه العطلة؟"
+  },
+  {
+    "name": "lbl_text_staff_holiday_ask_edit",
+    "value": "هل تريد حقا لتحرير هذه العطلة؟"
+  },
+  {
+    "name": "lbl_text_staff_image_delete",
+    "value": "هل تريد حقا حذف ملف تعريف مزود الخدمة هذا؟"
+  },
+  {
+    "name": "lbl_text_staff_lang_remove",
+    "value": "هل تريد حقا إزالة هذه اللغة؟"
+  },
+  {
+    "name": "lbl_text_staff_list_limit_error",
+    "value": "يتم الوصول إلى الحد الأقصى لعدد الموظفين. لإضافة المزيد من الموظفين قم بترقية الحزمة الخاصة بك."
+  },
+  { "name": "lbl_text_staff_profile", "value": "مؤهلات الموظفين" },
+  { "name": "lbl_text_staff_serviceHour", "value": "ساعات الخدمة" },
+  { "name": "lbl_text_startup_country_find", "value": "العثور على البلد ..." },
+  { "name": "lbl_text_startup_country_open", "value": "فتح التطبيق" },
+  { "name": "lbl_text_startup_country_update", "value": "تحديث التفاصيل ..." },
+  { "name": "lbl_text_startup_initialize", "value": "التهيئه" },
+  { "name": "lbl_text_startup_start", "value": "بدء" },
+  { "name": "lbl_text_support_category", "value": "فئة الدعم" },
+  { "name": "lbl_text_support_contact", "value": "اتصل بالدعم" },
+  { "name": "lbl_text_support_contact2", "value": "الاتصال بفريق الدعم" },
+  { "name": "lbl_text_support_detail", "value": "تفصيل" },
+  { "name": "lbl_text_support_error_category", "value": "تحديد فئة الدعم" },
+  {
+    "name": "lbl_text_support_error_message",
+    "value": "إدخال الرسالة المناسبة"
+  },
+  { "name": "lbl_text_support_error_title", "value": "أدخل العنوان الصحيح" },
+  { "name": "lbl_text_support_feedback", "value": "كيف يمكننا مساعدتك" },
+  { "name": "lbl_text_support_subject", "value": "الموضوع" },
+  { "name": "lbl_text_termsAndCondition", "value": "الشروط والأحكام" },
+  {
+    "name": "lbl_text_timer_delete_warning",
+    "value": "سيتم حذف إعداد المؤقت من الخادم بشكل دائم. هل أنت متأكد من حذف هذا؟"
+  },
+  {
+    "name": "lbl_text_timer_error_equal",
+    "value": "وقت البدء ووقت الانتهاء لا يمكن أن يكونا متساويين"
+  },
+  {
+    "name": "lbl_text_timer_intesect",
+    "value": "وقتك متداخل مع إعدادات الوقت الأخرى"
+  },
+  {
+    "name": "lbl_text_timer_notupdated1",
+    "value": "لم يتم تحديث إعداد الوقت-1"
+  },
+  {
+    "name": "lbl_text_timer_notupdated2",
+    "value": "لم يتم تحديث إعداد الوقت-1 أو إعداد الوقت-2"
+  },
+  { "name": "lbl_text_total_days", "value": "مجموع الأيام" },
+  { "name": "lbl_text_try_again", "value": "حدث خطأ ما، حاول مرة أخرى لاحقا" },
+  { "name": "lbl_text_upcoming", "value": "يصل القادمة" },
+  {
+    "name": "lbl_text_updrade_pkg_gallery",
+    "value": "حزمة الترقية لمزيد من المساحة"
+  },
+  {
+    "name": "lbl_text_userAlreadyCreated",
+    "value": "حساب مستخدم تم إنشاؤه بالفعل. تسجيل الدخول باستخدام البريد الإلكتروني وكلمة المرور."
+  },
+  { "name": "lbl_text_view_day", "value": "عرض اليوم" },
+  { "name": "lbl_text_view_month", "value": "عرض الشهر" },
+  { "name": "lbl_text_view_week", "value": "عرض الأسبوع" },
+  { "name": "lbl_text_view_year", "value": "عرض العام" },
+  {
+    "name": "lbl_text_warningPkgComplete",
+    "value": "الحزمة الحالية الخاصة بك لا تزال منتهية"
+  },
+  { "name": "lbl_text_warningSaveChange", "value": "هل تريد حفظ التغييرات؟" },
+  { "name": "lbl_text_welcome", "value": "أهلًا وسهلًا" },
+  { "name": "lbl_title_loyalty_point", "value": "نقطة الولاء" },
+  { "name": "lbl_title_msgTitleAlert", "value": "انذار !" },
+  { "name": "lbl_title_msgTitleCongratulation", "value": "تهنئة" },
+  { "name": "lbl_title_msgTitleError", "value": "خطأ" },
+  { "name": "lbl_title_msgTitleGoogle", "value": "تفاصيل جوجل" },
+  { "name": "lbl_title_msgTitleInfo", "value": "معلومة" },
+  { "name": "lbl_title_msgTitleOops", "value": "خطأ !" },
+  { "name": "lbl_title_msgTitleSorry", "value": "معذرة!" },
+  { "name": "lbl_title_msgTitleSuccess", "value": "نجاح" },
+  { "name": "lbl_title_msgTitleTest", "value": "رسالة اختبارية" },
+  { "name": "lbl_title_msgTitleWarning", "value": "تحذير" },
+  { "name": "lbl_title_settings", "value": "إعدادات" },
+  { "name": "lbl_txt_change_mobile", "value": "تغيير رقم الجوال" },
+  { "name": "lbl_txt_filterClient", "value": "تصفية حسب العميل" },
+  { "name": "lbl_txt_filterSP", "value": "التصفية حسب الموفر" },
+  { "name": "lbl_txt_map_pick", "value": "اختر هذا" },
+  { "name": "lbl_txt_package_select", "value": "حدد الحزمة" },
+  { "name": "lbl_txt_package_upgrade", "value": "ترقية الحزمة" },
+  {
+    "name": "lbl_txt_sms_verify_trial_excced",
+    "value": "الحد الأقصى المسموح به ل 3 محاكمة OTP. الاتصال بفريق الدعم"
+  },
+  {
+    "name": "lbl_txt_splash_countryInfoEmpty1",
+    "value": "لم يتم العثور على معلومات البلد"
+  },
+  {
+    "name": "lbl_txt_splash_countryInfoEmpty2",
+    "value": "هذا التطبيق غير متوفر لبلدك"
+  },
+  { "name": "lbl_txt_version_name", "value": "v1.0.0 (اختبار بيتا)" },
+  {
+    "name": "lbl_update_msg",
+    "value": "أضفنا الكثير من الميزات الجديدة والحشرات الثابتة لجعل تجربتك سلسة قدر الإمكان"
+  },
+  { "name": "lbl_update_title", "value": "حان وقت التحديث!" },
+  {
+    "name": "lbl_verified_Email",
+    "value": " تم التحقق من عنوان البريد الإلكتروني "
+  },
+  {
+    "name": "lbl_verified_Mobile",
+    "value": " تم التحقق من رقم الهاتف المحمول"
+  },
+  { "name": "lbl_verify_email", "value": "التحقق من البريد الإلكتروني" },
+  { "name": "lbl_verify_email2", "value": "يجب التحقق من البريد الإلكتروني" },
+  { "name": "lbl_verify_mobile", "value": "التحقق من المحمول" },
+  {
+    "name": "lbl_verify_warning_person_Email",
+    "value": "تحقق من عنوان البريد الإلكتروني لجهة الاتصال"
+  },
+  {
+    "name": "lbl_verify_warning_person_mobile",
+    "value": "تحقق من رقم الاتصال الشخصي"
+  },
+  {
+    "name": "lbl_verify_warning_person_whatsapp",
+    "value": "تحقق من رقم جهة الاتصال على واتس اب"
+  },
+  {
+    "name": "lbl_verify_warning_profile_Email",
+    "value": "تحقق من عنوان البريد الإلكتروني الشخصي"
+  },
+  {
+    "name": "lbl_verify_warning_profile_mobile",
+    "value": "تحقق من ملف التعريف واتس اب"
+  },
+  { "name": "lbl_webpage_welcome1", "value": "مبروك!" },
+  { "name": "lbl_webpage_welcome2", "value": "هو الآن يعيش على نيليز" },
+  { "name": "Ok", "value": "اختار" },
+  { "name": "pageTitleAbout", "value": "حول" },
+  { "name": "pageTitleAboutMain", "value": "كاين للأعمال" },
+  { "name": "pageTitleAppointment", "value": "المواعيد" },
+  { "name": "pageTitleBankTransfer", "value": "التحويل المصرفي" },
+  { "name": "pageTitleCash", "value": "نقدا" },
+  { "name": "pageTitleCheckout", "value": "الخروج" },
+  { "name": "pageTitleCheckoutSuccess", "value": "الدفع الناجح" },
+  { "name": "pageTitleCheque", "value": "شيك" },
+  { "name": "pageTitleContactUs", "value": "اتصل بنا" },
+  { "name": "pageTitleControlPanel", "value": "لوحة التحكم" },
+  { "name": "pageTitleCpArticle", "value": "الخدمة" },
+  { "name": "pageTitleCpArticleCompose", "value": "تكوين الخدمة" },
+  { "name": "pageTitleCpArticleFormat", "value": "تنسيق الخدمة" },
+  { "name": "pageTitleCpCmpDepart", "value": "ادارة" },
+  { "name": "pageTitleCpCmpDesign", "value": "وظيفة" },
+  { "name": "pageTitleCpCmpLang", "value": "اللغات" },
+  { "name": "pageTitleCpCmpSection", "value": "قسم" },
+  { "name": "pageTitleCpCompany", "value": "شركة" },
+  { "name": "pageTitleCpFormat", "value": "تنسيق" },
+  { "name": "pageTitleCpGroup", "value": "مجموعة" },
+  { "name": "pageTitleCpServices", "value": "الخدمات" },
+  { "name": "pageTitleDashboard", "value": "لوحة المعلومات" },
+  { "name": "pageTitleDashboard2", "value": "الشركات القريبة" },
+  { "name": "pageTitleGallery", "value": "معرض الأعمال" },
+  { "name": "pageTitleNotification", "value": "إشعارات" },
+  { "name": "pageTitleOffer", "value": "عرض الخدمة" },
+  { "name": "pageTitleOffer2", "value": "الرموز الترويجية" },
+  { "name": "pageTitlePackage", "value": "حزمة" },
+  { "name": "pageTitlePackageSelect", "value": "باقات الاشتراكات" },
+  { "name": "pageTitlePolicy", "value": "سياسة الخصوصية" },
+  { "name": "pageTitlePolicyCancel", "value": "سياسة الإلغاء" },
+  { "name": "pageTitlePolicyRefund", "value": "سياسة استرداد الأموال" },
+  { "name": "pageTitlePolicyShipping", "value": "سياسة الشحن" },
+  { "name": "pageTitleRateUs", "value": "سعر الولايات المتحدة" },
+  { "name": "pageTitleStaffAdd", "value": "إضافة موظفين" },
+  { "name": "pageTitleStaffManagement", "value": "إدارة شؤون الموظفين" },
+  { "name": "pageTitleSummry", "value": "ملخص الطلب" },
+  { "name": "pageTitleSupport", "value": "الدعم" },
+  { "name": "pageTitleTerms", "value": "شروط الاستخدام" },
+  { "name": "placeholder_activeStatus", "value": "الحالة النشطة" },
+  { "name": "placeholder_AppointmentDuration", "value": "مدة الموعد (دقيقة)" },
+  { "name": "placeholder_CmpLangEn", "value": "اسم اللغة" },
+  { "name": "placeholder_DepartAr", "value": "اسم القسم (Ar)" },
+  { "name": "placeholder_DepartEn", "value": "اسم القسم (En)" },
+  { "name": "placeholder_DepartSelect", "value": "اختر القسم" },
+  { "name": "placeholder_description", "value": "وصف" },
+  { "name": "placeholder_DesignAr", "value": "اسم التعيين (Ar)" },
+  { "name": "placeholder_DesignEn", "value": "اسم التعيين (En)" },
+  { "name": "placeholder_Duration", "value": "المدة بالدقائق" },
+  { "name": "placeholder_iscomposed", "value": "خدمة مؤلفة" },
+  { "name": "placeholder_isformatted", "value": "خدمة منسقة" },
+  { "name": "placeholder_isService", "value": "الخدمة" },
+  { "name": "placeholder_nameAr", "value": "الاسم (عربي)" },
+  { "name": "placeholder_nameEn", "value": "الاسم (الإنجليزية)" },
+  { "name": "placeholder_Price", "value": "الثمن" },
+  { "name": "placeholder_Remark", "value": "ملاحظة:" },
+  { "name": "placeholder_Search", "value": "بحث..." },
+  { "name": "placeholder_SectionAr", "value": "اسم القسم (Ar)" },
+  { "name": "placeholder_SectionEn", "value": "اسم القسم (En)" },
+  { "name": "placeholder_SelectGroup", "value": "تحديد المجموعة" },
+  { "name": "placeholder_StaffAvail", "value": "توافر" },
+  { "name": "placeholder_StaffAvailStatus", "value": "حالة التوفر" },
+  { "name": "placeholder_StaffBEmail", "value": "البريد الإلكتروني للأعمال" },
+  { "name": "placeholder_StaffBusinessType", "value": "تحديد نوع العمل" },
+  { "name": "placeholder_StaffCountry", "value": "البلد" },
+  { "name": "placeholder_StaffDepartment", "value": "ادارة" },
+  { "name": "placeholder_StaffDesignation", "value": "تعيين" },
+  { "name": "placeholder_StaffDob", "value": "تاريخ الميلاد" },
+  { "name": "placeholder_StaffDuration", "value": "مدة الخدمة في الدقيقة" },
+  { "name": "placeholder_StaffFName", "value": "الاسم الاول" },
+  { "name": "placeholder_StaffGender", "value": "الجنس" },
+  { "name": "placeholder_StaffGroup", "value": "تحديد المجموعة" },
+  { "name": "placeholder_StaffIdCard", "value": "رقم بطاقة الهوية" },
+  { "name": "placeholder_StaffIdCardExpiry", "value": "تاريخ إنتهاء البطاقة" },
+  { "name": "placeholder_StaffIsAvailable", "value": "متوفر" },
+  { "name": "placeholder_StaffLang", "value": "اللغة" },
+  { "name": "placeholder_StaffLName", "value": "الاسم الاخير" },
+  { "name": "placeholder_StaffMobile", "value": "رقم الهاتف المحمول" },
+  { "name": "placeholder_StaffNationality", "value": "الجنسية" },
+  { "name": "placeholder_StaffNName", "value": "اسم الاختصار" },
+  {
+    "name": "placeholder_StaffPassportExpiry",
+    "value": "تاريخ انتهاء جواز السفر"
+  },
+  { "name": "placeholder_StaffPassportNumber", "value": "رقم جواز السفر" },
+  { "name": "placeholder_StaffPEmail", "value": "البريد الإلكتروني الشخصي" },
+  { "name": "placeholder_StaffQualificationEn", "value": "المؤهلات" },
+  {
+    "name": "placeholder_StaffRecidenceExpiry",
+    "value": "تاريخ انتهاء وثيقة الإقامة"
+  },
+  { "name": "placeholder_StaffSection", "value": "القسم" },
+  { "name": "placeholder_StaffService", "value": "تحديد الخدمة" },
+  { "name": "placeholder_StaffServiceEndDate", "value": "تاريخ انتهاء الخدمة" },
+  { "name": "placeholder_StaffServiceStartDate", "value": "تاريخ بدء الخدمة" },
+  { "name": "placeholder_StaffSkillEn", "value": "اسم المهارة" },
+  { "name": "placeholder_StaffSkillEn2", "value": "مهارت" },
+  { "name": "placeholder_StaffSPType", "value": "نوع موفر الخدمة" },
+  { "name": "placeholder_StaffWhatsapp", "value": "رقم تواصل واتس آب" },
+  { "name": "placeholder_TitleApp", "value": "العنوان (App)" },
+  { "name": "placeholder_TitleAr", "value": "العنوان (Ar)" },
+  { "name": "placeholder_TitleEn", "value": "العنوان (En)" },
+  { "name": "Reset", "value": "اعاده تعيين" },
+  { "name": "Save", "value": "أنقذ" },
+  { "name": "title_rating", "value": "تقييم التطبيق لدينا" }
+]

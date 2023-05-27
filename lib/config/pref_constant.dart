@@ -13,4 +13,5 @@ class Preferences {
   static const String countryId = "countryId";
   static const String password = "password";
   static const String username = "username";
+  static const String languageModel = "languageModel";
 }

@@ -1,0 +1,4230 @@
+[
+ {
+  "name": "btn_forget_send",
+  "value": "Send"
+ },
+ {
+  "name": "btn_leave_apply",
+  "value": "Apply Leave"
+ },
+ {
+  "name": "btn_leave_view",
+  "value": "View Leave"
+ },
+ {
+  "name": "btn_login_Login",
+  "value": "Log In"
+ },
+ {
+  "name": "btn_mobile_send_otp",
+  "value": "Send OTP"
+ },
+ {
+  "name": "btn_msgButtonAdd",
+  "value": "Add"
+ },
+ {
+  "name": "btn_msgButtonCancel",
+  "value": "Cancel"
+ },
+ {
+  "name": "btn_msgButtonCheckout",
+  "value": "Checkout"
+ },
+ {
+  "name": "btn_msgButtonClose",
+  "value": "Close"
+ },
+ {
+  "name": "btn_msgButtonCloseApp",
+  "value": "Close App"
+ },
+ {
+  "name": "btn_msgButtonComplete",
+  "value": "Complete"
+ },
+ {
+  "name": "btn_msgButtonDeactivate",
+  "value": "Deactivate"
+ },
+ {
+  "name": "btn_msgButtonDelete",
+  "value": "Delete"
+ },
+ {
+  "name": "btn_msgButtonEdit",
+  "value": "Edit"
+ },
+ {
+  "name": "btn_msgButtonNo",
+  "value": "No"
+ },
+ {
+  "name": "btn_msgButtonOk",
+  "value": "Ok"
+ },
+ {
+  "name": "btn_msgButtonPrint",
+  "value": "Print"
+ },
+ {
+  "name": "btn_msgButtonProcess",
+  "value": "Process"
+ },
+ {
+  "name": "btn_msgButtonRating",
+  "value": "Give Rating"
+ },
+ {
+  "name": "btn_msgButtonReload",
+  "value": "Reload"
+ },
+ {
+  "name": "btn_msgButtonReschedule",
+  "value": "Reschedule"
+ },
+ {
+  "name": "btn_msgButtonResend",
+  "value": "Resend"
+ },
+ {
+  "name": "btn_msgButtonSubscibe",
+  "value": "Subscribe Now"
+ },
+ {
+  "name": "btn_msgButtonSubscibe2",
+  "value": "Already Subscribed"
+ },
+ {
+  "name": "btn_msgButtonUpdate",
+  "value": "Update"
+ },
+ {
+  "name": "btn_msgButtonUpgrade",
+  "value": "Upgrade"
+ },
+ {
+  "name": "btn_msgButtonView",
+  "value": "View"
+ },
+ {
+  "name": "btn_msgButtonYes",
+  "value": "Yes"
+ },
+ {
+  "name": "btn_next",
+  "value": "NEXT"
+ },
+ {
+  "name": "btn_offer2_activate",
+  "value": "Activate"
+ },
+ {
+  "name": "btn_offer2_activationCode",
+  "value": "Activation Code: "
+ },
+ {
+  "name": "btn_offer2_deactivate",
+  "value": "Deactivate"
+ },
+ {
+  "name": "btn_offer2_generate",
+  "value": "Generate"
+ },
+ {
+  "name": "btn_pay_now",
+  "value": "Pay Now"
+ },
+ {
+  "name": "btn_rating_submit",
+  "value": "Submit"
+ },
+ {
+  "name": "btn_reg",
+  "value": "Register"
+ },
+ {
+  "name": "btn_reset_password",
+  "value": "Change Password"
+ },
+ {
+  "name": "btn_save",
+  "value": "Save"
+ },
+ {
+  "name": "btn_send",
+  "value": "Send"
+ },
+ {
+  "name": "btn_update_playstore",
+  "value": "Update Now"
+ },
+ {
+  "name": "btn_update_skip",
+  "value": "No Thanks!"
+ },
+ {
+  "name": "btn_update_title2",
+  "value": "Update Required"
+ },
+ {
+  "name": "btn_verify",
+  "value": "Verify"
+ },
+ {
+  "name": "btnUploadImage",
+  "value": "Upload Media"
+ },
+ {
+  "name": "Cancel",
+  "value": "Cancel"
+ },
+ {
+  "name": "Intro_body1",
+  "value": "Neeleez – We Care is designed to make life simpler. We strive to empower all aspects of everyday needs in a smarter way."
+ },
+ {
+  "name": "Intro_body2",
+  "value": "Transforming social restrictions with online existence of Professional Service Providers can bring ease in scheduling appointments, promoting discount offers and service details in a better way by staying visible in radar of millions of Neeleez users."
+ },
+ {
+  "name": "Intro_body3",
+  "value": "An uneasy lifestyle after Covid impacts must not bother services with closed doors. Let’s be creative with connecting clients and provide unstoppable professional services."
+ },
+ {
+  "name": "Intro_body4",
+  "value": "Register Neeleez – We Care and get automatic loyalty enrolment to earn points on each activity and win big rewards."
+ },
+ {
+  "name": "Intro_skip",
+  "value": "Skip Intro"
+ },
+ {
+  "name": "Intro_title1",
+  "value": "One Intelligent Mobile App for Everyone"
+ },
+ {
+  "name": "Intro_title2",
+  "value": "Stay Connected, Be Visible"
+ },
+ {
+  "name": "Intro_title3",
+  "value": "Earn and win with Neeleez"
+ },
+ {
+  "name": "Intro_title4",
+  "value": "Overcoming Challenges With Connectivity &amp; Creativity"
+ },
+ {
+  "name": "lbl_account_del_ask_password",
+  "value": "To continue, please re-enter your password"
+ },
+ {
+  "name": "lbl_account_del_ask1",
+  "value": "What do you want to do with your account?"
+ },
+ {
+  "name": "lbl_account_del_btn_deactivate",
+  "value": "Deactivate"
+ },
+ {
+  "name": "lbl_account_del_btn_delete",
+  "value": "Delete"
+ },
+ {
+  "name": "lbl_account_del_choice1",
+  "value": "Why are you deleting your account?"
+ },
+ {
+  "name": "lbl_account_del_choice2",
+  "value": "Why are you deactivating your account?"
+ },
+ {
+  "name": "lbl_account_del_confirm1",
+  "value": "Are you sure you want to delete your account? You can reactivate your account within 14 days of deletion; otherwise, it will be deleted permanently."
+ },
+ {
+  "name": "lbl_account_del_confirm2",
+  "value": "Are you sure to deactivate your account? The account will be reactivated as soon as you log in again."
+ },
+ {
+  "name": "lbl_account_del_error_choice",
+  "value": "Select Option from list"
+ },
+ {
+  "name": "lbl_account_del_error_choice2",
+  "value": "Select Reason"
+ },
+ {
+  "name": "lbl_account_del_error_deactivate",
+  "value": "Account Deactivation Process Failed. Try again."
+ },
+ {
+  "name": "lbl_account_del_error_delete",
+  "value": "Account Delete Process Failed. Try again."
+ },
+ {
+  "name": "lbl_account_del_error_password1",
+  "value": "Enter Valid Password"
+ },
+ {
+  "name": "lbl_account_del_error_password2",
+  "value": "Entered Password is not correct"
+ },
+ {
+  "name": "lbl_account_del_error_reactivate",
+  "value": "Account Reactivation Process Failed. Try again."
+ },
+ {
+  "name": "lbl_account_del_hi",
+  "value": "Hi, "
+ },
+ {
+  "name": "lbl_account_del_info1a",
+  "value": "We are not happy to see you going. It is recommended to deactivate your company profile account instead of deleting. If you still want to delete your company profile from Neeleez – We Care permanently then as per our policy, we will keep it on hold with us for 14 days. In case you change your mind, you can login again to reactivate your company profile."
+ },
+ {
+  "name": "lbl_account_del_info1b",
+  "value": "After 14 days, your company profile along with all transactions and associated data will be permanently deleted and you will no longer be able to access your company profile."
+ },
+ {
+  "name": "lbl_account_del_info1c",
+  "value": "Be advised that by clicking the button below, any paid package purchased will also be terminated and any amount (if paid already) shall be considered as cancelled and it will not be refundable or adjustable despite of any expiry date or under any circumstances."
+ },
+ {
+  "name": "lbl_account_del_info2a",
+  "value": "Deactivating your account can be used while you need to get away from Neeleez – We Care for a while. It will temporarily hide your Company Profile and all activities."
+ },
+ {
+  "name": "lbl_account_del_info2b",
+  "value": "You can activate it again by login again."
+ },
+ {
+  "name": "lbl_account_del_info2c",
+  "value": "We might not able to respond your deactivation concern individually but you can submit your request or any questions using our support form "
+ },
+ {
+  "name": "lbl_account_del_success_deactivate",
+  "value": "Account deactivated successfully. The account will be reactivated as soon as you log in again."
+ },
+ {
+  "name": "lbl_account_del_success_delete",
+  "value": "The account was successfully deleted. If you log in within 14 days of deletion, you can reactivate it; otherwise, the account will be permanently deleted."
+ },
+ {
+  "name": "lbl_account_del_title_deactivate",
+  "value": "Deactivate Account"
+ },
+ {
+  "name": "lbl_account_del_title_delete",
+  "value": "Delete Account"
+ },
+ {
+  "name": "lbl_account_login_delete_confirm",
+  "value": "Do you want to recover your account? As you login before its permanently delete."
+ },
+ {
+  "name": "lbl_account_login_delete_error",
+  "value": "Account Recover failed. Try again."
+ },
+ {
+  "name": "lbl_account_login_delete_error2",
+  "value": "Account Can not recover because its delete permanently."
+ },
+ {
+  "name": "lbl_account_login_delete_success",
+  "value": "Account Recover Successfully"
+ },
+ {
+  "name": "lbl_account_login_error_reactivate",
+  "value": "Account Re-activated failed. Try again."
+ },
+ {
+  "name": "lbl_account_login_success_reactivate",
+  "value": "Account Re-activated successfully."
+ },
+ {
+  "name": "lbl_addNewService",
+  "value": "Add New Service"
+ },
+ {
+  "name": "lbl_CpArticleName",
+  "value": "Service name"
+ },
+ {
+  "name": "lbl_CpArticleNo",
+  "value": "No."
+ },
+ {
+  "name": "lbl_CpArticleQty",
+  "value": "Qty"
+ },
+ {
+  "name": "lbl_CpArticleUnit",
+  "value": "Unit"
+ },
+ {
+  "name": "lbl_CpFormatName",
+  "value": "Format name"
+ },
+ {
+  "name": "lbl_CpFormatPrice",
+  "value": "Price"
+ },
+ {
+  "name": "lbl_CpOffer",
+  "value": "Offers"
+ },
+ {
+  "name": "lbl_CpOfferAllDays",
+  "value": "All Days"
+ },
+ {
+  "name": "lbl_CpOfferApply",
+  "value": "Apply Offer"
+ },
+ {
+  "name": "lbl_CpOfferCode",
+  "value": "Offer Code"
+ },
+ {
+  "name": "lbl_CpOfferDateEnd",
+  "value": "Offer End Date"
+ },
+ {
+  "name": "lbl_CpOfferDateStart",
+  "value": "Offer Start Date"
+ },
+ {
+  "name": "lbl_CpOfferDays",
+  "value": "Offer Days"
+ },
+ {
+  "name": "lbl_CpOfferNameAr",
+  "value": "Offer name (Ar)"
+ },
+ {
+  "name": "lbl_CpOfferNameEn",
+  "value": "Offer name (En)"
+ },
+ {
+  "name": "lbl_CpOfferType",
+  "value": "Offers Type"
+ },
+ {
+  "name": "lbl_dash",
+  "value": "Dashboard"
+ },
+ {
+  "name": "lbl_dash_appointment",
+  "value": "Appointments"
+ },
+ {
+  "name": "lbl_dash_cl",
+  "value": "Clicks"
+ },
+ {
+  "name": "lbl_dash_cl_a",
+  "value": "Offers\/Discounts"
+ },
+ {
+  "name": "lbl_dash_li",
+  "value": "List of Appointments"
+ },
+ {
+  "name": "lbl_dash_mo",
+  "value": "Month"
+ },
+ {
+  "name": "lbl_dash_on",
+  "value": "Clicks Per Week"
+ },
+ {
+  "name": "lbl_dash_on_a",
+  "value": "Online Appointments"
+ },
+ {
+  "name": "lbl_dash_on_ap",
+  "value": "Appointments"
+ },
+ {
+  "name": "lbl_dash_pkg_expire_info1",
+  "value": "Your Free and Limited Access is finished."
+ },
+ {
+  "name": "lbl_dash_pkg_expire_info2",
+  "value": "Please subscribe to any Paid Package to get Access."
+ },
+ {
+  "name": "lbl_dash_pkg_trial_btn",
+  "value": "Subscribe Package"
+ },
+ {
+  "name": "lbl_dash_pkg_trial_btn2",
+  "value": "Subscribe"
+ },
+ {
+  "name": "lbl_dash_pkg_trial_btn3",
+  "value": "Later"
+ },
+ {
+  "name": "lbl_dash_pkg_trial_info1",
+  "value": "One Month Free and Limited Access has been Activated."
+ },
+ {
+  "name": "lbl_dash_pkg_trial_info2",
+  "value": "Upgrade to a Paid Package with 50% Discount anytime during this month to take full advantage of Neeleez Features."
+ },
+ {
+  "name": "lbl_dash_pkg_trial_name",
+  "value": "Free Trial"
+ },
+ {
+  "name": "lbl_dash_to",
+  "value": "Today"
+ },
+ {
+  "name": "lbl_dash_toa",
+  "value": "Total"
+ },
+ {
+  "name": "lbl_dash_up",
+  "value": "Upgrade Package"
+ },
+ {
+  "name": "lbl_dash_views",
+  "value": "Views"
+ },
+ {
+  "name": "lbl_dash_week",
+  "value": "Week"
+ },
+ {
+  "name": "lbl_Dashboard_card_total_appoint",
+  "value": "Total Appointments"
+ },
+ {
+  "name": "lbl_Dashboard_card_total_click",
+  "value": "Total Clicks"
+ },
+ {
+  "name": "lbl_Dashboard_Earned",
+  "value": "Point Earned"
+ },
+ {
+  "name": "lbl_Dashboard_Greeting1",
+  "value": "Good Morning"
+ },
+ {
+  "name": "lbl_Dashboard_Greeting2",
+  "value": "Good Afternoon"
+ },
+ {
+  "name": "lbl_Dashboard_Greeting3",
+  "value": "Good Evening"
+ },
+ {
+  "name": "lbl_Dashboard_Greeting4",
+  "value": "Good Night"
+ },
+ {
+  "name": "lbl_Dashboard_Network_Not_Available",
+  "value": "Network not Available"
+ },
+ {
+  "name": "lbl_Dashboard_Timer_day",
+  "value": "Days"
+ },
+ {
+  "name": "lbl_Dashboard_Timer_hr",
+  "value": "Hrs"
+ },
+ {
+  "name": "lbl_Dashboard_Timer_min",
+  "value": "Mins"
+ },
+ {
+  "name": "lbl_Dashboard_Timer_sec",
+  "value": "Secs"
+ },
+ {
+  "name": "lbl_empty_department",
+  "value": "No Department Added Yet"
+ },
+ {
+  "name": "lbl_empty_designation",
+  "value": "No Designation Added Yet"
+ },
+ {
+  "name": "lbl_empty_format",
+  "value": "No Format Added Yet"
+ },
+ {
+  "name": "lbl_empty_group",
+  "value": "No Group Added Yet"
+ },
+ {
+  "name": "lbl_empty_leave",
+  "value": "No Leaves Added"
+ },
+ {
+  "name": "lbl_empty_offer",
+  "value": "Offer not added yet"
+ },
+ {
+  "name": "lbl_empty_offer2",
+  "value": "There is nothing to display"
+ },
+ {
+  "name": "lbl_empty_package",
+  "value": "Package not subscribed for Currently Selected Country"
+ },
+ {
+  "name": "lbl_empty_qualification",
+  "value": "No Qualifications Added Yet"
+ },
+ {
+  "name": "lbl_empty_section",
+  "value": "No Section Added Yet"
+ },
+ {
+  "name": "lbl_empty_service",
+  "value": "No Service Added Yet"
+ },
+ {
+  "name": "lbl_empty_serviceComposition",
+  "value": "Service Composition not Available"
+ },
+ {
+  "name": "lbl_empty_serviceFormat",
+  "value": "Service Format not Available"
+ },
+ {
+  "name": "lbl_empty_skill",
+  "value": "No Skill Added Yet"
+ },
+ {
+  "name": "lbl_forget_desc",
+  "value": "Enter the registered Email address below for password reset process"
+ },
+ {
+  "name": "lbl_forget_desc2",
+  "value": "Enter the registered Mobile number below for password reset process"
+ },
+ {
+  "name": "lbl_forget_error_noaccount",
+  "value": "Email id not registered with Neeleez."
+ },
+ {
+  "name": "lbl_forget_error_noaccount2",
+  "value": "Mobile number not registered with Neeleez."
+ },
+ {
+  "name": "lbl_forget_placeholder_email",
+  "value": "Email"
+ },
+ {
+  "name": "lbl_forget_title",
+  "value": "Forgot Password"
+ },
+ {
+  "name": "lbl_forget_with_mobile",
+  "value": "Recover Password with Mobile OTP"
+ },
+ {
+  "name": "lbl_inapp_purchase_error1",
+  "value": "Currently the app store seems to be unavailable. Try again later."
+ },
+ {
+  "name": "lbl_inapp_purchase_error2",
+  "value": "Billing seems to be unavailable, please try again later."
+ },
+ {
+  "name": "lbl_inapp_purchase_error3",
+  "value": "Payment seems to be invalid, please try again."
+ },
+ {
+  "name": "lbl_inapp_purchase_error4",
+  "value": "Payment does not seem to be enabled\/allowed, please try again."
+ },
+ {
+  "name": "lbl_inapp_purchase_not_supported",
+  "value": "In-app purchase not supported."
+ },
+ {
+  "name": "lbl_inapp_purchase_not_supported2",
+  "value": "Google Pay not connected"
+ },
+ {
+  "name": "lbl_inapp_purchase_not_supported3",
+  "value": "iTunes not connected"
+ },
+ {
+  "name": "lbl_info_mobile0",
+  "value": "Mobile Number will be used by Neeleez Team Only. Mobile Number will not be communicated to anyone."
+ },
+ {
+  "name": "lbl_info_mobile1",
+  "value": "Mobile Number will be used by Neeleez Team Only."
+ },
+ {
+  "name": "lbl_info_mobile2",
+  "value": "Mobile Number will not be communicated to anyone."
+ },
+ {
+  "name": "lbl_info_signup1a",
+  "value": "By checking this, I agree to Neeleez - We Care's"
+ },
+ {
+  "name": "lbl_info_signup1b",
+  "value": "Terms of Use"
+ },
+ {
+  "name": "lbl_info_signup1c",
+  "value": "Privacy Policy"
+ },
+ {
+  "name": "lbl_info_signup2",
+  "value": "By checking this, I agree that Neeleez - We Care can use my profile to facilitate my services for Neeleez Users."
+ },
+ {
+  "name": "lbl_info_signup3",
+  "value": "By checking this, I certify on my honor that i am a health professional or certified provider of Business Services selected above."
+ },
+ {
+  "name": "lbl_intro",
+  "value": "Lorem Ipsum"
+ },
+ {
+  "name": "lbl_intro_a",
+  "value": "Register with Neeleez -We care for your Business Expansion"
+ },
+ {
+  "name": "lbl_login_desc",
+  "value": "Provide your User name \/ Password to access the App Features"
+ },
+ {
+  "name": "lbl_login_forget_password",
+  "value": "Forgot Password?"
+ },
+ {
+  "name": "lbl_login_placeholder_password",
+  "value": "Password"
+ },
+ {
+  "name": "lbl_login_placeholder_username",
+  "value": "Username \/ Email :"
+ },
+ {
+  "name": "lbl_login_remember",
+  "value": "Remember me"
+ },
+ {
+  "name": "lbl_login_title",
+  "value": "Log In"
+ },
+ {
+  "name": "lbl_media_error_image_size",
+  "value": "Image Size should be less or equal to "
+ },
+ {
+  "name": "lbl_media_error_video_len",
+  "value": "Video Length should be less or equal to "
+ },
+ {
+  "name": "lbl_media_error_video_size",
+  "value": "Video Size should be less or equal to "
+ },
+ {
+  "name": "lbl_media_upload_complete",
+  "value": "Upload Completed"
+ },
+ {
+  "name": "lbl_media_upload_failed",
+  "value": "Upload Failed"
+ },
+ {
+  "name": "lbl_menu_about",
+  "value": "About"
+ },
+ {
+  "name": "lbl_menu_appointment",
+  "value": "Appointments"
+ },
+ {
+  "name": "lbl_menu_changePass",
+  "value": "Change Password"
+ },
+ {
+  "name": "lbl_menu_dashboard",
+  "value": "Dashboard"
+ },
+ {
+  "name": "lbl_menu_datalisting",
+  "value": "Data Listing"
+ },
+ {
+  "name": "lbl_menu_eCommerce",
+  "value": "Ecommerce"
+ },
+ {
+  "name": "lbl_menu_logout",
+  "value": "Logout"
+ },
+ {
+  "name": "lbl_menu_offerlist",
+  "value": "Promo Codes"
+ },
+ {
+  "name": "lbl_menu_packageSubscriptions",
+  "value": "Package Subscriptions"
+ },
+ {
+  "name": "lbl_menu_paymentOnline",
+  "value": "Online Payments"
+ },
+ {
+  "name": "lbl_menu_paymentsHistory",
+  "value": "Payment History"
+ },
+ {
+  "name": "lbl_menu_profile",
+  "value": "Company Profile"
+ },
+ {
+  "name": "lbl_menu_serviceProvider",
+  "value": "Service Providers"
+ },
+ {
+  "name": "lbl_menu_storyboard",
+  "value": "Story Page"
+ },
+ {
+  "name": "lbl_menu_support",
+  "value": "Support"
+ },
+ {
+  "name": "lbl_mobile_send_disp",
+  "value": "We will send SMS with OTP Code to the provided Mobile Number for Verification Process"
+ },
+ {
+  "name": "lbl_mobile_send_title",
+  "value": "Mobile Number Verification"
+ },
+ {
+  "name": "lbl_msg_MSGadditionalinfo",
+  "value": "Please enter additional info"
+ },
+ {
+  "name": "lbl_msg_MSGCancelationReason",
+  "value": "Please enter a your reason here"
+ },
+ {
+  "name": "lbl_msg_MSGOtpEmpty",
+  "value": "Mobile number is empty"
+ },
+ {
+  "name": "lbl_msg_MSGOtpSend",
+  "value": "Enter Valid Mobile number !"
+ },
+ {
+  "name": "lbl_msg_MSGOtpVerify",
+  "value": "Please enter a code"
+ },
+ {
+  "name": "lbl_msg_MSGResetPasswordCurrent",
+  "value": "Please enter a current password"
+ },
+ {
+  "name": "lbl_msg_MSGResetPasswordNew",
+  "value": "Please enter a new password"
+ },
+ {
+  "name": "lbl_msg_MSGResetPasswordRewriteNew",
+  "value": "Please rewrite new password"
+ },
+ {
+  "name": "lbl_msg_MSGSignInPassword",
+  "value": "Please enter password"
+ },
+ {
+  "name": "lbl_msg_MSGSignUpCName",
+  "value": "Please enter a Company name"
+ },
+ {
+  "name": "lbl_msg_MSGSignUpDob",
+  "value": "Please enter a date of birth"
+ },
+ {
+  "name": "lbl_msg_MSGSignUpEmail",
+  "value": "Please enter an email"
+ },
+ {
+  "name": "lbl_msg_MSGSignUpFName",
+  "value": "Please enter a first name"
+ },
+ {
+  "name": "lbl_msg_MSGSignUpLName",
+  "value": "Please enter a last name"
+ },
+ {
+  "name": "lbl_msg_MSGSportsSettingsLocation",
+  "value": "Please enter a available location"
+ },
+ {
+  "name": "lbl_msg_MSGSucess",
+  "value": "Information saved successfully"
+ },
+ {
+  "name": "lbl_msg_MSGTagline",
+  "value": "Please enter Tagline"
+ },
+ {
+  "name": "lbl_msg_MSGUsername",
+  "value": "Please enter an Username"
+ },
+ {
+  "name": "lbl_msg_MSGWarningPassword",
+  "value": "Password should be 8 to 20 character long"
+ },
+ {
+  "name": "lbl_msg_Telephone",
+  "value": "Please enter Telephone number"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyAccountCreated",
+  "value": "Your account is created"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyAppCloseAsk",
+  "value": "Do you really want to close application?"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyAppCloseEditAsk",
+  "value": "Do you really want to exit business Edit?"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyAppCloseRegAsk",
+  "value": "Do you really want to go back and close registration?"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyAppCloseRegPreAsk",
+  "value": "Do you really want to go previous registration page?"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyBackToLoginScreen",
+  "value": "Do you want to go back to the login screen?"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyBackToMobileScreen",
+  "value": "Do you really want to change the mobile number?"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyDetailError",
+  "value": "Enter correct details"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyDocumentSelectWarning",
+  "value": "Supported document types is PDF only"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyEmptyEmail2",
+  "value": "Email is Empty or Invalid"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyEmptyPassword",
+  "value": "Password field is empty"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyEmptyPassword2",
+  "value": "Password is empty or Invalid"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyEmptyPassword2b",
+  "value": "Confirm Password is empty or Invalid"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyEmptyPassword3",
+  "value": "Old Password is empty or Invalid"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyEmptyPassword3b",
+  "value": "The password should be at least 6 characters long"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyEmptyUserName",
+  "value": "UserName or email field is empty"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorAminityType",
+  "value": "Please select amenities !"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorArea",
+  "value": "Select Area"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorBusinessType",
+  "value": "Please select bussiness type !"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorCity",
+  "value": "Select City"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorCountry",
+  "value": "Select Country"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorCurrentPassword",
+  "value": "Current Password is incorrect"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorDate",
+  "value": "Date should be in mm\/dd\/yyyy format"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorDateOfBirth",
+  "value": "Date of birth is incorrect"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorEmail",
+  "value": "Email id is invalid !"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorGender",
+  "value": "Select Gender"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorGenderType",
+  "value": "Please select gender type !"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorLanguage",
+  "value": "Select Language"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorLocation",
+  "value": "Select Location"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorNationality",
+  "value": "Select Nationality"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorNewPassword",
+  "value": "New Password is not matched"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorOpenDocument",
+  "value": "Can't open document"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorPackage",
+  "value": "Package not selected"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorPayment",
+  "value": "Payment mode not selected"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorPayment2",
+  "value": "Package amount is not entered"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorPersonEmail",
+  "value": "Email id is invalid !"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorPersonMobile",
+  "value": "Enter Valid Mobile number !"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorPersonName",
+  "value": "Enter contact person full name !"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorPersonWhatsapp",
+  "value": "Enter Valid Whatsapp Number !"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorState",
+  "value": "Select State \/ Province"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorTermsAndCondition",
+  "value": "You must accept the Terms &amp; Conditions to proceed"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyErrorWhatsapp",
+  "value": "Enter Valid Whatsapp Number !"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyExit",
+  "value": "Do you really want to exit?"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyFeatureComingSoon",
+  "value": "This feature is coming soon"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyImageErrorDelete",
+  "value": "Image not deleted\nYour internet connection"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyImageErrorDownload",
+  "value": "Image not downloaded \nYour internet connection"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyImageErrorUpload",
+  "value": "Image not uploaded\nYour internet connection"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyImageRemoveAsk",
+  "value": "Do you want to remove this image?"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyImageRemoveAsk2",
+  "value": "Do you really want to delete it?"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyImageSelectError",
+  "value": "There is some error with this image\nPlease use another image."
+ },
+ {
+  "name": "lbl_msgbody_msgBodyImageSelectWarning",
+  "value": "Supported image types are jpg\/png only"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyInternetConnection",
+  "value": "Please check your internet connection and restart the application"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyInternetError",
+  "value": "Internet connection error"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyJobGoogleAdrError",
+  "value": "Invalid google address"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyLogout",
+  "value": "Do you really want to logout?"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyLogoutAsk",
+  "value": "Are you sure ? logout"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyNotMatchPassword",
+  "value": "Password is not match"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyNotMatchPassword2",
+  "value": "Both passwords must match"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyNotMatchPassword3",
+  "value": "Confirm password didn't match the New password"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyOTPIncorrect",
+  "value": "Invalid OTP"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyPackagenotAvail",
+  "value": "This package is not available now"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyPackageSubscribe",
+  "value": "Package Subscribed Successfully"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyPasswordUpdated",
+  "value": "Password Updated"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyPersonEmail",
+  "value": "Email id is invalid !"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyPersonMobile",
+  "value": "Enter Valid Mobile number !"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyPersonName",
+  "value": "Enter contact person full name !"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyPhaseNotAvailable",
+  "value": "Menu is under the development"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyProfileUpdated",
+  "value": "Profile updated"
+ },
+ {
+  "name": "lbl_msgbody_msgBodySelectBusinessType",
+  "value": "Select Business Type"
+ },
+ {
+  "name": "lbl_msgbody_msgBodySelectPackage",
+  "value": "Select Any Package"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyServerError",
+  "value": "Server Error \nPlease, After Sometime"
+ },
+ {
+  "name": "lbl_msgbody_msgBodySocialAccount",
+  "value": "Enter Social Account Detail"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyTypeLocation",
+  "value": "Type your location or select in map"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyUserPassError",
+  "value": "Username or password is incorrect"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyVideoSelectWarning",
+  "value": "Supported video types is mp4 only"
+ },
+ {
+  "name": "lbl_msgbody_msgBodyWebsiteAddress",
+  "value": "Enter Valid Website Address"
+ },
+ {
+  "name": "lbl_msgBodyApiAppointApprove",
+  "value": "Appointment successfully Approved"
+ },
+ {
+  "name": "lbl_msgBodyApiAppointCancel",
+  "value": "Appointment Cancelled Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiAppointComplete",
+  "value": "Appointment successfully Completed"
+ },
+ {
+  "name": "lbl_msgBodyApiAppointRating",
+  "value": "Customer Rating Given Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiAppointReject",
+  "value": "Appointment successfully Rejected"
+ },
+ {
+  "name": "lbl_msgBodyApiAppointReschedule",
+  "value": "Appointment Reschedule Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiArtCompDeleted",
+  "value": "Business Service Composition Deleted Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiArtCompUpdated",
+  "value": "Business Service Composition Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiArtFormatDeleted",
+  "value": "Business Service Format Deleted Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiArtFormatUpdated",
+  "value": "Business Service Format Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiArticleAdded",
+  "value": "Business Service Added Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiArticleDeleted",
+  "value": "Business Service Deleted Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiArticleUpdated",
+  "value": "Business Service Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiDepartAdded",
+  "value": "Department Added Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiDepartDeleted",
+  "value": "Department Deleted Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiDepartUpdated",
+  "value": "Department Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiDesignAdded",
+  "value": "Designation Added Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiDesignDeleted",
+  "value": "Designation Deleted Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiDesignUpdated",
+  "value": "Designation Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiFormatAdded",
+  "value": "Business Format Added Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiFormatDeleted",
+  "value": "Business Format Deleted Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiFormatUpdated",
+  "value": "Business Format Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiGroupAdded",
+  "value": "Business Group Added Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiGroupDeleted",
+  "value": "Business Group Deleted Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiGroupUpdated",
+  "value": "Business Group Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiLangAdded",
+  "value": "Language Added Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiLangDeleted",
+  "value": "Language Deleted Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiLangUpdated",
+  "value": "Language Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiOfferAdded",
+  "value": "Business Offer Added Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiOfferDeleted",
+  "value": "Business Offer Deleted Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiOfferUpdated",
+  "value": "Business Offer Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiOfferUpdated1",
+  "value": "Business Offer Applied to Service Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiPkgAndroidIdNotFound",
+  "value": "Android Payment Process failed. contact to Neeleez Support team"
+ },
+ {
+  "name": "lbl_msgBodyApiPkgAndroidIdNotFound2",
+  "value": "Google Payment not found"
+ },
+ {
+  "name": "lbl_msgBodyApiPkgInitFail",
+  "value": "Payment Initialization is failed. Try after sometime."
+ },
+ {
+  "name": "lbl_msgBodyApiPkgIosIdNotFound",
+  "value": "iOS Payment Process failed. contact to Neeleez Support team"
+ },
+ {
+  "name": "lbl_msgBodyApiPkgIosIdNotFound2",
+  "value": "Apple Payment not found"
+ },
+ {
+  "name": "lbl_msgBodyApiPkgTransection",
+  "value": "Your Transaction is successfully Completed"
+ },
+ {
+  "name": "lbl_msgBodyApiPkgTransection2",
+  "value": "Your Transaction is Failed"
+ },
+ {
+  "name": "lbl_msgBodyApiPkgTransection3",
+  "value": "Website not found"
+ },
+ {
+  "name": "lbl_msgBodyApiPkgTransection4a",
+  "value": "Your transaction is successful, but failed to update into our server."
+ },
+ {
+  "name": "lbl_msgBodyApiPkgTransectionId",
+  "value": "Your Transaction id is "
+ },
+ {
+  "name": "lbl_msgBodyApiSectionAdded",
+  "value": "Section Added Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiSectionDeleted",
+  "value": "Section Deleted Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiSectionUpdated",
+  "value": "Section ion Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffAdded",
+  "value": "Business Staff Added Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffAllocationCreate",
+  "value": "Staff Allocation Added Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffAllocationUpdate",
+  "value": "Staff Allocation Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffDeleted",
+  "value": "Business Staff Deleted Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffHolidayCreate",
+  "value": "Staff Holiday Added Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffHolidayDelete",
+  "value": "Staff Holiday Deleted Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffHolidayUpdate",
+  "value": "Staff Holiday Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffIdentityCreate",
+  "value": "Staff Identity Added Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffIdentityUpdate",
+  "value": "Staff Identity Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffProfileCreate",
+  "value": "Staff Profile Created Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffProfileUpdate",
+  "value": "Staff Profile Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffQualifyCreate",
+  "value": "Staff Qualification Added Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffQualifyDelete",
+  "value": "Staff Qualification Deleted Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffQualifyUpdate",
+  "value": "Staff Qualification Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffSkillCreate",
+  "value": "Staff Skill Added Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffSkillDelete",
+  "value": "Staff Skill Deleted Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffSkillUpdate",
+  "value": "Staff Skill Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffTimeCreate",
+  "value": "Staff Service Time Added Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStaffTimeUpdate",
+  "value": "Staff Service Time Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyApiStafUpdated",
+  "value": "Business Staff Updated Successfully"
+ },
+ {
+  "name": "lbl_msgBodyAppointCancel",
+  "value": "Do You Really Want Cancel this Appointment?"
+ },
+ {
+  "name": "lbl_msgBodyAppointComplete",
+  "value": "Do you really want to complete this appointment ?"
+ },
+ {
+  "name": "lbl_msgBodyAppointDay",
+  "value": "Day"
+ },
+ {
+  "name": "lbl_msgBodyAppointDuration",
+  "value": "Duration: "
+ },
+ {
+  "name": "lbl_msgBodyAppointEmpty1",
+  "value": "No Appointment Created Yet"
+ },
+ {
+  "name": "lbl_msgBodyAppointEmpty2",
+  "value": "There are no appointments to display"
+ },
+ {
+  "name": "lbl_msgBodyAppointFilterService",
+  "value": "Filter By Service"
+ },
+ {
+  "name": "lbl_msgBodyAppointFilterStaff",
+  "value": "Filter By Staff"
+ },
+ {
+  "name": "lbl_msgBodyAppointMonth",
+  "value": "Month"
+ },
+ {
+  "name": "lbl_msgBodyAppointRating",
+  "value": "Do you really want to give this rating to this customer ?"
+ },
+ {
+  "name": "lbl_msgBodyAppointReschedule",
+  "value": "Do You Really Want Reschedule this Appointment?"
+ },
+ {
+  "name": "lbl_msgBodyAppointStaff",
+  "value": "Staff: "
+ },
+ {
+  "name": "lbl_msgBodyAppointYear",
+  "value": "Year"
+ },
+ {
+  "name": "lbl_msgBodyCardFeature",
+  "value": "Paying thorugh card feature is not available for now"
+ },
+ {
+  "name": "lbl_msgBodyCardRemove",
+  "value": "Do you really want to remove this card from list?"
+ },
+ {
+  "name": "lbl_msgBodyErrorArtCompNotPrice",
+  "value": "Quantity can't be zero"
+ },
+ {
+  "name": "lbl_msgBodyErrorArtCompNotPrice2",
+  "value": "Quantity Should be greater than 0"
+ },
+ {
+  "name": "lbl_msgBodyErrorArtCompNotSelect",
+  "value": "Select Service"
+ },
+ {
+  "name": "lbl_msgBodyErrorArtFormatNotPrice",
+  "value": "Enter Price for Service Format"
+ },
+ {
+  "name": "lbl_msgBodyErrorArtFormatNotPrice2",
+  "value": "Price Should be Greater than 0"
+ },
+ {
+  "name": "lbl_msgBodyErrorArtFormatNotSelect",
+  "value": "Select Service Format"
+ },
+ {
+  "name": "lbl_msgBodyErrorArticleDescp",
+  "value": "Enter Proper Description"
+ },
+ {
+  "name": "lbl_msgBodyErrorArticleDuration",
+  "value": "Enter Duration of Service in Minutes"
+ },
+ {
+  "name": "lbl_msgBodyErrorArticleDuration2",
+  "value": "Duration Should be Greater than 0"
+ },
+ {
+  "name": "lbl_msgBodyErrorArticleNameApp",
+  "value": "Enter Proper Service name for App"
+ },
+ {
+  "name": "lbl_msgBodyErrorArticleNameAr",
+  "value": "Enter Proper Service name in Arebic"
+ },
+ {
+  "name": "lbl_msgBodyErrorArticleNameEn",
+  "value": "Enter Proper Service name in English"
+ },
+ {
+  "name": "lbl_msgBodyErrorArticlePkrCompose",
+  "value": "Select Composed for Service"
+ },
+ {
+  "name": "lbl_msgBodyErrorArticlePkrFormat",
+  "value": "Select Format for Service"
+ },
+ {
+  "name": "lbl_msgBodyErrorArticlePkrGroup",
+  "value": "Select Group for Service"
+ },
+ {
+  "name": "lbl_msgBodyErrorArticlePrice",
+  "value": "Enter Price of Service"
+ },
+ {
+  "name": "lbl_msgBodyErrorArticlePrice2",
+  "value": "Price Should be Greater than 0"
+ },
+ {
+  "name": "lbl_msgBodyErrorArtOfferCode",
+  "value": "Enter Proper Offer Code"
+ },
+ {
+  "name": "lbl_msgBodyErrorArtOfferDays",
+  "value": "Select Offer Days"
+ },
+ {
+  "name": "lbl_msgBodyErrorArtOfferEndDate",
+  "value": "Enter Proper Offer End Date"
+ },
+ {
+  "name": "lbl_msgBodyErrorArtOfferName",
+  "value": "Enter Proper Offer name"
+ },
+ {
+  "name": "lbl_msgBodyErrorArtOfferSaveArticleOffer",
+  "value": "Add Remain Service for Offer"
+ },
+ {
+  "name": "lbl_msgBodyErrorArtOfferSelectArticle",
+  "value": "Select Atleast One Service"
+ },
+ {
+  "name": "lbl_msgBodyErrorArtOfferSelectOffer",
+  "value": "Select Offer"
+ },
+ {
+  "name": "lbl_msgBodyErrorArtOfferSelectOfferFromList",
+  "value": "Select Offer From List"
+ },
+ {
+  "name": "lbl_msgBodyErrorArtOfferSelectOfferType",
+  "value": "Select Offer Type"
+ },
+ {
+  "name": "lbl_msgBodyErrorArtOfferStartDate",
+  "value": "Enter Proper Offer Start Date"
+ },
+ {
+  "name": "lbl_msgBodyErrorCardCVV",
+  "value": "Enter Valid CVV"
+ },
+ {
+  "name": "lbl_msgBodyErrorCardDate",
+  "value": "Enter valid MM\/YY for your card"
+ },
+ {
+  "name": "lbl_msgBodyErrorCardDate1",
+  "value": "Enter valid month for card"
+ },
+ {
+  "name": "lbl_msgBodyErrorCardDate2",
+  "value": "Enter valid year for card"
+ },
+ {
+  "name": "lbl_msgBodyErrorCardName",
+  "value": "Enter Card name"
+ },
+ {
+  "name": "lbl_msgBodyErrorCardNumber",
+  "value": "Enter Valid Card Number"
+ },
+ {
+  "name": "lbl_msgBodyErrorCheckboxInfo1",
+  "value": "You must accept the Terms &amp; Conditions"
+ },
+ {
+  "name": "lbl_msgBodyErrorCheckboxInfo2",
+  "value": "You must accept the Terms &amp; Conditions"
+ },
+ {
+  "name": "lbl_msgBodyErrorCheckboxInfo3",
+  "value": "You must accept the Terms &amp; Conditions"
+ },
+ {
+  "name": "lbl_msgBodyErrorDepartAr",
+  "value": "Enter Proper Department name in Arabic"
+ },
+ {
+  "name": "lbl_msgBodyErrorDepartEn",
+  "value": "Enter Proper Department name in English"
+ },
+ {
+  "name": "lbl_msgBodyErrorDesignAr",
+  "value": "Enter Proper Designation name in Arabic"
+ },
+ {
+  "name": "lbl_msgBodyErrorDesignation",
+  "value": "Select Designation"
+ },
+ {
+  "name": "lbl_msgBodyErrorDesignation2",
+  "value": "Enter Your Designation"
+ },
+ {
+  "name": "lbl_msgBodyErrorDesignEn",
+  "value": "Enter Proper Designation name in English"
+ },
+ {
+  "name": "lbl_msgBodyErrorFormatNameAr",
+  "value": "Enter Proper Format name in Arabic"
+ },
+ {
+  "name": "lbl_msgBodyErrorFormatNameEn",
+  "value": "Enter Proper Format name in English"
+ },
+ {
+  "name": "lbl_msgBodyErrorGallery",
+  "value": "You cant add more than 5 image"
+ },
+ {
+  "name": "lbl_msgBodyErrorGroupNameAr",
+  "value": "Enter Proper Group name in Arabic"
+ },
+ {
+  "name": "lbl_msgBodyErrorGroupNameEn",
+  "value": "Enter Proper Group name in English"
+ },
+ {
+  "name": "lbl_msgBodyErrorGroupStatus",
+  "value": "Select Active Status"
+ },
+ {
+  "name": "lbl_msgBodyErrorLangAr",
+  "value": "Enter Proper Language name in Arabic"
+ },
+ {
+  "name": "lbl_msgBodyErrorLangEn",
+  "value": "Enter Proper Language name in English"
+ },
+ {
+  "name": "lbl_msgBodyErrorSectionAr",
+  "value": "Enter Proper Section for Department name in Arabic"
+ },
+ {
+  "name": "lbl_msgBodyErrorSectionDepart",
+  "value": "Select Department for Section"
+ },
+ {
+  "name": "lbl_msgBodyErrorSectionEn",
+  "value": "Enter Proper Section for Department name in English"
+ },
+ {
+  "name": "lbl_msgBodyErrorSocial",
+  "value": "Enter Social Account Detail"
+ },
+ {
+  "name": "lbl_msgBodyErrorSocialFacebbok",
+  "value": "Enter Facebook URL (www.facebook.com\/accountPageName)"
+ },
+ {
+  "name": "lbl_msgBodyErrorSocialInsta",
+  "value": "Enter Instagram URL (www.instagram.com\/accountPageName)"
+ },
+ {
+  "name": "lbl_msgBodyErrorSocialLinked",
+  "value": "Enter Linkedin URL (www.linkedin.com\/accountPageName)"
+ },
+ {
+  "name": "lbl_msgBodyErrorSocialTwitter",
+  "value": "Enter Twitter URL (www.twitter.com\/accountPageName)"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffActive",
+  "value": "Select Active Status"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffArticle",
+  "value": "Select Staff Services"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffAvail",
+  "value": "Select Service Provider Availability Status"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffAvail2",
+  "value": "Select Service Provider Is Available"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffBEmail",
+  "value": "Enter Proper Business Email"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffBType",
+  "value": "Select Staff Business Type"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffDepart",
+  "value": "Select Department"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffDesig",
+  "value": "Select Designation"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffDob",
+  "value": "Enter Proper Date of Birth"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffDuration",
+  "value": "Enter Duration of Staff for any service in Minute"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffDuration1",
+  "value": "Enter Appointment Duration in Minute"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffDuration2",
+  "value": "Appointment duration can't be negative"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffDuration3",
+  "value": "Appointment Duration will be between 15 to 180 min."
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffEmail",
+  "value": "Enter Valid Staff Email-Id"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffEmail2",
+  "value": "Verify Service Provider Email ID"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffFName",
+  "value": "Enter Proper Staff First name"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffGender",
+  "value": "Select Gender"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffIdCard",
+  "value": "Enter Proper Id Card Number"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffIdCardEpr",
+  "value": "Enter Valid ID-Card Expiry Date"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffLang",
+  "value": "Select Your Professional Langauge"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffLName",
+  "value": "Enter Proper Staff Last name"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffMobile",
+  "value": "Enter Proper Mobile Number"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffMobile2",
+  "value": "Verify Service Provider Mobile Number"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffNationality",
+  "value": "Select Nationality"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffNName",
+  "value": "Enter Proper Staff Nick name"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffNoProfile",
+  "value": "User Profile is not created yet. Create user in profile section first."
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffPassport",
+  "value": "Enter Valid Passport Number"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffPassportEpr",
+  "value": "Etner Valid Passport Expiry Date"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffPEmail",
+  "value": "Enter Proper Personal Email"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffQualifyCountry",
+  "value": "Select Country from list"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffQualifyName",
+  "value": "Enter Valid Qualification name"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffResidencyEpr",
+  "value": "Etner Valid Resicence Expiry Date"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffSection",
+  "value": "Select Section"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffServiceEndDate",
+  "value": "Enter Proper Service End Date"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffServiceStartDate",
+  "value": "Enter Proper Service Start Date"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffSkillName",
+  "value": "Enter Valid Skill name"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffSPType",
+  "value": "Select Service Provider Type"
+ },
+ {
+  "name": "lbl_msgBodyErrorStaffWhatsapp",
+  "value": "Enter Proper Whatsapp Number"
+ },
+ {
+  "name": "lbl_msgBodyErrorTermCondition",
+  "value": "You must accept the Terms &amp; Conditions"
+ },
+ {
+  "name": "lbl_msgBodyPaypalCancel",
+  "value": "Paypal Payment Cancelled"
+ },
+ {
+  "name": "lbl_msgBodyPaypalID",
+  "value": "Paypal Payment :"
+ },
+ {
+  "name": "lbl_msgBodyPaypalNotAvail",
+  "value": "Paypal Payment is not Available"
+ },
+ {
+  "name": "lbl_msgBodyRemoveItemFromList",
+  "value": "Do you really want to remove this item ?"
+ },
+ {
+  "name": "lbl_msgBodyStaffRemove",
+  "value": "Do you Really Want to Remove this staff ?"
+ },
+ {
+  "name": "lbl_msgButtonApprove",
+  "value": "Approve"
+ },
+ {
+  "name": "lbl_msgButtonComplete",
+  "value": "Complete"
+ },
+ {
+  "name": "lbl_msgButtonReject",
+  "value": "Reject"
+ },
+ {
+  "name": "lbl_name",
+  "value": "Fransesca Metts"
+ },
+ {
+  "name": "lbl_name_em",
+  "value": "Fransesca@gmail.com"
+ },
+ {
+  "name": "lbl_nofound_department1",
+  "value": "Department List is empty, Please Create Department for add Section"
+ },
+ {
+  "name": "lbl_nofound_gallery1",
+  "value": "Business Image not added yet"
+ },
+ {
+  "name": "lbl_nofound_gallery2",
+  "value": "There are no business image to display, add image"
+ },
+ {
+  "name": "lbl_nofound_group1",
+  "value": "Group List is empty, Please Create Group for add service"
+ },
+ {
+  "name": "lbl_nofound_service1",
+  "value": "No Services Created Yet"
+ },
+ {
+  "name": "lbl_nofound_service2",
+  "value": "There are no Services to display, create an Service"
+ },
+ {
+  "name": "lbl_open_googlemap",
+  "value": "Open Google Map"
+ },
+ {
+  "name": "lbl_otp_send_click",
+  "value": "When you will click to Send OTP button, we will send you an OTP on given mobile number for verification"
+ },
+ {
+  "name": "lbl_otp_send_mo",
+  "value": "Mobile Verification"
+ },
+ {
+  "name": "lbl_otp_send_num",
+  "value": 971
+ },
+ {
+  "name": "lbl_otp_send_num_a",
+  "value": "XXX XXX XXXX"
+ },
+ {
+  "name": "lbl_otp_verify",
+  "value": "Verify OTP"
+ },
+ {
+  "name": "lbl_otp_verify_resend",
+  "value": "Resend Verification Code"
+ },
+ {
+  "name": "lbl_otp_verify_send",
+  "value": "Provide 6 digit OTP (One Time Password) we just sent you on "
+ },
+ {
+  "name": "lbl_pack_date",
+  "value": "Thur, 19 Feb'21"
+ },
+ {
+  "name": "lbl_pack_sub",
+  "value": "Payment History "
+ },
+ {
+  "name": "lbl_pack_sub2",
+  "value": "Packages"
+ },
+ {
+  "name": "lbl_package_not_available",
+  "value": "Packages not available"
+ },
+ {
+  "name": "lbl_package_not_available2",
+  "value": "Package Not Found"
+ },
+ {
+  "name": "lbl_pay",
+  "value": "Checkout"
+ },
+ {
+  "name": "lbl_pay_card_empty",
+  "value": "Credit\/Debit Card Not Saved"
+ },
+ {
+  "name": "lbl_pay_card_number",
+  "value": "Card Number"
+ },
+ {
+  "name": "lbl_pay_cr",
+  "value": "XXXX XXXX XXXX XXXX"
+ },
+ {
+  "name": "lbl_pay_cvv",
+  "value": "CVV"
+ },
+ {
+  "name": "lbl_pay_name",
+  "value": "name on Card"
+ },
+ {
+  "name": "lbl_pay_name2",
+  "value": "Card Holder's name"
+ },
+ {
+  "name": "lbl_pay_reset",
+  "value": "reset"
+ },
+ {
+  "name": "lbl_pay_save",
+  "value": "Save for Future Transaction"
+ },
+ {
+  "name": "lbl_pay_val",
+  "value": 50
+ },
+ {
+  "name": "lbl_pay_value",
+  "value": "Valid Thru"
+ },
+ {
+  "name": "lbl_pay_value2",
+  "value": "MM \/ YY"
+ },
+ {
+  "name": "lbl_payment_method_notAvail",
+  "value": "This method is not available currently"
+ },
+ {
+  "name": "lbl_payment_method_notAvail_cc",
+  "value": "Card Payments Coming Soon"
+ },
+ {
+  "name": "lbl_pop_a",
+  "value": "Success"
+ },
+ {
+  "name": "lbl_pop_b",
+  "value": "Cancel"
+ },
+ {
+  "name": "lbl_pop_c",
+  "value": "Error"
+ },
+ {
+  "name": "lbl_pop_d",
+  "value": "Verify"
+ },
+ {
+  "name": "lbl_pop_e",
+  "value": "Awesome"
+ },
+ {
+  "name": "lbl_pop_f",
+  "value": "Sorry!"
+ },
+ {
+  "name": "lbl_pop_g",
+  "value": "Log Out"
+ },
+ {
+  "name": "lbl_pro_ab",
+  "value": "About Business"
+ },
+ {
+  "name": "lbl_pro_ab_a",
+  "value": "About Business"
+ },
+ {
+  "name": "lbl_pro_add",
+  "value": "Additional Address"
+ },
+ {
+  "name": "lbl_pro_add2",
+  "value": "Google Address"
+ },
+ {
+  "name": "lbl_pro_am",
+  "value": "Amenities"
+ },
+ {
+  "name": "lbl_pro_bas",
+  "value": "Basic"
+ },
+ {
+  "name": "lbl_pro_bus",
+  "value": "Business Hours"
+ },
+ {
+  "name": "lbl_pro_clo",
+  "value": "Closed"
+ },
+ {
+  "name": "lbl_pro_close",
+  "value": "Closed"
+ },
+ {
+  "name": "lbl_pro_close2",
+  "value": "Holiday"
+ },
+ {
+  "name": "lbl_pro_co",
+  "value": "Contact Information"
+ },
+ {
+  "name": "lbl_pro_com",
+  "value": "Company Profile"
+ },
+ {
+  "name": "lbl_pro_com_ar",
+  "value": "Company name: AR"
+ },
+ {
+  "name": "lbl_pro_con",
+  "value": "Contact Person Info"
+ },
+ {
+  "name": "lbl_pro_curr",
+  "value": "Current Package"
+ },
+ {
+  "name": "lbl_pro_day",
+  "value": "Day"
+ },
+ {
+  "name": "lbl_pro_daye",
+  "value": "End"
+ },
+ {
+  "name": "lbl_pro_days",
+  "value": "Start"
+ },
+ {
+  "name": "lbl_pro_des",
+  "value": "Designation"
+ },
+ {
+  "name": "lbl_pro_dia",
+  "value": "Diamond"
+ },
+ {
+  "name": "lbl_pro_em",
+  "value": "Email"
+ },
+ {
+  "name": "lbl_pro_fa",
+  "value": "Facebook"
+ },
+ {
+  "name": "lbl_pro_fri",
+  "value": "Friday"
+ },
+ {
+  "name": "lbl_pro_full",
+  "value": "Full name"
+ },
+ {
+  "name": "lbl_pro_gen",
+  "value": "General Info"
+ },
+ {
+  "name": "lbl_pro_gol",
+  "value": "Gold"
+ },
+ {
+  "name": "lbl_pro_in",
+  "value": "Instagram"
+ },
+ {
+  "name": "lbl_pro_li",
+  "value": "Linked In"
+ },
+ {
+  "name": "lbl_pro_mob",
+  "value": "Mobile"
+ },
+ {
+  "name": "lbl_pro_mon",
+  "value": "Monday"
+ },
+ {
+  "name": "lbl_pro_pack",
+  "value": "Packages"
+ },
+ {
+  "name": "lbl_pro_pack_a",
+  "value": "Listing"
+ },
+ {
+  "name": "lbl_pro_pack_b",
+  "value": "Profile Page"
+ },
+ {
+  "name": "lbl_pro_pack_c",
+  "value": "Map Page Availability"
+ },
+ {
+  "name": "lbl_pro_pack_d",
+  "value": "Priority Listing"
+ },
+ {
+  "name": "lbl_pro_pack_e",
+  "value": "Neeleez Story Page"
+ },
+ {
+  "name": "lbl_pro_pack_f",
+  "value": "Services Details\/ Prices\/ Menu"
+ },
+ {
+  "name": "lbl_pro_pack_g",
+  "value": "Offers\/ Discounts"
+ },
+ {
+  "name": "lbl_pro_pack_h",
+  "value": "Online Payments\/ Appointments"
+ },
+ {
+  "name": "lbl_pro_pack_i",
+  "value": "Online Product Selling"
+ },
+ {
+  "name": "lbl_pro_pla",
+  "value": "Platinum"
+ },
+ {
+  "name": "lbl_pro_sat",
+  "value": "Saturday"
+ },
+ {
+  "name": "lbl_pro_so",
+  "value": "Social Media"
+ },
+ {
+  "name": "lbl_pro_sun",
+  "value": "Sunday"
+ },
+ {
+  "name": "lbl_pro_tag",
+  "value": "Tagline"
+ },
+ {
+  "name": "lbl_pro_thu",
+  "value": "Thursday"
+ },
+ {
+  "name": "lbl_pro_time",
+  "value": "9:00"
+ },
+ {
+  "name": "lbl_pro_time_a",
+  "value": "17:00"
+ },
+ {
+  "name": "lbl_pro_time_applyAll",
+  "value": "Apply All"
+ },
+ {
+  "name": "lbl_pro_tue",
+  "value": "Tuesday"
+ },
+ {
+  "name": "lbl_pro_tw",
+  "value": "Twitter"
+ },
+ {
+  "name": "lbl_pro_val",
+  "value": 0
+ },
+ {
+  "name": "lbl_pro_vala",
+  "value": "$ \n50.00"
+ },
+ {
+  "name": "lbl_pro_valb",
+  "value": "$ \n100.00"
+ },
+ {
+  "name": "lbl_pro_valc",
+  "value": "$ \n150.00"
+ },
+ {
+  "name": "lbl_pro_web",
+  "value": "Website"
+ },
+ {
+  "name": "lbl_pro_wed",
+  "value": "Wednesday"
+ },
+ {
+  "name": "lbl_pro_year",
+  "value": "Company Establishment Year"
+ },
+ {
+  "name": "lbl_profile_notfound",
+  "value": "Company Profile not Found. \n\nPlease, Try after sometime"
+ },
+ {
+  "name": "lbl_rating_info2",
+  "value": "Max 100 Words"
+ },
+ {
+  "name": "lbl_rating_placeholder",
+  "value": "Help Us improve!"
+ },
+ {
+  "name": "lbl_rating1",
+  "value": "Worst"
+ },
+ {
+  "name": "lbl_rating2",
+  "value": "Bad"
+ },
+ {
+  "name": "lbl_rating3",
+  "value": "Average"
+ },
+ {
+  "name": "lbl_rating4",
+  "value": "Good"
+ },
+ {
+  "name": "lbl_rating5",
+  "value": "Best"
+ },
+ {
+  "name": "lbl_reg",
+  "value": "Register Now!"
+ },
+ {
+  "name": "lbl_reg_add",
+  "value": "Additional Information"
+ },
+ {
+  "name": "lbl_reg_al",
+  "value": "Already have an Account? "
+ },
+ {
+  "name": "lbl_reg_area",
+  "value": "Area"
+ },
+ {
+  "name": "lbl_reg_bu",
+  "value": "Business Type"
+ },
+ {
+  "name": "lbl_reg_ci",
+  "value": "City"
+ },
+ {
+  "name": "lbl_reg_co",
+  "value": "Country"
+ },
+ {
+  "name": "lbl_reg_com",
+  "value": "Company name"
+ },
+ {
+  "name": "lbl_reg_em",
+  "value": "Email"
+ },
+ {
+  "name": "lbl_reg_freelancer",
+  "value": "Are you a Freelancer?"
+ },
+ {
+  "name": "lbl_reg_gen",
+  "value": "General Info"
+ },
+ {
+  "name": "lbl_reg_gend",
+  "value": "Gender"
+ },
+ {
+  "name": "lbl_reg_gend2",
+  "value": "Services For"
+ },
+ {
+  "name": "lbl_reg_lo",
+  "value": "Location"
+ },
+ {
+  "name": "lbl_reg_log",
+  "value": "Login Information"
+ },
+ {
+  "name": "lbl_reg_log_in",
+  "value": "Log In"
+ },
+ {
+  "name": "lbl_reg_pass",
+  "value": "Password"
+ },
+ {
+  "name": "lbl_reg_st",
+  "value": "State\/Province"
+ },
+ {
+  "name": "lbl_reg_tel",
+  "value": "Telephone"
+ },
+ {
+  "name": "lbl_reg_user",
+  "value": "Username \/ Email"
+ },
+ {
+  "name": "lbl_reg_wh",
+  "value": "WhatsApp"
+ },
+ {
+  "name": "lbl_reset_password_new",
+  "value": "New Password"
+ },
+ {
+  "name": "lbl_reset_password_new2",
+  "value": "Confirm Password"
+ },
+ {
+  "name": "lbl_reset_password_old",
+  "value": "Previous Password"
+ },
+ {
+  "name": "lbl_reset_title",
+  "value": "Change Password"
+ },
+ {
+  "name": "lbl_splash",
+  "value": "BUSINESS APP"
+ },
+ {
+  "name": "lbl_splash_loading",
+  "value": "Preparing Application Environment"
+ },
+ {
+  "name": "lbl_staff_company_timing_not_found1",
+  "value": "Company Timing Detail not found."
+ },
+ {
+  "name": "lbl_staff_company_timing_not_found2",
+  "value": "Please, Update Company Timing Detail in Company Profile Section."
+ },
+ {
+  "name": "lbl_staff_company_timing_not_range1",
+  "value": "Your Selected time is not within range of Company Timing."
+ },
+ {
+  "name": "lbl_staff_company_timing_not_range2",
+  "value": "Company Time is from"
+ },
+ {
+  "name": "lbl_staff_company_timing_not_range3",
+  "value": "to"
+ },
+ {
+  "name": "lbl_Staff_holiday_both_date_confict",
+  "value": "Selected holiday date conflict with other holiday date."
+ },
+ {
+  "name": "lbl_Staff_holiday_end_date_confict",
+  "value": "Selected holiday end date conflict with other holiday date."
+ },
+ {
+  "name": "lbl_Staff_holiday_start_date_confict",
+  "value": "Selected holiday start date conflict with other holiday date."
+ },
+ {
+  "name": "lbl_StaffDateNA",
+  "value": "N\/A"
+ },
+ {
+  "name": "lbl_StaffDateNA2",
+  "value": "Not Available"
+ },
+ {
+  "name": "lbl_StaffManageActivate",
+  "value": "Activate"
+ },
+ {
+  "name": "lbl_StaffManageAskActivate",
+  "value": "Do you want to activate Service Provider?"
+ },
+ {
+  "name": "lbl_StaffManageAskDeactivate",
+  "value": "Do you want to De-activate Service Provider?"
+ },
+ {
+  "name": "lbl_StaffManageEmpty1",
+  "value": "No Staff Added Yet"
+ },
+ {
+  "name": "lbl_StaffManageEmpty2",
+  "value": "There are no staff to display, add staff "
+ },
+ {
+  "name": "lbl_StaffManageViewProfile",
+  "value": "View Profile"
+ },
+ {
+  "name": "lbl_StaffViewDateStartEnd",
+  "value": "Start - End"
+ },
+ {
+  "name": "lbl_StaffViewDesig",
+  "value": "Designation :"
+ },
+ {
+  "name": "lbl_StaffViewEmail",
+  "value": "Email :"
+ },
+ {
+  "name": "lbl_StaffViewFullName",
+  "value": "Full name :"
+ },
+ {
+  "name": "lbl_StaffViewInfo",
+  "value": "Personal Information"
+ },
+ {
+  "name": "lbl_StaffViewMobile",
+  "value": "Mobile :"
+ },
+ {
+  "name": "lbl_StaffViewWhatsapp",
+  "value": "Whatsapp :"
+ },
+ {
+  "name": "lbl_support_back",
+  "value": "Back to Dashboard"
+ },
+ {
+  "name": "lbl_support_email_send_failed",
+  "value": "Your Ticket cant send to Neeleez We Care Support. Please, try again."
+ },
+ {
+  "name": "lbl_support_email_sent",
+  "value": "Your ticket has been sent to our Support team"
+ },
+ {
+  "name": "lbl_support_info1",
+  "value": "We are here to support"
+ },
+ {
+  "name": "lbl_support_info2",
+  "value": "Let us know about your concern and our team will respond you as quick as possible."
+ },
+ {
+  "name": "lbl_support_kayyen",
+  "value": "Neeleez - We Care"
+ },
+ {
+  "name": "lbl_text_account",
+  "value": "Account"
+ },
+ {
+  "name": "lbl_text_Active",
+  "value": "Active"
+ },
+ {
+  "name": "lbl_text_AppointAskApprove",
+  "value": "Do you really want to approve this appointment?"
+ },
+ {
+  "name": "lbl_text_AppointAskCancel2",
+  "value": "Cancel?"
+ },
+ {
+  "name": "lbl_text_AppointAskCancel3",
+  "value": "Why do you want to cancel this appointment?"
+ },
+ {
+  "name": "lbl_text_AppointAskComplete",
+  "value": "Do you really want to complete this appointment?"
+ },
+ {
+  "name": "lbl_text_AppointAskReject1",
+  "value": "Do you really want to"
+ },
+ {
+  "name": "lbl_text_AppointAskReject2",
+  "value": "Reject?"
+ },
+ {
+  "name": "lbl_text_AppointAskReject3",
+  "value": "Why do you want to reject this appointment?"
+ },
+ {
+  "name": "lbl_text_appointmentWith",
+  "value": "Appointment With: "
+ },
+ {
+  "name": "lbl_text_article_offer_erro_diff",
+  "value": "Enter Amount of difference for item"
+ },
+ {
+  "name": "lbl_text_article_offer_error_percent",
+  "value": "Enter Percentage for item"
+ },
+ {
+  "name": "lbl_text_article_offer_error_price",
+  "value": "Enter Fixed Price for item"
+ },
+ {
+  "name": "lbl_text_article_service",
+  "value": "if it is service then set ON, if it is article then set OFF"
+ },
+ {
+  "name": "lbl_text_back",
+  "value": "Back"
+ },
+ {
+  "name": "lbl_text_business_category",
+  "value": "Business Category"
+ },
+ {
+  "name": "lbl_text_business_subcategory",
+  "value": "Business Sub-Category"
+ },
+ {
+  "name": "lbl_text_cancelled",
+  "value": "Cancelled"
+ },
+ {
+  "name": "lbl_text_completed",
+  "value": "Completed"
+ },
+ {
+  "name": "lbl_text_cong_disp_content1",
+  "value": "Feature and Participate in a Lucky Draw to win fabulous prizes."
+ },
+ {
+  "name": "lbl_text_cong_disp_content2",
+  "value": "Dont miss the change to win amazing prizes!"
+ },
+ {
+  "name": "lbl_text_cong_disp_content3",
+  "value": "Points to Enter in Lucky Draw"
+ },
+ {
+  "name": "lbl_text_cong_disp_content4a",
+  "value": "you need"
+ },
+ {
+  "name": "lbl_text_cong_disp_content4b",
+  "value": "more points to enter in the lucky draw!"
+ },
+ {
+  "name": "lbl_text_cong_info1",
+  "value": "You have Earned"
+ },
+ {
+  "name": "lbl_text_cong_info2",
+  "value": "on your Registration with Neeleez Family"
+ },
+ {
+  "name": "lbl_text_cong_info3",
+  "value": "Take your services from"
+ },
+ {
+  "name": "lbl_text_cong_info4",
+  "value": "Or Earn Points by"
+ },
+ {
+  "name": "lbl_text_cong_point",
+  "value": " points"
+ },
+ {
+  "name": "lbl_text_congrate_backToHome",
+  "value": "Back to Home Screen"
+ },
+ {
+  "name": "lbl_text_congrate_InvoiceSave",
+  "value": "Save Invoice"
+ },
+ {
+  "name": "lbl_text_congrate_InvoiceSend",
+  "value": "Send Invoice"
+ },
+ {
+  "name": "lbl_text_congrate_InvoiceSend2",
+  "value": "Payment Invoice"
+ },
+ {
+  "name": "lbl_text_congrate_InvoiceSend3",
+  "value": "Email Sent Successfully"
+ },
+ {
+  "name": "lbl_text_congrate_InvoiceSent",
+  "value": "Invoice Sent"
+ },
+ {
+  "name": "lbl_text_congrate_InvoiceView",
+  "value": "View Invoice"
+ },
+ {
+  "name": "lbl_text_congrate_line1",
+  "value": "You have paid "
+ },
+ {
+  "name": "lbl_text_congrate_line2",
+  "value": " Successfully to subscribe "
+ },
+ {
+  "name": "lbl_text_congrate_line3",
+  "value": "You have subscribed successfully to "
+ },
+ {
+  "name": "lbl_text_congrate_thank",
+  "value": "Thank You!"
+ },
+ {
+  "name": "lbl_text_contact_support_team",
+  "value": "Contact to our service provider for your payment"
+ },
+ {
+  "name": "lbl_text_Contact_Team_location",
+  "value": "To update the location, please contact our Support team"
+ },
+ {
+  "name": "lbl_text_Contact_Team_location2a",
+  "value": "To update the location, please contact our"
+ },
+ {
+  "name": "lbl_text_Contact_Team_location2b",
+  "value": "Support"
+ },
+ {
+  "name": "lbl_text_Contact_Team_location2c",
+  "value": "team"
+ },
+ {
+  "name": "lbl_text_Contest_disclaimer",
+  "value": "Disclaimer: Offers and Contests or sweepstakes are for gamification purpose only. Apple Inc. is not responsible for any kind of harm or privacy of your information and financial loss."
+ },
+ {
+  "name": "lbl_text_Contest_terms",
+  "value": "Terms and Conditions: This contest is completely offline which is not in app. So, our team will do it offline and inform you if you will be eligible for the winners or prices."
+ },
+ {
+  "name": "lbl_text_continue",
+  "value": "Continue"
+ },
+ {
+  "name": "lbl_text_ConutryLang_notFound",
+  "value": "Country Language Detail is not available"
+ },
+ {
+  "name": "lbl_text_counter_label1",
+  "value": "To Win Exciting Prizes"
+ },
+ {
+  "name": "lbl_text_counter_label2",
+  "value": "Time Left to Lucky Draw"
+ },
+ {
+  "name": "lbl_text_counter_label3",
+  "value": "Earn More Points to participate in Lucky Draw"
+ },
+ {
+  "name": "lbl_text_country_list_warning",
+  "value": "Countries not available due to technical reason. Please, logout and login again."
+ },
+ {
+  "name": "lbl_text_countryIndia",
+  "value": "India"
+ },
+ {
+  "name": "lbl_text_countryLangAr",
+  "value": "Arabic"
+ },
+ {
+  "name": "lbl_text_countryLangEn",
+  "value": "English"
+ },
+ {
+  "name": "lbl_text_countryLangFr",
+  "value": "French"
+ },
+ {
+  "name": "lbl_text_countryLangRu",
+  "value": "Russian"
+ },
+ {
+  "name": "lbl_text_countryMorocco",
+  "value": "Morocco"
+ },
+ {
+  "name": "lbl_text_countryTunisia",
+  "value": "Tunisia"
+ },
+ {
+  "name": "lbl_text_countryUAE",
+  "value": "United Arab Emirates"
+ },
+ {
+  "name": "lbl_text_data_article",
+  "value": "Article"
+ },
+ {
+  "name": "lbl_text_data_articles",
+  "value": "Articles"
+ },
+ {
+  "name": "lbl_text_data_format",
+  "value": "Format"
+ },
+ {
+  "name": "lbl_text_data_formats",
+  "value": "Formats"
+ },
+ {
+  "name": "lbl_text_datefrom",
+  "value": "From Date"
+ },
+ {
+  "name": "lbl_text_dateto",
+  "value": "To Date"
+ },
+ {
+  "name": "lbl_text_delete_confirmation",
+  "value": "Do you want to delete all notification?"
+ },
+ {
+  "name": "lbl_text_dentist",
+  "value": "DENTISTS"
+ },
+ {
+  "name": "lbl_text_Disclaimer",
+  "value": "Disclaimer"
+ },
+ {
+  "name": "lbl_text_doctors",
+  "value": "DOCTORS"
+ },
+ {
+  "name": "lbl_text_email_Checking",
+  "value": "Checking Email Status"
+ },
+ {
+  "name": "lbl_text_email_exist",
+  "value": "Email-ID is already registered"
+ },
+ {
+  "name": "lbl_text_email_existNot",
+  "value": "You can use this Email-ID"
+ },
+ {
+  "name": "lbl_text_empty_notification",
+  "value": "No Notification yet"
+ },
+ {
+  "name": "lbl_text_gps_error",
+  "value": "GPS Error"
+ },
+ {
+  "name": "lbl_text_image_action",
+  "value": "Image Action"
+ },
+ {
+  "name": "lbl_text_image_camera",
+  "value": "Camera"
+ },
+ {
+  "name": "lbl_text_image_choose",
+  "value": "Choose Image"
+ },
+ {
+  "name": "lbl_text_image_delete",
+  "value": "Delete Photo"
+ },
+ {
+  "name": "lbl_text_image_gallery",
+  "value": "Gallery"
+ },
+ {
+  "name": "lbl_text_image_gallery_error1",
+  "value": "Total upload Size increased than allowed package gallery size"
+ },
+ {
+  "name": "lbl_text_image_gallery_img",
+  "value": "Image"
+ },
+ {
+  "name": "lbl_text_image_gallery_prg_progress",
+  "value": "Progress : "
+ },
+ {
+  "name": "lbl_text_image_gallery_prg_total",
+  "value": "Total Size : "
+ },
+ {
+  "name": "lbl_text_image_gallery_prg_uploaded",
+  "value": "Uploaded Size : "
+ },
+ {
+  "name": "lbl_text_image_gallery_prg_uploading",
+  "value": "File Uploading"
+ },
+ {
+  "name": "lbl_text_image_gallery_prg_uploading2",
+  "value": "File Uploading (Retry)"
+ },
+ {
+  "name": "lbl_text_image_gallery_select",
+  "value": "Select Upload Type"
+ },
+ {
+  "name": "lbl_text_image_gallery_video",
+  "value": "Video"
+ },
+ {
+  "name": "lbl_text_image_replace",
+  "value": "Replace Photo"
+ },
+ {
+  "name": "lbl_text_image_selection_error",
+  "value": "Error while selecting image.  \n\nPlease, Select Another Image"
+ },
+ {
+  "name": "lbl_text_imageDefault",
+  "value": "Do You want to keep this image as Main Company Image?"
+ },
+ {
+  "name": "lbl_text_Inactive",
+  "value": "Inactive"
+ },
+ {
+  "name": "lbl_text_InAppPayment_Not_Support",
+  "value": "In-App Purchase Payment not supported"
+ },
+ {
+  "name": "lbl_text_info",
+  "value": "Share Your Experience With us!"
+ },
+ {
+  "name": "lbl_text_invoice_address",
+  "value": "Address:"
+ },
+ {
+  "name": "lbl_text_invoice_client",
+  "value": "Client:"
+ },
+ {
+  "name": "lbl_text_invoice_date",
+  "value": "Date:"
+ },
+ {
+  "name": "lbl_text_invoice_date2",
+  "value": "Expiry Date: "
+ },
+ {
+  "name": "lbl_text_invoice_discription",
+  "value": "Description (Services \/ Package \/ Items)"
+ },
+ {
+  "name": "lbl_text_invoice_email",
+  "value": "Email:"
+ },
+ {
+  "name": "lbl_text_invoice_Gateway_CMI",
+  "value": "CMI Payment Gateway"
+ },
+ {
+  "name": "lbl_text_invoice_Gateway_Payby",
+  "value": "PayBy Payment Gateway"
+ },
+ {
+  "name": "lbl_text_invoice_Gateway_Paypal",
+  "value": "Paypal Payment Gateway"
+ },
+ {
+  "name": "lbl_text_invoice_mobile",
+  "value": "Mobile:"
+ },
+ {
+  "name": "lbl_text_invoice_Price",
+  "value": "Price"
+ },
+ {
+  "name": "lbl_text_invoice_Quantity",
+  "value": "Quantity"
+ },
+ {
+  "name": "lbl_text_invoice_refNum",
+  "value": "Red Number:"
+ },
+ {
+  "name": "lbl_text_invoice_serviceCharge",
+  "value": "Service Charge:"
+ },
+ {
+  "name": "lbl_text_invoice_SrNo",
+  "value": "S.No."
+ },
+ {
+  "name": "lbl_text_invoice_system_generate",
+  "value": "** This is System Generated Invoice and does not require Signature and Stamp **"
+ },
+ {
+  "name": "lbl_text_invoice_title",
+  "value": "INVOICE"
+ },
+ {
+  "name": "lbl_text_invoice_Total",
+  "value": "Total"
+ },
+ {
+  "name": "lbl_text_invoice_TotalAdjust",
+  "value": "Discount \/ Adjustment:"
+ },
+ {
+  "name": "lbl_text_invoice_TotalGatewayCharge",
+  "value": "Payment Gateway Charges "
+ },
+ {
+  "name": "lbl_text_invoice_TotalNote",
+  "value": "Note:"
+ },
+ {
+  "name": "lbl_text_invoice_TotalNote2",
+  "value": "Payment generated by "
+ },
+ {
+  "name": "lbl_text_invoice_TotalNoteSum",
+  "value": "A Sum of "
+ },
+ {
+  "name": "lbl_text_invoice_TotalSub",
+  "value": "Sub Total:"
+ },
+ {
+  "name": "lbl_text_invoice_TotalTax",
+  "value": "Tax "
+ },
+ {
+  "name": "lbl_text_lawyer",
+  "value": "LAWYERS"
+ },
+ {
+  "name": "lbl_text_login_api_fail1",
+  "value": "Password not created. Please try again."
+ },
+ {
+  "name": "lbl_text_login_api_fail2",
+  "value": "Password not updated. Please try again"
+ },
+ {
+  "name": "lbl_text_login_api_fail3",
+  "value": "Password Mismatched. Please try again"
+ },
+ {
+  "name": "lbl_text_login_api_success1",
+  "value": "Password created successfully."
+ },
+ {
+  "name": "lbl_text_login_api_success2",
+  "value": "Password updated successfully"
+ },
+ {
+  "name": "lbl_text_login_ask1",
+  "value": "Do you want to create password?"
+ },
+ {
+  "name": "lbl_text_login_ask2",
+  "value": "Do you want to change password?"
+ },
+ {
+  "name": "lbl_text_login_back",
+  "value": "Back to Login Screen"
+ },
+ {
+  "name": "lbl_text_login_info1",
+  "value": "Password must be atleast 6 characters long"
+ },
+ {
+  "name": "lbl_text_login_info2",
+  "value": "Both passwords must match"
+ },
+ {
+  "name": "lbl_text_login_signin",
+  "value": "Log In"
+ },
+ {
+  "name": "lbl_text_login_signup",
+  "value": "Sign up"
+ },
+ {
+  "name": "lbl_text_login_title1",
+  "value": "Welcome Back, "
+ },
+ {
+  "name": "lbl_text_login_title2",
+  "value": "We are happy to see you again.\nCreate a password to continue using your account"
+ },
+ {
+  "name": "lbl_text_login_txt1",
+  "value": "Don't have an account? "
+ },
+ {
+  "name": "lbl_text_login_txt2",
+  "value": "Already have an account?"
+ },
+ {
+  "name": "lbl_text_loyaltyEmpty",
+  "value": "Loyalty Point not available"
+ },
+ {
+  "name": "lbl_text_media_camera_error1",
+  "value": "No Camera"
+ },
+ {
+  "name": "lbl_text_media_camera_error2",
+  "value": "Sorry! No camera available."
+ },
+ {
+  "name": "lbl_text_media_gallery_error1",
+  "value": "Photos Not Supported"
+ },
+ {
+  "name": "lbl_text_media_gallery_error2",
+  "value": ":( Permission not granted to photos."
+ },
+ {
+  "name": "lbl_text_media_video_error1",
+  "value": "Videos Not Supported"
+ },
+ {
+  "name": "lbl_text_media_video_error2",
+  "value": ":( Permission not granted to videos."
+ },
+ {
+  "name": "lbl_text_minute",
+  "value": "Minutes"
+ },
+ {
+  "name": "lbl_text_offer2_coupon_list",
+  "value": "Offer Coupon Codes"
+ },
+ {
+  "name": "lbl_text_offer2_date_end",
+  "value": "Promo Code End Date"
+ },
+ {
+  "name": "lbl_text_offer2_date_start",
+  "value": "Promo Code Start Date"
+ },
+ {
+  "name": "lbl_text_offer2_error_generate_code",
+  "value": "Generate Service Provider Code"
+ },
+ {
+  "name": "lbl_text_offer2_error_select_promo",
+  "value": "Select Promo Code"
+ },
+ {
+  "name": "lbl_text_offer2_error_terms",
+  "value": "Select Terms of appointment discount"
+ },
+ {
+  "name": "lbl_text_offer2_info1",
+  "value": "By checking this box you agree to give discount to the customers using this promo code."
+ },
+ {
+  "name": "lbl_text_offer2_info2",
+  "value": "You have to enter above Service Provider Code in Neeleez We Care App when customer come for discount"
+ },
+ {
+  "name": "lbl_text_offer2_info3",
+  "value": "This Promo Code will be used to give discount upto [PROMOMAX]"
+ },
+ {
+  "name": "lbl_text_offer2_sp_code",
+  "value": "Service Provider Code"
+ },
+ {
+  "name": "lbl_text_offer2_tab1",
+  "value": "Activated"
+ },
+ {
+  "name": "lbl_text_offer2_tab2",
+  "value": "Redeemed"
+ },
+ {
+  "name": "lbl_text_package_notPaid",
+  "value": "Your Package Payment is not received yet. Please, complete your payment and inform to our support team."
+ },
+ {
+  "name": "lbl_text_package_notPaidWarning",
+  "value": "Please, Complete Payment of Subscribed package for continue our service"
+ },
+ {
+  "name": "lbl_text_package_notPaidWarning2",
+  "value": "Please, subscribe to a paid package to access this feature."
+ },
+ {
+  "name": "lbl_text_package_select",
+  "value": "Select Package"
+ },
+ {
+  "name": "lbl_text_package_success",
+  "value": "Your package is subscribed. Please, complete your payment and inform to Neeleez we-care team"
+ },
+ {
+  "name": "lbl_text_packageUpgrade",
+  "value": "Unlock premium feature by upgrading your plan listed below"
+ },
+ {
+  "name": "lbl_text_payment_account_address",
+  "value": "Address:"
+ },
+ {
+  "name": "lbl_text_payment_account_bank",
+  "value": "Bank name:"
+ },
+ {
+  "name": "lbl_text_payment_account_ifsc",
+  "value": "IFSC Code:"
+ },
+ {
+  "name": "lbl_text_payment_account_name",
+  "value": "Account name:"
+ },
+ {
+  "name": "lbl_text_payment_account_no",
+  "value": "Account Number:"
+ },
+ {
+  "name": "lbl_text_payment_account_note",
+  "value": "Note:"
+ },
+ {
+  "name": "lbl_text_payment_account_note1",
+  "value": "Please pay to this account and share your payment receipt along with registered number on email : payment@neeleez.com or Whatsapp Us on +212 665-261212 with in 24 hrs you will get activation."
+ },
+ {
+  "name": "lbl_text_payment_account_terms",
+  "value": "Terms and Conditions:"
+ },
+ {
+  "name": "lbl_text_payment_type_bank",
+  "value": "Bank Transfer"
+ },
+ {
+  "name": "lbl_text_payment_type_cash",
+  "value": "Cash Transfer"
+ },
+ {
+  "name": "lbl_text_payment_type_cheque",
+  "value": "Cheque"
+ },
+ {
+  "name": "lbl_text_payment_type_mobile",
+  "value": "Mobile Payment"
+ },
+ {
+  "name": "lbl_text_payment_type_online",
+  "value": "Online Payment"
+ },
+ {
+  "name": "lbl_text_paymentempty",
+  "value": "Payment List not available"
+ },
+ {
+  "name": "lbl_text_permission_storage_error",
+  "value": "Storage permission is declined by user. Please, Give permission from mobile setting for open gallery"
+ },
+ {
+  "name": "lbl_text_permission_storage_error1",
+  "value": "Storage permission is declined by user. Please, Give permission from mobile setting for open Gallery"
+ },
+ {
+  "name": "lbl_text_permission_storage_error2",
+  "value": "Storage\/Camera permission is declined by user. Please, Give permission from mobile setting for open Camera"
+ },
+ {
+  "name": "lbl_text_permission_storage_error3",
+  "value": "Storage\/Camera permission denied by the user. Please grant permission from App settings to select video"
+ },
+ {
+  "name": "lbl_text_personal",
+  "value": "Personal"
+ },
+ {
+  "name": "lbl_text_pkg_info1",
+  "value": "Register now and Avail Discount"
+ },
+ {
+  "name": "lbl_text_pkg_info2",
+  "value": "First 3 Month Free"
+ },
+ {
+  "name": "lbl_text_pkg_info3",
+  "value": "Subscribe or Upgrade Now"
+ },
+ {
+  "name": "lbl_text_pkgAvail",
+  "value": "Available"
+ },
+ {
+  "name": "lbl_text_pkgDetailAutoRenewal",
+  "value": "Auto Renewal"
+ },
+ {
+  "name": "lbl_text_pkgDetailExpiry",
+  "value": "Expiry Date"
+ },
+ {
+  "name": "lbl_text_pkgDetailFree",
+  "value": "Free"
+ },
+ {
+  "name": "lbl_text_pkgDetailI",
+  "value": "Pacakge Detail"
+ },
+ {
+  "name": "lbl_text_pkgDetailIssue",
+  "value": "Issue Date"
+ },
+ {
+  "name": "lbl_text_pkgDetailMethodError",
+  "value": "Payment Method not Availalble"
+ },
+ {
+  "name": "lbl_text_pkgDetailPerMonth",
+  "value": "(per Month)"
+ },
+ {
+  "name": "lbl_text_pkgDetailPerYear",
+  "value": "(per year)"
+ },
+ {
+  "name": "lbl_text_pkgDetailPerYear2",
+  "value": "Yearly"
+ },
+ {
+  "name": "lbl_text_pkgDetailPolicy",
+  "value": "By clicking on this box i agree to the Privacy Policy and Term Condition"
+ },
+ {
+  "name": "lbl_text_pkgDetailPolicy1",
+  "value": "By clicking on this box i agree to the "
+ },
+ {
+  "name": "lbl_text_pkgDetailPolicy2",
+  "value": " and "
+ },
+ {
+  "name": "lbl_text_pkgDetailServiceCharge",
+  "value": "Service Charges:"
+ },
+ {
+  "name": "lbl_text_pkgDetailSummery",
+  "value": "Payment Summary"
+ },
+ {
+  "name": "lbl_text_pkgDetailTotalDiscount",
+  "value": "Discount:"
+ },
+ {
+  "name": "lbl_text_pkgDetailTotalDiscount2",
+  "value": "Discount (Already Applied):"
+ },
+ {
+  "name": "lbl_text_pkgDetailTotalGrand",
+  "value": "Grand Total:"
+ },
+ {
+  "name": "lbl_text_pkgDetailTotalNet",
+  "value": "Net Total:"
+ },
+ {
+  "name": "lbl_text_pkgDetailTotalPayment",
+  "value": "Payment Method"
+ },
+ {
+  "name": "lbl_text_pkgDetailTotalSub",
+  "value": "Sub Total:"
+ },
+ {
+  "name": "lbl_text_pkgDetailTotalTax",
+  "value": "Tax "
+ },
+ {
+  "name": "lbl_text_pkgExpire",
+  "value": "Expiry"
+ },
+ {
+  "name": "lbl_text_pkgListRenew",
+  "value": "Renew Date: "
+ },
+ {
+  "name": "lbl_text_pkgListReschedule",
+  "value": "Reschedule Date: "
+ },
+ {
+  "name": "lbl_text_pkgService",
+  "value": "Services\/Features"
+ },
+ {
+  "name": "lbl_text_pkgSubscribe",
+  "value": "Currently Subscribed package"
+ },
+ {
+  "name": "lbl_text_professional",
+  "value": "Professional"
+ },
+ {
+  "name": "lbl_text_remark",
+  "value": "Remark: "
+ },
+ {
+  "name": "lbl_text_renew_data",
+  "value": "Renew Date: "
+ },
+ {
+  "name": "lbl_text_salon",
+  "value": "SALONS"
+ },
+ {
+  "name": "lbl_text_service_composition",
+  "value": "if this service is composition then set ON"
+ },
+ {
+  "name": "lbl_text_service_formatted",
+  "value": "if this service is formatted then set ON"
+ },
+ {
+  "name": "lbl_text_signup",
+  "value": "Signup with Neeleez"
+ },
+ {
+  "name": "lbl_text_signup_congratulations",
+  "value": "Congratulations!"
+ },
+ {
+  "name": "lbl_text_skip",
+  "value": "Skip"
+ },
+ {
+  "name": "lbl_text_sms_send_fail",
+  "value": "Failed to send SMS\/OTP"
+ },
+ {
+  "name": "lbl_text_social_media_warning",
+  "value": "Only Enter Username\/UserId of your social media account"
+ },
+ {
+  "name": "lbl_text_staff_delete_fail",
+  "value": "Service Provider Delete Failed !"
+ },
+ {
+  "name": "lbl_text_staff_header_allocation",
+  "value": "Allocation"
+ },
+ {
+  "name": "lbl_text_staff_header_appointment",
+  "value": "Appointment"
+ },
+ {
+  "name": "lbl_text_staff_header_general",
+  "value": "General"
+ },
+ {
+  "name": "lbl_text_staff_header_holiday",
+  "value": "Holiday"
+ },
+ {
+  "name": "lbl_text_staff_header_identity",
+  "value": "Identity"
+ },
+ {
+  "name": "lbl_text_staff_header_qualification",
+  "value": "Qualification"
+ },
+ {
+  "name": "lbl_text_staff_header_skill",
+  "value": "Skill"
+ },
+ {
+  "name": "lbl_text_staff_header_timing",
+  "value": "Timing"
+ },
+ {
+  "name": "lbl_text_staff_holiday_ask_add",
+  "value": "Do you really want to add this holiday?"
+ },
+ {
+  "name": "lbl_text_staff_holiday_ask_delete",
+  "value": "Do you really want to delete this holiday?"
+ },
+ {
+  "name": "lbl_text_staff_holiday_ask_edit",
+  "value": "Do you really want to edit this holiday?"
+ },
+ {
+  "name": "lbl_text_staff_image_delete",
+  "value": "Do you really Want to delete This Service Provider Profile?"
+ },
+ {
+  "name": "lbl_text_staff_lang_remove",
+  "value": "Do you really want to remove this language?"
+ },
+ {
+  "name": "lbl_text_staff_list_limit_error",
+  "value": "Your maximum staff limit is reached. To add more staff upgrade your package."
+ },
+ {
+  "name": "lbl_text_staff_profile",
+  "value": "Staff Profile"
+ },
+ {
+  "name": "lbl_text_staff_serviceHour",
+  "value": "Service Hours"
+ },
+ {
+  "name": "lbl_text_startup_country_find",
+  "value": "Finding Country ..."
+ },
+ {
+  "name": "lbl_text_startup_country_open",
+  "value": "Open Application"
+ },
+ {
+  "name": "lbl_text_startup_country_update",
+  "value": "Updating Detail ..."
+ },
+ {
+  "name": "lbl_text_startup_initialize",
+  "value": "Initialization"
+ },
+ {
+  "name": "lbl_text_startup_start",
+  "value": "Starting"
+ },
+ {
+  "name": "lbl_text_support_category",
+  "value": "Support Category"
+ },
+ {
+  "name": "lbl_text_support_contact",
+  "value": "Contact Support"
+ },
+ {
+  "name": "lbl_text_support_contact2",
+  "value": "Contact Support Team"
+ },
+ {
+  "name": "lbl_text_support_detail",
+  "value": "Detail"
+ },
+ {
+  "name": "lbl_text_support_error_category",
+  "value": "Select Support Category"
+ },
+ {
+  "name": "lbl_text_support_error_message",
+  "value": "Enter Proper Message"
+ },
+ {
+  "name": "lbl_text_support_error_title",
+  "value": "Enter Proper Title"
+ },
+ {
+  "name": "lbl_text_support_feedback",
+  "value": "How may we help you"
+ },
+ {
+  "name": "lbl_text_support_subject",
+  "value": "Subject"
+ },
+ {
+  "name": "lbl_text_termsAndCondition",
+  "value": "Terms and Conditions"
+ },
+ {
+  "name": "lbl_text_timer_delete_warning",
+  "value": "Timer setting will be deleted from the server permanently. Are you sure to delete this?"
+ },
+ {
+  "name": "lbl_text_timer_error_equal",
+  "value": "Start Time and End Time can't be equal"
+ },
+ {
+  "name": "lbl_text_timer_intesect",
+  "value": "Your time is overlapping with other time settings"
+ },
+ {
+  "name": "lbl_text_timer_notupdated1",
+  "value": "Time-1 Setting is not updated"
+ },
+ {
+  "name": "lbl_text_timer_notupdated2",
+  "value": "Time-1 Setting or Time-2 Setting is not updated"
+ },
+ {
+  "name": "lbl_text_total_days",
+  "value": "Total Days"
+ },
+ {
+  "name": "lbl_text_try_again",
+  "value": "Something went wrong, Try again later"
+ },
+ {
+  "name": "lbl_text_upcoming",
+  "value": "Up Coming"
+ },
+ {
+  "name": "lbl_text_updrade_pkg_gallery",
+  "value": "Upgrade Package For More Space"
+ },
+ {
+  "name": "lbl_text_userAlreadyCreated",
+  "value": "User Account already created. Login with Email and Password."
+ },
+ {
+  "name": "lbl_text_view_day",
+  "value": "Day view"
+ },
+ {
+  "name": "lbl_text_view_month",
+  "value": "Month view"
+ },
+ {
+  "name": "lbl_text_view_week",
+  "value": "Week view"
+ },
+ {
+  "name": "lbl_text_view_year",
+  "value": "Year view"
+ },
+ {
+  "name": "lbl_text_warningPkgComplete",
+  "value": "Your current package is remain to over"
+ },
+ {
+  "name": "lbl_text_warningSaveChange",
+  "value": "Do you really want to save changes?"
+ },
+ {
+  "name": "lbl_text_welcome",
+  "value": "Welcome"
+ },
+ {
+  "name": "lbl_title_loyalty_point",
+  "value": "Loyalty Point"
+ },
+ {
+  "name": "lbl_title_msgTitleAlert",
+  "value": "Alert !"
+ },
+ {
+  "name": "lbl_title_msgTitleCongratulation",
+  "value": "Congratulation"
+ },
+ {
+  "name": "lbl_title_msgTitleError",
+  "value": "Error"
+ },
+ {
+  "name": "lbl_title_msgTitleGoogle",
+  "value": "Google Detail"
+ },
+ {
+  "name": "lbl_title_msgTitleInfo",
+  "value": "Information"
+ },
+ {
+  "name": "lbl_title_msgTitleOops",
+  "value": "Oops !"
+ },
+ {
+  "name": "lbl_title_msgTitleSorry",
+  "value": "Sorry !"
+ },
+ {
+  "name": "lbl_title_msgTitleSuccess",
+  "value": "Success"
+ },
+ {
+  "name": "lbl_title_msgTitleTest",
+  "value": "Test Message"
+ },
+ {
+  "name": "lbl_title_msgTitleWarning",
+  "value": "Warning"
+ },
+ {
+  "name": "lbl_title_settings",
+  "value": "Settings"
+ },
+ {
+  "name": "lbl_txt_change_mobile",
+  "value": "Change Mobile Number"
+ },
+ {
+  "name": "lbl_txt_filterClient",
+  "value": "Filter by Client"
+ },
+ {
+  "name": "lbl_txt_filterSP",
+  "value": "Filter by Provider"
+ },
+ {
+  "name": "lbl_txt_map_pick",
+  "value": "Pick this"
+ },
+ {
+  "name": "lbl_txt_package_select",
+  "value": "Select Package"
+ },
+ {
+  "name": "lbl_txt_package_upgrade",
+  "value": "Upgrade Package"
+ },
+ {
+  "name": "lbl_txt_sms_verify_trial_excced",
+  "value": "Maximum 3 OTP trial allowed. Contact Support Team"
+ },
+ {
+  "name": "lbl_txt_splash_countryInfoEmpty1",
+  "value": "Country Information not found"
+ },
+ {
+  "name": "lbl_txt_splash_countryInfoEmpty2",
+  "value": "This application is not available for your country"
+ },
+ {
+  "name": "lbl_txt_version_name",
+  "value": "v1.0.0 (Beta Testing)"
+ },
+ {
+  "name": "lbl_update_msg",
+  "value": "We added lots of new feature and fixed bugs to make your experience as smooth as possible"
+ },
+ {
+  "name": "lbl_update_title",
+  "value": "Time To Update!"
+ },
+ {
+  "name": "lbl_verified_Email",
+  "value": "Email-Id Already Verified"
+ },
+ {
+  "name": "lbl_verified_Mobile",
+  "value": "Mobile Number Already Verified"
+ },
+ {
+  "name": "lbl_verify_email",
+  "value": "Verify Email"
+ },
+ {
+  "name": "lbl_verify_email2",
+  "value": "Email must be verified"
+ },
+ {
+  "name": "lbl_verify_mobile",
+  "value": "Verify Mobile"
+ },
+ {
+  "name": "lbl_verify_warning_person_Email",
+  "value": "Verify Contact Person Email ID"
+ },
+ {
+  "name": "lbl_verify_warning_person_mobile",
+  "value": "Verify Contact Person Mobile Number"
+ },
+ {
+  "name": "lbl_verify_warning_person_whatsapp",
+  "value": "Verify Contact Person Whatsapp Number"
+ },
+ {
+  "name": "lbl_verify_warning_profile_Email",
+  "value": "Verify Profile Email ID"
+ },
+ {
+  "name": "lbl_verify_warning_profile_mobile",
+  "value": "Verify Profile Whatsapp Number"
+ },
+ {
+  "name": "lbl_webpage_welcome1",
+  "value": "Congrats!"
+ },
+ {
+  "name": "lbl_webpage_welcome2",
+  "value": "is now Live on Neeleez"
+ },
+ {
+  "name": "Ok",
+  "value": "Select"
+ },
+ {
+  "name": "pageTitleAbout",
+  "value": "About"
+ },
+ {
+  "name": "pageTitleAboutMain",
+  "value": "Neeleez For Business"
+ },
+ {
+  "name": "pageTitleAppointment",
+  "value": "Appointments"
+ },
+ {
+  "name": "pageTitleBankTransfer",
+  "value": "Bank Transfer"
+ },
+ {
+  "name": "pageTitleCash",
+  "value": "Cash"
+ },
+ {
+  "name": "pageTitleCheckout",
+  "value": "Checkout"
+ },
+ {
+  "name": "pageTitleCheckoutSuccess",
+  "value": "Payment Successful"
+ },
+ {
+  "name": "pageTitleCheque",
+  "value": "Cheque"
+ },
+ {
+  "name": "pageTitleContactUs",
+  "value": "Contact Us"
+ },
+ {
+  "name": "pageTitleControlPanel",
+  "value": "Control Panel"
+ },
+ {
+  "name": "pageTitleCpArticle",
+  "value": "Service"
+ },
+ {
+  "name": "pageTitleCpArticleCompose",
+  "value": "Service Composition"
+ },
+ {
+  "name": "pageTitleCpArticleFormat",
+  "value": "Service Format"
+ },
+ {
+  "name": "pageTitleCpCmpDepart",
+  "value": "Department"
+ },
+ {
+  "name": "pageTitleCpCmpDesign",
+  "value": "Designation"
+ },
+ {
+  "name": "pageTitleCpCmpLang",
+  "value": "Languages"
+ },
+ {
+  "name": "pageTitleCpCmpSection",
+  "value": "Section"
+ },
+ {
+  "name": "pageTitleCpCompany",
+  "value": "Company"
+ },
+ {
+  "name": "pageTitleCpFormat",
+  "value": "Format"
+ },
+ {
+  "name": "pageTitleCpGroup",
+  "value": "Group"
+ },
+ {
+  "name": "pageTitleCpServices",
+  "value": "Services"
+ },
+ {
+  "name": "pageTitleDashboard",
+  "value": "Dashboard"
+ },
+ {
+  "name": "pageTitleDashboard2",
+  "value": "Nearby Businesses"
+ },
+ {
+  "name": "pageTitleGallery",
+  "value": "Business Gallery"
+ },
+ {
+  "name": "pageTitleNotification",
+  "value": "Notifications"
+ },
+ {
+  "name": "pageTitleOffer",
+  "value": "Service Offer"
+ },
+ {
+  "name": "pageTitleOffer2",
+  "value": "Promo Codes"
+ },
+ {
+  "name": "pageTitlePackage",
+  "value": "Package"
+ },
+ {
+  "name": "pageTitlePackageSelect",
+  "value": "Package Subscriptions"
+ },
+ {
+  "name": "pageTitlePolicy",
+  "value": "Privacy Policy"
+ },
+ {
+  "name": "pageTitlePolicyCancel",
+  "value": "Cancellation Policy"
+ },
+ {
+  "name": "pageTitlePolicyRefund",
+  "value": "Refund Policy"
+ },
+ {
+  "name": "pageTitlePolicyShipping",
+  "value": "Shipping Policy"
+ },
+ {
+  "name": "pageTitleRateUs",
+  "value": "Rate US"
+ },
+ {
+  "name": "pageTitleStaffAdd",
+  "value": "Add Staff"
+ },
+ {
+  "name": "pageTitleStaffManagement",
+  "value": "Staff Management"
+ },
+ {
+  "name": "pageTitleSummry",
+  "value": "Order Summary"
+ },
+ {
+  "name": "pageTitleSupport",
+  "value": "Support"
+ },
+ {
+  "name": "pageTitleTerms",
+  "value": "Terms of Use"
+ },
+ {
+  "name": "placeholder_activeStatus",
+  "value": "Active Status"
+ },
+ {
+  "name": "placeholder_AppointmentDuration",
+  "value": "Appointment Duration (min)"
+ },
+ {
+  "name": "placeholder_CmpLangEn",
+  "value": "Language name"
+ },
+ {
+  "name": "placeholder_DepartAr",
+  "value": "Department name (Ar)"
+ },
+ {
+  "name": "placeholder_DepartEn",
+  "value": "Department name (En)"
+ },
+ {
+  "name": "placeholder_DepartSelect",
+  "value": "Select Department"
+ },
+ {
+  "name": "placeholder_description",
+  "value": "Description"
+ },
+ {
+  "name": "placeholder_DesignAr",
+  "value": "Designation name (Ar)"
+ },
+ {
+  "name": "placeholder_DesignEn",
+  "value": "Designation name (En)"
+ },
+ {
+  "name": "placeholder_Duration",
+  "value": "Duration in Minutes"
+ },
+ {
+  "name": "placeholder_iscomposed",
+  "value": "Composed Service"
+ },
+ {
+  "name": "placeholder_isformatted",
+  "value": "Formatted Service"
+ },
+ {
+  "name": "placeholder_isService",
+  "value": "Service"
+ },
+ {
+  "name": "placeholder_nameAr",
+  "value": "name (Arabic)"
+ },
+ {
+  "name": "placeholder_nameEn",
+  "value": "name (English)"
+ },
+ {
+  "name": "placeholder_Price",
+  "value": "Price"
+ },
+ {
+  "name": "placeholder_Remark",
+  "value": "Remark"
+ },
+ {
+  "name": "placeholder_Search",
+  "value": "Search ..."
+ },
+ {
+  "name": "placeholder_SectionAr",
+  "value": "Section name (Ar)"
+ },
+ {
+  "name": "placeholder_SectionEn",
+  "value": "Section name (En)"
+ },
+ {
+  "name": "placeholder_SelectGroup",
+  "value": "Select Group"
+ },
+ {
+  "name": "placeholder_StaffAvail",
+  "value": "Availability"
+ },
+ {
+  "name": "placeholder_StaffAvailStatus",
+  "value": "Availability Status"
+ },
+ {
+  "name": "placeholder_StaffBEmail",
+  "value": "Business Email"
+ },
+ {
+  "name": "placeholder_StaffBusinessType",
+  "value": "Select Business Type"
+ },
+ {
+  "name": "placeholder_StaffCountry",
+  "value": "Country"
+ },
+ {
+  "name": "placeholder_StaffDepartment",
+  "value": "Department"
+ },
+ {
+  "name": "placeholder_StaffDesignation",
+  "value": "Designation"
+ },
+ {
+  "name": "placeholder_StaffDob",
+  "value": "Date of Birth"
+ },
+ {
+  "name": "placeholder_StaffDuration",
+  "value": "Duration for Service in Minute"
+ },
+ {
+  "name": "placeholder_StaffFName",
+  "value": "First name"
+ },
+ {
+  "name": "placeholder_StaffGender",
+  "value": "Gender"
+ },
+ {
+  "name": "placeholder_StaffGroup",
+  "value": "Select Group"
+ },
+ {
+  "name": "placeholder_StaffIdCard",
+  "value": "ID Card Number"
+ },
+ {
+  "name": "placeholder_StaffIdCardExpiry",
+  "value": "ID Card Expiry Date"
+ },
+ {
+  "name": "placeholder_StaffIsAvailable",
+  "value": "Is Available"
+ },
+ {
+  "name": "placeholder_StaffLang",
+  "value": "Language"
+ },
+ {
+  "name": "placeholder_StaffLName",
+  "value": "Last name"
+ },
+ {
+  "name": "placeholder_StaffMobile",
+  "value": "Mobile No"
+ },
+ {
+  "name": "placeholder_StaffNationality",
+  "value": "Nationality"
+ },
+ {
+  "name": "placeholder_StaffNName",
+  "value": "Nick name"
+ },
+ {
+  "name": "placeholder_StaffPassportExpiry",
+  "value": "Passport Expiry Date"
+ },
+ {
+  "name": "placeholder_StaffPassportNumber",
+  "value": "Passport Number"
+ },
+ {
+  "name": "placeholder_StaffPEmail",
+  "value": "Personal Email"
+ },
+ {
+  "name": "placeholder_StaffQualificationEn",
+  "value": "Qualification"
+ },
+ {
+  "name": "placeholder_StaffRecidenceExpiry",
+  "value": "Residence Document Expiry Date"
+ },
+ {
+  "name": "placeholder_StaffSection",
+  "value": "Section"
+ },
+ {
+  "name": "placeholder_StaffService",
+  "value": "Select Service"
+ },
+ {
+  "name": "placeholder_StaffServiceEndDate",
+  "value": "Service End Date"
+ },
+ {
+  "name": "placeholder_StaffServiceStartDate",
+  "value": "Service Start Date"
+ },
+ {
+  "name": "placeholder_StaffSkillEn",
+  "value": "Skill name"
+ },
+ {
+  "name": "placeholder_StaffSkillEn2",
+  "value": "Skill"
+ },
+ {
+  "name": "placeholder_StaffSPType",
+  "value": "Service Provider Type"
+ },
+ {
+  "name": "placeholder_StaffWhatsapp",
+  "value": "Whatsapp No"
+ },
+ {
+  "name": "placeholder_TitleApp",
+  "value": "Title (App)"
+ },
+ {
+  "name": "placeholder_TitleAr",
+  "value": "Title (Ar)"
+ },
+ {
+  "name": "placeholder_TitleEn",
+  "value": "Title (En)"
+ },
+ {
+  "name": "Reset",
+  "value": "Reset"
+ },
+ {
+  "name": "Save",
+  "value": "Save"
+ },
+ {
+  "name": "title_rating",
+  "value": "Rate Our App"
+ }
+]

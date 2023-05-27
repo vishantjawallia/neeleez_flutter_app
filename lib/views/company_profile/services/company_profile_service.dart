@@ -8,6 +8,7 @@ import 'package:neeleez_flutter_app/models/business_types/business_services_by_c
 
 import 'package:neeleez_flutter_app/models/company/company_profile_images.dart';
 import 'package:neeleez_flutter_app/models/company/region_Info.dart';
+import 'package:neeleez_flutter_app/models/country_languages.dart';
 import 'package:neeleez_flutter_app/models/gender/gender.dart';
 import 'package:neeleez_flutter_app/models/general_info/general_info.dart';
 import 'package:neeleez_flutter_app/models/package/package_info.dart';
@@ -138,6 +139,20 @@ mixin CompanyProfileService {
     } catch (e) {
       log(e.toString());
       log("getCountries========>$e");
+    }
+    return null;
+  }
+
+  Future<List<CountryLanguage>?> getLanguages() async {
+    try {
+      final res = await apiRepository.apiGet("$baseUrl/api/CountryLanguages");
+      log(res.toString());
+      if (res != null) {
+        return CountryLanguage.fromJsonList(res);
+      }
+    } catch (e) {
+      log(e.toString());
+      log("getLanguages========>$e");
     }
     return null;
   }

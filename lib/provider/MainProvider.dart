@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:neeleez_flutter_app/api/apiRepository.dart';
 import 'package:neeleez_flutter_app/models/company/companies.dart';
 import 'package:neeleez_flutter_app/models/country_detail.dart';
@@ -7,7 +8,9 @@ import '../config/config.dart';
 import '../config/pref_constant.dart';
 import '../config/preference.dart';
 import '../models/amenities/amenities.dart';
+import '../models/country_languages.dart';
 import '../models/gender/gender.dart';
+import '../models/language_model.dart';
 import '../models/user_data.dart';
 import '../views/company_profile/services/company_profile_service.dart';
 import '../views/department/service/department_service.dart';
@@ -16,6 +19,8 @@ import '../views/designation/service/designation_service.dart';
 class MainProvider extends ChangeNotifier with CompanyProfileService, DepartmentService, DesignationService {
   UserData? user;
   CountryDetail? countryDetail;
+  LanguageModel? language;
+  List<CountryLanguage>? languages = [];
   List<Gender>? genders = [];
   List<Amenities>? amentias = [];
   List<Countries>? countries = [];
@@ -57,7 +62,20 @@ class MainProvider extends ChangeNotifier with CompanyProfileService, Department
     notifyListeners();
   }
 
+  void setLanguage(
+    String languageCode,
+    String countryCode,
+    LanguageModel value,
+  ) {
+    // Get.updateLocale(l)
+    Locale? local = Locale(languageCode, countryCode);
+    Get.updateLocale(local, );
+    language = value;
+    notifyListeners();
+  }
+
   void loadFirstItem() async {
+    languages = await getLanguages();
     countries = await getCountries();
     genders = await getGenders();
     amentias = await getAmenities();
