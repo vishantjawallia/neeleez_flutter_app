@@ -21,6 +21,7 @@ import '../company_profile/services/company_profile_service.dart';
 class RegistrationViewModel extends BaseViewModel with RegistrationService, CompanyProfileService {
   final List<Countries>? countries;
   final CountryDetail? countryDetail;
+  final List<Gender>? serviceList;
   String? companyId = SharedPreferenceHelper.getString(Preferences.companyId);
   String? countryId = SharedPreferenceHelper.getString(Preferences.countryId);
 
@@ -55,12 +56,12 @@ class RegistrationViewModel extends BaseViewModel with RegistrationService, Comp
 
   bool isTerms = false;
 
-  List<Gender> serviceList = [];
+  // List<Gender> serviceList = [];
   Gender? serviceObj;
 
   // List<BusinessTypes> busSelectedList = [];
 
-  RegistrationViewModel(this.countries, this.countryDetail) {
+  RegistrationViewModel(this.countries, this.countryDetail, this.serviceList) {
     country = countries?.firstWhere((e) => e.id.toString() == countryId);
     notifyListeners();
     name.addListener(() => notifyListeners());

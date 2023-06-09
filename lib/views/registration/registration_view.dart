@@ -22,7 +22,6 @@ import '../../helpers/helper.dart';
 import '../../models/business_types/business_services_by_country.dart';
 import '../../models/business_types/business_types.dart';
 import '../../widgets/custom_text_field.dart';
-import '../company_profile/components/custom_multi_drop_down.dart';
 import '../company_profile/components/freelancer_switch.dart';
 import 'registration_view_model.dart';
 
@@ -40,7 +39,7 @@ class RegistrationView extends StatelessWidget {
   Widget build(BuildContext context) {
     final main = Provider.of<MainProvider>(context);
     return ViewModelBuilder<RegistrationViewModel>.reactive(
-      viewModelBuilder: () => RegistrationViewModel(main.countries, main.countryDetail),
+      viewModelBuilder: () => RegistrationViewModel(main.countries, main.countryDetail, main.genders),
       onViewModelReady: (viewModel) {},
       builder: (context, viewModel, child) {
         return ScreenTypeLayout.builder(

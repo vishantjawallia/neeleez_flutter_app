@@ -139,7 +139,7 @@ class _RegistrationMobile extends StatelessWidget {
                           value: viewModel.serviceObj,
                           onChanged: viewModel.serviceForOnChange,
                           items: viewModel.serviceList
-                              .map(
+                              !.map(
                                 (e) => DropdownMenuItem(
                                   value: e,
                                   child: Text(
